@@ -2,6 +2,7 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'mhinz/vim-startify'
+  use 'neoclide/coc.nvim'
   -- gruvbox theme
   use {
     "ellisonleao/gruvbox.nvim",
