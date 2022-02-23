@@ -34,7 +34,7 @@ map("v", "/", "/\\v", { noremap = true , silent = false})
 
 --------------------------------------------------------------------
 -- 插件快捷键
--- nvimTree
+-- nvimTree 打开文件树 
 map('n', '<leader>o', ':NvimTreeToggle<CR>', opt)
 
 -- bufferline 左右Tab切换
