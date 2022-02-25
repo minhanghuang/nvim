@@ -1,5 +1,5 @@
 -- utf8
-vim.g.encoding = "UTF-8"
+vim.g.encoding = "utf-8"
 vim.o.fileencoding = 'utf-8'
 -- jk移动时光标下上方保留8行
 vim.o.scrolloff = 8
@@ -9,8 +9,8 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 -- 高亮所在行
 vim.wo.cursorline = true
--- 显示左侧图标指示列
-vim.wo.signcolumn = "yes"
+-- -- 显示左侧图标指示列
+-- vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
 vim.wo.colorcolumn = "80"
 -- 缩进2个空格等于一个Tab
@@ -48,26 +48,24 @@ vim.wo.wrap = false
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true
--- 鼠标支持
-vim.o.mouse = "a"
--- 禁止创建备份文件
-vim.o.backup = false
+-- -- 鼠标支持
+-- vim.o.mouse = "a"
+-- -- 禁止创建备份文件
+-- vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 -- smaller updatetime
 vim.o.updatetime = 300
--- 设置 timeoutlen 为等待键盘快捷键连击时间300毫秒，可根据需要设置
--- 遇到问题详见：https://github.com/nshen/learn-neovim-lua/issues/1
-vim.o.timeoutlen = 300
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
 vim.o.splitright = true
 -- 自动补全不自动选中
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
--- 样式
-vim.o.background = "dark"
-vim.o.termguicolors = true
-vim.opt.termguicolors = true
+-- -- 样式
+-- vim.o.background = "dark"
+-- vim.o.termguicolors = true
+-- vim.opt.termguicolors = true
+vim.o.fileencoding = "gb2312"
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.list = true
 vim.o.listchars = "space:·"
@@ -78,4 +76,3 @@ vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.pumheight = 10
 -- always show tabline
 vim.o.showtabline = 2
-

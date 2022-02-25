@@ -1,25 +1,18 @@
-" 基础设置
-lua require('basic')
-" Packer插件管理
-lua require('plugins')
-" 快捷键映射
-lua require('keybindings')
+call plug#begin('~/.config/nvim/plugged')
 
-set background=dark
-colorscheme gruvbox
+Plug 'ellisonleao/gruvbox.nvim' "主题
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'akinsho/bufferline.nvim'
+" Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" 插件配置
-lua require('plugin-config/nvim-tree')
-lua require('plugin-config/bufferline')
-lua require('plugin-config/nvim-treesitter')
+call plug#end()
 
-" 1033 中文语言
-" 2052 英文语言
-augroup im_select
-    autocmd!
-    autocmd InsertLeave * silent !./im-select.exe 1033
-    autocmd InsertEnter * silent !./im-select.exe 2052
-    autocmd BufRead * silent !./im-select.exe 1033
-    " autocmd CmdlineLeave * silent !./im-select.exe 1033
-    " autocmd CmdlineEnter * silent !./im-select.exe 2052
-augroup END
+lua require("basic")
+
+lua require("plugin/nvim-tree")
+lua require("plugin/gruvbox")
+lua require("plugin/bufferline")
+
+lua require("keybindings")
