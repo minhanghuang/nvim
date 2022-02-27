@@ -6,6 +6,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'akinsho/bufferline.nvim'
 " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
