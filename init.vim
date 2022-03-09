@@ -54,25 +54,20 @@ vmap <  <gv " 缩进
 
 " ************插件***************
 "
-" --- 彩虹括号 ---
+" -------- 彩虹括号 ---
+let g:rainbow_active = 1
 
-
-" --- 文件树 ---
+" -------- 文件树 ---
 nmap <Leader>o :NvimTreeToggle<CR>
 
-" --- tab窗口 ---
+" -------- tab窗口 ---
 nmap <C-h> :BufferLineCyclePrev<CR>
 nmap <C-l> :BufferLineCycleNext<CR>
 
-" --- 函数跳转 coc.nvim --- 
+" -------- 函数跳转 coc.nvim --- 
 " GoTo code navigation.
 
-let g:coc_global_extensions = ['coc-json','coc-css','coc-clangd','coc-cmake','coc-git','coc-python','coc-yaml','coc-sh','coc-highlight','coc-markdownlint','coc-snippets','coc-emmet','coc-html']
-
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+let g:coc_global_extensions = ['coc-json','coc-css','coc-clangd','coc-cmake','coc-git','coc-yaml','coc-sh','coc-highlight','coc-markdownlint','coc-snippets','coc-emmet','coc-html','coc-jedi']
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -114,4 +109,6 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+
 
