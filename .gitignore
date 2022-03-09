@@ -13,3 +13,5 @@ cmake-build*
 *.log
 
 *.idea/*
+
+plugged
