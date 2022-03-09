@@ -1,18 +1,20 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'ellisonleao/gruvbox.nvim' "主题
+Plug 'sonph/onehalf', { 'rtp': 'vim' } " 主题 
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'akinsho/bufferline.nvim' " 窗口标签 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " 函数跳转 
 Plug 'luochen1990/rainbow' " 括号颜色 
-Plug 'wincent/command-t'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " 搜索 
+Plug 'skywind3000/vim-terminal-help' " terminal
 
 call plug#end()
 
 
 lua require("plugin/nvim-tree")
-lua require("plugin/gruvbox")
 lua require("plugin/bufferline")
 
 " ***********************************
@@ -20,9 +22,10 @@ lua require("plugin/bufferline")
 " ***********************************
 let mapleader="\<Space>"
 
-set number " 显示行号 
+set number " 显示行号
+" set relativenumber " 相对行号 
 set cursorline " 高亮所在行 
-set tabstop=2 " tab 
+set tabstop=2 " tab
 set shiftwidth=2
 set expandtab
 set history=1024 " 历史记录
@@ -57,12 +60,61 @@ vmap <  <gv " 缩进
 " -------- 彩虹括号 ---
 let g:rainbow_active = 1
 
+" -------- 主题 ---
+"  主题 1
+" set termguicolors
+" set background=dark " or light if you want light mode
+" colorscheme gruvbox
+"
+" 主题 2
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+
+
+" -------- terminal ---
+" 
+let g:terminal_cwd = 1
+let g:terminal_height = 12
+let g:terminal_close = 1
+
+
 " -------- 文件树 ---
 nmap <Leader>o :NvimTreeToggle<CR>
 
 " -------- tab窗口 ---
 nmap <C-h> :BufferLineCyclePrev<CR>
 nmap <C-l> :BufferLineCycleNext<CR>
+
+" -------- fzf ---
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" 在当前目录搜索文件
+nmap <silent> <Leader>f :Files<CR>
+" 切换Buffers中的文件
+nmap <silent> <Leader>b :Buffers<CR>
+" 在Vim打开的历史文件中搜索 
+nmap <silent> <Leader>h :History<CR>
 
 " -------- 函数跳转 coc.nvim --- 
 " GoTo code navigation.
