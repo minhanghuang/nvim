@@ -21,7 +21,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 搜索
 Plug 'junegunn/fzf.vim' " 搜索 
 
 " 6. 终端
-" Plug 'skywind3000/vim-terminal-help' " terminal
+" Plug 'skywind3000/vim-terminal-help' 
 Plug 'voldikss/vim-floaterm'
 
 call plug#end()
@@ -29,6 +29,7 @@ call plug#end()
 
 lua require("plugin/nvim-tree")
 lua require("plugin/bufferline")
+
 
 " ***********************************
 "             基本配置
@@ -70,18 +71,22 @@ vmap >  >gv " 缩进
 vmap <  <gv " 缩进 
 
 
-" ************插件***************
-"
+
+"----------------------------------------------------------
+"                    插件: 括号
+"----------------------------------------------------------
 " -------- 彩虹括号 ---
-"
 let g:rainbow_active = 1
 
-" -------- 主题 ---
-"
+
+"----------------------------------------------------------
+"                    插件: 主题
+"----------------------------------------------------------
 "  主题 1
 set termguicolors
 set background=dark " or light if you want light mode
 colorscheme gruvbox
+
 " 主题 2
 " syntax on
 " set t_Co=256
@@ -90,29 +95,37 @@ colorscheme gruvbox
 " let g:airline_theme='onehalfdark'
 
 
-" -------- terminal ---
-" 
+"----------------------------------------------------------
+"                    插件: 终端
+"----------------------------------------------------------
 " 打开新终端 
-nmap <silent> <Leader>n :FloatermNew<CR>
-tnoremap <silent> <Leader>n <C-\><C-n>:FloatermNew<CR>
+nmap <silent> <Leader>t :FloatermNew<CR>
+tnoremap <silent> <Leader>t <C-\><C-n>:FloatermNew<CR>
 " 终端位置 
 let g:floaterm_position = 'bottomright'
 " 终端宽(0,1)
 let g:floaterm_width = 0.6
 " 终端高(0,1)
 let g:floaterm_height = 0.4
+" 终端标题
+" let g:floaterm_title = 'floaterm: $1/$2'
 
-" -------- 文件树 ---
-"
+
+"----------------------------------------------------------
+"                    插件: 文件树 
+"----------------------------------------------------------
 nmap <Leader>o :NvimTreeToggle<CR>
 
-" -------- tab窗口 ---
-"
+
+"----------------------------------------------------------
+"                    插件: 窗口buffers 
+"----------------------------------------------------------
 nmap <C-h> :BufferLineCyclePrev<CR>
 nmap <C-l> :BufferLineCycleNext<CR>
 
-" -------- fzf ---
-"
+"----------------------------------------------------------
+"                    插件: 搜索 
+"----------------------------------------------------------
 " 在当前目录搜索文件
 nmap <silent> <Leader>f :Files<CR>
 " 切换Buffers中的文件
@@ -140,8 +153,10 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" -------- 函数跳转 coc.nvim --- 
-"
+
+"----------------------------------------------------------
+"                    插件: 跳转 
+"----------------------------------------------------------
 " GoTo code navigation.
 let g:coc_global_extensions = ['coc-json','coc-css','coc-clangd','coc-cmake','coc-git','coc-yaml','coc-sh','coc-highlight','coc-markdownlint','coc-snippets','coc-emmet','coc-html','coc-jedi']
 
@@ -185,6 +200,5 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 
 
