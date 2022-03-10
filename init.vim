@@ -1,15 +1,28 @@
 call plug#begin('~/.config/nvim/plugged')
 
+" 1. 主题 
 Plug 'ellisonleao/gruvbox.nvim' "主题
 Plug 'sonph/onehalf', { 'rtp': 'vim' } " 主题 
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
+
+" 2. 最近文件
+Plug 'mhinz/vim-startify' " 驱动画面
+
+" 3. 文件显示
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'akinsho/bufferline.nvim' " 窗口标签 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " 函数跳转 
+
+" 4. 美化
 Plug 'luochen1990/rainbow' " 括号颜色 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" 5. 代码相关
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " 函数跳转 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 搜索 
 Plug 'junegunn/fzf.vim' " 搜索 
-Plug 'skywind3000/vim-terminal-help' " terminal
+
+" 6. 终端
+" Plug 'skywind3000/vim-terminal-help' " terminal
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -31,16 +44,18 @@ set expandtab
 set history=1024 " 历史记录
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set showcmd
+set showmatch " 高亮匹配括号
 set cmdheight=1 " 1 screen lines to use for the command-line
 set showfulltag " show tag with function protype.
 set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
 set fileencodings=utf-8,gbk2312,gbk,gb18030,cp936
 set encoding=utf-8
 set tenc=utf-8
-syntax on
-syntax enable
+set ruler "显示最后一行的状态
 set autoread
 set hlsearch
+syntax on " 语法检测
+syntax enable
 
 " ************快捷键***************
 "
@@ -58,37 +73,53 @@ vmap <  <gv " 缩进
 " ************插件***************
 "
 " -------- 彩虹括号 ---
+"
 let g:rainbow_active = 1
 
 " -------- 主题 ---
-"  主题 1
-" set termguicolors
-" set background=dark " or light if you want light mode
-" colorscheme gruvbox
 "
+"  主题 1
+set termguicolors
+set background=dark " or light if you want light mode
+colorscheme gruvbox
 " 主题 2
-syntax on
-set t_Co=256
-set cursorline
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+" syntax on
+" set t_Co=256
+" set cursorline
+" colorscheme onehalfdark
+" let g:airline_theme='onehalfdark'
 
 
 " -------- terminal ---
 " 
-let g:terminal_cwd = 1
-let g:terminal_height = 12
-let g:terminal_close = 1
-
+" 打开新终端 
+nmap <silent> <Leader>n :FloatermNew<CR>
+tnoremap <silent> <Leader>n <C-\><C-n>:FloatermNew<CR>
+" 终端位置 
+let g:floaterm_position = 'bottomright'
+" 终端宽(0,1)
+let g:floaterm_width = 0.6
+" 终端高(0,1)
+let g:floaterm_height = 0.4
 
 " -------- 文件树 ---
+"
 nmap <Leader>o :NvimTreeToggle<CR>
 
 " -------- tab窗口 ---
+"
 nmap <C-h> :BufferLineCyclePrev<CR>
 nmap <C-l> :BufferLineCycleNext<CR>
 
 " -------- fzf ---
+"
+" 在当前目录搜索文件
+nmap <silent> <Leader>f :Files<CR>
+" 切换Buffers中的文件
+nmap <silent> <Leader>b :Buffers<CR>
+" 在Vim打开的历史文件中搜索 
+nmap <silent> <Leader>h :History<CR>
+
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
@@ -109,16 +140,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" 在当前目录搜索文件
-nmap <silent> <Leader>f :Files<CR>
-" 切换Buffers中的文件
-nmap <silent> <Leader>b :Buffers<CR>
-" 在Vim打开的历史文件中搜索 
-nmap <silent> <Leader>h :History<CR>
-
 " -------- 函数跳转 coc.nvim --- 
+"
 " GoTo code navigation.
-
 let g:coc_global_extensions = ['coc-json','coc-css','coc-clangd','coc-cmake','coc-git','coc-yaml','coc-sh','coc-highlight','coc-markdownlint','coc-snippets','coc-emmet','coc-html','coc-jedi']
 
 " don't give |ins-completion-menu| messages.
