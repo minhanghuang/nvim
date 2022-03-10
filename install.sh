@@ -14,3 +14,6 @@ git clone git@github.com:junegunn/fzf.git  ~/.fzf
 git clone git@github.com:sonph/onehalf.git ~/.config/nvim/plugged/onehalf
 git clone git@github.com:mhinz/vim-startify.git ~/.config/nvim/plugged/vim-startify
 git clone git@github.com:voldikss/vim-floaterm.git ~/.config/nvim/plugged/vim-floaterm
+git clone git@github.com:iamcco/markdown-preview.nvim.git ~/.config/nvim/plugged/markdown-preview.nvim
+
+

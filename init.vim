@@ -1,15 +1,15 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " 1. 主题 
-Plug 'ellisonleao/gruvbox.nvim' "主题
 Plug 'sonph/onehalf', { 'rtp': 'vim' } " 主题 
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'ellisonleao/gruvbox.nvim' "主题
+Plug 'kyazdani42/nvim-web-devicons' " file icons (ellisonleao/gruvbox.nvim)
 
 " 2. 最近文件
 Plug 'mhinz/vim-startify' " 驱动画面
 
 " 3. 文件显示
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-tree.lua' " 文件树 
 Plug 'akinsho/bufferline.nvim' " 窗口标签 
 
 " 4. 美化
@@ -21,8 +21,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " 搜索
 Plug 'junegunn/fzf.vim' " 搜索 
 
 " 6. 终端
-" Plug 'skywind3000/vim-terminal-help' 
 Plug 'voldikss/vim-floaterm'
+
+" 7. 文本
+" --- markdown 1
+" Plug 'godlygeek/tabular' " The tabular plugin must come before vim-markdown.
+" Plug 'preservim/vim-markdown' 
+" ---
+" --- markdown 2
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 
 call plug#end()
 
@@ -70,6 +78,16 @@ nmap <C-d> 10j " 向下10行
 vmap >  >gv " 缩进 
 vmap <  <gv " 缩进 
 
+" 自动补全 
+imap ( ()<Esc>i
+imap [ []<Esc>i
+imap { {}<Esc>i
+imap < <><Esc>i
+
+" 插入模式下, 移动到行首
+imap <C-u> <Home>
+" 插入模式下, 移动到行尾
+imap <C-d> <End>
 
 
 "----------------------------------------------------------
@@ -78,6 +96,7 @@ vmap <  <gv " 缩进
 " -------- 彩虹括号 ---
 let g:rainbow_active = 1
 
+" =========================================================
 
 "----------------------------------------------------------
 "                    插件: 主题
@@ -94,6 +113,7 @@ colorscheme gruvbox
 " colorscheme onehalfdark
 " let g:airline_theme='onehalfdark'
 
+" =========================================================
 
 "----------------------------------------------------------
 "                    插件: 终端
@@ -110,18 +130,34 @@ let g:floaterm_height = 0.4
 " 终端标题
 " let g:floaterm_title = 'floaterm: $1/$2'
 
+" =========================================================
 
 "----------------------------------------------------------
 "                    插件: 文件树 
 "----------------------------------------------------------
+" https://github.com/kyazdani42/nvim-tree.lua
 nmap <Leader>o :NvimTreeToggle<CR>
 
+" default mappings
+" type a: 新建文件
+" type o: 打开文件/文件夹
+" type r: 修改文件名 
+" type y: 拷贝文件名(系统剪切板)
+" type Y: 拷贝文件相对路径(系统剪切板)
+" type gy: 拷贝文件绝对路径(系统剪切板)
+" type d: 删除文件(确认)
+" type R: 刷新
+" type H: 显示/不显示 隐藏文件
+
+" =========================================================
 
 "----------------------------------------------------------
 "                    插件: 窗口buffers 
 "----------------------------------------------------------
 nmap <C-h> :BufferLineCyclePrev<CR>
 nmap <C-l> :BufferLineCycleNext<CR>
+
+" =========================================================
 
 "----------------------------------------------------------
 "                    插件: 搜索 
@@ -132,10 +168,12 @@ nmap <silent> <Leader>f :Files<CR>
 nmap <silent> <Leader>b :Buffers<CR>
 " 在Vim打开的历史文件中搜索 
 nmap <silent> <Leader>h :History<CR>
+" 查看git graph 
+nmap <silent> <Leader>g :Commits<CR>
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = { 'down': '~25%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -153,6 +191,109 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" =========================================================
+
+"----------------------------------------------------------
+"                    插件: markdown 
+"----------------------------------------------------------
+" --插件1-- 
+" 启动视图
+nmap <Leader>m <Plug>MarkdownPreview
+" nmap <M-s> <Plug>MarkdownPreviewStop
+" nmap <C-p> <Plug>MarkdownPreviewToggle
+
+" set to 1, nvim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 0
+
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 1
+
+" set to 1, the vim will refresh markdown when save the buffer or
+" leave from insert mode, default 0 is auto refresh markdown as you edit or
+" move the cursor
+" default: 0
+let g:mkdp_refresh_slow = 0
+
+" set to 1, the MarkdownPreview command can be use for all files,
+" by default it can be use in markdown file
+" default: 0
+let g:mkdp_command_for_global = 0
+
+" set to 1, preview server available to others in your network
+" by default, the server listens on localhost (127.0.0.1)
+" default: 0
+let g:mkdp_open_to_the_world = 0
+
+" use custom IP to open preview page
+" useful when you work in remote vim and preview on local browser
+" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
+" default empty
+let g:mkdp_open_ip = ''
+
+" specify browser to open preview page
+" default: ''
+let g:mkdp_browser = ''
+
+" set to 1, echo preview page url in command line when open preview page
+" default is 0
+let g:mkdp_echo_preview_url = 0
+
+" a custom vim function name to open preview page
+" this function will receive url as param
+" default is empty
+let g:mkdp_browserfunc = ''
+
+" options for markdown render
+" mkit: markdown-it options for render
+" katex: katex options for math
+" uml: markdown-it-plantuml options
+" maid: mermaid options
+" disable_sync_scroll: if disable sync scroll, default 0
+" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
+"   middle: mean the cursor position alway show at the middle of the preview page
+"   top: mean the vim top viewport alway show at the top of the preview page
+"   relative: mean the cursor position alway show at the relative positon of the preview page
+" hide_yaml_meta: if hide yaml metadata, default is 1
+" sequence_diagrams: js-sequence-diagrams options
+" content_editable: if enable content editable for preview page, default: v:false
+" disable_filename: if disable filename header for preview page, default: 0
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+
+" use a custom markdown style must be absolute path
+" like '/Users/username/markdown.css' or expand('~/markdown.css')
+let g:mkdp_markdown_css = ''
+
+" use a custom highlight style must absolute path
+" like '/Users/username/highlight.css' or expand('~/highlight.css')
+let g:mkdp_highlight_css = ''
+
+" use a custom port to start server or random for empty
+let g:mkdp_port = ''
+
+" preview page title
+" ${name} will be replace with the file name
+let g:mkdp_page_title = '「${name}」'
+
+" recognized filetypes
+" these filetypes will have MarkdownPreview... commands
+let g:mkdp_filetypes = ['markdown']
+
+" =========================================================
 
 "----------------------------------------------------------
 "                    插件: 跳转 
@@ -200,5 +341,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" =========================================================
 
 
