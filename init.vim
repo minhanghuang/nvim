@@ -31,6 +31,11 @@ Plug 'voldikss/vim-floaterm'
 " --- markdown 2
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+" 8. 代码块 
+" 引擎 + 集合
+" 自定义代码块: 调高优先级, 覆盖honza/vim-snippets中不满意的代码块
+Plug 'SirVer/ultisnips' " 引擎 
+Plug 'honza/vim-snippets' " 代码块集合
 
 call plug#end()
 

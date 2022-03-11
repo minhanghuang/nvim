@@ -1,0 +1,59 @@
+###########################################################################
+#                            Txt Snippets                            #
+###########################################################################
+snippet start_trunk
+/*
+* Copyright (C) Trunk Technology, Inc. - All Rights Reserved
+*
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*
+* Written by Minhang Huang <huangminhang@trunk.tech> 
+*/
+
+${0}
+endsnippet
+
+
+
+###########################################################################
+#                            Function Snippets                            #
+###########################################################################
+snippet main
+int main(int argc, char *argv[]) {
+	${0}
+	return 0;
+}
+endsnippet
+
+###########################################################################
+#                            Key Snippets                            #
+###########################################################################
+snippet for
+for (const auto&${1:it} : ${2:list}) {
+	${3}
+}
+endsnippet
+
+snippet class
+class ${1:Class} {
+public:
+		$1();
+		~$1();
+private:
+		$2
+};
+endsnippet
+
+snippet def
+${2:void} ${1:name}($3){
+	${3}
+}
+endsnippet
+
+snippet namespace 
+namespace ${1:namespace} {
+	
+} // $1  
+endsnippet
+
