@@ -1,17 +1,19 @@
 
-cmake-build-debug/
-cmake-build-release/
+# idea 
 cmake-build*
+build
+.DS_Store
+*.idea/*
 
 # vscode
 .vscode/c_cpp_properties.json
 /.vscode/
 .history/
-.DS_Store
 
 # log files
 *.log
 
-*.idea/*
-
+# neovim 
 plugged
+
+

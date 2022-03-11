@@ -39,4 +39,6 @@ git clone git@github.com:iamcco/markdown-preview.nvim.git ~/.config/nvim/plugged
 git clone git@github.com:honza/vim-snippets.git ~/.config/nvim/plugged/vim-snippets
 git clone git@github.com:SirVer/ultisnips.git ~/.config/nvim/plugged/ultisnips
 
-
+# clang-format
+git clone git@github.com:rhysd/vim-clang-format.git ~/.config/nvim/plugged/vim-clang-format
+git clone git@github.com:kana/vim-operator-user.git ~/.config/nvim/plugged/vim-operator-user
