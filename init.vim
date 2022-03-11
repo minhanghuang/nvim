@@ -166,6 +166,7 @@ nmap <C-l> :BufferLineCycleNext<CR>
 "   插件: 终端 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " voldikss/vim-floaterm
+" 关闭终端: <C-d> 
 " 打开新终端 
 nmap <silent> <Leader>t :FloatermNew<CR>
 " 终端位置 
