@@ -184,7 +184,7 @@ let g:floaterm_title = 'floaterm: $1/$2'
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " junegunn/fzf.vim
 " 在当前buffer搜索字符
-nmap <silent> <Leader>s :BLines 
+nmap <Leader>s :BLines 
 " 在当前目录搜索文件
 nmap <silent> <Leader>f :Files<CR>
 " 切换Buffers中的文件
