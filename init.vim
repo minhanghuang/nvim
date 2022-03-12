@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim' " 搜索
 Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
 Plug 'tpope/vim-fugitive' " git   
+Plug 'puremourning/vimspector' " debugger graph    
 
 " 6. 终端
 Plug 'voldikss/vim-floaterm'
@@ -182,6 +183,8 @@ let g:floaterm_title = 'floaterm: $1/$2'
 "   插件: 搜索 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " junegunn/fzf.vim
+" 在当前buffer搜索字符
+nmap <silent> <Leader>s :BLines 
 " 在当前目录搜索文件
 nmap <silent> <Leader>f :Files<CR>
 " 切换Buffers中的文件
