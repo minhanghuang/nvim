@@ -55,10 +55,11 @@ os_type=`uname  -a`
 if [[ $os_type =~ 'Darwin' ]];then
     echo "macOS"
     brew install ripgrep 
-elif [[ $os_type =~ 'ubuntu' ]];then
+elif [[ $os_type =~ 'Ubuntu' ]];then
     echo "Ubuntu"
-    sudo apt install ripgrep
-else
-    echo $a
+    curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
+    sudo dpkg -i ripgrep_0.10.0_amd64.deb
+  else
+    echo $os_type
 fi
 
