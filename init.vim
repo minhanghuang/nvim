@@ -109,7 +109,7 @@ vmap <  <gv
 imap ( ()<Esc>i
 imap [ []<Esc>i
 imap { {}<Esc>i
-imap < <><Esc>i
+" imap < <><Esc>i
 " 插入模式, 移动到行首/行尾 
 imap <C-u> <Home>
 imap <C-d> <End>
