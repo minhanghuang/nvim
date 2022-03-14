@@ -45,3 +45,20 @@ git clone git@github.com:SirVer/ultisnips.git ~/.config/nvim/plugged/ultisnips
 # clang-format
 git clone git@github.com:rhysd/vim-clang-format.git ~/.config/nvim/plugged/vim-clang-format
 git clone git@github.com:kana/vim-operator-user.git ~/.config/nvim/plugged/vim-operator-user
+
+
+
+echo "安装依赖"
+
+os_type=`uname  -a`
+
+if [[ $os_type =~ 'Darwin' ]];then
+    echo "macOS"
+    brew install ripgrep 
+elif [[ $os_type =~ 'ubuntu' ]];then
+    echo "Ubuntu"
+    sudo apt install ripgrep
+else
+    echo $a
+fi
+

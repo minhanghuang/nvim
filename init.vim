@@ -18,10 +18,12 @@ Plug 'luochen1990/rainbow' " 括号颜色
 " 5. 代码相关
 Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
 Plug 'junegunn/fzf',{'dir' : '~/.fzf', 'do' : './install --all'}
-Plug 'junegunn/fzf.vim' " 搜索 
+Plug 'junegunn/fzf.vim' " 搜索插件1 
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } " 搜索插件2 
 Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
 Plug 'tpope/vim-fugitive' " git   
+" Plug 'airblade/vim-gitgutter' " git   
 Plug 'puremourning/vimspector' " debugger graph    
 
 " 6. 终端
@@ -167,10 +169,18 @@ nmap <C-l> :BufferLineCycleNext<CR>
 "   插件: 终端 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " voldikss/vim-floaterm
-" 关闭终端: <C-d> 
-" 打开新终端 
-nmap <silent> <Leader>t :FloatermNew<CR>
-" 终端位置 
+" 新建terminal windows
+let g:floaterm_keymap_new    = '<Leader>tw'
+" 下一个terminal windows
+let g:floaterm_keymap_next   = '<Leader>tn'
+" 转换terminal模式
+let g:floaterm_keymap_toggle = '<Leader>tt'
+" 关闭当前terminal windows Or <C-d> 
+let g:floaterm_keymap_kill = '<Leader>tk'
+" 终端窗口类型 
+" let g:floaterm_wintype = 'split'
+" let g:floaterm_position = 'botright'
+let g:floaterm_wintype = 'float'
 let g:floaterm_position = 'bottomright'
 " 终端宽(0,1)
 let g:floaterm_width = 0.6
@@ -210,6 +220,18 @@ let g:fzf_colors =
   \ 'marker' : [ 'fg', 'Keyword' ],
   \ 'spinner' : [ 'fg', 'Label' ],
   \ 'header' : [ 'fg', 'Comment' ] }
+" 递归搜索当前目录
+" :Rg <keyword> 
+" 需要安装 ripgrep https://github.com/BurntSushi/ripgrep
+" macOS: brew install ripgrep 
+" Ubuntu: sudo apt install ripgrep
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: clang-format
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -296,9 +318,11 @@ let g:coc_global_extensions = ['coc-json','coc-css','coc-clangd','coc-cmake','co
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
+" 跳转到函数定义
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+" 哪些地方调用了该函数  
 nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window
 " nnoremap <silent> K :call <SID>show_documentation()<CR>
