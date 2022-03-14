@@ -10,21 +10,24 @@ Plug 'mhinz/vim-startify' " 驱动画面
 
 " 3. 文件显示
 Plug 'kyazdani42/nvim-tree.lua' " 文件树 
-Plug 'akinsho/bufferline.nvim' " 窗口标签 
+" Plug 'akinsho/bufferline.nvim' " buffers 1 类似VSCode的tag 
+Plug 'vim-airline/vim-airline' " buffers 2 条形tag 
+Plug 'vim-airline/vim-airline-themes' " buffers 2 
 
 " 4. 美化
 Plug 'luochen1990/rainbow' " 括号颜色 
+Plug 'jiangmiao/auto-pairs' " 补全括号
 
 " 5. 代码相关
 Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
 Plug 'junegunn/fzf',{'dir' : '~/.fzf', 'do' : './install --all'}
 Plug 'junegunn/fzf.vim' " 搜索插件1 
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } " 搜索插件2 
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } " 搜索插件2 
 Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
 Plug 'tpope/vim-fugitive' " git   
 " Plug 'airblade/vim-gitgutter' " git   
-Plug 'puremourning/vimspector' " debugger graph    
+" Plug 'puremourning/vimspector' " debugger graph    
 
 " 6. 终端
 Plug 'voldikss/vim-floaterm'
@@ -105,11 +108,6 @@ nmap <C-d> 10j
 " 缩进 
 vmap >  >gv 
 vmap <  <gv  
-" 自动补全 
-imap ( ()<Esc>i
-imap [ []<Esc>i
-imap { {}<Esc>i
-" imap < <><Esc>i
 " 插入模式, 移动到行首/行尾 
 imap <C-u> <Home>
 imap <C-d> <End>
@@ -160,10 +158,23 @@ nmap <Leader>o :NvimTreeToggle<CR>
 "   插件: tags窗口 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " akinsho/bufferline.nvim
-lua require("plugin/bufferline")
+" lua require("plugin/bufferline")
 " 循环切换tag窗口 
-nmap <C-h> :BufferLineCyclePrev<CR>
-nmap <C-l> :BufferLineCycleNext<CR>
+" nmap <C-h> :BufferLineCyclePrev<CR>
+" nmap <C-l> :BufferLineCycleNext<CR>
+
+" vim-airline/vim-airline 
+" next buffer 
+nmap <silent> <C-n> :bn<CR>
+" close current buffer (前提:先关闭文件树)
+nmap <silent> <Leader>d :bd<CR>
+set ambiwidth=double " 显示全角符号 
+let g:airline_theme="light" " 主题 
+let g:airline_powerline_fonts = 1 " tag箭头  
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 终端 
@@ -223,8 +234,6 @@ let g:fzf_colors =
 " 递归搜索当前目录
 " :Rg <keyword> 
 " 需要安装 ripgrep https://github.com/BurntSushi/ripgrep
-" macOS: brew install ripgrep 
-" Ubuntu: sudo apt install ripgrep
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,

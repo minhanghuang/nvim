@@ -14,7 +14,9 @@ git clone git@github.com:sonph/onehalf.git ~/.config/nvim/plugged/onehalf
 git clone git@github.com:kyazdani42/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
 
 # 窗口tag 
-git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
+# git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
+git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline
+git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
 
 # 跳转
 git clone git@github.com:neoclide/coc.nvim.git ~/.config/nvim/plugged/coc.nvim
