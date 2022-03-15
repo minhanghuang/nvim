@@ -28,6 +28,7 @@ Plug 'rhysd/vim-clang-format' " clang-format
 Plug 'tpope/vim-fugitive' " git   
 " Plug 'airblade/vim-gitgutter' " git   
 " Plug 'puremourning/vimspector' " debugger graph    
+Plug 'preservim/tagbar' " 显示class function ...     
 
 " 6. 终端
 Plug 'voldikss/vim-floaterm'
@@ -141,7 +142,8 @@ let g:rainbow_active = 1
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " kyazdani42/nvim-tree.lua
 lua require("plugin/nvim-tree")
-nmap <Leader>o :NvimTreeToggle<CR>
+nmap <silent> <Leader>o :NvimTreeToggle<CR> 
+" 打开/关闭 文件树
 " default mappings
 " <C-ww>: 切换窗口(工作区与编辑区窗口)
 " type a: 新建文件/文件夹(文件夹后加下划线/)
@@ -163,11 +165,22 @@ nmap <Leader>o :NvimTreeToggle<CR>
 " nmap <C-h> :BufferLineCyclePrev<CR>
 " nmap <C-l> :BufferLineCycleNext<CR>
 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: tagbar 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" preservim/tagbar
+" 需要安装ctag库 https://github.com/universal-ctags/ctags
+" macos: brew tap universal-ctags/universal-ctags
+"        brew install --HEAD universal-ctags
+" Ubuntu: sudo apt install ctags 
+nmap <silent> <Leader><Tab> :TagbarToggle<CR>
+
 " vim-airline/vim-airline 
 " next buffer 
 nmap <silent> <C-n> :bn<CR>
+imap <silent> <C-n> <Esc>:bn<CR>i
 " close current buffer (前提:先关闭文件树)
-nmap <silent> <Leader>d :bd<CR>
+nmap <silent> <Leader>bd :bd<CR>
 set ambiwidth=double " 显示全角符号 
 let g:airline_theme="light" " 主题 
 let g:airline_powerline_fonts = 1 " tag箭头  
@@ -181,9 +194,9 @@ let g:airline#extensions#whitespace#symbol = '!'
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " voldikss/vim-floaterm
 " 新建terminal windows
-let g:floaterm_keymap_new    = '<Leader>tw'
+let g:floaterm_keymap_new = '<Leader>tw'
 " 下一个terminal windows
-let g:floaterm_keymap_next   = '<Leader>tn'
+tnoremap <silent> <C-n> <C-\><C-n>:FloatermNext<CR>
 " 转换terminal模式
 let g:floaterm_keymap_toggle = '<Leader>tt'
 " 关闭当前terminal windows Or <C-d> 
@@ -192,7 +205,7 @@ let g:floaterm_keymap_kill = '<Leader>tk'
 " let g:floaterm_wintype = 'split'
 " let g:floaterm_position = 'botright'
 let g:floaterm_wintype = 'float'
-let g:floaterm_position = 'bottomright'
+let g:floaterm_position = 'center'
 " 终端宽(0,1)
 let g:floaterm_width = 0.6
 " 终端高(0,1)
@@ -205,15 +218,15 @@ let g:floaterm_title = 'floaterm: $1/$2'
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " junegunn/fzf.vim
 " 在当前buffer搜索字符
-nmap <Leader>s :BLines 
+nmap <Leader>fs :BLines 
 " 在当前目录搜索文件
-nmap <silent> <Leader>f :Files<CR>
+nmap <silent> <Leader>ff :Files<CR>
 " 切换Buffers中的文件
-nmap <silent> <Leader>b :Buffers<CR>
+nmap <silent> <Leader>fb :Buffers<CR>
 " 在Vim打开的历史文件中搜索 
-nmap <silent> <Leader>h :History<CR>
+" nmap <silent> <Leader>fh :History<CR>
 " 查看git graph 
-nmap <silent> <Leader>g :Commits<CR>
+nmap <silent> <Leader>fg :Commits<CR>
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~25%' }
 " Customize fzf colors to match your color scheme

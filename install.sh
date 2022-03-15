@@ -48,6 +48,12 @@ git clone git@github.com:SirVer/ultisnips.git ~/.config/nvim/plugged/ultisnips
 git clone git@github.com:rhysd/vim-clang-format.git ~/.config/nvim/plugged/vim-clang-format
 git clone git@github.com:kana/vim-operator-user.git ~/.config/nvim/plugged/vim-operator-user
 
+# vim-airline/vim-airline
+git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline 
+git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
+
+# preservim/tagbar
+git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
 
 
 echo "安装依赖"
@@ -56,11 +62,14 @@ os_type=`uname  -a`
 
 if [[ $os_type =~ 'Darwin' ]];then
     echo "macOS"
-    brew install ripgrep 
+    brew install ripgrep
+    brew tap universal-ctags/universal-ctags
+    brew install --HEAD universal-ctags
 elif [[ $os_type =~ 'Ubuntu' ]];then
     echo "Ubuntu"
     curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
     sudo dpkg -i ripgrep_0.10.0_amd64.deb
+    sudo apt install ctags
   else
     echo $os_type
 fi
