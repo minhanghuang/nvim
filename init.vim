@@ -157,15 +157,6 @@ nmap <silent> <Leader>o :NvimTreeToggle<CR>
 " type H: 显示/不显示 隐藏文件
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: tags窗口 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" akinsho/bufferline.nvim
-" lua require("plugin/bufferline")
-" 循环切换tag窗口 
-" nmap <C-h> :BufferLineCyclePrev<CR>
-" nmap <C-l> :BufferLineCycleNext<CR>
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: tagbar 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " preservim/tagbar
@@ -174,6 +165,15 @@ nmap <silent> <Leader>o :NvimTreeToggle<CR>
 "        brew install --HEAD universal-ctags
 " Ubuntu: sudo apt install ctags 
 nmap <silent> <Leader><Tab> :TagbarToggle<CR>
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: tags窗口 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" akinsho/bufferline.nvim
+" lua require("plugin/bufferline")
+" 循环切换tag窗口 
+" nmap <C-h> :BufferLineCyclePrev<CR>
+" nmap <C-l> :BufferLineCycleNext<CR>
 
 " vim-airline/vim-airline 
 " next buffer 
@@ -219,6 +219,7 @@ let g:floaterm_title = 'floaterm: $1/$2'
 " junegunn/fzf.vim
 " 在当前buffer搜索字符
 nmap <Leader>fs :BLines 
+nmap <Leader>s :BLines 
 " 在当前目录搜索文件
 nmap <silent> <Leader>ff :Files<CR>
 " 切换Buffers中的文件
