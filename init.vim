@@ -148,15 +148,168 @@ colorscheme gruvbox
 " luochen1990/rainbow 
 let g:rainbow_active = 1
 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 翻译 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" ianva/vim-youdao-translater
-vnoremap <silent> <Leader>yt :<C-u>Ydv<CR>
-nnoremap <silent> <Leader>yt :<C-u>Ydc<CR>
-noremap <leader>yd :<C-u>Yde<CR>
 
-"" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 文件树
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" kyazdani42/nvim-tree.lua
+" <C-ww>: 切换窗口(工作区与编辑区窗口)
+" type a: 新建文件/文件夹(文件夹后加下划线/)
+" type o: 打开文件/文件夹
+" type r: 修改文件名 
+" type y: 拷贝文件名(系统剪切板)
+" type Y: 拷贝文件相对路径(系统剪切板)
+" type gy: 拷贝文件绝对路径(系统剪切板)
+" type d: 删除文件(确认)
+" type R: 刷新
+" type H: 显示/不显示 隐藏文件
+lua require("plugin/nvim-tree")
+" 打开/关闭 文件树
+nmap <silent> <Leader>o :NvimTreeToggle<CR> 
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: tagbar 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" preservim/tagbar
+" 需要安装ctag库 https://github.com/universal-ctags/ctags
+" macos: brew tap universal-ctags/universal-ctags
+"        brew install --HEAD universal-ctags
+" Ubuntu: sudo apt install ctags 
+nmap <silent> <Leader><Tab> :TagbarToggle<CR>
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: buffers窗口 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" akinsho/bufferline.nvim
+" lua require("plugin/bufferline")
+" 循环切换tag窗口 
+" nmap <C-h> :BufferLineCyclePrev<CR>
+" nmap <C-l> :BufferLineCycleNext<CR>
+
+" vim-airline/vim-airline 
+" next buffer 
+nmap <silent> <C-n> :bn<CR>
+imap <silent> <C-n> <Esc>:bn<CR>i
+" close current buffer (前提:先关闭文件树)
+nmap <silent> <Leader>bd :bd<CR>
+set ambiwidth=double " 显示全角符号 
+let g:airline_theme="light" " 主题 
+let g:airline_powerline_fonts = 1 " tag箭头  
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 终端 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" voldikss/vim-floaterm
+" 新建terminal windows
+let g:floaterm_keymap_new = '<Leader>tw'
+" 下一个terminal windows
+tnoremap <silent> <C-n> <C-\><C-n>:FloatermNext<CR>
+" 转换terminal模式
+let g:floaterm_keymap_toggle = '<Leader>tt'
+" 关闭当前terminal windows Or <C-d> 
+let g:floaterm_keymap_kill = '<Leader>tk'
+" 终端窗口类型 
+" let g:floaterm_wintype = 'split'
+" let g:floaterm_position = 'botright'
+let g:floaterm_wintype = 'float'
+let g:floaterm_position = 'center'
+" 终端宽(0,1)
+let g:floaterm_width = 0.6
+" 终端高(0,1)
+let g:floaterm_height = 0.4
+" 终端标题
+let g:floaterm_title = 'floaterm: $1/$2'
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 搜索 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" junegunn/fzf.vim
+" 在当前buffer搜索字符
+nmap <Leader>fs :BLines 
+nmap <Leader>s :BLines 
+" 在当前目录搜索文件
+nmap <silent> <Leader>ff :Files<CR>
+" 切换Buffers中的文件
+nmap <silent> <Leader>fb :Buffers<CR>
+" 在Vim打开的历史文件中搜索 
+" nmap <silent> <Leader>fh :History<CR>
+" 查看git graph 
+nmap <silent> <Leader>fg :Commits<CR>
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~25%' }
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg' : [ 'fg', 'Normal' ],
+  \ 'bg' : [ 'bg', 'Normal' ],
+  \ 'hl' : [ 'fg', 'Comment' ],
+  \ 'fg+' : [ 'fg', 'CursorLine', 'CursorColumn', 'Normal' ],
+  \ 'bg+' : [ 'bg', 'CursorLine', 'CursorColumn' ],
+  \ 'hl+' : [ 'fg', 'Statement' ],
+  \ 'info' : [ 'fg', 'PreProc' ],
+  \ 'border' : [ 'fg', 'Ignore' ],
+  \ 'prompt' : [ 'fg', 'Conditional' ],
+  \ 'pointer' : [ 'fg', 'Exception' ],
+  \ 'marker' : [ 'fg', 'Keyword' ],
+  \ 'spinner' : [ 'fg', 'Label' ],
+  \ 'header' : [ 'fg', 'Comment' ] }
+" 递归搜索当前目录
+" :Rg <keyword> 
+" 需要安装 ripgrep https://github.com/BurntSushi/ripgrep
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 跳转
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" neoclide/coc.nvim
+" 启动vim自动安装coc.xxx语言插件
+let g:coc_global_extensions = ['coc-json','coc-css','coc-clangd','coc-cmake','coc-git','coc-yaml','coc-sh','coc-highlight','coc-markdownlint','coc-snippets','coc-emmet','coc-html','coc-jedi']
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+" 跳转到函数定义
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+" 哪些地方调用了该函数  
+nmap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+" Use tab for trigger completion with characters ahead and navigate.
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: git 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " airblade/vim-gitgutter 
@@ -246,133 +399,6 @@ let g:gitgutter_highlight_linenrs = 1
 let g:gitgutter_map_keys = 0
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 文件树
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" kyazdani42/nvim-tree.lua
-lua require("plugin/nvim-tree")
-
-nmap <silent> <Leader>o :NvimTreeToggle<CR> 
-" 打开/关闭 文件树
-" default mappings
-" <C-ww>: 切换窗口(工作区与编辑区窗口)
-" type a: 新建文件/文件夹(文件夹后加下划线/)
-" type o: 打开文件/文件夹
-" type r: 修改文件名 
-" type y: 拷贝文件名(系统剪切板)
-" type Y: 拷贝文件相对路径(系统剪切板)
-" type gy: 拷贝文件绝对路径(系统剪切板)
-" type d: 删除文件(确认)
-" type R: 刷新
-" type H: 显示/不显示 隐藏文件
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: tagbar 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" preservim/tagbar
-" 需要安装ctag库 https://github.com/universal-ctags/ctags
-" macos: brew tap universal-ctags/universal-ctags
-"        brew install --HEAD universal-ctags
-" Ubuntu: sudo apt install ctags 
-nmap <silent> <Leader><Tab> :TagbarToggle<CR>
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: tags窗口 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" akinsho/bufferline.nvim
-" lua require("plugin/bufferline")
-" 循环切换tag窗口 
-" nmap <C-h> :BufferLineCyclePrev<CR>
-" nmap <C-l> :BufferLineCycleNext<CR>
-
-" vim-airline/vim-airline 
-" next buffer 
-nmap <silent> <C-n> :bn<CR>
-imap <silent> <C-n> <Esc>:bn<CR>i
-" close current buffer (前提:先关闭文件树)
-nmap <silent> <Leader>bd :bd<CR>
-set ambiwidth=double " 显示全角符号 
-let g:airline_theme="light" " 主题 
-let g:airline_powerline_fonts = 1 " tag箭头  
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#whitespace#symbol = '!'
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 终端 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" voldikss/vim-floaterm
-" 新建terminal windows
-let g:floaterm_keymap_new = '<Leader>tw'
-" 下一个terminal windows
-tnoremap <silent> <C-n> <C-\><C-n>:FloatermNext<CR>
-" 转换terminal模式
-let g:floaterm_keymap_toggle = '<Leader>tt'
-" 关闭当前terminal windows Or <C-d> 
-let g:floaterm_keymap_kill = '<Leader>tk'
-" 终端窗口类型 
-" let g:floaterm_wintype = 'split'
-" let g:floaterm_position = 'botright'
-let g:floaterm_wintype = 'float'
-let g:floaterm_position = 'center'
-" 终端宽(0,1)
-let g:floaterm_width = 0.6
-" 终端高(0,1)
-let g:floaterm_height = 0.4
-" 终端标题
-let g:floaterm_title = 'floaterm: $1/$2'
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 搜索 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" junegunn/fzf.vim
-" 在当前buffer搜索字符
-nmap <Leader>fs :BLines 
-nmap <Leader>s :BLines 
-" 在当前目录搜索文件
-nmap <silent> <Leader>ff :Files<CR>
-" 切换Buffers中的文件
-nmap <silent> <Leader>fb :Buffers<CR>
-" 在Vim打开的历史文件中搜索 
-" nmap <silent> <Leader>fh :History<CR>
-" 查看git graph 
-nmap <silent> <Leader>fg :Commits<CR>
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~25%' }
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg' : [ 'fg', 'Normal' ],
-  \ 'bg' : [ 'bg', 'Normal' ],
-  \ 'hl' : [ 'fg', 'Comment' ],
-  \ 'fg+' : [ 'fg', 'CursorLine', 'CursorColumn', 'Normal' ],
-  \ 'bg+' : [ 'bg', 'CursorLine', 'CursorColumn' ],
-  \ 'hl+' : [ 'fg', 'Statement' ],
-  \ 'info' : [ 'fg', 'PreProc' ],
-  \ 'border' : [ 'fg', 'Ignore' ],
-  \ 'prompt' : [ 'fg', 'Conditional' ],
-  \ 'pointer' : [ 'fg', 'Exception' ],
-  \ 'marker' : [ 'fg', 'Keyword' ],
-  \ 'spinner' : [ 'fg', 'Label' ],
-  \ 'header' : [ 'fg', 'Comment' ] }
-" 递归搜索当前目录
-" :Rg <keyword> 
-" 需要安装 ripgrep https://github.com/BurntSushi/ripgrep
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: clang-format
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" rhysd/vim-clang-format
-" :ClangFormat 
-"   正常模式下使用: 整个代码将被格式化
-"   可视模式下使用: 被选中的代码将被格式化
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: markdown
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " markdown1: iamcco/markdown-preview.nvim
@@ -441,44 +467,18 @@ let g:mkdp_page_title = '「${name}」'
 let g:mkdp_filetypes = ['markdown']
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 跳转
+"   插件: 翻译 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" neoclide/coc.nvim
-" 启动vim自动安装coc.xxx语言插件
-let g:coc_global_extensions = ['coc-json','coc-css','coc-clangd','coc-cmake','coc-git','coc-yaml','coc-sh','coc-highlight','coc-markdownlint','coc-snippets','coc-emmet','coc-html','coc-jedi']
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" Remap keys for gotos
-" 跳转到函数定义
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-" 哪些地方调用了该函数  
-nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-" Use tab for trigger completion with characters ahead and navigate.
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" ianva/vim-youdao-translater
+vnoremap <silent> <Leader>yt :<C-u>Ydv<CR>
+nnoremap <silent> <Leader>yt :<C-u>Ydc<CR>
+noremap <leader>yd :<C-u>Yde<CR>
 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: clang-format
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" rhysd/vim-clang-format
+" :ClangFormat 
+"   正常模式下使用: 整个代码将被格式化
+"   可视模式下使用: 被选中的代码将被格式化
 
