@@ -40,6 +40,7 @@ Plug 'voldikss/vim-floaterm'
 " ---
 " --- markdown 2
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
+Plug 'ianva/vim-youdao-translater' " 有道翻译 
 
 " 8. 代码块 
 " 引擎 + 集合
@@ -112,6 +113,10 @@ vmap <  <gv
 " 插入模式, 移动到行首/行尾 
 imap <C-u> <Home>
 imap <C-d> <End>
+" 复制当前选中到系统剪切板
+vmap <leader><leader>y "+y
+" 将系统剪切板内容粘贴到vim
+nmap <leader><leader>p "+p
 
 " ***********************************
 "  neovim 插件 
@@ -123,6 +128,12 @@ imap <C-d> <End>
 "  主题1: ellisonleao/gruvbox.nvim
 set termguicolors
 set background=dark " or light if you want light mode
+let g:gruvbox_bold=1
+let g:gruvbox_italic=1
+let g:gruvbox_transparent_bg=1
+let g:gruvbox_underline=1
+let g:gruvbox_undercurl=1
+let g:gruvbox_termcolors=256
 colorscheme gruvbox
 " 主题2: sonph/onehalf
 " syntax on
@@ -136,6 +147,14 @@ colorscheme gruvbox
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " luochen1990/rainbow 
 let g:rainbow_active = 1
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 翻译 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" ianva/vim-youdao-translater
+vnoremap <silent> <Leader>yt :<C-u>Ydv<CR>
+nnoremap <silent> <Leader>yt :<C-u>Ydc<CR>
+noremap <leader>yd :<C-u>Yde<CR>
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 文件树
