@@ -73,6 +73,8 @@ set tenc=utf-8
 set ruler "显示最后一行的状态
 set autoread
 set hlsearch
+set ignorecase " 不区分大小写 
+" set noignorecase " 区分大小写 
 syntax on " 语法检测
 syntax enable
 
@@ -102,6 +104,8 @@ syntax enable
 "   <C-r>: nmap模式,反撤销
 "   <C-o>: nmap模式,返回上一次光标所在位置
 "   y: vmap模式,复制选中内容
+"   :/ : 当前buffer搜索(n:下一个, N:上一个)
+"   *: 当前buffer搜索光标所在单词(n:下一个,N:上一个)
 "
 " ***********************************
 " 光标移动 向上10行/向下10行 
@@ -166,6 +170,9 @@ let g:rainbow_active = 1
 lua require("plugin/nvim-tree")
 " 打开/关闭 文件树
 nmap <silent> <Leader>o :NvimTreeToggle<CR> 
+" 定位当前buffer在文件树的位置
+nmap <silent> <Leader><Leader>o :NvimTreeFindFile<CR> 
+
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: tagbar 
@@ -176,6 +183,7 @@ nmap <silent> <Leader>o :NvimTreeToggle<CR>
 "        brew install --HEAD universal-ctags
 " Ubuntu: sudo apt install ctags 
 nmap <silent> <Leader><Tab> :TagbarToggle<CR>
+
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: buffers窗口 
@@ -199,6 +207,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
+
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 终端 
@@ -224,13 +233,14 @@ let g:floaterm_height = 0.4
 " 终端标题
 let g:floaterm_title = 'floaterm: $1/$2'
 
+
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 搜索 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " junegunn/fzf.vim
-" 在当前buffer搜索字符
-nmap <Leader>fs :BLines 
-nmap <Leader>s :BLines 
+" 在所有buffers搜索字符
+nmap <Leader>fs :Lines 
+nmap <Leader>s :Lines 
 " 在当前目录搜索文件
 nmap <silent> <Leader>ff :Files<CR>
 " 切换Buffers中的文件
@@ -240,7 +250,9 @@ nmap <silent> <Leader>fb :Buffers<CR>
 " 查看git graph 
 nmap <silent> <Leader>fg :Commits<CR>
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~25%' }
+" let g:fzf_layout = { 'up': '~25%' }
+let g:fzf_preview_window = ['right:50%','ctrl-/']
+" let  g:fzf_preview_window =  []
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg' : [ 'fg', 'Normal' ],
@@ -259,13 +271,13 @@ let g:fzf_colors =
 " 递归搜索当前目录
 " :Rg <keyword> 
 " 需要安装 ripgrep https://github.com/BurntSushi/ripgrep
+" fzf#vim#with_preview('up:60%','ctrl-/') 设置预览窗口, up:预览窗口位于上方, C-/ 切换预览窗口(显示不显示)
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0 ? fzf#vim#with_preview('up:60%','ctrl-/') 
+  \           : fzf#vim#with_preview('right:50%', 'ctrl-/'),
   \   <bang>0)
-
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -308,6 +320,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: git 
@@ -373,7 +386,6 @@ function! PrevHunkAllBuffers()
     endif
   endwhile
 endfunction
-
 " 当前所有buffers的上/下一块(循环)
 nmap <silent> <Leader>gbn :call NextHunkAllBuffers()<CR>
 nmap <silent> <Leader>gbp :call PrevHunkAllBuffers()<CR>
@@ -386,7 +398,6 @@ nmap <Leader>gs <Plug>(GitGutterStageHunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)
 " 查看当前块之前的代码 
 nmap <Leader>gh <Plug>(GitGutterPreviewHunk)
-
 " 显示块号 1/3 
 let g:gitgutter_show_msg_on_hunk_jumping = 1
 " 查看以前代码使用悬浮窗口
@@ -397,6 +408,7 @@ let g:gitgutter_preview_win_floating = 1
 let g:gitgutter_highlight_linenrs = 1
 " 不使用gitgutter默认的快捷键映射
 let g:gitgutter_map_keys = 0
+
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: markdown
@@ -466,6 +478,7 @@ let g:mkdp_page_title = '「${name}」'
 " recognized filetypes these filetypes will have MarkdownPreview... commands
 let g:mkdp_filetypes = ['markdown']
 
+
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 翻译 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -473,6 +486,7 @@ let g:mkdp_filetypes = ['markdown']
 vnoremap <silent> <Leader>yt :<C-u>Ydv<CR>
 nnoremap <silent> <Leader>yt :<C-u>Ydc<CR>
 noremap <leader>yd :<C-u>Yde<CR>
+
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: clang-format

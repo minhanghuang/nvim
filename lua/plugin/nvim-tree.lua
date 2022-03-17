@@ -105,4 +105,12 @@ require'nvim-tree'.setup {
 	}
 }
 
+-- require("nvim-web-devicons").set_icon {
+--   ["CMakeLists.txt"] = {
+--     icon = "",
+--     color = "#f34b7d",
+--     cterm_color = "204",
+--     name = "CPlusPlus",
+--   },
+-- }
 
