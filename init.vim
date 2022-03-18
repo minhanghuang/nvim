@@ -41,6 +41,7 @@ Plug 'voldikss/vim-floaterm'
 " --- markdown 2
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
 Plug 'ianva/vim-youdao-translater' " 有道翻译 
+Plug 'voldikss/vim-translator' " 翻译 
 
 " 8. 代码块 
 " 引擎 + 集合
@@ -80,9 +81,14 @@ syntax enable
 
 " ***********************************
 "  vim 快捷键
-"   nmap: 正常模式
-"   vmap: 可视模式
-"   imap: 插入模式
+"         Normal | Visual | Insert | Operator | Command 
+"   map:    T        T                  T               
+"   !map:                     T                   T               
+"   nmap:   T   
+"   vmap:            T  
+"   imap:                     T      
+"   omap:                               T          
+"   cmap:                                         T          
 "
 "   default map:
 "    yy: nmap模式,复制当前行
@@ -105,7 +111,10 @@ syntax enable
 "   <C-o>: nmap模式,返回上一次光标所在位置
 "   y: vmap模式,复制选中内容
 "   :/ : 当前buffer搜索(n:下一个, N:上一个)
-"   *: 当前buffer搜索光标所在单词(n:下一个,N:上一个)
+"   *: 当前BUFFER搜索光标所在单词(n:下一个,N:上一个)
+"   gu: 大写转小写 
+"   gU: 小写转大写 
+"   rx: nmap模式,x替换当前光标所在字母  
 "
 " ***********************************
 " 光标移动 向上10行/向下10行 
@@ -121,6 +130,15 @@ imap <C-d> <End>
 vmap <leader><leader>y "+y
 " 将系统剪切板内容粘贴到vim
 nmap <leader><leader>p "+p
+" 插入模式移动光标 
+imap <C-k> <Up>
+imap <C-j> <Down>
+" 插入模式, 当前行向下插入一空行
+imap <C-o> <Esc>o 
+" 插入模式, 翻页 
+imap <C-b> <PageUp>
+imap <C-f> <PageDown>
+
 
 " ***********************************
 "  neovim 插件 
@@ -210,17 +228,17 @@ let g:airline#extensions#whitespace#symbol = '!'
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 终端 
+"   插件: 终端 <Leader>t(x)  
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " voldikss/vim-floaterm
-" 新建terminal windows
-let g:floaterm_keymap_new = '<Leader>tw'
 " 下一个terminal windows
 tnoremap <silent> <C-n> <C-\><C-n>:FloatermNext<CR>
-" 转换terminal模式
+" 新建terminal windows
+let g:floaterm_keymap_new = '<Leader>tw'
+" 切换terminal模式
 let g:floaterm_keymap_toggle = '<Leader>tt'
 " 关闭当前terminal windows Or <C-d> 
-let g:floaterm_keymap_kill = '<Leader>tk'
+" let g:floaterm_keymap_kill = '<Leader>tk'
 " 终端窗口类型 
 " let g:floaterm_wintype = 'split'
 " let g:floaterm_position = 'botright'
@@ -480,12 +498,31 @@ let g:mkdp_filetypes = ['markdown']
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 翻译 
+"   插件: 翻译 <Leader>t(x) 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " ianva/vim-youdao-translater
-vnoremap <silent> <Leader>yt :<C-u>Ydv<CR>
-nnoremap <silent> <Leader>yt :<C-u>Ydc<CR>
-noremap <leader>yd :<C-u>Yde<CR>
+vnoremap <silent> <Leader>ty :<C-u>Ydv<CR>
+nnoremap <silent> <Leader>ty :<C-u>Ydc<CR>
+noremap <leader>tyd :<C-u>Yde<CR>
+"
+" voldikss/vim-translator
+let g:translator_target_lang = 'zh'
+let g:translator_source_lang = 'auto'
+let g:translator_default_engines = ['youdao', 'haici']
+let g:translator_window_type = 'popup'
+let g:translator_window_max_width = 0.6
+let g:translator_window_max_height = 0.6
+ " Echo translation in the cmdline
+nmap <silent> <Leader>ta <Plug>Translate
+vmap <silent> <Leader>ta <Plug>TranslateV
+" Display translation in a window
+nmap <silent> <Leader>taw <Plug>TranslateW
+vmap <silent> <Leader>taw <Plug>TranslateWV
+" Replace the text with translation
+" nmap <silent> <Leader>r <Plug>TranslateR
+" vmap <silent> <Leader>r <Plug>TranslateRV
+" Translate the text in clipboard
+" nmap <silent> <Leader>x <Plug>TranslateX
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

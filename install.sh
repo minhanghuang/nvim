@@ -58,8 +58,10 @@ git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugg
 # preservim/tagbar
 git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
 
-# ianva/vim-youdao-translater
+# 翻译
 git clone git@github.com:ianva/vim-youdao-translater.git ~/.config/nvim/plugged/vim-youdao-translater
+git clone git@github.com:voldikss/vim-translator.git ~/.config/nvim/plugged/vim-translator
+
 
 echo "安装依赖"
 
