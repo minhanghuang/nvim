@@ -1,3 +1,6 @@
+snippet set_target_name
+set(TARGET_NAME \$\{PROJECT_NAME\})
+endsnippet
 
 snippet include_directories
 include_directories(
@@ -11,9 +14,22 @@ link_libraries(
 )
 endsnippet
 
+snippet add_library
+add_library(\$\{TARGET_NAME\} SHARED
+	${0}
+)
+endsnippet
+
 snippet target_link_libraries
 target_link_libraries(${0}
 	
 )
 endsnippet
 
+snippet find_package
+find_package(${0:name} REQUIRED)
+endsnippet
+
+snippet pkg_check_modules
+pkg_check_modules(${0:name} REQUIRED ${1:lib})
+endsnippet
