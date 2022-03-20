@@ -115,3 +115,14 @@ yarn install --frozen-lockfile
 
 > 依次安装所有插件
 
+
+
+## # 问题 
+
+### #1 coc.nvim C++安装失败 
+
+```shell
+https://github.com/clangd/coc-clangd/issues/61
+```
+
+> 每次重装都会遇到这个问题,但是,有一次解决问题的方法与之前的不同,大多数情况是和上面的`issues`的解决方法一样,有一次是讲coc.settings.json文件清空就可以解决,记录一下
