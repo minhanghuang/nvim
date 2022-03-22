@@ -2,7 +2,7 @@ snippet cmake_start
 cmake_minimum_required(VERSION 3.5.1)
 project(${0:project_name})
 
-set(TARGET_NAME ${PROJECT_NAME})
+set(TARGET_NAME \$\{PROJECT_NAME\})
 set(CMAKE_CXX_STANDARD 14)
 
 find_package(Threads REQUIRED)
@@ -19,7 +19,7 @@ link_directories (
 
 add_executable(${TARGET_NAME}_runner main.cc)
 
-target_link_libraries(${TARGET_NAME}_runner
+target_link_libraries(\$\{TARGET_NAME\}_runner
 	${${5}_LIBRARIES}
 )
 endsnippet

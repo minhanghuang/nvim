@@ -77,6 +77,7 @@ elif [[ $os_type =~ 'Ubuntu' ]];then
     curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
     sudo dpkg -i ripgrep_0.10.0_amd64.deb
     sudo apt install ctags
+    sudo apt install python3-venv # coc.nvim 中的coc-jedi模块需要依赖venv
   else
     echo $os_type
 fi
