@@ -219,6 +219,8 @@ nmap <silent> <Leader><Tab> :TagbarToggle<CR>
 " next buffer 
 nmap <silent> <C-n> :bn<CR>
 imap <silent> <C-n> <Esc>:bn<CR>i
+nmap <silent> <C-p> :bp<CR>
+imap <silent> <C-p> <Esc>:bp<CR>i
 " close current buffer (前提:先关闭文件树)
 nmap <silent> <Leader>bd :bd<CR>
 set ambiwidth=double " 显示全角符号 
