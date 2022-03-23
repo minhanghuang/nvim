@@ -221,8 +221,8 @@ nmap <silent> <C-n> :bn<CR>
 imap <silent> <C-n> <Esc>:bn<CR>i
 nmap <silent> <C-p> :bp<CR>
 imap <silent> <C-p> <Esc>:bp<CR>i
-" close current buffer (前提:先关闭文件树)
-nmap <silent> <Leader>bd :bd<CR>
+" close current buffer 
+nmap <silent> <Leader>bd :NvimTreeToggle<CR>:bd<CR>:NvimTreeToggle<CR>
 set ambiwidth=double " 显示全角符号 
 let g:airline_theme="light" " 主题 
 let g:airline_powerline_fonts = 1 " tag箭头  
