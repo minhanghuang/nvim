@@ -47,6 +47,9 @@ cd ~/.config/nvim/plugged/markdown-preview.nvim/app && yarn install
 git clone git@github.com:honza/vim-snippets.git ~/.config/nvim/plugged/vim-snippets
 git clone git@github.com:SirVer/ultisnips.git ~/.config/nvim/plugged/ultisnips
 
+# 注释
+git clone git@github.com:tpope/vim-commentary.git ~/.config/nvim/plugged/vim-commentary
+
 # clang-format
 git clone git@github.com:rhysd/vim-clang-format.git ~/.config/nvim/plugged/vim-clang-format
 git clone git@github.com:kana/vim-operator-user.git ~/.config/nvim/plugged/vim-operator-user
