@@ -22,7 +22,6 @@ Plug 'jiangmiao/auto-pairs' " 补全括号
 Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
 Plug 'junegunn/fzf',{'dir' : '~/.fzf', 'do' : './install --all'}
 Plug 'junegunn/fzf.vim' " 搜索插件1 
-" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } " 搜索插件2 
 Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
 " Plug 'tpope/vim-fugitive' " git   
@@ -30,6 +29,7 @@ Plug 'airblade/vim-gitgutter' " git
 " Plug 'puremourning/vimspector' " debugger graph    
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
+Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
 
 " 6. 终端
 Plug 'voldikss/vim-floaterm'
@@ -556,6 +556,14 @@ vmap <silent> <Leader>taw <Plug>TranslateWV
 " Translate the text in clipboard
 " nmap <silent> <Leader>x <Plug>TranslateX
 
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: Doxygen 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" vim-scripts/DoxygenToolkit.vim
+let g:DoxygenToolkit_authorName="huangminhang@trunk.tech" 
+" 函数信息 
+nmap <Leader>dd :Dox<CR>
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: clang-format
