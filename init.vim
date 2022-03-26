@@ -29,16 +29,12 @@ Plug 'rhysd/vim-clang-format' " clang-format
 Plug 'airblade/vim-gitgutter' " git   
 " Plug 'puremourning/vimspector' " debugger graph    
 Plug 'preservim/tagbar' " 显示class function ...     
+Plug 'tpope/vim-commentary' " 注释 
 
 " 6. 终端
 Plug 'voldikss/vim-floaterm'
 
 " 7. 文本
-" --- markdown 1
-" Plug 'godlygeek/tabular' " The tabular plugin must come before vim-markdown.
-" Plug 'preservim/vim-markdown' 
-" ---
-" --- markdown 2
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
 Plug 'ianva/vim-youdao-translater' " 有道翻译 
 Plug 'voldikss/vim-translator' " 翻译 
@@ -91,35 +87,53 @@ syntax enable
 "   cmap:                                         T          
 "
 "   default map:
-"    yy: nmap模式,复制当前行
-"    yyP: nmap模式,拷贝当前行到上一行 
-"    yyp: nmap模式,拷贝当前行到下一行
-"    ^或0: nmap模式,行首
-"    $: nmap模式,行尾
-"    s: nmap模式,修改当前字母
-"    S: nmap模式,修改当前行
-"    w: nmap模式,光标移动到下一个字母开头
-"    b: nmap模式,光标移动到前一个字母开头
-"    gg: nmap模式,光标移动到文件开头处
-"    G: nmap模式,光标移动到文件结尾处
-"    dd: nmap模式,剪切当前行
+"    yy: 复制当前行
+"    yyP: 拷贝当前行到上一行 
+"    yyp: 拷贝当前行到下一行
+"    ^或0: 行首
+"    $: 行尾
+"    s: 修改当前字母
+"    S: 修改当前行
+"    w: 光标移动到下一个单词开头
+"    e: 光标移动到下一个单词结尾
+"    b: 光标移动到前一个单词开头
+"    gg: 光标移动到文件开头处
+"    G: 光标移动到文件结尾处
+"    dd: 剪切当前行
 "    x: 删除当前字母
+"    dw: 以光标为界,删除单词后半部分 
+"    diw: 删除光标所在单词
 "    o: 当前行向下插入一空行
 "    O: 当前行向上插入一空行
-"    u: nmap模式,撤销操作
-"   <C-r>: nmap模式,反撤销
-"   <C-o>: nmap模式,返回上一次光标所在位置
+"    u: 撤销操作
+"   <C-r>: 反撤销
+"   <C-o>: 返回上一次光标所在位置
+"   <C-i>: 回到上一次光标所在位置
+"   <C-l>: 刷新屏幕
 "   y: vmap模式,复制选中内容
-"   :/ : 当前buffer搜索(n:下一个, N:上一个)
+"   :/ : 当前buffer搜索(n:下一个, N:上一个) <C-l>恢复屏幕 
 "   *: 当前BUFFER搜索光标所在单词(n:下一个,N:上一个)
 "   gu: 大写转小写 
 "   gU: 小写转大写 
-"   rx: nmap模式,x替换当前光标所在字母  
-"
+"   rx: x替换当前光标所在字母  
+"   fx: 光标向后移动到第一个x所在位置   
+"   Fx: 光标向前移动到第一个x所在位置   
+"   :[addr]s/old/new/[option] : 替换 
+"     s是substitute缩写
+"     [addr]: 
+"       "1,n":表示从第1行到n行
+"       ".,$":表示从当前行到文件尾
+"       "%":表示整个文件,同"1,$"
+"     [option]: g c p i 省略时仅对每行第一个匹配串进行替换 
+"       g: global 全局替换
+"       c: confirm 确认 
+"       p: 表示替代结果逐行显示,<C-l>恢复屏幕
+"       i:ignore 不区分大小写
+"     #为转义符
 " ***********************************
 " 光标移动 向上10行/向下10行 
-nmap <C-u> 10k 
-nmap <C-d> 10j 
+nmap <c-u> 10k 
+nmap <c-d> 10j 
 " 缩进 
 vmap >  >gv 
 vmap <  <gv  
@@ -131,10 +145,12 @@ vmap <leader><leader>y "+y
 " 将系统剪切板内容粘贴到vim
 nmap <leader><leader>p "+p
 " 插入模式移动光标 
-imap <C-k> <Up>
-imap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 " 插入模式, 当前行向下插入一空行
-imap <C-o> <Esc>o 
+imap <C-o> <Esc>o
 " 插入模式, 翻页 
 imap <C-b> <PageUp>
 imap <C-f> <PageDown>
@@ -343,6 +359,17 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 注释  
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" tpope/vim-commentary 
+" 注释单行 
+nmap <C-]> gcc<CR>
+imap <C-]> <Esc>gcc<CR>i
+" 注释单行/多行 
+vmap <C-]> gc
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
