@@ -370,6 +370,8 @@ nmap <C-]> gcc<CR>
 imap <C-]> <Esc>gcc<CR>i
 " 注释单行/多行 
 vmap <C-]> gc
+" C和C++的文件使用 // 注释 (默认是/**/)
+autocmd FileType c,cpp setlocal commentstring=//\ %s
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
