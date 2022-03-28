@@ -37,7 +37,7 @@ vim --version
 > 安装node.js
 
 ```shell
-sudo apt install -y nodejs nodejs-legacy npm  
+sudo apt install -y nodejs npm  
 sudo npm config set registry https://registry.npm.taobao.org
 sudo npm install n -g
 sudo n stable  # 安装最新版本, coc.nvim需要依赖高版本node
