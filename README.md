@@ -16,12 +16,10 @@ pip3 install neovim
 
 ```shell
 // 安装高版本的nvim(默认低版本,有些语法不支持)
-sudo apt-get install software-properties-common
-sudo apt-get update
+sudo apt install software-properties-common
+sudo apt update
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt install neovim 
-sudo apt-get install ripgrep
-sudo apt install fd-find
 pip3 install neovim 
 ```
 
@@ -37,6 +35,9 @@ vim --version
 > 安装node.js
 
 ```shell
+sudo apt install libssl1.0-dev
+sudo apt install nodejs-dev
+sudo apt install node-gyp
 sudo apt install -y nodejs npm  
 sudo npm config set registry https://registry.npm.taobao.org
 sudo npm install n -g
