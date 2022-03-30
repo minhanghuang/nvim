@@ -195,6 +195,7 @@ let g:rainbow_active = 1
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " kyazdani42/nvim-tree.lua
 " <C-ww>: 切换窗口(工作区与编辑区窗口)
+" <C-v>: 垂直打开新窗口
 " type a: 新建文件/文件夹(文件夹后加下划线/)
 " type o: 打开文件/文件夹
 " type r: 修改文件名 
@@ -254,6 +255,8 @@ let g:airline#extensions#whitespace#symbol = '!'
 " voldikss/vim-floaterm
 " 下一个terminal windows
 tnoremap <silent> <C-n> <C-\><C-n>:FloatermNext<CR>
+" 回到Normal模式,方便查看Terminal信息 
+tnoremap <silent> <Esc> <C-\><C-n>
 " 新建terminal windows
 let g:floaterm_keymap_new = '<Leader>tw'
 " 切换terminal模式
