@@ -10,7 +10,7 @@ require'nvim-tree'.setup {
 	-- will not open on setup if the filetype is in this list
 	ignore_ft_on_setup  = {},
 	-- closes neovim automatically when the tree is the last **WINDOW** in the view
-	auto_close          = true,
+	auto_close          = false, -- 新版本插件删除自动关闭功能
 	-- opens the tree when changing/opening a new tab if the tree wasn't previously opened
 	open_on_tab         = true,
 	-- hijacks new directory buffers when they are opened.
