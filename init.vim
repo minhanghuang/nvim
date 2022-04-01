@@ -154,9 +154,9 @@ imap <C-o> <Esc>o
 " 插入模式, 翻页 
 imap <C-b> <PageUp>
 imap <C-f> <PageDown>
-" 全选 
-nmap <C-a> ggvG 
-imap <C-a> <Esc>ggvG 
+" 全选, $:选中到行尾 
+nmap <C-a> ggvG$ 
+imap <C-a> <Esc>ggvG$ 
 
 
 " ***********************************
