@@ -199,6 +199,9 @@ let g:rainbow_active = 1
 " type a: 新建文件/文件夹(文件夹后加下划线/)
 " type o: 打开文件/文件夹
 " type r: 修改文件名 
+" type x: 剪切 
+" type c: 复制 
+" type p: 粘贴 
 " type y: 拷贝文件名(系统剪切板)
 " type Y: 拷贝文件相对路径(系统剪切板)
 " type gy: 拷贝文件绝对路径(系统剪切板)
