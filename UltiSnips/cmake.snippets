@@ -1,26 +1,26 @@
 snippet cmake_start
 cmake_minimum_required(VERSION 3.5.1)
-project(${0:project_name})
+project(${1:project_name})
 
 set(TARGET_NAME \$\{PROJECT_NAME\})
 set(CMAKE_CXX_STANDARD 14)
 
 find_package(Threads REQUIRED)
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(${2:name} REQUIRED ${1:lib})
+pkg_check_modules(${3:name} REQUIRED ${2:lib})
 
 include_directories(
-	${${3}_INCLUDE_DIRS}
+	\${$3_INCLUDE_DIRS}
 )
 
 link_directories (
-	${${4}_LIBRARY_DIRS}
+	\${$3_LIBRARY_DIRS}
 )
 
-add_executable(${TARGET_NAME}_runner main.cc)
+add_executable(\$\{TARGET_NAME\}_runner main.cc)
 
 target_link_libraries(\$\{TARGET_NAME\}_runner
-	${${5}_LIBRARIES}
+	\${$3_LIBRARIES}
 )
 endsnippet
 
