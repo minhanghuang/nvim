@@ -155,8 +155,8 @@ imap <C-o> <Esc>o
 imap <C-b> <PageUp>
 imap <C-f> <PageDown>
 " 全选, $:选中到行尾 
-nmap <C-a> ggvG$ 
-imap <C-a> <Esc>ggvG$ 
+nmap <C-a> ggVG$ 
+imap <C-a> <Esc>ggVG$ 
 
 
 " ***********************************
