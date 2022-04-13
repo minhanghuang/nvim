@@ -133,11 +133,9 @@ syntax enable
 " ***********************************
 " 光标移动 向上10行/向下10行 
 " nmap <c-u> 10k 
-nmap <c-h> 10h 
 nmap <c-j> 10j 
 " nmap <c-d> 10j 
 nmap <c-k> 10k 
-nmap <c-l> 10l 
 " 缩进 
 vmap >  >gv 
 vmap <  <gv  
