@@ -132,10 +132,10 @@ syntax enable
 "     #为转义符
 " ***********************************
 " 光标移动 向上10行/向下10行 
-" nmap <c-u> 10k 
 nmap <c-j> 10j 
-" nmap <c-d> 10j 
+vmap <c-j> 10j 
 nmap <c-k> 10k 
+vmap <c-k> 10k 
 " 缩进 
 vmap >  >gv 
 vmap <  <gv  
@@ -211,6 +211,7 @@ let g:rainbow_active = 1
 " type R: 刷新
 " type H: 显示/不显示 隐藏文件
 lua require("plugin/nvim-tree")
+lua require("plugin/nvim-web-devicons")
 " 打开/关闭 文件树
 nmap <silent> <Leader>o :NvimTreeToggle<CR> 
 " 定位当前buffer在文件树的位置
