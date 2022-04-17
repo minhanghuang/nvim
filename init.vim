@@ -1,9 +1,10 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged') 
 
 " 1. 主题 
-Plug 'sonph/onehalf',{'rtp' : 'vim'} 
-Plug 'ellisonleao/gruvbox.nvim' "主题
+Plug 'sonph/onehalf',{'rtp' : 'vim'} " 主题 1  
+Plug 'ellisonleao/gruvbox.nvim' " 主题 2 
 Plug 'kyazdani42/nvim-web-devicons' " file icons (ellisonleao/gruvbox.nvim)
+Plug 'projekt0n/github-nvim-theme' " 主题 3  
 
 " 2. 最近文件
 Plug 'mhinz/vim-startify' " 驱动画面
@@ -159,7 +160,9 @@ imap <C-f> <PageDown>
 " 全选, $:选中到行尾 
 nmap <C-a> ggVG$ 
 imap <C-a> <Esc>ggVG$ 
-
+" 设置窗口大小 
+nmap <silent> <Leader>= :vertical resize +2<CR>
+nmap <silent> <Leader>- :vertical resize -2<CR>
 
 " ***********************************
 "  neovim 插件 
@@ -168,22 +171,29 @@ imap <C-a> <Esc>ggVG$
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 主题 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"  主题1: ellisonleao/gruvbox.nvim
-set termguicolors
-set background=dark " or light if you want light mode
-let g:gruvbox_bold=1
-let g:gruvbox_italic=1
-let g:gruvbox_transparent_bg=1
-let g:gruvbox_underline=1
-let g:gruvbox_undercurl=1
-let g:gruvbox_termcolors=256
-colorscheme gruvbox
-" 主题2: sonph/onehalf
+" 主题1: sonph/onehalf
 " syntax on
 " set t_Co=256
 " set cursorline
 " colorscheme onehalfdark
 " let g:airline_theme='onehalfdark'
+
+"  主题2: ellisonleao/gruvbox.nvim
+" set termguicolors
+" set background=dark " or light if you want light mode
+" let g:gruvbox_bold=1
+" let g:gruvbox_italic=1
+" let g:gruvbox_transparent_bg=1
+" let g:gruvbox_underline=1
+" let g:gruvbox_undercurl=1
+" let g:gruvbox_termcolors=256
+" colorscheme gruvbox
+
+" 主题3
+" projekt0n/github-nvim-theme
+colorscheme github_dimmed 
+" let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 括号 
