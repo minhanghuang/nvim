@@ -9,7 +9,7 @@ git clone git@github.com:rktjmp/lush.nvim.git ~/.config/nvim/plugged
 git clone git@github.com:ellisonleao/gruvbox.nvim.git ~/.config/nvim/plugged/gruvbox.nvim
 git clone git@github.com:kyazdani42/nvim-web-devicons.git ~/.config/nvim/plugged/nvim-web-devicons
 git clone git@github.com:sonph/onehalf.git ~/.config/nvim/plugged/onehalf
-git clone git@github.com:projekt0n/github-nvim-theme.git ~/.config/nvim/projekt0n/github-nvim-theme
+git clone git@github.com:projekt0n/github-nvim-theme.git ~/.config/nvim/plugged/github-nvim-theme
 
 # 文件树
 git clone git@github.com:kyazdani42/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
