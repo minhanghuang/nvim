@@ -192,7 +192,6 @@ nmap <silent> <Leader>- :vertical resize -2<CR>
 " 主题3
 " projekt0n/github-nvim-theme
 colorscheme github_dimmed 
-" let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
