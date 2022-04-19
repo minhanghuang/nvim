@@ -5,32 +5,40 @@ Plug 'sonph/onehalf',{'rtp' : 'vim'} " 主题 1
 Plug 'ellisonleao/gruvbox.nvim' " 主题 2 
 Plug 'kyazdani42/nvim-web-devicons' " file icons (ellisonleao/gruvbox.nvim)
 Plug 'projekt0n/github-nvim-theme' " 主题 3  
+Plug 'catppuccin/nvim', {'as': 'catppuccin'} " 主题 4 
 
-" 2. 最近文件
+" 2. 文件  
+Plug 'kyazdani42/nvim-tree.lua' " 文件树 
 Plug 'mhinz/vim-startify' " 驱动画面
 
-" 3. 文件显示
-Plug 'kyazdani42/nvim-tree.lua' " 文件树 
-" Plug 'akinsho/bufferline.nvim' " buffers 1 类似VSCode的tag 
-Plug 'vim-airline/vim-airline' " buffers 2 条形tag 
-Plug 'vim-airline/vim-airline-themes' " buffers 2 
+"3. buffers 
+Plug 'akinsho/bufferline.nvim' " buffers 
+Plug 'famiu/bufdelete.nvim' " 关闭buffer 
+Plug 'windwp/windline.nvim' " 底部状态栏美化
+Plug 'lewis6991/gitsigns.nvim' " 底部状态栏美化(获取git数据)
 
-" 4. 美化
+"4. 搜索 
+Plug 'nvim-telescope/telescope.nvim' " 搜索  
+Plug 'nvim-lua/plenary.nvim' " 搜索 (telescope.nvim require)  
+Plug 'BurntSushi/ripgrep' " 搜索插件 文本查找 (telescope.nvim require)  
+Plug 'sharkdp/fd' " 搜索插件 文件查找 (telescope.nvim require)  
+Plug 'kevinhwang91/nvim-hlslens' " 搜索美化 [2/56]
+
+" 5. 美化
 Plug 'luochen1990/rainbow' " 括号颜色 
 Plug 'jiangmiao/auto-pairs' " 补全括号
+Plug 'rcarriga/nvim-notify' " 消息通知
 
-" 5. 代码相关
+" 6. 代码相关
 Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
-Plug 'junegunn/fzf',{'dir' : '~/.fzf', 'do' : './install --all'}
-Plug 'junegunn/fzf.vim' " 搜索插件1 
 Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
-" Plug 'tpope/vim-fugitive' " git   
 Plug 'airblade/vim-gitgutter' " git   
 " Plug 'puremourning/vimspector' " debugger graph    
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
 Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
+Plug 'RRethy/vim-illuminate' " 高亮与当前光标相同的词汇  
 
 " 6. 终端
 Plug 'voldikss/vim-floaterm'
@@ -55,7 +63,7 @@ call plug#end()
 let mapleader="\<Space>"
 set number " 显示行号
 set cursorline " 高亮所在行 
-set tabstop=2 " tab
+" set tabstop=2 " tab
 set shiftwidth=2
 set expandtab
 set history=1024 " 历史记录
@@ -179,19 +187,23 @@ nmap <silent> <Leader>- :vertical resize -2<CR>
 " let g:airline_theme='onehalfdark'
 
 "  主题2: ellisonleao/gruvbox.nvim
-" set termguicolors
-" set background=dark " or light if you want light mode
-" let g:gruvbox_bold=1
-" let g:gruvbox_italic=1
-" let g:gruvbox_transparent_bg=1
-" let g:gruvbox_underline=1
-" let g:gruvbox_undercurl=1
-" let g:gruvbox_termcolors=256
-" colorscheme gruvbox
+set termguicolors
+set background=dark " or light if you want light mode
+let g:gruvbox_bold=1
+let g:gruvbox_italic=1
+let g:gruvbox_transparent_bg=1
+let g:gruvbox_underline=1
+let g:gruvbox_undercurl=1
+let g:gruvbox_termcolors=256
+colorscheme gruvbox
 
 " 主题3
 " projekt0n/github-nvim-theme
-colorscheme github_dimmed 
+" colorscheme github_dimmed 
+
+" 主题 4 
+" colorscheme catppuccin 
+" lua require("plugin/catppuccin")
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -200,6 +212,18 @@ colorscheme github_dimmed
 " luochen1990/rainbow 
 let g:rainbow_active = 1
 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 高亮与当前光标相同的词汇 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" 
+lua require("plugin/nvim-hlslens")
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 状态栏美化  
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" 
+lua require("plugin/windline") 
+lua require("plugin/gitsigns") 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 文件树
@@ -242,27 +266,31 @@ nmap <silent> <Leader><Tab> :TagbarToggle<CR>
 "   插件: buffers窗口 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " akinsho/bufferline.nvim
-" lua require("plugin/bufferline")
-" 循环切换tag窗口 
-" nmap <C-h> :BufferLineCyclePrev<CR>
-" nmap <C-l> :BufferLineCycleNext<CR>
+lua require("plugin/bufferline")
+nmap <silent> <C-n> :BufferLineCyclePrev<CR>
+imap <silent> <C-n> <Esc>:BufferLineCyclePrev<CR>i
+nmap <silent> <C-p> :BufferLineCycleNext<CR>
+imap <silent> <C-p> <Esc>:BufferLineCycleNext<CR>i
+nmap <silent> <Leader>bd :Bdelete!<CR>
 
 " vim-airline/vim-airline 
 " next buffer 
-nmap <silent> <C-n> :bn<CR>
-imap <silent> <C-n> <Esc>:bn<CR>i
-nmap <silent> <C-p> :bp<CR>
-imap <silent> <C-p> <Esc>:bp<CR>i
+" nmap <silent> <C-n> :bn<CR>
+" imap <silent> <C-n> <Esc>:bn<CR>i
+" nmap <silent> <C-p> :bp<CR>
+" imap <silent> <C-p> <Esc>:bp<CR>i
 " close current buffer 
-nmap <silent> <Leader>bd :NvimTreeToggle<CR>:bd<CR>:NvimTreeToggle<CR>
-set ambiwidth=double " 显示全角符号 
-let g:airline_theme="light" " 主题 
-let g:airline_powerline_fonts = 1 " tag箭头  
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#whitespace#symbol = '!'
-
+" nmap <silent> <Leader>bd :NvimTreeToggle<CR>:bd<CR>:NvimTreeToggle<CR>
+" set ambiwidth=double " 显示全角符号 
+" let g:airline_theme="light" " 主题 
+" let g:airline_powerline_fonts = 1 " tag箭头  
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#whitespace#enabled = 0
+" let g:airline#extensions#whitespace#symbol = '!'
+" let g:airline#extensions#tabline#formatter = 'unique_tail' " tabline 文件名 
+" let g:airline_section_a = 'iminsert'
+" let g:airline_stl_path_style = 'short' " 显示一个短路径
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 终端 <Leader>t(x)  
@@ -296,46 +324,52 @@ let g:floaterm_title = 'floaterm: $1/$2'
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " junegunn/fzf.vim
 " 在所有buffers搜索字符
-nmap <Leader>fs :Lines 
-nmap <Leader>s :Lines 
-" 在当前目录搜索文件
-nmap <silent> <Leader>ff :Files<CR>
-" 切换Buffers中的文件
-nmap <silent> <Leader>fb :Buffers<CR>
-" 在Vim打开的历史文件中搜索 
-" nmap <silent> <Leader>fh :History<CR>
-" 查看git graph 
-nmap <silent> <Leader>fg :Commits<CR>
-" - down / up / left / right
-" let g:fzf_layout = { 'up': '~25%' }
-let g:fzf_preview_window = ['right:50%','ctrl-/']
-" let  g:fzf_preview_window =  []
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg' : [ 'fg', 'Normal' ],
-  \ 'bg' : [ 'bg', 'Normal' ],
-  \ 'hl' : [ 'fg', 'Comment' ],
-  \ 'fg+' : [ 'fg', 'CursorLine', 'CursorColumn', 'Normal' ],
-  \ 'bg+' : [ 'bg', 'CursorLine', 'CursorColumn' ],
-  \ 'hl+' : [ 'fg', 'Statement' ],
-  \ 'info' : [ 'fg', 'PreProc' ],
-  \ 'border' : [ 'fg', 'Ignore' ],
-  \ 'prompt' : [ 'fg', 'Conditional' ],
-  \ 'pointer' : [ 'fg', 'Exception' ],
-  \ 'marker' : [ 'fg', 'Keyword' ],
-  \ 'spinner' : [ 'fg', 'Label' ],
-  \ 'header' : [ 'fg', 'Comment' ] }
-" 递归搜索当前目录
-" :Rg <keyword> 
-" 需要安装 ripgrep https://github.com/BurntSushi/ripgrep
-" fzf#vim#with_preview('up:60%','ctrl-/') 设置预览窗口, up:预览窗口位于上方, C-/ 切换预览窗口(显示不显示)
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%','ctrl-/') 
-  \           : fzf#vim#with_preview('right:50%', 'ctrl-/'),
-  \   <bang>0)
+" nmap <Leader>fs :Lines 
+" nmap <Leader>s :Lines 
+" " 在当前目录搜索文件
+" nmap <silent> <Leader>ff :Files<CR>
+" " 切换Buffers中的文件
+" nmap <silent> <Leader>fb :Buffers<CR>
+" " 在Vim打开的历史文件中搜索 
+" " nmap <silent> <Leader>fh :History<CR>
+" " 查看git graph 
+" nmap <silent> <Leader>fg :Commits<CR>
+" " - down / up / left / right
+" " let g:fzf_layout = { 'up': '~25%' }
+" let g:fzf_preview_window = ['right:50%','ctrl-/']
+" " let  g:fzf_preview_window =  []
+" " Customize fzf colors to match your color scheme
+" let g:fzf_colors =
+" \ { 'fg' : [ 'fg', 'Normal' ],
+"   \ 'bg' : [ 'bg', 'Normal' ],
+"   \ 'hl' : [ 'fg', 'Comment' ],
+"   \ 'fg+' : [ 'fg', 'CursorLine', 'CursorColumn', 'Normal' ],
+"   \ 'bg+' : [ 'bg', 'CursorLine', 'CursorColumn' ],
+"   \ 'hl+' : [ 'fg', 'Statement' ],
+"   \ 'info' : [ 'fg', 'PreProc' ],
+"   \ 'border' : [ 'fg', 'Ignore' ],
+"   \ 'prompt' : [ 'fg', 'Conditional' ],
+"   \ 'pointer' : [ 'fg', 'Exception' ],
+"   \ 'marker' : [ 'fg', 'Keyword' ],
+"   \ 'spinner' : [ 'fg', 'Label' ],
+"   \ 'header' : [ 'fg', 'Comment' ] }
+" " 递归搜索当前目录
+" " :Rg <keyword> 
+" " 需要安装 ripgrep https://github.com/BurntSushi/ripgrep
+" " fzf#vim#with_preview('up:60%','ctrl-/') 设置预览窗口, up:预览窗口位于上方, C-/ 切换预览窗口(显示不显示)
+" command! -bang -nargs=* Rg
+"   \ call fzf#vim#grep(
+"   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+"   \   <bang>0 ? fzf#vim#with_preview('up:60%','ctrl-/') 
+"   \           : fzf#vim#with_preview('right:50%', 'ctrl-/'),
+"   \   <bang>0)
 
+" 搜索 2
+" lua require("plugin/telescope")
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 跳转
@@ -487,7 +521,7 @@ let g:gitgutter_map_keys = 0
 " 启动视图
 nmap <Leader>m <Plug>MarkdownPreview
 " nmap <M-s> <Plug>MarkdownPreviewStop
-" nmap <C-p> <Plug>MarkdownPreviewToggle
+" nmap <C-p> <PPluglug>MarkdownPreviewToggle
 " set to 1, nvim will open the preview window after entering the markdown buffer default: 0
 let g:mkdp_auto_start = 0
 " set to 1, the nvim will auto close current preview window when change from markdown buffer to another buffer default: 1

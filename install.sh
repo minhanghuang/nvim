@@ -10,6 +10,7 @@ git clone git@github.com:ellisonleao/gruvbox.nvim.git ~/.config/nvim/plugged/gru
 git clone git@github.com:kyazdani42/nvim-web-devicons.git ~/.config/nvim/plugged/nvim-web-devicons
 git clone git@github.com:sonph/onehalf.git ~/.config/nvim/plugged/onehalf
 git clone git@github.com:projekt0n/github-nvim-theme.git ~/.config/nvim/plugged/github-nvim-theme
+git clone git@github.com:catppuccin/nvim.git ~/.config/nvim/plugged/catppuccin
 
 # 文件树
 git clone git@github.com:kyazdani42/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
@@ -19,8 +20,13 @@ git clone git@github.com:airblade/vim-gitgutter ~/.config/nvim/plugged/vim-gitgu
 
 # 窗口tag 
 # git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
-git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline
-git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
+# git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline
+# git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
+git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
+git clone git@github.com:famiu/bufdelete.nvim.git ~/.config/nvim/plugged/bufdelete.nvim
+git clone git@github.com:windwp/windline.nvim.git ~/.config/nvim/plugged/windline.nvim
+git clone git@github.com:lewis6991/gitsigns.nvim.git ~/.config/nvim/plugged/gitsigns.nvim
+
 
 # 跳转
 git clone git@github.com:neoclide/coc.nvim.git ~/.config/nvim/plugged/coc.nvim
@@ -30,9 +36,14 @@ cd ~/.config/nvim/plugged/coc.nvim && git checkout release
 git clone git@github.com:luochen1990/rainbow.git ~/.config/nvim/plugged/rainbow  
 
 # 搜索 
-git clone git@github.com:junegunn/fzf.vim.git ~/.config/nvim/plugged/fzf.vim
+# git clone git@github.com:junegunn/fzf.vim.git ~/.config/nvim/plugged/fzf.vim
 git clone git@github.com:junegunn/fzf.git  ~/.fzf
 cd ~/.fzf && ./install --all
+git clone git@github.com:nvim-telescope/telescope.nvim.git ~/.config/nvim/plugged/telescope.nvim
+git clone git@github.com:nvim-lua/plenary.nvim.git ~/.config/nvim/plugged/plenary.nvim
+git clone git@github.com:BurntSushi/ripgrep.git ~/.config/nvim/plugged/ripgrep
+git clone git@github.com:sharkdp/fd.git ~/.config/nvim/plugged/fd
+git clone git@github.com:kevinhwang91/nvim-hlslens.git ~/.config/nvim/plugged/nvim-hlslens
 
 # 最近打开文件
 git clone git@github.com:mhinz/vim-startify.git ~/.config/nvim/plugged/vim-startify
@@ -56,8 +67,8 @@ git clone git@github.com:rhysd/vim-clang-format.git ~/.config/nvim/plugged/vim-c
 git clone git@github.com:kana/vim-operator-user.git ~/.config/nvim/plugged/vim-operator-user
 
 # vim-airline/vim-airline
-git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline 
-git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
+# git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline 
+# git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
 
 # preservim/tagbar
 git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
@@ -68,6 +79,12 @@ git clone git@github.com:minhanghuang/DoxygenToolkit.vim.git ~/.config/nvim/plug
 # 翻译
 git clone git@github.com:ianva/vim-youdao-translater.git ~/.config/nvim/plugged/vim-youdao-translater
 git clone git@github.com:voldikss/vim-translator.git ~/.config/nvim/plugged/vim-translator
+
+# 通知消息美化 
+git clone git@github.com:rcarriga/nvim-notify.git ~/.config/nvim/plugged/nvim-notify
+
+# 高亮与当前光标相同的词汇
+git clone git@github.com:RRethy/vim-illuminate.git ~/.config/nvim/plugged/vim-illuminate
 
 
 echo "安装依赖"
