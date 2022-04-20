@@ -86,6 +86,11 @@ git clone git@github.com:rcarriga/nvim-notify.git ~/.config/nvim/plugged/nvim-no
 # 高亮与当前光标相同的词汇
 git clone git@github.com:RRethy/vim-illuminate.git ~/.config/nvim/plugged/vim-illuminate
 
+# 显示tab缩进 
+git clone git@github.com:lukas-reineke/indent-blankline.nvim.git ~/.config/nvim/plugged/indent-blankline.nvim
+
+# 缓存当前光标信息
+git clone git@github.com:ethanholz/nvim-lastplace.git ~/.config/nvim/plugged/nvim-lastplace
 
 echo "安装依赖"
 

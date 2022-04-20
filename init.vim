@@ -48,6 +48,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
 Plug 'ianva/vim-youdao-translater' " 有道翻译 
 Plug 'voldikss/vim-translator' " 翻译 
+Plug 'ethanholz/nvim-lastplace' " 缓存当前光标信息,下次重启恢复文件位置 
 
 " 9. 代码块 
 " 引擎 + 集合
@@ -232,6 +233,12 @@ let g:rainbow_active = 1
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " 
 lua require("plugin/nvim-hlslens")
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 光标会停留在上次编辑时的位置 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" 
+lua require("plugin/nvim-lastplace")
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 显示tab缩进 
