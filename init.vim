@@ -40,19 +40,24 @@ Plug 'tpope/vim-commentary' " 注释
 Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
 Plug 'RRethy/vim-illuminate' " 高亮与当前光标相同的词汇  
 
-" 6. 终端
+" 7. 终端
 Plug 'voldikss/vim-floaterm'
 
-" 7. 文本
+" 8. 文本
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
 Plug 'ianva/vim-youdao-translater' " 有道翻译 
 Plug 'voldikss/vim-translator' " 翻译 
 
-" 8. 代码块 
+" 9. 代码块 
 " 引擎 + 集合
 " 自定义代码块: 调高优先级, 覆盖honza/vim-snippets中不满意的代码块
 Plug 'SirVer/ultisnips' " 引擎 
 Plug 'honza/vim-snippets' " 代码块集合
+
+" 10. debugger 
+Plug 'mfussenegger/nvim-dap'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'rcarriga/nvim-dap-ui'
 
 call plug#end()
 
@@ -172,6 +177,8 @@ imap <C-a> <Esc>ggVG$
 nmap <silent> <Leader>= :vertical resize +2<CR>
 nmap <silent> <Leader>- :vertical resize -2<CR>
 
+
+lua require("basic/keybinds")
 " ***********************************
 "  neovim 插件 
 " ***********************************
@@ -205,6 +212,13 @@ colorscheme gruvbox
 " colorscheme catppuccin 
 " lua require("plugin/catppuccin")
 
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: debugger 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+lua require("plugin/nvim-dap-ui")
+lua require("plugin/nvim-dap-virtual-text")
+lua require("plugin/nvim-dap")
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 括号 
@@ -267,9 +281,9 @@ nmap <silent> <Leader><Tab> :TagbarToggle<CR>
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " akinsho/bufferline.nvim
 lua require("plugin/bufferline")
-nmap <silent> <C-n> :BufferLineCyclePrev<CR>
-imap <silent> <C-n> <Esc>:BufferLineCyclePrev<CR>i
-nmap <silent> <C-p> :BufferLineCycleNext<CR>
+nmap <silent> <C-n> :BufferLineCycleNext<CR>
+imap <silent> <C-n> <Esc>:BufferLineCycleNext<CR>i
+nmap <silent> <C-p> :BufferLineCyclePrev<CR>
 imap <silent> <C-p> <Esc>:BufferLineCycleNext<CR>i
 nmap <silent> <Leader>bd :Bdelete!<CR>
 
