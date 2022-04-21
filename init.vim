@@ -40,6 +40,7 @@ Plug 'tpope/vim-commentary' " 注释
 Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
 Plug 'RRethy/vim-illuminate' " 高亮与当前光标相同的词汇  
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进 
+Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮 
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'
@@ -233,6 +234,7 @@ let g:rainbow_active = 1
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " 
 lua require("plugin/nvim-hlslens")
+lua require("plugin/nvim-treesitter")
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 光标会停留在上次编辑时的位置 
