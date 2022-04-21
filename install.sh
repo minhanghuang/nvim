@@ -92,6 +92,12 @@ git clone git@github.com:lukas-reineke/indent-blankline.nvim.git ~/.config/nvim/
 # 缓存当前光标信息
 git clone git@github.com:ethanholz/nvim-lastplace.git ~/.config/nvim/plugged/nvim-lastplace
 
+# debugger
+git clone git@github.com:mfussenegger/nvim-dap.git ~/.config/nvim/plugged/nvim-dap
+git clone git@github.com:theHamsta/nvim-dap-virtual-text.git ~/.config/nvim/plugged/nvim-dap-virtual-text
+git clone git@github.com:rcarriga/nvim-dap-ui.git ~/.config/nvim/plugged/nvim-dap-ui
+
+
 echo "安装依赖"
 
 os_type=`uname  -a`
