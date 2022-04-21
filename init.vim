@@ -38,9 +38,9 @@ Plug 'airblade/vim-gitgutter' " git
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
 Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
-Plug 'RRethy/vim-illuminate' " 高亮与当前光标相同的词汇  
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进 
 Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮 
+Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇 
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'
@@ -233,7 +233,22 @@ let g:rainbow_active = 1
 "   插件: 高亮与当前光标相同的词汇 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " 
+" disable highlighting for some filetypes
+let g:cursorword_disable_filetypes = []
+" min width of word
+let g:cursorword_min_width = 3
+" max width of word
+let g:cursorword_max_width = 50
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 搜索美化 
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 lua require("plugin/nvim-hlslens")
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 语法高亮
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 lua require("plugin/nvim-treesitter")
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
