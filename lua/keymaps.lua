@@ -96,3 +96,44 @@ keymap("i", "<C-a>", "<Esc>ggVG$", opts)
 keymap("n", "<Leader>=", ":vertical resize +2<CR>", opts)
 keymap("n", "<Leader>-", ":vertical resize -2<CR>", opts)
 
+
+-- nvim-tree
+-- <C-ww>: 切换窗口(工作区与编辑区窗口)
+-- <C-v>: 垂直打开新窗口
+-- type a: 新建文件/文件夹(文件夹后加下划线/)
+-- type o: 打开文件/文件夹
+-- type r: 修改文件名 
+-- type x: 剪切 
+-- type c: 复制 
+-- type p: 粘贴 
+-- type y: 拷贝文件名(系统剪切板)
+-- type Y: 拷贝文件相对路径(系统剪切板)
+-- type gy: 拷贝文件绝对路径(系统剪切板)
+-- type d: 删除文件(确认)
+-- type R: 刷新
+-- type H: 显示/不显示 隐藏文件
+keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", opts)
+
+-- debuggger 
+keymap("n", "<Leader>du", "<cmd>lua require'dapui'.toggle()<CR>", opts)
+keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<F6>", "<cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F8>", "<cmd>lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<F9>", "<cmd>lua require'dap'.run_last()<CR>", opts)
+keymap("n",
+  "<F10>", 
+  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>", 
+  opts
+)
+
+-- buffers
+keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)
+keymap("i", "<C-n>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<C-p>", ":BufferLineCycleNext<CR>", opts)
+keymap("i", "<C-p>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<Leader>fd", ":Bdelete!<CR>", opts)
+
+

@@ -95,7 +95,11 @@ git clone git@github.com:ethanholz/nvim-lastplace.git ~/.config/nvim/plugged/nvi
 # 语法高亮 
 git clone git@github.com:nvim-treesitter/nvim-treesitter.git ~/.config/nvim/plugged/nvim-treesitter
 
+# 括号 
+git clone git@github.com:haringsrob/nvim_context_vt.git ~/.config/nvim/plugged/nvim_context_vt
+
 # debugger
+git clone git@github.com:ravenxrz/DAPInstall.nvim.git ~/.config/nvim/plugged/DAPInstall.nvim
 git clone git@github.com:mfussenegger/nvim-dap.git ~/.config/nvim/plugged/nvim-dap
 git clone git@github.com:theHamsta/nvim-dap-virtual-text.git ~/.config/nvim/plugged/nvim-dap-virtual-text
 git clone git@github.com:rcarriga/nvim-dap-ui.git ~/.config/nvim/plugged/nvim-dap-ui
