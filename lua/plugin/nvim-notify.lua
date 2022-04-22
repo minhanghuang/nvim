@@ -1,5 +1,4 @@
 -- https://github.com/rcarriga/nvim-notify
-​
 local notify_opts = {
     -- 动画样式
     -- fade_in_slide_out

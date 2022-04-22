@@ -41,9 +41,12 @@ Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进 
 Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮 
 Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇 
+" Plug 'nvim-lua/plenary.nvim' " cmake 
+" Plug 'Shatur/neovim-cmake' " cmake 
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'
+" Plug 'rcarriga/nvim-notify'
 
 " 8. 文本
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
@@ -58,9 +61,10 @@ Plug 'SirVer/ultisnips' " 引擎
 Plug 'honza/vim-snippets' " 代码块集合
 
 " 10. debugger 
-Plug 'mfussenegger/nvim-dap'
-Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'rcarriga/nvim-dap-ui'
+Plug 'ravenxrz/DAPInstall.nvim' " 下载debugger
+Plug 'mfussenegger/nvim-dap' " 基本调试 
+Plug 'theHamsta/nvim-dap-virtual-text' " 显示调试
+Plug 'rcarriga/nvim-dap-ui' " UI,显示堆栈等  
 
 call plug#end()
 
@@ -69,119 +73,10 @@ call plug#end()
 "  vim 基本配置
 " ***********************************
 let mapleader="\<Space>"
-set number " 显示行号
-set cursorline " 高亮所在行 
-" set tabstop=2 " tab
-set shiftwidth=2
-set expandtab
-set history=1024 " 历史记录
-set backspace=indent,eol,start whichwrap+=<,>,[,]
-set showcmd
-set showmatch " 高亮匹配括号
-set cmdheight=1 " 1 screen lines to use for the command-line
-set showfulltag " show tag with function protype.
-set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
-set fileencodings=utf-8,gbk2312,gbk,gb18030,cp936
-set encoding=utf-8
-set tenc=utf-8
-set ruler "显示最后一行的状态
-set autoread
-set hlsearch
-set ignorecase " 不区分大小写 
-" set noignorecase " 区分大小写 
-syntax on " 语法检测
-syntax enable
 
-" ***********************************
-"  vim 快捷键
-"         Normal | Visual | Insert | Operator | Command 
-"   map:    T        T                  T               
-"   !map:                     T                   T               
-"   nmap:   T   
-"   vmap:            T  
-"   imap:                     T      
-"   omap:                               T          
-"   cmap:                                         T          
-"
-"   default map:
-"    yy: 复制当前行
-"    yyP: 拷贝当前行到上一行 
-"    yyp: 拷贝当前行到下一行
-"    ^或0: 行首
-"    $: 行尾
-"    s: 修改当前字母
-"    S: 修改当前行
-"    w: 光标移动到下一个单词开头
-"    e: 光标移动到下一个单词结尾
-"    b: 光标移动到前一个单词开头
-"    gg: 光标移动到文件开头处
-"    G: 光标移动到文件结尾处
-"    dd: 剪切当前行
-"    x: 删除当前字母
-"    dw: 以光标为界,删除单词后半部分 
-"    diw: 删除光标所在单词
-"    o: 当前行向下插入一空行
-"    O: 当前行向上插入一空行
-"    u: 撤销操作
-"   <C-r>: 反撤销
-"   <C-o>: 返回上一次光标所在位置
-"   <C-i>: 回到上一次光标所在位置
-"   <C-l>: 刷新屏幕
-"   y: vmap模式,复制选中内容
-"   :/ : 当前buffer搜索(n:下一个, N:上一个) <C-l>恢复屏幕 
-"   *: 当前BUFFER搜索光标所在单词(n:下一个,N:上一个)
-"   gu: 大写转小写 
-"   gU: 小写转大写 
-"   rx: x替换当前光标所在字母  
-"   fx: 光标向后移动到第一个x所在位置   
-"   Fx: 光标向前移动到第一个x所在位置   
-"   :[addr]s/old/new/[option] : 替换 
-"     s是substitute缩写
-"     [addr]: 
-"       "1,n":表示从第1行到n行
-"       ".,$":表示从当前行到文件尾
-"       "%":表示整个文件,同"1,$"
-"     [option]: g c p i 省略时仅对每行第一个匹配串进行替换 
-"       g: global 全局替换
-"       c: confirm 确认 
-"       p: 表示替代结果逐行显示,<C-l>恢复屏幕
-"       i:ignore 不区分大小写
-"     #为转义符
-" ***********************************
-" 光标移动 向上10行/向下10行 
-nmap <c-j> 10j 
-vmap <c-j> 10j 
-nmap <c-k> 10k 
-vmap <c-k> 10k 
-" 缩进 
-vmap >  >gv 
-vmap <  <gv  
-" 插入模式, 移动到行首/行尾 
-imap <C-u> <Home>
-imap <C-d> <End>
-" 复制当前选中到系统剪切板
-vmap <leader><leader>y "+y
-" 将系统剪切板内容粘贴到vim
-nmap <leader><leader>p "+p
-" 插入模式移动光标 
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-" 插入模式, 当前行向下插入一空行
-imap <C-o> <Esc>o
-" 插入模式, 翻页 
-imap <C-b> <PageUp>
-imap <C-f> <PageDown>
-" 全选, $:选中到行尾 
-nmap <C-a> ggVG$ 
-imap <C-a> <Esc>ggVG$ 
-" 设置窗口大小 
-nmap <silent> <Leader>= :vertical resize +2<CR>
-nmap <silent> <Leader>- :vertical resize -2<CR>
-
-
+lua require("options")
 lua require("basic/keybinds")
+lua require("keymaps")
 " ***********************************
 "  neovim 插件 
 " ***********************************
@@ -244,6 +139,12 @@ let g:cursorword_max_width = 50
 "   插件: 搜索美化 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 lua require("plugin/nvim-hlslens")
+
+" " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" "   插件: cmake 
+" " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+" lua require("plugin/neovim-cmake")
+" lua require("plugin/nvim-notify")
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 语法高亮
@@ -316,7 +217,7 @@ nmap <silent> <C-n> :BufferLineCycleNext<CR>
 imap <silent> <C-n> <Esc>:BufferLineCycleNext<CR>i
 nmap <silent> <C-p> :BufferLineCyclePrev<CR>
 imap <silent> <C-p> <Esc>:BufferLineCycleNext<CR>i
-nmap <silent> <Leader>bd :Bdelete!<CR>
+nmap <silent> <Leader>fd :Bdelete!<CR>
 
 " vim-airline/vim-airline 
 " next buffer 
