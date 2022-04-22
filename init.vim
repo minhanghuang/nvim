@@ -34,19 +34,16 @@ Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转
 Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
 Plug 'airblade/vim-gitgutter' " git   
-" Plug 'puremourning/vimspector' " debugger graph    
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
 Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进 
 Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮 
 Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇 
-" Plug 'nvim-lua/plenary.nvim' " cmake 
-" Plug 'Shatur/neovim-cmake' " cmake 
+Plug 'haringsrob/nvim_context_vt' " 括号后提示所属条件 
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'
-" Plug 'rcarriga/nvim-notify'
 
 " 8. 文本
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
@@ -75,7 +72,6 @@ call plug#end()
 let mapleader="\<Space>"
 
 lua require("options")
-lua require("basic/keybinds")
 lua require("keymaps")
 " ***********************************
 "  neovim 插件 
@@ -93,13 +89,6 @@ lua require("keymaps")
 
 "  主题2: ellisonleao/gruvbox.nvim
 set termguicolors
-set background=dark " or light if you want light mode
-let g:gruvbox_bold=1
-let g:gruvbox_italic=1
-let g:gruvbox_transparent_bg=1
-let g:gruvbox_underline=1
-let g:gruvbox_undercurl=1
-let g:gruvbox_termcolors=256
 colorscheme gruvbox
 
 " 主题3
@@ -114,9 +103,9 @@ colorscheme gruvbox
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: debugger 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-lua require("plugin/nvim-dap-ui")
-lua require("plugin/nvim-dap-virtual-text")
-lua require("plugin/nvim-dap")
+lua require("dap/nvim-dap-ui")
+lua require("dap/nvim-dap-virtual-text")
+lua require("dap/nvim-dap")
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 括号 
@@ -144,7 +133,6 @@ lua require("plugin/nvim-hlslens")
 " "   插件: cmake 
 " " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " lua require("plugin/neovim-cmake")
-" lua require("plugin/nvim-notify")
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 语法高亮
@@ -172,29 +160,17 @@ lua require("plugin/windline")
 lua require("plugin/gitsigns") 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"   插件: 括号后提示所属条件  
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+"
+lua require("plugin/nvim_context_vt") 
+
+" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 文件树
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " kyazdani42/nvim-tree.lua
-" <C-ww>: 切换窗口(工作区与编辑区窗口)
-" <C-v>: 垂直打开新窗口
-" type a: 新建文件/文件夹(文件夹后加下划线/)
-" type o: 打开文件/文件夹
-" type r: 修改文件名 
-" type x: 剪切 
-" type c: 复制 
-" type p: 粘贴 
-" type y: 拷贝文件名(系统剪切板)
-" type Y: 拷贝文件相对路径(系统剪切板)
-" type gy: 拷贝文件绝对路径(系统剪切板)
-" type d: 删除文件(确认)
-" type R: 刷新
-" type H: 显示/不显示 隐藏文件
 lua require("plugin/nvim-tree")
 lua require("plugin/nvim-web-devicons")
-" 打开/关闭 文件树
-nmap <silent> <Leader>o :NvimTreeToggle<CR> 
-" 定位当前buffer在文件树的位置
-nmap <silent> <Leader><Leader>o :NvimTreeFindFile<CR> 
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -213,30 +189,7 @@ nmap <silent> <Leader><Tab> :TagbarToggle<CR>
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " akinsho/bufferline.nvim
 lua require("plugin/bufferline")
-nmap <silent> <C-n> :BufferLineCycleNext<CR>
-imap <silent> <C-n> <Esc>:BufferLineCycleNext<CR>i
-nmap <silent> <C-p> :BufferLineCyclePrev<CR>
-imap <silent> <C-p> <Esc>:BufferLineCycleNext<CR>i
-nmap <silent> <Leader>fd :Bdelete!<CR>
 
-" vim-airline/vim-airline 
-" next buffer 
-" nmap <silent> <C-n> :bn<CR>
-" imap <silent> <C-n> <Esc>:bn<CR>i
-" nmap <silent> <C-p> :bp<CR>
-" imap <silent> <C-p> <Esc>:bp<CR>i
-" close current buffer 
-" nmap <silent> <Leader>bd :NvimTreeToggle<CR>:bd<CR>:NvimTreeToggle<CR>
-" set ambiwidth=double " 显示全角符号 
-" let g:airline_theme="light" " 主题 
-" let g:airline_powerline_fonts = 1 " tag箭头  
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#buffer_nr_show = 1
-" let g:airline#extensions#whitespace#enabled = 0
-" let g:airline#extensions#whitespace#symbol = '!'
-" let g:airline#extensions#tabline#formatter = 'unique_tail' " tabline 文件名 
-" let g:airline_section_a = 'iminsert'
-" let g:airline_stl_path_style = 'short' " 显示一个短路径
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 终端 <Leader>t(x)  
