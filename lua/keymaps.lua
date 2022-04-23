@@ -22,6 +22,7 @@ vim.g.maplocalleader = " "
 --   cmap:                                         T          
 --
 --   default map:
+--    yaw: 复制光标所在单词 
 --    yy: 复制当前行
 --    yyP: 拷贝当前行到上一行 
 --    yyp: 拷贝当前行到下一行
@@ -115,7 +116,7 @@ keymap("n", "<Leader>-", ":vertical resize -2<CR>", opts)
 keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", opts)
 
--- debuggger 
+-- debuggger(dap) 
 keymap("n", "<Leader>du", "<cmd>lua require'dapui'.toggle()<CR>", opts)
 keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
@@ -129,11 +130,25 @@ keymap("n",
   opts
 )
 
+-- 搜索(telescope) 
+keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
+keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+
 -- buffers
 keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)
-keymap("i", "<C-n>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<C-p>", ":BufferLineCycleNext<CR>", opts)
-keymap("i", "<C-p>", ":BufferLineCycleNext<CR>", opts)
+keymap("i", "<C-n>", "<Esc>:BufferLineCycleNext<CR>i", opts)
+keymap("n", "<C-p>", ":BufferLineCyclePrev<CR>", opts)
+keymap("i", "<C-p>", "<Esc>:BufferLineCyclePrev<CR>i", opts)
 keymap("n", "<Leader>fd", ":Bdelete!<CR>", opts)
+
+-- 注释 
+-- keymap("n", "<C-]>", "gcc<CR>", opts)
+-- keymap("i", "<C-]>", "<Esc>gcc<CR>i", opts)
+-- keymap("v", "<C-]>", "gc", opts)
+
+-- tagbar(preservim/tagbar)
+keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
 
 
