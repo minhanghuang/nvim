@@ -118,7 +118,7 @@ keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", opts)
 
 -- debuggger(dap) 
 keymap("n", "<Leader>du", "<cmd>lua require'dapui'.toggle()<CR>", opts)
-keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", opts)
 keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
 keymap("n", "<F6>", "<cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
@@ -143,12 +143,10 @@ keymap("n", "<C-p>", ":BufferLineCyclePrev<CR>", opts)
 keymap("i", "<C-p>", "<Esc>:BufferLineCyclePrev<CR>i", opts)
 keymap("n", "<Leader>fd", ":Bdelete!<CR>", opts)
 
--- 注释 
--- keymap("n", "<C-]>", "gcc<CR>", opts)
--- keymap("i", "<C-]>", "<Esc>gcc<CR>i", opts)
--- keymap("v", "<C-]>", "gc", opts)
-
 -- tagbar(preservim/tagbar)
 keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
 
+-- git(lewis6991/gitsigns.nvim)
+-- 显示当前行git提交信息
+keymap("n", "<Leader>gd", ":Gitsigns toggle_current_line_blame<CR>", opts)
 

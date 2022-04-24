@@ -1,4 +1,5 @@
 -- python3 -m pip install debugpy
+
 return {
     adapters = {
         type = "executable",
@@ -14,16 +15,6 @@ return {
             pythonPath = function()
                 return "/usr/bin/python3" 
             end
-            -- pythonPath = function()
-            -- local cwd = vim.fn.getcwd()
-            -- if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
-            --   return cwd .. '/venv/bin/python'
-            -- elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
-            --   return cwd .. '/.venv/bin/python'
-            -- else
-            --   return '/usr/bin/python'
-            -- end
-          -- end;
         }
     }
 }

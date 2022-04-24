@@ -27,7 +27,6 @@ Plug 'kevinhwang91/nvim-hlslens' " 搜索美化 [2/56]
 " 5. 美化
 Plug 'luochen1990/rainbow' " 括号颜色 
 Plug 'jiangmiao/auto-pairs' " 补全括号
-Plug 'rcarriga/nvim-notify' " 消息通知
 
 " 6. 代码相关
 Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
