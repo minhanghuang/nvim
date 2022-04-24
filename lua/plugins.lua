@@ -18,9 +18,7 @@ require("plugin/bufferline")
 -- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 --   插件: debugger 
 -- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-require("dap/nvim-dap-ui")
-require("dap/nvim-dap-virtual-text")
-require("dap/nvim-dap")
+require("dap/dap-init")
 
 -- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 --  插件: 文件树

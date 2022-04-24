@@ -80,9 +80,6 @@ git clone git@github.com:minhanghuang/DoxygenToolkit.vim.git ~/.config/nvim/plug
 git clone git@github.com:ianva/vim-youdao-translater.git ~/.config/nvim/plugged/vim-youdao-translater
 git clone git@github.com:voldikss/vim-translator.git ~/.config/nvim/plugged/vim-translator
 
-# 通知消息美化 
-git clone git@github.com:rcarriga/nvim-notify.git ~/.config/nvim/plugged/nvim-notify
-
 # 高亮与当前光标相同的词汇
 git clone git@github.com:RRethy/vim-illuminate.git ~/.config/nvim/plugged/vim-illuminate
 
