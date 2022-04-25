@@ -15,7 +15,6 @@ Plug 'mhinz/vim-startify' " 驱动画面
 Plug 'akinsho/bufferline.nvim' " buffers 
 Plug 'famiu/bufdelete.nvim' " 关闭buffer 
 Plug 'windwp/windline.nvim' " 底部状态栏美化
-Plug 'lewis6991/gitsigns.nvim' " 底部状态栏美化(获取git数据)
 
 "4. 搜索 
 Plug 'nvim-telescope/telescope.nvim' " 搜索  
@@ -32,7 +31,6 @@ Plug 'jiangmiao/auto-pairs' " 补全括号
 Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
 Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
-Plug 'airblade/vim-gitgutter' " git   
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
 Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
@@ -40,6 +38,7 @@ Plug 'lukas-reineke/indent-blankline.nvim' " 缩进
 Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮 
 Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇 
 Plug 'haringsrob/nvim_context_vt' " 括号后提示所属条件 
+Plug 'lewis6991/gitsigns.nvim' " git  
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'
@@ -168,94 +167,6 @@ imap <C-]> <Esc>gcc<CR>i
 vmap <C-]> gc
 " C和C++的文件使用 // 注释 (默认是/**/)
 autocmd FileType c,cpp setlocal commentstring=//\ %s
-
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: git 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" airblade/vim-gitgutter 
-function! GitGutterNextHunkCycle()
-  let line = line('.')
-    GitGutterNextHunk
-  if line('.') == line
-    1
-    GitGutterNextHunk
-  endif
-endfunction
-
-function! GitGutterPrevHunkCycle()
-  let line = line('.')
-  " silent! GitGutterPrevHunk
-    GitGutterPrevHunk
-  if line('.') == line
-    normal! G
-    GitGutterPrevHunk
-  endif
-endfunction
-
-function! NextHunkAllBuffers()
-  let line = line('.')
-  GitGutterNextHunk
-  if line('.') != line
-    return
-  endif
-
-  let bufnr = bufnr('')
-  while 1
-    bnext
-    if bufnr('') == bufnr
-      return
-    endif
-    if !empty(GitGutterGetHunks())
-      1
-      GitGutterNextHunk
-      return
-    endif
-  endwhile
-endfunction
-
-function! PrevHunkAllBuffers()
-  let line = line('.')
-  GitGutterPrevHunk
-  if line('.') != line
-    return
-  endif
-
-  let bufnr = bufnr('')
-  while 1
-    bprevious
-    if bufnr('') == bufnr
-      return
-    endif
-    if !empty(GitGutterGetHunks())
-      normal! G
-      GitGutterPrevHunk
-      return
-    endif
-  endwhile
-endfunction
-" 当前所有buffers的上/下一块(循环)
-nmap <silent> <Leader>gbn :call NextHunkAllBuffers()<CR>
-nmap <silent> <Leader>gbp :call PrevHunkAllBuffers()<CR>
-" 当前buffer的上/下一块(循环)
-nmap <silent> <Leader>gn :call GitGutterNextHunkCycle()<CR>
-nmap <silent> <Leader>gp :call GitGutterPrevHunkCycle()<CR>
-" 保存当前块到stage(local->stage)
-nmap <Leader>gs <Plug>(GitGutterStageHunk)
-" 撤销当前块(local->cancel undo)
-nmap <Leader>gu <Plug>(GitGutterUndoHunk)
-" 查看当前块之前的代码 
-nmap <Leader>gh <Plug>(GitGutterPreviewHunk)
-" 显示块号 1/3 
-let g:gitgutter_show_msg_on_hunk_jumping = 1
-" 查看以前代码使用悬浮窗口
-let g:gitgutter_preview_win_floating = 1
-" 高亮行 
-" let g:gitgutter_highlight_lines = 1
-" 高亮行号 
-let g:gitgutter_highlight_linenrs = 1
-" 不使用gitgutter默认的快捷键映射
-let g:gitgutter_map_keys = 0
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

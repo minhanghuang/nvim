@@ -149,4 +149,9 @@ keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
 keymap("n", "<Leader>gd", ":Gitsigns toggle_current_line_blame<CR>", opts)
+keymap("n", "<Leader>gn", ":Gitsigns next_hunk<CR>", opts)
+keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", opts)
+keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", opts)
+keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", opts)
 
