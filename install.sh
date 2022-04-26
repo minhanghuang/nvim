@@ -98,6 +98,8 @@ git clone git@github.com:mfussenegger/nvim-dap.git ~/.config/nvim/plugged/nvim-d
 git clone git@github.com:theHamsta/nvim-dap-virtual-text.git ~/.config/nvim/plugged/nvim-dap-virtual-text
 git clone git@github.com:rcarriga/nvim-dap-ui.git ~/.config/nvim/plugged/nvim-dap-ui
 
+# NeoVim 加速
+git clone git@github.com:nathom/filetype.nvim.git ~/.config/nvim/plugged/filetype
 
 echo "安装依赖"
 

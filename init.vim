@@ -10,6 +10,7 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'} " 主题 4
 " 2. 文件  
 Plug 'kyazdani42/nvim-tree.lua' " 文件树 
 Plug 'mhinz/vim-startify' " 驱动画面
+Plug 'nathom/filetype.nvim' " 加速neovim 
 
 "3. buffers 
 Plug 'akinsho/bufferline.nvim' " buffers 
@@ -135,25 +136,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 " 哪些地方调用了该函数  
 nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-" Use tab for trigger completion with characters ahead and navigate.
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
