@@ -74,7 +74,6 @@ git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
 git clone git@github.com:minhanghuang/DoxygenToolkit.vim.git ~/.config/nvim/plugged/DoxygenToolkit.vim
 
 # 翻译
-git clone git@github.com:ianva/vim-youdao-translater.git ~/.config/nvim/plugged/vim-youdao-translater
 git clone git@github.com:voldikss/vim-translator.git ~/.config/nvim/plugged/vim-translator
 
 # 高亮与当前光标相同的词汇
