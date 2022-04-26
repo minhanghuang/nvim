@@ -75,8 +75,12 @@ keymap("v", "<C-k>", "10k", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "<", "<gv", opts)
 
+keymap("n", "<C-u>", "<Home>", opts)
 keymap("i", "<C-u>", "<Home>", opts)
+keymap("v", "<C-u>", "<Home>", opts)
+keymap("n", "<C-d>", "<End>", opts)
 keymap("i", "<C-d>", "<End>", opts)
+keymap("v", "<C-d>", "<End>", opts)
 
 keymap("n", "<Leader><Leader>y", "\"+y", opts)
 keymap("n", "<Leader><Leader>p", "\"+p", opts)
@@ -131,10 +135,12 @@ keymap("n",
 )
 
 -- 搜索(telescope) 
+-- 搜索文件 
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
+-- 搜索字符串 
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+-- 在当前工作目录中搜索光标下的字符串
+keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", opts)
 
 -- buffers
 keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)
@@ -145,6 +151,12 @@ keymap("n", "<Leader>fd", ":Bdelete!<CR>", opts)
 
 -- tagbar(preservim/tagbar)
 keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
+
+-- 括号归属(haringsrob/nvim_context_vt) 
+keymap("n", "<Leader>dc", ":NvimContextVtToggle<CR>", opts)
+
+-- clang-format(rhysd/vim-clang-format) 
+keymap("n", "<Leader>cf", ":ClangFormat<CR>", opts)
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
