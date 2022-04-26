@@ -76,24 +76,6 @@ lua require("keymaps")
 
 
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 括号 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" luochen1990/rainbow 
-let g:rainbow_active = 1
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 高亮与当前光标相同的词汇 
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" 
-" disable highlighting for some filetypes
-let g:cursorword_disable_filetypes = []
-" min width of word
-let g:cursorword_min_width = 3
-" max width of word
-let g:cursorword_max_width = 50
-
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 "   插件: 终端 <Leader>t(x)  
 " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 " voldikss/vim-floaterm

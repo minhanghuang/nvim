@@ -99,7 +99,7 @@ git clone git@github.com:theHamsta/nvim-dap-virtual-text.git ~/.config/nvim/plug
 git clone git@github.com:rcarriga/nvim-dap-ui.git ~/.config/nvim/plugged/nvim-dap-ui
 
 # NeoVim 加速
-git clone git@github.com:nathom/filetype.nvim.git ~/.config/nvim/plugged/filetype
+git clone git@github.com:nathom/filetype.nvim.git ~/.config/nvim/plugged/filetype.nvim
 
 echo "安装依赖"
 
