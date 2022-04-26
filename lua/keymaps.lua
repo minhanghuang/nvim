@@ -167,3 +167,19 @@ keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", opts)
 keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", opts)
 keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", opts)
 
+-- terminal
+keymap("t", "<Esc>", "<C-\\><C-n>", opts)
+keymap("t", "<C-n>", "<C-\\><C-n>:FloatermNext<CR>", opts)
+keymap("t", "<Leader>tw", "<C-\\><C-n>:FloatermNew<CR>", opts)
+keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", opts)
+keymap("n", "<Leader>tt", ":FloatermToggle<CR>", opts)
+
+-- 翻译(voldikss/vim-translator)
+keymap("n", "<Leader>tr", ":Translate<CR>", opts)
+
+-- Doxygen
+keymap("n", "<Leader>dd", ":Dox<CR>", opts)
+
+-- Markdown(iamcco/markdown-preview.nvim)
+keymap("n", "<Leader>m", ":MarkdownPreview<CR>", opts)
+
