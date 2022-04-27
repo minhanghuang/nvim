@@ -90,14 +90,3 @@ nmap <silent> gi <Plug>(coc-implementation)
 " 哪些地方调用了该函数  
 nmap <silent> gr <Plug>(coc-references)
 
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 注释  
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" tpope/vim-commentary 
-" 注释单行 
-nmap <C-]> gcc<CR>
-imap <C-]> <Esc>gcc<CR>i
-" 注释单行/多行 
-vmap <C-]> gc
-
