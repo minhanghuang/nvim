@@ -183,3 +183,8 @@ keymap("n", "<Leader>dd", ":Dox<CR>", opts)
 -- Markdown(iamcco/markdown-preview.nvim)
 keymap("n", "<Leader>m", ":MarkdownPreview<CR>", opts)
 
+-- 注释(tpope/vim-commentary)
+keymap("n", "<C-]>", "gcc<CR>", term_opts)
+keymap("i", "<C-]>", "<Esc>gcc<CR>i", term_opts)
+keymap("v", "<C-]>", "gc", term_opts)
+
