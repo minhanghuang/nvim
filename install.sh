@@ -100,6 +100,9 @@ git clone git@github.com:rcarriga/nvim-dap-ui.git ~/.config/nvim/plugged/nvim-da
 # NeoVim 加速
 git clone git@github.com:nathom/filetype.nvim.git ~/.config/nvim/plugged/filetype.nvim
 
+# 
+git clone git@github.com:folke/which-key.nvim.git ~/.config/nvim/plugged/which-key.nvim
+
 echo "安装依赖"
 
 os_type=`uname  -a`

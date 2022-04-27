@@ -98,9 +98,12 @@ keymap("i", "<C-f>", "<PageDown>", opts)
 keymap("n", "<C-a>", "ggVG$", opts)
 keymap("i", "<C-a>", "<Esc>ggVG$", opts)
 
-keymap("n", "<Leader>=", ":vertical resize +2<CR>", opts)
-keymap("n", "<Leader>-", ":vertical resize -2<CR>", opts)
-
+keymap("n", "<S-Up>", ":resize -2<CR>", opts)
+keymap("n", "<S-Down>", ":resize +2<CR>", opts)
+keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
+keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", opts)
+keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", opts)
 
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
@@ -160,7 +163,7 @@ keymap("n", "<Leader>cf", ":ClangFormat<CR>", opts)
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
-keymap("n", "<Leader>gd", ":Gitsigns toggle_current_line_blame<CR>", opts)
+keymap("n", "<Leader>gt", ":Gitsigns toggle_current_line_blame<CR>", opts)
 keymap("n", "<Leader>gn", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", opts)
@@ -194,3 +197,4 @@ keymap("n", "]g", "<Plug>(coc-diagnostic-next)", term_opts)
 keymap("n", "gd", "<Plug>(coc-definition)", term_opts)
 keymap("n", "gi", "<Plug>(coc-implementation)", term_opts)
 keymap("n", "gr", "<Plug>(coc-references)", term_opts)
+

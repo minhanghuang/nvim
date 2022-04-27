@@ -61,6 +61,9 @@ Plug 'mfussenegger/nvim-dap' " 基本调试
 Plug 'theHamsta/nvim-dap-virtual-text' " 显示调试
 Plug 'rcarriga/nvim-dap-ui' " UI,显示堆栈等  
 
+" 11. 显示快捷键
+Plug 'folke/which-key.nvim'
+
 call plug#end()
 
 

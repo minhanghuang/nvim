@@ -56,3 +56,6 @@ require("plugin/coc")
 -- 注释 
 require("plugin/vim-commentary")
 
+-- 快捷建 
+require("plugin/which-key")
+
