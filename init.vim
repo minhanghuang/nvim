@@ -64,29 +64,7 @@ Plug 'rcarriga/nvim-dap-ui' " UI,显示堆栈等
 call plug#end()
 
 
-" ***********************************
-"  vim 基本配置
-" ***********************************
-let mapleader="\<Space>"
-
 lua require("options")
 lua require("plugins")
 lua require("keymaps")
-
-
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"   插件: 跳转
-" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-" neoclide/coc.nvim
-" 启动vim自动安装coc.xxx语言插件
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" Remap keys for gotos
-" 跳转到函数定义
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-" 哪些地方调用了该函数  
-nmap <silent> gr <Plug>(coc-references)
 
