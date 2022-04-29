@@ -59,3 +59,5 @@ require("plugin/vim-commentary")
 -- 快捷建 
 require("plugin/which-key")
 
+-- 替换
+require("plugin/nvim-spectre")
