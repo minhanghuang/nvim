@@ -198,3 +198,13 @@ keymap("n", "gd", "<Plug>(coc-definition)", term_opts)
 keymap("n", "gi", "<Plug>(coc-implementation)", term_opts)
 keymap("n", "gr", "<Plug>(coc-references)", term_opts)
 
+-- 替换(windwp/nvim-spectre)
+-- 全文替换-当前光标所在单词
+keymap("n", "<Leader>rw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", opts)
+-- 替换当前文件
+keymap("n", "<Leader>r", "viw:lua require('spectre').open_file_search()<CR>", opts)
+-- -- 任意替换
+-- keymap("n", "<Leader>a", "<cmd>lua require('spectre').open()<CR>", opts)
+-- -- 全文替换
+-- keymap("n", "<Leader>c", "<cmd>lua require('spectre').open_visual()<CR>", opts)
+

@@ -48,6 +48,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
 Plug 'voldikss/vim-translator' " 翻译 
 Plug 'ethanholz/nvim-lastplace' " 缓存当前光标信息,下次重启恢复文件位置 
+Plug 'windwp/nvim-spectre' " 替换
 
 " 9. 代码块 
 " 引擎 + 集合

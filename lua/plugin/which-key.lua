@@ -86,18 +86,18 @@ local mappings = {
     -- s = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search" },
   -- },
 
-  -- h = {
-    -- name = "Help",
-    -- c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    -- h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    -- M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    -- R = { "<cmd>Telescope registers<cr>", "Registers" },
-    -- k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    -- C = { "<cmd>Telescope commands<cr>", "Commands" },
-  -- },
-  ["<leader>"] = {
+  h = {
+    name = "Help",
+    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    R = { "<cmd>Telescope registers<cr>", "Registers" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
+  },
+  ["R"] = {
     f = {
-      name = "+file",
+      name = "file",
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       n = { "<cmd>enew<cr>", "New File" },
