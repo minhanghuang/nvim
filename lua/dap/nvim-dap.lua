@@ -32,13 +32,14 @@ vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
 
 -- 加载调试器配置
 local dap_config = {
-    python = require("dap.python"),
-    -- go = require("dap.go")
+    -- python = require("dap.python"),
+    cpp = require("dap.cpp")
 }
 
 -- 设置调试器
 for dap_name, dap_options in pairs(dap_config) do
-    dap.adapters[dap_name] = dap_options.adapters
-    dap.configurations[dap_name] = dap_options.configurations
+    dap.adapters.cppdbg = dap_options.adapters
+    dap.configurations.cpp = dap_options.configurations
+    dap.configurations.c = dap.configurations.cpp
 end
 
