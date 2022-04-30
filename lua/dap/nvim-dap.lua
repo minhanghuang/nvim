@@ -36,7 +36,7 @@ local cpp = require("dap.cpp")
 dap.adapters.python = python.adapters
 dap.configurations.python = python.configurations
 
-dap.adapters.cppdbg = dap_options.adapters
-dap.configurations.cpp = dap_options.configurations
+dap.adapters.cppdbg = cpp.adapters
+dap.configurations.cpp = cpp.configurations
 dap.configurations.c = dap.configurations.cpp
 

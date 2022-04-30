@@ -71,7 +71,7 @@ local setup = {
 
 local opts = {
   mode = "n", -- NORMAL mode
-  prefix = "<Space>",
+  prefix = "W",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
@@ -79,29 +79,11 @@ local opts = {
 }
 
 local mappings = {
-  -- R = {
-    -- name = "Replace",
-    -- f = { "<cmd>lua require('spectre').open_file_search()<CR>", "Replace File" },
-    -- p = { "<cmd>lua require('spectre').open()<CR>", "Replace Project" },
-    -- s = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search" },
-  -- },
-
-  h = {
-    name = "Help",
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
-  },
-  ["R"] = {
-    f = {
-      name = "file",
-      f = { "<cmd>Telescope find_files<cr>", "Find File" },
-      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      n = { "<cmd>enew<cr>", "New File" },
-    },
+  f = {
+    name = "Search",
+    ff = { "<cmd>Telescope find_files<cr>", "Find files" },
+    fg = { "<cmd>Telescope live_grep<cr>", "Find string" },
+    fh = { "<cmd>Telescope grep_string<cr>", "Find current string" },
   },
 }
 

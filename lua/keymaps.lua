@@ -208,3 +208,5 @@ keymap("n", "<Leader>r", "viw:lua require('spectre').open_file_search()<CR>", op
 -- -- 全文替换
 -- keymap("n", "<Leader>c", "<cmd>lua require('spectre').open_visual()<CR>", opts)
 
+-- which-key
+keymap("n", "<Leader>h", ":WhichKey W <CR>", term_opts)
