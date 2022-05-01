@@ -14,20 +14,34 @@ pip3 install neovim
 
 ### #1.2 Ubuntu 
 
+- 到`NeoVim`官网下载合适的版本(我这里使用nvim0.7版本)
+
 ```shell
-// 安装高版本的nvim(默认低版本,有些语法不支持)
-sudo apt install software-properties-common
-sudo apt update
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt install neovim 
-pip3 install neovim 
+curl -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
 ```
 
 ```shell
-vim --version
-// NVIM v0.6.1
-// Build type: Release
-// LuaJIT 2.1.0-beta3
+// Ubuntu18 安装NeoVim0.7需要以来libgcc-s1
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt --fix-broken install
+sudo apt install libgcc-s1
+sudo apt install ./nvim-linux64.deb
+```
+
+```shell
+NVIM v0.7.0
+Build type: Release
+LuaJIT 2.1.0-beta3
+Compiled by runner@fv-az316-460
+
+Features: +acl +iconv +tui
+See ":help feature-compile"
+
+   system vimrc file: "$VIM/sysinit.vim"
+  fall-back for $VIM: "/share/nvim"
+
+Run :checkhealth for more info
 ```
 
 > 因为后面使用`neovim`插件时,有些插件需要依赖`Python`,所以这里提前在`Python`中安装`neovim`库
