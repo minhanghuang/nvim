@@ -79,11 +79,55 @@ local opts = {
 }
 
 local mappings = {
-  f = {
+  s = {
     name = "Search",
-    ff = { "<cmd>Telescope find_files<cr>", "Find files" },
-    fg = { "<cmd>Telescope live_grep<cr>", "Find string" },
-    fh = { "<cmd>Telescope grep_string<cr>", "Find current string" },
+    f = { "<cmd>Telescope find_files<cr>", "查找文件" },
+    g = { "<cmd>Telescope live_grep<cr>", "查找字符" },
+    h = { "<cmd>Telescope grep_string<cr>", "查找字符(光标所在单词)" },
+    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
+  },
+  r = {
+    name = "Replace",
+    r = { "<cmd>lua require('spectre').open_file_search()<CR>", "替换(当前文件)" },
+    p = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>","替换光标所在单词(当前项目)" },
+  },
+  d = {
+    name = "DisPlay",
+    m = { ":MarkdownPreview<CR>", "Markdown Preview"},
+    r = { ":NvimContextVtToggle<CR>", "括号归属"},
+    t = { ":Translate<CR>", "翻译当前单词"},
+  },
+  g = {
+    name = "Git",
+      t = { ":Gitsigns toggle_current_line_blame<CR>", "显示当前行提交记录" },
+      n = { ":Gitsigns next_hunk<CR>", "下一个hunk" },
+      p = { ":Gitsigns prev_hunk<CR>", "上一个hunk" },
+      s = { ":Gitsigns stage_hunk<CR>", "保存hunk" },
+      u = { ":Gitsigns reset_hunk<CR>", "撤销hunk" },
+      h = { ":Gitsigns preview_hunk<CR>", "查看hunk" },
+  },
+  t = {
+    name = "Tree",
+    v = { "<C-v>", "(<C-v>)垂直打开新窗口" },   
+    a = { "a", "新建文件/文件夹(文件夹后加下划线/)" },   
+    o = { "o", "打开文件/文件夹" },   
+    r = { "r", "修改文件名" },   
+    x = { "x", "剪切" },   
+    c = { "c", "复制" },   
+    p = { "p", "粘贴" },   
+    y = { "y", "拷贝文件名(系统剪切板)" },   
+    Y = { "Y", "拷贝文件相对路径(系统剪切板)" },   
+    g = { "gy", "(gy)拷贝文件绝对路径(系统剪切板)" },   
+    d = { "d", "删除文件(确认)" },   
+    R = { "R", "刷新" },   
+    H = { "H", "显示/不显示⋅隐藏文件" },   
+  },
+  c = {
+    name = "Code",
+    f = { ":ClangFormat<CR>", "clang-format" },
+    d = { ":Dox<CR>", "Doxygen" },
   },
 }
 
