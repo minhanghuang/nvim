@@ -17,6 +17,7 @@ local options = {
     encoding = "utf-8";
     fileencodings = "utf-8,gbk2312,gbk,gb18030,cp936";
     clipboard = "unnamedplus"; -- allows neovim to access the system clipboard 
+    laststatus=3; -- 全局状态栏(NeoVim0.7)
 }
 
 vim.opt.shortmess:append "c"
