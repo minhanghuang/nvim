@@ -210,3 +210,13 @@ keymap("n", "<Leader>r", "viw:lua require('spectre').open_file_search()<CR>", op
 
 -- which-key
 keymap("n", "<Leader>h", ":WhichKey W <CR>", term_opts)
+
+-- flod
+-- 折叠
+keymap("n", "<S-c>", "zc", term_opts)
+-- 打开
+keymap("n", "<S-o>", "zo", term_opts)
+-- 折叠全部
+keymap("n", "<S-r>", "zR", term_opts)
+-- 打开全部
+keymap("n", "<S-m>", "zM", term_opts)

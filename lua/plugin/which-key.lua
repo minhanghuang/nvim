@@ -128,10 +128,10 @@ local mappings = {
     name = "Code/Flod",
     f = { ":ClangFormat<CR>", "clang-format" },
     d = { ":Dox<CR>", "Doxygen" },
-    R = { "zR", "(zR)打开所有折叠" },
-    M = { "zM", "(zM)折叠所有" },
-    c = { "zc", "(zc)折叠" },
-    o = { "zo", "(zo)打开" },
+    R = { "zR", "(<S-r>)打开全部" },
+    M = { "zM", "(<S-m>)折叠全部" },
+    c = { "zc", "(<S-c>)折叠" },
+    o = { "zo", "(<S-o>)打开" },
   },
 }
 
