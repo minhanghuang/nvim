@@ -61,3 +61,7 @@ require("plugin/which-key")
 
 -- 替换
 require("plugin/nvim-spectre")
+
+-- todo list 
+require("plugin/todo-comments")
+

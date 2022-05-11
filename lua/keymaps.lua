@@ -144,6 +144,8 @@ keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 -- 在当前工作目录中搜索光标下的字符串
 keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", opts)
+-- 搜索TODO LIST 
+keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", opts)
 
 -- buffers
 keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)

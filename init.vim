@@ -23,6 +23,7 @@ Plug 'nvim-lua/plenary.nvim' " 搜索 (telescope.nvim require)
 Plug 'BurntSushi/ripgrep' " 搜索插件 文本查找 (telescope.nvim require)  
 Plug 'sharkdp/fd' " 搜索插件 文件查找 (telescope.nvim require)  
 Plug 'kevinhwang91/nvim-hlslens' " 搜索美化 [2/56]
+Plug 'folke/todo-comments.nvim' " todo list  
 
 " 5. 美化
 Plug 'luochen1990/rainbow' " 括号颜色 
