@@ -126,8 +126,8 @@ local mappings = {
   },
   c = {
     name = "Code/Flod",
-    g = { "<kkkk>(coc-definition)", "(<Leader>gg)函数跳转" },
-    r = { "<kkkk>(coc-references)", "(<Leader>gr)函数引用" },
+    g = { "<Plug>(coc-definition)", "(<Leader>gg)函数跳转" },
+    r = { "<Plug>(coc-references)", "(<Leader>gr)函数引用" },
     f = { ":ClangFormat<CR>", "clang-format" },
     d = { ":Dox<CR>", "Doxygen" },
     R = { "zR", "(<S-r>)打开全部" },
