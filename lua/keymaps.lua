@@ -194,11 +194,14 @@ keymap("i", "<C-]>", "<Esc>gcc<CR>i", term_opts)
 keymap("v", "<C-]>", "gc", term_opts)
 
 -- 函数跳转(coc.nvim)
-keymap("n", "[g", "<Plug>(coc-diagnostic-prev)", term_opts)
-keymap("n", "]g", "<Plug>(coc-diagnostic-next)", term_opts)
-keymap("n", "gd", "<Plug>(coc-definition)", term_opts)
-keymap("n", "gi", "<Plug>(coc-implementation)", term_opts)
-keymap("n", "gr", "<Plug>(coc-references)", term_opts)
+-- 下(上)一个报错的位置
+keymap("n", "<Leader>gw", "<kkkk>(coc-diagnostic-prev)", term_opts)
+-- keymap("n", "<Leader>gw", "<kkkk>(coc-diagnostic-next)", term_opts)
+-- 跳转函数定义(实现)
+keymap("n", "<Leader>gg", "<kkkk>(coc-definition)", term_opts)
+keymap("n", "<Leader>gi", "<kkkk>(coc-implementation)", term_opts)
+-- 列出函数被引用的位置 
+keymap("n", "<Leader>gr", "<kkkk>(coc-references)", term_opts)
 
 -- 替换(windwp/nvim-spectre)
 -- 全文替换-当前光标所在单词
