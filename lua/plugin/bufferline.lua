@@ -11,6 +11,9 @@ require("bufferline").setup {
       highlight = "Directory",
       text_align = "left"
     }},
+    buffer_close_icon= "",
+    modified_icon = "🚫",
+    close_icon = "",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
       for e, n in pairs(diagnostics_dict) do
