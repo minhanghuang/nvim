@@ -186,7 +186,7 @@ keymap("n", "<Leader>tr", ":Translate<CR>", opts)
 keymap("n", "<Leader>dd", ":Dox<CR>", opts)
 
 -- Markdown(iamcco/markdown-preview.nvim)
-keymap("n", "<Leader>m", ":MarkdownPreview<CR>", opts)
+keymap("n", "<Leader>md", ":MarkdownPreview<CR>", opts)
 
 -- 注释(tpope/vim-commentary)
 keymap("n", "<C-]>", "gcc<CR>", term_opts)
@@ -225,3 +225,11 @@ keymap("n", "<S-o>", "zo", term_opts)
 keymap("n", "<S-r>", "zR", term_opts)
 -- 打开全部
 keymap("n", "<S-m>", "zM", term_opts)
+
+-- 书签 
+keymap("n", "<Leader>mm", ":BookmarkToggle<CR>", term_opts)
+keymap("n", "<Leader>ma", ":BookmarkShowAll<CR>", term_opts)
+keymap("n", "<Leader>mn", ":BookmarkNext<CR>", term_opts)
+keymap("n", "<Leader>mp", ":BookmarkPrev<CR>", term_opts)
+keymap("n", "<Leader>mc", ":BookmarkClearAll<CR>", term_opts)
+

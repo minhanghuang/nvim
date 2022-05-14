@@ -66,6 +66,9 @@ Plug 'rcarriga/nvim-dap-ui' " UI,显示堆栈等
 " 11. 显示快捷键
 Plug 'folke/which-key.nvim'
 
+" 12. 书签 
+Plug 'MattesGroeger/vim-bookmarks' 
+
 call plug#end()
 
 
