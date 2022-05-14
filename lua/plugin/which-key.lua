@@ -135,6 +135,14 @@ local mappings = {
     c = { "zc", "(<S-c>)折叠" },
     o = { "zo", "(<S-o>)打开" },
   },
+  m = {
+    name = "BookMark",
+    m = { ":BookmarkToggle<CR>", "(<Leader>mm)添加/取消书签" },
+    n = { ":BookmarkNext<CR>", "(<Leader>mn)下一个书签" },
+    p = { ":BookmarkPrev<CR>", "(<Leader>mp)上一个书签" },
+    a = { ":BookmarkShowAll<CR>", "(<Leader>ma)展示所有书签" },
+    c = { ":BookmarkClearAll<CR>", "(<Leader>mc)取消所有书签" },
+  }
 }
 
 which_key.setup(setup)
