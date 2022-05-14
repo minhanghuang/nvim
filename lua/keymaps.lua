@@ -105,6 +105,12 @@ keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", opts)
 keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", opts)
 
+keymap("i", "<C-;>", "<Esc>", opts)
+keymap("v", "<C-;>", "<Esc>", opts)
+
+keymap("n", "<C-s>", ":w<CR>", opts)
+keymap("i", "<C-s>", "<Esc>:w<CR>i", opts)
+
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
 -- <C-v>: 垂直打开新窗口
@@ -189,9 +195,9 @@ keymap("n", "<Leader>dd", ":Dox<CR>", opts)
 keymap("n", "<Leader>md", ":MarkdownPreview<CR>", opts)
 
 -- 注释(tpope/vim-commentary)
-keymap("n", "<C-]>", "gcc<CR>", term_opts)
-keymap("i", "<C-]>", "<Esc>gcc<CR>i", term_opts)
-keymap("v", "<C-]>", "gc", term_opts)
+keymap("n", "<C-/>", "gcc<CR>", term_opts)
+keymap("i", "<C-/>", "<Esc>gcc<CR>i", term_opts)
+keymap("v", "<C-/>", "gc", term_opts)
 
 -- 函数跳转(coc.nvim)
 -- 下(上)一个报错的位置
