@@ -41,6 +41,7 @@ Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮
 Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇 
 Plug 'haringsrob/nvim_context_vt' " 括号后提示所属条件 
 Plug 'lewis6991/gitsigns.nvim' " git  
+Plug 'sindrets/diffview.nvim' 
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'

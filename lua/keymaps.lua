@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
+local display_opts = { silent = false }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -177,6 +178,10 @@ keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", opts)
 keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", opts)
 keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", opts)
+-- 查看git diff 
+keymap("n", "<Leader>gd", "<Leader>o<CR>:DiffviewOpen HEAD~", display_opts)
+-- 退出git diff 
+keymap("n", "<Leader>gc", ":DiffviewClose<CR><Leader>o<CR>", display_opts)
 
 -- terminal
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
