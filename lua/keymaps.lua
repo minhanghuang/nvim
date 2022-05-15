@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = false }
 
 local term_opts = { silent = true }
 local display_opts = { silent = false }
@@ -238,9 +238,10 @@ keymap("n", "<S-r>", "zR", term_opts)
 keymap("n", "<S-m>", "zM", term_opts)
 
 -- 书签 
-keymap("n", "<Leader>mm", ":BookmarkToggle<CR>", term_opts)
-keymap("n", "<Leader>ma", ":BookmarkShowAll<CR>", term_opts)
-keymap("n", "<Leader>mn", ":BookmarkNext<CR>", term_opts)
-keymap("n", "<Leader>mp", ":BookmarkPrev<CR>", term_opts)
-keymap("n", "<Leader>mc", ":BookmarkClearAll<CR>", term_opts)
+keymap("n", "<Leader>mm", ":BookmarkToggle<CR>", opts)
+keymap("n", "<Leader>mt", ":BookmarkAnnotate ", opts)
+keymap("n", "<Leader>ma", ":BookmarkShowAll<CR>", opts)
+keymap("n", "<Leader>mn", ":BookmarkNext<CR>", opts)
+keymap("n", "<Leader>mp", ":BookmarkPrev<CR>", opts)
+keymap("n", "<Leader>mc", ":BookmarkClearAll<CR>", opts)
 
