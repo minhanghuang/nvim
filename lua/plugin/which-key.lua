@@ -140,6 +140,7 @@ local mappings = {
   m = {
     name = "BookMark",
     m = { ":BookmarkToggle<CR>", "(<Leader>mm)添加/取消书签" },
+    t = { ":BookmarkAnnotate ", "(<Leader>mt)添加书签,并注释" },
     n = { ":BookmarkNext<CR>", "(<Leader>mn)下一个书签" },
     p = { ":BookmarkPrev<CR>", "(<Leader>mp)上一个书签" },
     a = { ":BookmarkShowAll<CR>", "(<Leader>ma)展示所有书签" },
