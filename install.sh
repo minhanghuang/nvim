@@ -105,6 +105,8 @@ git clone git@github.com:folke/which-key.nvim.git ~/.config/nvim/plugged/which-k
 git clone git@github.com:nvim-pack/nvim-spectre.git ~/.config/nvim/plugged/nvim-spectre
 git clone git@github.com:folke/todo-comments.nvim.git ~/.config/nvim/plugged/todo-comments.nvim
 git clone git@github.com:MattesGroeger/vim-bookmarks.git ~/.config/nvim/plugged/vim-bookmarks 
+git clone git@github.com:sindrets/diffview.nvim.git ~/.config/nvim/plugged/diffview.nvim
+
 
 echo "安装依赖"
 

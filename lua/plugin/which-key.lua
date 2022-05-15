@@ -101,12 +101,14 @@ local mappings = {
   },
   g = {
     name = "Git",
-      t = { ":Gitsigns toggle_current_line_blame<CR>", "显示当前行提交记录" },
+      t = { ":Gitsigns toggle_current_line_blame<CR>", "(<Leader>gt)显示当前行提交记录" },
       n = { ":Gitsigns next_hunk<CR>", "下一个hunk" },
       p = { ":Gitsigns prev_hunk<CR>", "上一个hunk" },
       s = { ":Gitsigns stage_hunk<CR>", "保存hunk" },
       u = { ":Gitsigns reset_hunk<CR>", "撤销hunk" },
       h = { ":Gitsigns preview_hunk<CR>", "查看hunk" },
+      d = { "<Leader>o<CR>:DiffviewOpen HEAD~", "(<Leader>gd)打开git diff" },
+      c = { ":DiffviewClose<CR><Leader>o<CR>", "(<Leader>gc)关闭git diff" },
   },
   t = {
     name = "Tree",
