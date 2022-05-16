@@ -109,8 +109,8 @@ keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", opts)
 keymap("i", "<C-;>", "<Esc>", opts)
 keymap("v", "<C-;>", "<Esc>", opts)
 
-keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("i", "<C-s>", "<Esc>:w<CR>i", opts)
+keymap("n", "<Leader>w", ":w<CR>", opts)
+-- keymap("i", "<Leader>w", "<Esc>:w<CR>i", opts)
 
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
