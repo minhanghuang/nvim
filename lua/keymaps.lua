@@ -59,7 +59,7 @@ vim.g.maplocalleader = " "
 --     s是substitute缩写
 --     [addr]: 
 --       "1,n":表示从第1行到n行
---       ".,$":表示从当前行到文件尾
+--       ".,$:表示从当前行到文件尾
 --       "%":表示整个文件,同"1,$"
 --     [option]: g c p i 省略时仅对每行第一个匹配串进行替换 
 --       g: global 全局替换
@@ -238,10 +238,10 @@ keymap("n", "<S-r>", "zR", term_opts)
 keymap("n", "<S-m>", "zM", term_opts)
 
 -- 书签 
-keymap("n", "<Leader>mm", ":BookmarkToggle<CR>", opts)
-keymap("n", "<Leader>mt", ":BookmarkAnnotate ", opts)
-keymap("n", "<Leader>ma", ":BookmarkShowAll<CR>", opts)
-keymap("n", "<Leader>mn", ":BookmarkNext<CR>", opts)
-keymap("n", "<Leader>mp", ":BookmarkPrev<CR>", opts)
-keymap("n", "<Leader>mc", ":BookmarkClearAll<CR>", opts)
+keymap("n", "mm", ":BookmarkToggle<CR>", opts)
+keymap("n", "mt", ":BookmarkAnnotate ", opts)
+keymap("n", "ma", ":BookmarkShowAll<CR>", opts)
+keymap("n", "mn", ":BookmarkNext<CR>", opts)
+keymap("n", "mp", ":BookmarkPrev<CR>", opts)
+keymap("n", "mc", ":BookmarkClearAll<CR>", opts)
 
