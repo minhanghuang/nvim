@@ -68,3 +68,6 @@ require("plugin/todo-comments")
 -- 书签  
 require("plugin/vim-bookmarks")
 
+-- 自动保存
+require("plugin/autosave")
+
