@@ -103,7 +103,7 @@ require'nvim-tree'.setup {
                           { key = "g?",                           action = "toggle_help" },
                           { key = "W",                            action = "collapse_all" },
                           { key = "S",                            action = "search_node" },
-                          { key = "<C-k>",                        action = "toggle_file_info" },
+                          -- { key = "<C-k>",                        action = "toggle_file_info" },
                           { key = ".",                            action = "run_file_command" }
                         }
 		}
