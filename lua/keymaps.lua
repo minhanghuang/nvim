@@ -112,6 +112,8 @@ keymap("v", "<C-;>", "<Esc>", opts)
 keymap("n", "<Leader>w", ":w<CR>", opts)
 -- keymap("i", "<Leader>w", "<Esc>:w<CR>i", opts)
 
+keymap("n", "<C-w>", "<C-w>w", opts)
+
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
 -- <C-v>: 垂直打开新窗口
