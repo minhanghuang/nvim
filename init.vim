@@ -35,7 +35,6 @@ Plug 'kana/vim-operator-user' " clang-format Requirements
 Plug 'rhysd/vim-clang-format' " clang-format  
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
-Plug 'minhanghuang/DoxygenToolkit.vim' " doxygen 
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进 
 Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮 
 Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇 

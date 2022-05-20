@@ -131,7 +131,6 @@ local mappings = {
     g = { "<Plug>(coc-definition)", "(<Leader>gg)函数跳转" },
     r = { "<Plug>(coc-references)", "(<Leader>gr)函数引用" },
     f = { ":ClangFormat<CR>", "clang-format" },
-    d = { ":Dox<CR>", "Doxygen" },
     R = { "zR", "(<S-r>)打开全部" },
     M = { "zM", "(<S-m>)折叠全部" },
     c = { "zc", "(<S-c>)折叠" },
