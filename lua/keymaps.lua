@@ -195,9 +195,6 @@ keymap("n", "<Leader>tt", ":FloatermToggle<CR>", opts)
 -- 翻译(voldikss/vim-translator)
 keymap("n", "<Leader>tr", ":Translate<CR>", opts)
 
--- Doxygen
-keymap("n", "<Leader>dd", ":Dox<CR>", opts)
-
 -- Markdown(iamcco/markdown-preview.nvim)
 keymap("n", "<Leader>md", ":MarkdownPreview<CR>", opts)
 
