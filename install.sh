@@ -119,8 +119,7 @@ if [[ $os_type =~ 'Darwin' ]];then
     # brew tap universal-ctags/universal-ctags
     # brew install --HEAD universal-ctags
     # python3 -m pip install debugpy
-    sudo mkdir -p /opt/nvim/debug/tools/
-    sudo unzip -d /opt/nvim/debug/tools/ ~/.config/nvim/data/debug/codelldb-x86_64-darwin.vsix
+    unzip -d ~/.config/nvim/data/debug/tools/ ~/.config/nvim/data/debug/codelldb-x86_64-darwin.vsix
 elif [[ $os_type =~ 'Ubuntu' ]];then
     echo "Ubuntu"
     # curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
