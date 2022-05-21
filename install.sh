@@ -16,14 +16,10 @@ git clone git@github.com:catppuccin/nvim.git ~/.config/nvim/plugged/catppuccin
 git clone git@github.com:kyazdani42/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
 
 # 窗口tag 
-# git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
-# git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline
-# git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
 git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
 git clone git@github.com:famiu/bufdelete.nvim.git ~/.config/nvim/plugged/bufdelete.nvim
 git clone git@github.com:windwp/windline.nvim.git ~/.config/nvim/plugged/windline.nvim
 git clone git@github.com:lewis6991/gitsigns.nvim.git ~/.config/nvim/plugged/gitsigns.nvim
-
 
 # 跳转
 git clone git@github.com:neoclide/coc.nvim.git ~/.config/nvim/plugged/coc.nvim
@@ -58,14 +54,6 @@ git clone git@github.com:SirVer/ultisnips.git ~/.config/nvim/plugged/ultisnips
 
 # 注释
 git clone git@github.com:tpope/vim-commentary.git ~/.config/nvim/plugged/vim-commentary
-
-# clang-format
-git clone git@github.com:rhysd/vim-clang-format.git ~/.config/nvim/plugged/vim-clang-format
-git clone git@github.com:kana/vim-operator-user.git ~/.config/nvim/plugged/vim-operator-user
-
-# vim-airline/vim-airline
-# git clone git@github.com:vim-airline/vim-airline.git ~/.config/nvim/plugged/vim-airline 
-# git clone git@github.com:vim-airline/vim-airline-themes.git ~/.config/nvim/plugged/vim-airline-themes
 
 # preservim/tagbar
 git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
@@ -104,6 +92,7 @@ git clone git@github.com:folke/todo-comments.nvim.git ~/.config/nvim/plugged/tod
 git clone git@github.com:MattesGroeger/vim-bookmarks.git ~/.config/nvim/plugged/vim-bookmarks 
 git clone git@github.com:sindrets/diffview.nvim.git ~/.config/nvim/plugged/diffview.nvim
 git clone git@github.com:Pocco81/AutoSave.nvim.git ~/.config/nvim/plugged/AutoSave.nvim
+git clone git@github.com:sbdchd/neoformat.git ~/.config/nvim/plugged/neoformat
 
 echo "安装依赖"
 
