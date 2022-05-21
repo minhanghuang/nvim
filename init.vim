@@ -31,8 +31,6 @@ Plug 'jiangmiao/auto-pairs' " 补全括号
 
 " 6. 代码相关
 Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
-Plug 'kana/vim-operator-user' " clang-format Requirements
-Plug 'rhysd/vim-clang-format' " clang-format  
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进 
@@ -41,6 +39,7 @@ Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇
 Plug 'haringsrob/nvim_context_vt' " 括号后提示所属条件 
 Plug 'lewis6991/gitsigns.nvim' " git  
 Plug 'sindrets/diffview.nvim' 
+Plug 'sbdchd/neoformat' " 格式化代码 
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'

@@ -169,8 +169,8 @@ keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
 -- 括号归属(haringsrob/nvim_context_vt) 
 keymap("n", "<Leader>dc", ":NvimContextVtToggle<CR>", opts)
 
--- clang-format(rhysd/vim-clang-format) 
-keymap("n", "<Leader>cf", ":ClangFormat<CR>", opts)
+-- code-format
+keymap("n", "<Leader>cf", ":Neoformat<CR>", opts)
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
