@@ -133,17 +133,28 @@ keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", opts)
 
 -- debuggger(dap) 
-keymap("n", "<Leader>du", "<cmd>lua require'dapui'.toggle()<CR>", opts)
+-- 断点 
 keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", opts)
-keymap("n", "<Leader>dk", "<cmd>lua require'dapui'.eval()<CR>", opts)
-keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
-keymap("n", "<F6>", "<cmd>lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F8>", "<cmd>lua require'dap'.step_out()<CR>", opts)
-keymap("n", "<F9>", "<cmd>lua require'dap'.run_last()<CR>", opts)
+-- 显示变量信息 
+keymap("n", "<Leader>de", "<cmd>lua require'dapui'.eval()<CR>", opts)
+-- 开始/下一个断点 
+keymap("n", "<Leader>dg", "<cmd>lua require'dap'.continue()<CR>", opts)
+-- Requests the debugee to step into a function or method if possible. 
+keymap("n", "<Leader>di", "<cmd>lua require'dap'.step_into()<CR>", opts)
+-- Requests the debugee to run again for one step. 
+keymap("n", "<Leader>dn", "<cmd>lua require'dap'.step_over()<CR>", opts)
+-- Requests the debugee to step out of a function or method if possible. 
+keymap("n", "<Leader>do", "<cmd>lua require'dap'.step_out()<CR>", opts)
+-- Steps one step back. Debug adapter must support reverse debugging.
+keymap("n", "<Leader>dp", "<cmd>lua require'dap'.step_back()<CR>", opts)
+-- 重新运行
+keymap("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", opts)
+-- 运行到光标处
+keymap("n", "<Leader>dc", "<cmd>lua require'dap'.run_to_cursor()<CR>", opts)
+-- 结束
 keymap("n",
-  "<F10>", 
-  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>", 
+  "<Leader>dd", 
+  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR><cmd>q<CR>", 
   opts
 )
 
@@ -168,7 +179,7 @@ keymap("n", "<Leader>fd", ":Bdelete!<CR>", opts)
 keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
 
 -- 括号归属(haringsrob/nvim_context_vt) 
-keymap("n", "<Leader>dc", ":NvimContextVtToggle<CR>", opts)
+keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", opts)
 
 -- code-format
 keymap("n", "<Leader>cf", ":Neoformat<CR>", opts)
