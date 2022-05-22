@@ -88,6 +88,18 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
+  b = {
+    name = "debug",
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", "(<Leader>db)断点" }, 
+    e = { "<cmd>lua require'dapui'.eval()<CR>", "(<Leader>de)查看变量信息" }, 
+    g = { "<cmd>lua require'dap'.continue()<CR>" , "(<Leader>dg)开始/下一个断点" }, 
+    i = { "<cmd>lua require'dap'.step_into()<CR>" , "(<Leader>di)进入" }, 
+    n = { "<cmd>lua require'dap'.step_over()<CR>", "(<Leader>dn)下一行" }, 
+    o = { "<cmd>lua require'dap'.step_out()<CR>", "(<Leader>do)退出" }, 
+    p = { "<cmd>lua require'dap'.step_back()<CR>" , "(<Leader>dp)上一行" }, 
+    r = { "<cmd>lua require'dap'.run_last()<CR>", "(<Leader>dr)重新运行" },
+    c = { "<cmd>lua require'dap'.run_to_cursor()<CR>", "(<Leader>rc)运行到当前光标处"},
+  },
   r = {
     name = "Replace",
     r = { "<cmd>lua require('spectre').open_file_search()<CR>", "替换(当前文件)" },
@@ -96,7 +108,7 @@ local mappings = {
   d = {
     name = "DisPlay",
     m = { ":MarkdownPreview<CR>", "Markdown Preview"},
-    r = { ":NvimContextVtToggle<CR>", "括号归属"},
+    r = { ":NvimContextVtToggle<CR>", "(<Leader>vt)括号归属"},
     t = { ":Translate<CR>", "翻译当前单词"},
   },
   g = {
