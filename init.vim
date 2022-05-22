@@ -57,7 +57,6 @@ Plug 'SirVer/ultisnips' " 引擎
 Plug 'honza/vim-snippets' " 代码块集合
 
 " 10. debugger 
-Plug 'ravenxrz/DAPInstall.nvim' " 下载debugger
 Plug 'mfussenegger/nvim-dap' " 基本调试 
 Plug 'theHamsta/nvim-dap-virtual-text' " 显示调试
 Plug 'rcarriga/nvim-dap-ui' " UI,显示堆栈等  
