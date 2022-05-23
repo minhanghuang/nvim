@@ -76,12 +76,8 @@ keymap("v", "<C-k>", "10k", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "<", "<gv", opts)
 
-keymap("n", "<C-u>", "<Home>", opts)
-keymap("i", "<C-u>", "<Home>", opts)
-keymap("v", "<C-u>", "<Home>", opts)
-keymap("n", "<C-d>", "<End>", opts)
-keymap("i", "<C-d>", "<End>", opts)
-keymap("v", "<C-d>", "<End>", opts)
+keymap("n", "<C-h>", "<Home>", opts)
+keymap("n", "<C-l>", "<End>", opts)
 
 keymap("n", "<Leader><Leader>y", "\"+y", opts)
 keymap("n", "<Leader><Leader>p", "\"+p", opts)
@@ -113,6 +109,8 @@ keymap("n", "<Leader>w", ":w<CR>", opts)
 -- keymap("i", "<Leader>w", "<Esc>:w<CR>i", opts)
 
 keymap("n", "<C-w>", "<C-w>w", opts)
+keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
+keymap("n", "<C-d>", "yyp", opts)
 
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
