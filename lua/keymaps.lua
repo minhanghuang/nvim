@@ -78,6 +78,8 @@ keymap("v", "<", "<gv", opts)
 
 keymap("n", "<C-h>", "<Home>", opts)
 keymap("n", "<C-l>", "<End>", opts)
+keymap("v", "<C-h>", "<Home>", opts)
+keymap("v", "<C-l>", "<End>", opts)
 
 keymap("n", "<Leader><Leader>y", "\"+y", opts)
 keymap("n", "<Leader><Leader>p", "\"+p", opts)
