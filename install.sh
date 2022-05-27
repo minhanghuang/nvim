@@ -102,6 +102,7 @@ if [[ $os_type =~ 'Darwin' ]];then
     echo "macOS"
     brew install ripgrep
     brew install gnu-sed 
+    brew install llvm
     brew tap universal-ctags/universal-ctags
     brew install --HEAD universal-ctags
     python3 -m pip install debugpy
@@ -114,6 +115,7 @@ elif [[ $os_type =~ 'Ubuntu' ]];then
     sudo apt install python3-venv # coc.nvim 中的coc-jedi模块需要依赖venv
     python3 -m pip install debugpy
     unzip -d ~/.config/nvim/data/debug/tools/ ~/.config/nvim/data/debug/codelldb-x86_64-linux.vsix
+    sudo apt install llvm
   else
     echo $os_type
 fi
