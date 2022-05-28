@@ -4,24 +4,59 @@ project(${1:project_name})
 
 set(TARGET_NAME \$\{PROJECT_NAME\})
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Threads REQUIRED)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(${3:name} REQUIRED ${2:lib})
 
 include_directories(
-	\${$3_INCLUDE_DIRS}
+  \${$3_INCLUDE_DIRS}
 )
 
 link_directories (
-	\${$3_LIBRARY_DIRS}
+  \${$3_LIBRARY_DIRS}
 )
 
 add_executable(\$\{TARGET_NAME\}_runner main.cc)
 
 target_link_libraries(\$\{TARGET_NAME\}_runner
-	\${$3_LIBRARIES}
+  \${$3_LIBRARIES}
 )
+endsnippet
+
+snippet ros_start
+cmake_minimum_required(VERSION 3.5.1)
+project(${1:project_name})
+
+set(TARGET_NAME \$\{PROJECT_NAME\})
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+find_package(Threads REQUIRED)
+find_package(PkgConfig REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system thread filesystem)
+pkg_check_modules(RosCpp REQUIRED roscpp)
+# pkg_check_modules(StdMsgs REQUIRED std_msgs)
+
+
+include_directories(
+  \$\{Boost_INCLUDE_DIRS\}
+  \$\{RosCpp_INCLUDE_DIRS\}
+)
+
+link_directories(
+  \$\{Boost_LIBRARY_DIRS\}
+  \$\{RosCpp_LIBRARY_DIRS\}
+)
+
+add_executable(\$\{TARGET_NAME\}_runner main.cc)
+
+target_link_libraries(\$\{TARGET_NAME\}_runner
+  \$\{Boost_LIBRARIES\}
+  \$\{RosCpp_LIBRARIES\}
+)
+
 endsnippet
 
 snippet ros2_start
@@ -30,6 +65,7 @@ project(${1:project_name})
 
 set(TARGET_NAME \$\{PROJECT_NAME\})
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Threads REQUIRED)
 find_package(PkgConfig REQUIRED)
@@ -40,35 +76,43 @@ find_package(rclcpp REQUIRED)
 
 
 include_directories(
-	\$\{Boost_INCLUDE_DIRS\}
-	\$\{rclcpp_INCLUDE_DIRS\}
-	# \$\{std_msgs_INCLUDE_DIRS\}
+  \$\{Boost_INCLUDE_DIRS\}
+  \$\{rclcpp_INCLUDE_DIRS\}
+  # \$\{std_msgs_INCLUDE_DIRS\}
 )
 
 link_directories(
-	\$\{Boost_LIBRARY_DIRS\}
+  \$\{Boost_LIBRARY_DIRS\}
 )
 
 add_executable(\$\{TARGET_NAME\}_runner main.cc)
 
 ament_target_dependencies(\$\{TARGET_NAME\}_runner
-	rclcpp
-	# std_msgs
+  rclcpp
+  # std_msgs
 )
 
 target_link_libraries(\$\{TARGET_NAME\}_runner
-	\$\{Boost_LIBRARIES\}
+  \$\{Boost_LIBRARIES\}
 )
 
 install(TARGETS
-	\$\{TARGET_NAME\}_runner
-	ARCHIVE DESTINATION lib
-	LIBRARY DESTINATION lib
-	RUNTIME DESTINATION bin
+  \$\{TARGET_NAME\}_runner
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
 )
 
 ament_package()
 
+endsnippet
+
+snippet cmake_export 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+endsnippet
+
+snippet cmake_debug 
+set(CMAKE_BUILD_TYPE DEBUG)
 endsnippet
 
 snippet set_target_name
@@ -89,7 +133,7 @@ endsnippet
 
 snippet add_library
 add_library(\$\{TARGET_NAME\} SHARED
-	${0}
+  ${0}
 )
 endsnippet
 
