@@ -73,6 +73,10 @@ dap.configurations.cpp = {
         name = "Launch file",
         type = "codelldb",
         request = "launch",
+        args = function()
+            local input = vim.fn.input("Input args: ")
+            return require("dap.dap-util").str2argtable(input)
+        end,
         program = function()
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
         end,
@@ -83,7 +87,7 @@ dap.configurations.cpp = {
             return result
         end,
         cwd = "${workspaceFolder}",
-        stopOnEntry = true,
+        stopOnEntry = true
         -- terminal = "integrated"
     }
 }
