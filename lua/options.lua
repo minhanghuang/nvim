@@ -22,11 +22,11 @@ local options = {
     foldexpr = "nvim_treesitter#foldexpr()",
     foldenable = false, 
     foldlevel = 99,
+    mouse = "a",               -- allow the mouse to be used in neovim
 }
 
 vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+    vim.opt[k] = v
 end
-
