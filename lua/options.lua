@@ -22,7 +22,7 @@ local options = {
     foldexpr = "nvim_treesitter#foldexpr()",
     foldenable = false, 
     foldlevel = 99,
-    mouse = "a",               -- allow the mouse to be used in neovim
+    -- mouse = "a",               -- allow the mouse to be used in neovim
 }
 
 vim.opt.shortmess:append "c"
