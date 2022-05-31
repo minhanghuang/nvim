@@ -105,17 +105,19 @@ if [[ $os_type =~ 'Darwin' ]];then
     brew install llvm
     brew tap universal-ctags/universal-ctags
     brew install --HEAD universal-ctags
+    brew install tig
     python3 -m pip install debugpy
     unzip -d ~/.config/nvim/data/debug/tools/ ~/.config/nvim/data/debug/codelldb-x86_64-darwin.vsix
-elif [[ $os_type =~ 'Ubuntu' ]];then
+elif [[ $os_type =~ 'Linux' ]];then
     echo "Ubuntu"
     # curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
-    sudo dpkg -i data/ripgrep_0.10.0_amd64.deb
+    sudo dpkg -i ~/.config/nvim/data/ripgrep_0.10.0_amd64.deb
     sudo apt install ctags
     sudo apt install python3-venv # coc.nvim 中的coc-jedi模块需要依赖venv
     python3 -m pip install debugpy
     unzip -d ~/.config/nvim/data/debug/tools/ ~/.config/nvim/data/debug/codelldb-x86_64-linux.vsix
     sudo apt install llvm
+    sudo apt install tig
   else
     echo $os_type
 fi
