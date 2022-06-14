@@ -70,7 +70,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 " 13. 自动保存
 Plug 'Pocco81/AutoSave.nvim'
 
-Plug 'github/copilot.vim' 
+" Plug 'github/copilot.vim' 
 
 
 call plug#end()
