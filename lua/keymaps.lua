@@ -205,6 +205,7 @@ keymap("t", "<C-n>", "<C-\\><C-n>:FloatermNext<CR>", opts)
 keymap("t", "<Leader>tw", "<C-\\><C-n>:FloatermNew<CR>", opts)
 keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", opts)
 keymap("n", "<Leader>tt", ":FloatermToggle<CR>", opts)
+keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", opts)
 
 -- 翻译(voldikss/vim-translator)
 keymap("n", "<Leader>tr", ":Translate<CR>", opts)
