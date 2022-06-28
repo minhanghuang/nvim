@@ -1,11 +1,8 @@
 call plug#begin('~/.config/nvim/plugged') 
 
 " 1. 主题 
-Plug 'sonph/onehalf',{'rtp' : 'vim'} " 主题 1  
 Plug 'ellisonleao/gruvbox.nvim' " 主题 2 
 Plug 'kyazdani42/nvim-web-devicons' " file icons (ellisonleao/gruvbox.nvim)
-Plug 'projekt0n/github-nvim-theme' " 主题 3  
-Plug 'catppuccin/nvim', {'as': 'catppuccin'} " 主题 4 
 
 " 2. 文件  
 Plug 'kyazdani42/nvim-tree.lua' " 文件树 
@@ -74,7 +71,6 @@ Plug 'Pocco81/AutoSave.nvim'
 
 
 call plug#end()
-
 
 lua require("options")
 lua require("plugins")
