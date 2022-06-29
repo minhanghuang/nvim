@@ -116,6 +116,8 @@ keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 keymap("n", "<C-d>", "yyp", opts)
 keymap("n", "<C-f>", "*", opts)
 
+keymap("n", "o", "o<Esc>", opts)
+
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
 -- <C-v>: 垂直打开新窗口
