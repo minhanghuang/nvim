@@ -56,7 +56,7 @@ Plug 'honza/vim-snippets' " 代码块集合
 " 10. debugger 
 Plug 'mfussenegger/nvim-dap' " 基本调试 
 Plug 'theHamsta/nvim-dap-virtual-text' " 显示调试
-Plug 'rcarriga/nvim-dap-ui' " UI,显示堆栈等  
+Plug 'rcarriga/nvim-dap-ui', {'commit' : 'b0bc932ce6ca57bdec5536d773ab643e5b2f57ad'} " UI,显示堆栈等  
 
 " 11. 显示快捷键
 Plug 'folke/which-key.nvim'
