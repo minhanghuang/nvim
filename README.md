@@ -27,7 +27,7 @@ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt update
 sudo apt --fix-broken install
 sudo apt install libgcc-s1
-sudo apt install ./nvim-linux64.deb
+sudo dpkg -i nvim-linux64.deb
 ```
 
 ```shell
