@@ -54,8 +54,8 @@ Plug 'SirVer/ultisnips' " 引擎
 Plug 'honza/vim-snippets' " 代码块集合
 
 " 10. debugger 
-Plug 'mfussenegger/nvim-dap' " 基本调试 
-Plug 'theHamsta/nvim-dap-virtual-text' " 显示调试
+Plug 'mfussenegger/nvim-dap', {'commit' : 'f4a3be57f61893cffa1e22aa5e1e7bded495fcf2'} " 基本调试 
+Plug 'theHamsta/nvim-dap-virtual-text', {'commit' : 'a36982259216afd710f55bcdc220477c74b5bc35'} " 显示调试
 Plug 'rcarriga/nvim-dap-ui', {'commit' : 'b0bc932ce6ca57bdec5536d773ab643e5b2f57ad'} " UI,显示堆栈等  
 
 " 11. 显示快捷键
@@ -66,8 +66,6 @@ Plug 'MattesGroeger/vim-bookmarks'
 
 " 13. 自动保存
 Plug 'Pocco81/AutoSave.nvim'
-
-" Plug 'github/copilot.vim' 
 
 
 call plug#end()
