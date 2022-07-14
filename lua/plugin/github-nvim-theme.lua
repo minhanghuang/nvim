@@ -1,1 +1,0 @@
-require('github-theme').setup()
