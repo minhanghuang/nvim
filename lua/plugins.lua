@@ -1,7 +1,5 @@
 --  主题 
 require("plugin/gruvbox")
--- require("plugin/github-nvim-theme")
--- require("plugin/catppuccin")
  
 --  搜索 
 require("plugin/telescope")
