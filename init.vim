@@ -27,7 +27,7 @@ Plug 'luochen1990/rainbow' " 括号颜色
 Plug 'jiangmiao/auto-pairs' " 补全括号
 
 " 6. 代码相关
-Plug 'neoclide/coc.nvim', {'branch' : 'release'} " 跳转 
+Plug 'neoclide/coc.nvim', {'tag' : 'v0.0.81'} " 跳转 
 Plug 'preservim/tagbar' " 显示class function ...     
 Plug 'tpope/vim-commentary' " 注释 
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进 
