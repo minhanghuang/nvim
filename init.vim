@@ -65,7 +65,7 @@ Plug 'folke/which-key.nvim'
 Plug 'MattesGroeger/vim-bookmarks' 
 
 " 13. 自动保存
-Plug 'Pocco81/AutoSave.nvim'
+Plug 'Pocco81/auto-save.nvim'
 
 
 call plug#end()
