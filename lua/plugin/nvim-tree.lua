@@ -75,7 +75,7 @@ require'nvim-tree'.setup {
                           { key = "<",                            action = "prev_sibling" },
                           { key = ">",                            action = "next_sibling" },
                           { key = "P",                            action = "parent_node" },
-                          { key = "<BS>",                         action = "close_node" },
+                          { key = "<C-o>",                        action = "close_node" },
                           { key = "<Tab>",                        action = "preview" },
                           { key = "K",                            action = "first_sibling" },
                           { key = "J",                            action = "last_sibling" },
