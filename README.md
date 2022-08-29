@@ -18,15 +18,15 @@ pip3 install neovim
 - 到`NeoVim`官网下载合适的版本(我这里使用nvim0.7版本)
 
 ```shell
-curl -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
 ```
 
 ```shell
 // Ubuntu18 安装NeoVim0.7需要以来libgcc-s1
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt update
-sudo apt --fix-broken install
-sudo apt install libgcc-s1
+// sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+// sudo apt update
+// sudo apt --fix-broken install
+// sudo apt install libgcc-s1
 sudo dpkg -i nvim-linux64.deb
 ```
 
@@ -51,9 +51,9 @@ Run :checkhealth for more info
 > 安装node.js
 
 ```shell
-sudo apt install libssl1.0-dev
-sudo apt install nodejs-dev
-sudo apt install node-gyp
+// sudo apt install libssl1.0-dev
+// sudo apt install nodejs-dev
+// sudo apt install node-gyp
 sudo apt install -y nodejs npm  
 sudo npm config set registry https://registry.npm.taobao.org
 sudo npm install n -g
