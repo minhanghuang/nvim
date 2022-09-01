@@ -30,3 +30,11 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = "*",
+    callback = function()
+       vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+    end,
+})
+
