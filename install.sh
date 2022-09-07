@@ -92,6 +92,9 @@ git clone git@github.com:sindrets/diffview.nvim.git ~/.config/nvim/plugged/diffv
 git clone git@github.com:Pocco81/auto-save.nvim.git ~/.config/nvim/plugged/auto-save.nvim
 git clone git@github.com:sbdchd/neoformat.git ~/.config/nvim/plugged/neoformat
 
+# python ide 
+git clone --recurse-submodules git@gitee.com:haha-web/python-mode.git ~/.config/nvim/plugged/python-mode
+
 echo "安装依赖"
 
 os_type=`uname  -a`
