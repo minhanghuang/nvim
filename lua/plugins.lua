@@ -69,3 +69,6 @@ require("plugin/vim-bookmarks")
 -- 自动保存
 require("plugin/autosave")
 
+-- python IDE
+require("plugin/python-mode")
+
