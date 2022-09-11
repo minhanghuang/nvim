@@ -38,6 +38,8 @@ Plug 'lewis6991/gitsigns.nvim' " git
 Plug 'sindrets/diffview.nvim' 
 Plug 'sbdchd/neoformat' " 格式化代码 
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo'
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'
