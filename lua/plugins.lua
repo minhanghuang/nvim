@@ -72,3 +72,6 @@ require("plugin/autosave")
 -- python IDE
 require("plugin/python-mode")
 
+-- 折叠 
+require("plugin/nvim-ufo")
+
