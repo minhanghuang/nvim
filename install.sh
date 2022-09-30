@@ -97,7 +97,8 @@ git clone --recurse-submodules git@gitee.com:haha-web/python-mode.git ~/.config/
 
 # 折叠 
 git clone git@github.com:kevinhwang91/nvim-ufo.git ~/.config/nvim/plugged/nvim-ufo
-git  clone git@github.com:kevinhwang91/promise-async.git ~/.config/nvim/plugged/promise-async
+git clone git@github.com:kevinhwang91/promise-async.git ~/.config/nvim/plugged/promise-async
+git clone git@github.com:Weissle/persistent-breakpoints.nvim.git ~/.config/nvim/plugged/persistent-breakpoints.nvim
 
 echo "安装依赖"
 

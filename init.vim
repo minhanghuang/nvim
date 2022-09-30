@@ -70,6 +70,9 @@ Plug 'MattesGroeger/vim-bookmarks'
 " 13. 自动保存
 Plug 'Pocco81/auto-save.nvim'
 
+" 14. 断点持久化
+Plug 'Weissle/persistent-breakpoints.nvim'
+
 
 call plug#end()
 

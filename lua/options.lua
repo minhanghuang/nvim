@@ -38,3 +38,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     end,
 })
 
+-- 加载断点数据 
+vim.api.nvim_create_autocmd({"BufReadPost"},{ callback = require('persistent-breakpoints.api').load_breakpoints })
+

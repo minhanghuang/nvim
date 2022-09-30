@@ -138,7 +138,11 @@ keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", opts)
 
 -- debuggger(dap) 
 -- 断点 
-keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", opts)
+-- keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", opts)
+-- 断点(持久化)
+keymap("n", "<Leader>db", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>j", opts)
+-- 清空断点
+keymap("n", "<Leader>dB", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
 -- 显示变量信息 
 keymap("n", "<Leader>de", "<cmd>lua require'dapui'.eval()<CR>", opts)
 -- 开始/下一个断点 

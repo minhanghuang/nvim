@@ -10,6 +10,9 @@ require("plugin/bufferline")
 --  debugger 
 require("dap/dap-init")
 
+-- 断点持久化
+require("plugin/persistent-breakpoints")
+
 --  文件树
 require("plugin/nvim-tree")
 require("plugin/nvim-web-devicons")
