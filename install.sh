@@ -77,8 +77,11 @@ git clone git@github.com:haringsrob/nvim_context_vt.git ~/.config/nvim/plugged/n
 # debugger
 git clone git@github.com:ravenxrz/DAPInstall.nvim.git ~/.config/nvim/plugged/DAPInstall.nvim
 git clone git@github.com:mfussenegger/nvim-dap.git ~/.config/nvim/plugged/nvim-dap
+cd ~/.config/nvim/plugged/nvim-dap && git reset --hard f4a3be57f61893cffa1e22aa5e1e7bded495fcf2 
 git clone git@github.com:theHamsta/nvim-dap-virtual-text.git ~/.config/nvim/plugged/nvim-dap-virtual-text
+cd ~/.config/nvim/plugged/nvim-dap-virtual-text && git reset --hard a36982259216afd710f55bcdc220477c74b5bc35 
 git clone git@github.com:rcarriga/nvim-dap-ui.git ~/.config/nvim/plugged/nvim-dap-ui
+cd ~/.config/nvim/plugged/nvim-dap-ui && git reset --hard b0bc932ce6ca57bdec5536d773ab643e5b2f57ad 
 
 # NeoVim 加速
 git clone git@github.com:nathom/filetype.nvim.git ~/.config/nvim/plugged/filetype.nvim
