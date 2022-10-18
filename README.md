@@ -12,6 +12,8 @@ git clone git@github.com:minhanghuang/nvim.git ~/.config/nvim
 
 ### #1.1 neovim
 
+> mini neovim 0.7.0
+
 - macOS
 
 ```shell
@@ -20,11 +22,15 @@ brew install neovim
 
 - Ubuntu 
 
-> Ubuntu20.04 nvim0.7
-
 ```
 wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
 sudo dpkg -i nvim-linux64.deb
+
+// Or 
+
+wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz
+tar -zxvf nvim-linux64.tar.gz
+sudo cp -r nvim-linux64/* /usr/local
 ```
 
 ### #1.2 node 
