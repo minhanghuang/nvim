@@ -5,12 +5,12 @@ Plug 'ellisonleao/gruvbox.nvim' " 主题 2
 Plug 'kyazdani42/nvim-web-devicons' " file icons (ellisonleao/gruvbox.nvim)
 
 " 2. 文件  
-Plug 'kyazdani42/nvim-tree.lua' " 文件树 
+Plug 'kyazdani42/nvim-tree.lua', {'commit' : '5cb87c037d92b71a3a6f2bc342e2a38456b8870e'} " 文件树
 Plug 'mhinz/vim-startify' " 驱动画面
 Plug 'nathom/filetype.nvim' " 加速neovim 
 
 "3. buffers 
-Plug 'akinsho/bufferline.nvim' " buffers 
+Plug 'akinsho/bufferline.nvim', {'commit' : 'f1a7694fc8681b464f4bff0149875ad5e483e4c2'} " buffers
 Plug 'famiu/bufdelete.nvim' " 关闭buffer 
 Plug 'windwp/windline.nvim' " 底部状态栏美化
 

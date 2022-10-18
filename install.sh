@@ -11,10 +11,12 @@ git clone git@github.com:kyazdani42/nvim-web-devicons.git ~/.config/nvim/plugged
 
 # 文件树
 git clone git@github.com:kyazdani42/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
+cd ~/.config/nvim/plugged/nvim-tree.lua && git checkout 5cb87c037d92b71a3a6f2bc342e2a38456b8870e
 
 # 窗口tag 
 git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
 git clone git@github.com:famiu/bufdelete.nvim.git ~/.config/nvim/plugged/bufdelete.nvim
+cd ~/.config/nvim/plugged/bufdelete.nvim && git checkout f1a7694fc8681b464f4bff0149875ad5e483e4c2
 git clone git@github.com:windwp/windline.nvim.git ~/.config/nvim/plugged/windline.nvim
 git clone git@github.com:lewis6991/gitsigns.nvim.git ~/.config/nvim/plugged/gitsigns.nvim
 
