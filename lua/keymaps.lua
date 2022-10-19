@@ -226,7 +226,8 @@ keymap("v", "<C-/>", "gc", term_opts)
 
 -- 函数跳转(coc.nvim)
 -- 下(上)一个报错的位置
-keymap("n", "<Leader>gw", "<Plug>(coc-diagnostic-prev)", term_opts)
+keymap("n", "<Leader>-", "<Plug>(coc-diagnostic-prev)", term_opts)
+keymap("n", "<Leader>=", "<Plug>(coc-diagnostic-next)", term_opts)
 -- keymap("n", "<Leader>gw", "<Plug>(coc-diagnostic-next)", term_opts)
 -- 跳转函数定义(实现)
 keymap("n", "<Leader>gg", "<Plug>(coc-definition)", term_opts)
