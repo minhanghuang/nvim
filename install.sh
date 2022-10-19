@@ -10,7 +10,7 @@ git clone git@github.com:ellisonleao/gruvbox.nvim.git ~/.config/nvim/plugged/gru
 git clone git@github.com:kyazdani42/nvim-web-devicons.git ~/.config/nvim/plugged/nvim-web-devicons
 
 # 文件树
-git clone git@github.com:kyazdani42/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
+git clone git@github.com:nvim-tree/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
 cd ~/.config/nvim/plugged/nvim-tree.lua && git checkout 5cb87c037d92b71a3a6f2bc342e2a38456b8870e
 
 # 窗口tag 
@@ -25,7 +25,7 @@ git clone git@github.com:neoclide/coc.nvim.git ~/.config/nvim/plugged/coc.nvim
 cd ~/.config/nvim/plugged/coc.nvim && git checkout v0.0.81
 
 # 彩虹括号 
-git clone git@github.com:luochen1990/rainbow.git ~/.config/nvim/plugged/rainbow  
+git clone git@github.com:luochen1990/rainbow.git ~/.config/nvim/plugged/rainbow
 git clone git@github.com:jiangmiao/auto-pairs.git ~/.config/nvim/plugged/auto-pairs
 
 # 搜索 
