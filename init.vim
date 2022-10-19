@@ -5,7 +5,7 @@ Plug 'ellisonleao/gruvbox.nvim' " 主题
 Plug 'kyazdani42/nvim-web-devicons' " file icons (ellisonleao/gruvbox.nvim)
 
 " 2. 文件  
-Plug 'nvim-tree/nvim-tree.lua', {'commit' : '5cb87c037d92b71a3a6f2bc342e2a38456b8870e'} " 文件树
+Plug 'nvim-tree/nvim-tree.lua' " 文件树
 Plug 'mhinz/vim-startify' " 驱动画面
 Plug 'nathom/filetype.nvim' " 加速neovim
 
