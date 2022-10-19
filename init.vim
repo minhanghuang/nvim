@@ -10,7 +10,7 @@ Plug 'mhinz/vim-startify' " 驱动画面
 Plug 'nathom/filetype.nvim' " 加速neovim
 
 "3. buffers 
-Plug 'akinsho/bufferline.nvim', {'commit' : 'f1a7694fc8681b464f4bff0149875ad5e483e4c2'} " buffers
+Plug 'akinsho/bufferline.nvim', {'commit' : '46255e4a76c4fb450a94885527f5e58a7d96983c'} " buffers
 Plug 'famiu/bufdelete.nvim' " 关闭buffer
 Plug 'windwp/windline.nvim' " 底部状态栏美化
 
