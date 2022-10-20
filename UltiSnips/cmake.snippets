@@ -150,3 +150,11 @@ endsnippet
 snippet pkg_check_modules
 pkg_check_modules(${0:name} REQUIRED ${1:lib})
 endsnippet
+
+snippet file
+file(COPY
+  "${1:src_path}"
+  DESTINATION "${2:dest_path}"
+)
+endsnippet
+
