@@ -73,6 +73,9 @@ Plug 'Pocco81/auto-save.nvim'
 " 14. 断点持久化
 Plug 'Weissle/persistent-breakpoints.nvim'
 
+" 15. 编辑需要sudo的文件
+Plug 'lambdalisue/suda.vim'
+
 
 call plug#end()
 
