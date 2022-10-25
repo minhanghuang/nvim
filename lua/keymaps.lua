@@ -249,7 +249,7 @@ keymap("n", "<Leader>cr", "<Plug>(coc-references)", term_opts)
 -- 重新命名变量
 keymap("n", "<Leader>cn", "<Plug>(coc-rename)", term_opts)
 -- 自动修复当前行的报错
-keymap("n", "<Leader>cf", "<Plug>(coc-fix-current)", term_opts)
+keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", term_opts)
 -- 翻译
 keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", term_opts)
 
