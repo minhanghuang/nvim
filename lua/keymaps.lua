@@ -234,6 +234,8 @@ keymap("n", "<Leader>gg", "<Plug>(coc-definition)", term_opts)
 keymap("n", "<Leader>gi", "<Plug>(coc-implementation)", term_opts)
 -- 列出函数被引用的位置 
 keymap("n", "<Leader>gr", "<Plug>(coc-references)", term_opts)
+-- 重新命名变量
+keymap("n", "<Leader>gn", "<Plug>(coc-rename)", term_opts)
 
 -- 替换(windwp/nvim-spectre)
 -- 全文替换-当前光标所在单词
