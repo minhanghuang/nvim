@@ -12,7 +12,7 @@ git clone git@github.com:minhanghuang/nvim.git ~/.config/nvim
 
 ### #1.1 neovim
 
-> mini neovim 0.7.0
+> minimum neovim 0.7.0
 
 - macOS
 
