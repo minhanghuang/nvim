@@ -225,17 +225,33 @@ keymap("i", "<C-/>", "<Esc>gcc<CR>i", term_opts)
 keymap("v", "<C-/>", "gc", term_opts)
 
 -- 函数跳转(coc.nvim)
+function _G.show_docs()
+    local cw = vim.fn.expand('<cword>')
+    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+    elseif vim.api.nvim_eval('coc#rpc#ready()') then
+        vim.fn.CocActionAsync('doHover')
+    else
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+    end
+end
+-- 显示变量类型 或 函数接口文档
+keymap("n", "<Leader>cs", "<cmd>lua _G.show_docs()<CR>", term_opts)
 -- 下(上)一个报错的位置
 keymap("n", "<Leader>-", "<Plug>(coc-diagnostic-prev)", term_opts)
 keymap("n", "<Leader>=", "<Plug>(coc-diagnostic-next)", term_opts)
 -- keymap("n", "<Leader>gw", "<Plug>(coc-diagnostic-next)", term_opts)
 -- 跳转函数定义(实现)
-keymap("n", "<Leader>gg", "<Plug>(coc-definition)", term_opts)
-keymap("n", "<Leader>gi", "<Plug>(coc-implementation)", term_opts)
+keymap("n", "<Leader>cd", "<Plug>(coc-definition)", term_opts)
+keymap("n", "<Leader>ci", "<Plug>(coc-implementation)", term_opts)
 -- 列出函数被引用的位置 
-keymap("n", "<Leader>gr", "<Plug>(coc-references)", term_opts)
+keymap("n", "<Leader>cr", "<Plug>(coc-references)", term_opts)
 -- 重新命名变量
-keymap("n", "<Leader>gn", "<Plug>(coc-rename)", term_opts)
+keymap("n", "<Leader>cn", "<Plug>(coc-rename)", term_opts)
+-- 自动修复当前行的报错
+keymap("n", "<Leader>cf", "<Plug>(coc-fix-current)", term_opts)
+-- 翻译
+keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", term_opts)
 
 -- 替换(windwp/nvim-spectre)
 -- 全文替换-当前光标所在单词
@@ -267,4 +283,7 @@ keymap("n", "ma", ":BookmarkShowAll<CR>", opts)
 keymap("n", "mn", ":BookmarkNext<CR>", opts)
 keymap("n", "mp", ":BookmarkPrev<CR>", opts)
 keymap("n", "mc", ":BookmarkClearAll<CR>", opts)
+
+-- sudo file
+keymap("n", "<Leader>sw", ":SudaWrite<CR>", opts)
 
