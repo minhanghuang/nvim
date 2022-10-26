@@ -81,3 +81,6 @@ require("plugin/nvim-ufo")
 -- 括号补全
 require("plugin/auto-pairs")
 
+-- startify
+require("plugin/vim-startify")
+
