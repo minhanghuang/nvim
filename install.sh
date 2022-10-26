@@ -60,9 +60,6 @@ git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
 # 翻译
 git clone git@github.com:voldikss/vim-translator.git ~/.config/nvim/plugged/vim-translator
 
-# 高亮与当前光标相同的词汇
-git clone git@github.com:RRethy/vim-illuminate.git ~/.config/nvim/plugged/vim-illuminate
-
 # 显示tab缩进 
 git clone git@github.com:lukas-reineke/indent-blankline.nvim.git ~/.config/nvim/plugged/indent-blankline.nvim
 

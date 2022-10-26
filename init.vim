@@ -32,7 +32,6 @@ Plug 'preservim/tagbar' " 显示class function ...
 Plug 'tpope/vim-commentary' " 注释 
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进
 Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮
-Plug 'xiyaowong/nvim-cursorword' " 高亮与当前光标相同的词汇
 Plug 'haringsrob/nvim_context_vt' " 括号后提示所属条件
 Plug 'lewis6991/gitsigns.nvim' " git
 Plug 'sindrets/diffview.nvim'
