@@ -1,12 +1,14 @@
 -- following options are the default
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
+local telescope = require('telescope.builtin')
+
 local function live_grep_the_node_cb(node)
-  require('telescope.builtin').live_grep({ prompt_title = "Search Path:" .. node.absolute_path, search_dirs = { node.absolute_path } })
+  telescope.live_grep({ prompt_title = "Search Path:" .. node.absolute_path, search_dirs = { node.absolute_path } })
 end
 
 local function find_files_the_node_cb(node)
-  require('telescope.builtin').find_files({ search_dirs = { node.absolute_path } })
+  telescope.find_files({ search_dirs = { node.absolute_path } })
 end
 
 require'nvim-tree'.setup {
