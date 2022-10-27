@@ -169,9 +169,9 @@ keymap("n",
 -- 搜索(telescope) 
 -- 搜索文件 
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
--- 搜索字符串 
-keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
--- 在当前工作目录中搜索光标下的字符串
+-- 搜索字符串(cwd, 项目根目录)
+keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<cr>", opts)
+-- 搜索光标所在字符串
 keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", opts)
 -- 搜索TODO LIST 
 keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", opts)
