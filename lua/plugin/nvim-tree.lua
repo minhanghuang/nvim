@@ -1,5 +1,14 @@
 -- following options are the default
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+
+local function live_grep_the_node_cb(node)
+  require('telescope.builtin').live_grep({ prompt_title = "Search Path:" .. node.absolute_path, search_dirs = { node.absolute_path } })
+end
+
+local function find_files_the_node_cb(node)
+  require('telescope.builtin').find_files({ search_dirs = { node.absolute_path } })
+end
+
 require'nvim-tree'.setup {
 	-- disables netrw completely
 	disable_netrw       = false,
@@ -96,14 +105,14 @@ require'nvim-tree'.setup {
                           { key = "[c",                           action = "prev_git_item" },
                           { key = "]c",                           action = "next_git_item" },
                           { key = "-",                            action = "dir_up" },
-                          { key = "s",                            action = "system_open" },
-                          { key = "f",                            action = "live_filter" },
+                          { key = "fs",                           action = "live_grep_the_node", action_cb = live_grep_the_node_cb },
+                          { key = "ff",                           action = "find_files_the_node", action_cb = find_files_the_node_cb },
+                          { key = "S",                            action = "search_node" },
                           { key = "F",                            action = "clear_live_filter" },
                           { key = "q",                            action = "close" },
                           { key = "g?",                           action = "toggle_help" },
                           { key = "W",                            action = "collapse_all" },
-                          { key = "S",                            action = "search_node" },
-                          -- { key = "<C-k>",                        action = "toggle_file_info" },
+                          { key = "K",                            action = "toggle_file_info" },
                           { key = ".",                            action = "run_file_command" }
                         }
 		}
