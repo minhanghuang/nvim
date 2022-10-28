@@ -12,5 +12,12 @@ require("nvim-web-devicons").set_icon {
     cterm_color = "173",
     name = "Xml",
   },
+  ["xodr"] = {
+    icon = "謹",
+    color = "#e37933",
+    cterm_color = "173",
+    name = "Xml",
+  },
+
 }
 
