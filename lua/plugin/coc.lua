@@ -13,5 +13,6 @@ vim.g.coc_global_extensions = {
   'coc-emmet',
   'coc-html',
   'coc-jedi',
-  'coc-translator'
+  'coc-translator',
+  'coc-xml'
 }
