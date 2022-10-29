@@ -1,5 +1,10 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
+-- 将'launch'使用'html'解析器解析
+local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
+ft_to_parser.xodr = "html"
+ft_to_parser.launch = "html"
+
 require("nvim-treesitter.configs").setup( {
         -- 安装的高亮支持来源
         -- ensure_installed = "maintained",
