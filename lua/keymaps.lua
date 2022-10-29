@@ -168,21 +168,28 @@ keymap("n",
 
 -- 搜索(telescope) 
 function _G.grep_string_the_file()
-  local telescope = require('telescope.builtin')
   require('telescope.builtin').grep_string({
+      grep_open_files = true
+  })
+end
+function _G.live_grep_the_file()
+  require('telescope.builtin').live_grep({
       grep_open_files = true
   })
 end
 -- 搜索文件 
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
--- 搜索字符串(cwd, 项目根目录)
+-- 搜索字符串(所有文件)
 keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<cr>", opts)
+-- 搜索字符串(当前文件)
+keymap("n", "<Leader>fj", "<cmd>lua _G.live_grep_the_file()<cr>", opts)
 -- 搜索光标所在字符串(所有文件)
 keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", opts)
 -- 搜索光标所在字符串(当前文件)
 keymap("n", "<Leader>fc", "<cmd>lua _G.grep_string_the_file()<cr>", opts)
 -- 搜索TODO LIST 
 keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", opts)
+-- 指定路径搜索文件/字符 在 ./lua/pligin/nvim-tree.lua中
 
 -- buffers
 keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)
