@@ -75,9 +75,6 @@ require("plugin/autosave")
 -- python IDE
 require("plugin/python-mode")
 
--- 折叠 
-require("plugin/nvim-ufo")
-
 -- 括号补全
 require("plugin/auto-pairs")
 
