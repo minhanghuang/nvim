@@ -96,9 +96,7 @@ git clone git@github.com:sbdchd/neoformat.git ~/.config/nvim/plugged/neoformat
 # python ide 
 git clone --recurse-submodules git@gitee.com:haha-web/python-mode.git ~/.config/nvim/plugged/python-mode
 
-# 折叠 
-git clone git@github.com:kevinhwang91/nvim-ufo.git ~/.config/nvim/plugged/nvim-ufo
-git clone git@github.com:kevinhwang91/promise-async.git ~/.config/nvim/plugged/promise-async
+# 断点持久化
 git clone git@github.com:Weissle/persistent-breakpoints.nvim.git ~/.config/nvim/plugged/persistent-breakpoints.nvim
 
 # sudo file
