@@ -2,6 +2,7 @@
 # idea 
 cmake-build*
 build
+.cache
 .DS_Store
 *.idea/*
 
