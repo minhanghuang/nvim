@@ -4,7 +4,7 @@ local options = {
     shiftwidth = 2;           -- the number of spaces inserted for each indentation
     expandtab = true;         -- convert tabs to spaces  
     termguicolors = true,     -- set term gui colors (most terminals support this)
-    history = 1024; 
+    history = 1024;
     showcmd = true;
     showmatch = true;
     showfulltag = true;
@@ -20,7 +20,7 @@ local options = {
     laststatus=3; -- 全局状态栏(NeoVim0.7)
     foldmethod = "expr", -- 折叠 
     foldexpr = "nvim_treesitter#foldexpr()",
-    foldenable = false, 
+    foldenable = false,
     foldlevel = 99,
     -- mouse = "a",               -- allow the mouse to be used in neovim
 }
@@ -37,7 +37,4 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
        vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
     end,
 })
-
--- 加载断点数据 
-vim.api.nvim_create_autocmd({"BufReadPost"},{ callback = require('persistent-breakpoints.api').load_breakpoints })
 
