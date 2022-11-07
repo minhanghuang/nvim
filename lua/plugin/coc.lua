@@ -16,3 +16,7 @@ vim.g.coc_global_extensions = {
   'coc-translator',
   'coc-xml'
 }
+
+-- <C-j> <C-k> 冲突
+vim.g.coc_snippet_prev = '<S-j>'
+vim.g.coc_snippet_next = '<S-k>'
