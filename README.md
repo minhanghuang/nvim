@@ -33,7 +33,7 @@ tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
 ```
 
-### #1.2 node 
+### #1.2 node.js 
 
 - macOS
 
