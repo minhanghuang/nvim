@@ -200,6 +200,7 @@ keymap("n", "<Leader>fd", ":Bdelete!<CR>", opts)
 keymap("n", "<Leader>bmn", ":BufferLineMoveNext<CR>", opts)
 keymap("n", "<Leader>bmp", ":BufferLineMovePrev<CR>", opts)
 keymap("n", "<Leader>bb", ":BufferLineSortByDirectory<CR>", opts)
+keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", opts)
 
 -- tagbar(preservim/tagbar)
 keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)

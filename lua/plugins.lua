@@ -6,6 +6,7 @@ require("plugin/telescope")
  
 --  buffers窗口 
 require("plugin/bufferline")
+require("plugin/bufdelete")
 
 --  debugger 
 require("dap/dap-init")
