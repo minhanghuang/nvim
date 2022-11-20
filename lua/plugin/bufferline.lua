@@ -11,7 +11,8 @@ require("bufferline").setup {
       highlight = "Directory",
       text_align = "left"
     }},
-    buffer_close_icon= "",
+    close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
+    buffer_close_icon= "",
     modified_icon = "🚫",
     close_icon = "",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
