@@ -73,6 +73,8 @@ Plug 'Weissle/persistent-breakpoints.nvim'
 " 15. 编辑需要sudo的文件
 Plug 'lambdalisue/suda.vim'
 
+" 16. ssh复制粘贴板
+Plug 'ojroques/vim-oscyank'
 
 call plug#end()
 

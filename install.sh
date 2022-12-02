@@ -102,6 +102,9 @@ git clone git@github.com:Weissle/persistent-breakpoints.nvim.git ~/.config/nvim/
 # sudo file
 git clone git@github.com:lambdalisue/suda.vim.git ~/.config/nvim/plugged/suda.vim
 
+# ssh copy 
+git clone git@github.com:ojroques/vim-oscyank.git ~/.config/nvim/plugged/vim-oscyank
+
 echo "安装依赖"
 
 os_type=`uname  -a`
