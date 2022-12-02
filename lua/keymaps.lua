@@ -306,3 +306,6 @@ keymap("n", "mc", ":BookmarkClearAll<CR>", opts)
 -- sudo file
 keymap("n", "<Leader>sw", ":SudaWrite<CR>", opts)
 
+-- ssh copy
+keymap("v", "y", ":OSCYank<CR>", opts)
+
