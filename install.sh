@@ -105,6 +105,8 @@ git clone git@github.com:lambdalisue/suda.vim.git ~/.config/nvim/plugged/suda.vi
 # ssh copy 
 git clone git@github.com:ojroques/vim-oscyank.git ~/.config/nvim/plugged/vim-oscyank
 
+git clone git@github.com:danymat/neogen.git ~/.config/nvim/plugged/neogen
+
 echo "安装依赖"
 
 os_type=`uname  -a`

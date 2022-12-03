@@ -82,3 +82,5 @@ require("plugin/auto-pairs")
 -- startify
 require("plugin/vim-startify")
 
+require("plugin/neogen")
+

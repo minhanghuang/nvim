@@ -309,3 +309,6 @@ keymap("n", "<Leader>sw", ":SudaWrite<CR>", opts)
 -- ssh copy
 keymap("v", "y", ":OSCYank<CR>", opts)
 
+-- inserted annotation
+keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", opts)
+
