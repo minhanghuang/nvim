@@ -76,6 +76,8 @@ Plug 'lambdalisue/suda.vim'
 " 16. ssh复制粘贴板
 Plug 'ojroques/vim-oscyank'
 
+Plug 'danymat/neogen'
+
 call plug#end()
 
 lua require("options")
