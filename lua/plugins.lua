@@ -46,9 +46,6 @@ require("plugin/vim-floaterm")
 require("plugin/rainbow")
 require("plugin/nvim_context_vt") 
 
--- 翻译  
-require("plugin/vim-translator")
-
 -- Markdown  
 require("plugin/markdown-preview")
 

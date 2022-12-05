@@ -57,9 +57,6 @@ git clone git@github.com:tpope/vim-commentary.git ~/.config/nvim/plugged/vim-com
 # preservim/tagbar
 git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
 
-# 翻译
-git clone git@github.com:voldikss/vim-translator.git ~/.config/nvim/plugged/vim-translator
-
 # 显示tab缩进 
 git clone git@github.com:lukas-reineke/indent-blankline.nvim.git ~/.config/nvim/plugged/indent-blankline.nvim
 
