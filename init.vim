@@ -43,7 +43,6 @@ Plug 'voldikss/vim-floaterm'
 
 " 8. 文本
 Plug 'iamcco/markdown-preview.nvim', {'do' : 'cd app && yarn install'}
-Plug 'voldikss/vim-translator' " 翻译
 Plug 'ethanholz/nvim-lastplace' " 缓存当前光标信息,下次重启恢复文件位置
 Plug 'windwp/nvim-spectre' " 替换
 
@@ -76,6 +75,7 @@ Plug 'lambdalisue/suda.vim'
 " 16. ssh复制粘贴板
 Plug 'ojroques/vim-oscyank'
 
+" 17. 添加接口注释
 Plug 'danymat/neogen'
 
 call plug#end()
