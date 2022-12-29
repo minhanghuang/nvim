@@ -209,7 +209,7 @@ keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
 keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", opts)
 
 -- code-format
-keymap("n", "<Leader>cf", ":Neoformat<CR>", opts)
+keymap("n", "<Leader>cf", ":call CocActionAsync('format')<CR>", opts)
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
