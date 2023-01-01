@@ -35,7 +35,6 @@ Plug 'nvim-treesitter/nvim-treesitter' " 代码语法高亮
 Plug 'haringsrob/nvim_context_vt' " 括号后提示所属条件
 Plug 'lewis6991/gitsigns.nvim' " git
 Plug 'sindrets/diffview.nvim'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " 7. 终端
 Plug 'voldikss/vim-floaterm'

@@ -70,7 +70,6 @@ git clone git@github.com:nvim-treesitter/nvim-treesitter.git ~/.config/nvim/plug
 git clone git@github.com:haringsrob/nvim_context_vt.git ~/.config/nvim/plugged/nvim_context_vt
 
 # debugger
-git clone git@github.com:ravenxrz/DAPInstall.nvim.git ~/.config/nvim/plugged/DAPInstall.nvim
 git clone git@github.com:mfussenegger/nvim-dap.git ~/.config/nvim/plugged/nvim-dap
 cd ~/.config/nvim/plugged/nvim-dap && git reset --hard f4a3be57f61893cffa1e22aa5e1e7bded495fcf2 
 git clone git@github.com:theHamsta/nvim-dap-virtual-text.git ~/.config/nvim/plugged/nvim-dap-virtual-text
@@ -89,8 +88,8 @@ git clone git@github.com:MattesGroeger/vim-bookmarks.git ~/.config/nvim/plugged/
 git clone git@github.com:sindrets/diffview.nvim.git ~/.config/nvim/plugged/diffview.nvim
 git clone git@github.com:Pocco81/auto-save.nvim.git ~/.config/nvim/plugged/auto-save.nvim
 
-# python ide 
-git clone --recurse-submodules git@gitee.com:haha-web/python-mode.git ~/.config/nvim/plugged/python-mode
+# # python ide 
+# git clone --recurse-submodules git@gitee.com:haha-web/python-mode.git ~/.config/nvim/plugged/python-mode
 
 # 断点持久化
 git clone git@github.com:Weissle/persistent-breakpoints.nvim.git ~/.config/nvim/plugged/persistent-breakpoints.nvim
