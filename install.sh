@@ -36,6 +36,7 @@ git clone git@github.com:nvim-lua/plenary.nvim.git ~/.config/nvim/plugged/plenar
 git clone git@github.com:BurntSushi/ripgrep.git ~/.config/nvim/plugged/ripgrep
 git clone git@github.com:sharkdp/fd.git ~/.config/nvim/plugged/fd
 git clone git@github.com:kevinhwang91/nvim-hlslens.git ~/.config/nvim/plugged/nvim-hlslens
+cd ~/.config/nvim/plugged/coc.nvim && git checkout 1b629c0c28c4c5aa7923043e00a9e388b0ad937a
 
 # 最近打开文件
 git clone git@github.com:mhinz/vim-startify.git ~/.config/nvim/plugged/vim-startify
