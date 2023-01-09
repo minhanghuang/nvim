@@ -19,7 +19,7 @@ Plug 'nvim-telescope/telescope.nvim' " 搜索
 Plug 'nvim-lua/plenary.nvim' " 搜索 (telescope.nvim require)
 Plug 'BurntSushi/ripgrep' " 搜索插件 文本查找 (telescope.nvim require)
 Plug 'sharkdp/fd' " 搜索插件 文件查找 (telescope.nvim require)
-Plug 'kevinhwang91/nvim-hlslens' " 搜索美化 [2/56]
+Plug 'kevinhwang91/nvim-hlslens', {'commit': '1b629c0c28c4c5aa7923043e00a9e388b0ad937a'}  " 搜索美化 [2/56]
 Plug 'folke/todo-comments.nvim' " todo list
 
 " 5. 美化
