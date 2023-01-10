@@ -1,9 +1,10 @@
 {
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd",
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
   "clangd.inlayHints.enable": false,
   "python.pythonPath": "/usr/bin/python3",
   "Lua.telemetry.enable": true,
   "translator.engines": [
     "youdao"
-  ]
+  ],
+  "snippets.ultisnips.pythonPrompt": false
 }

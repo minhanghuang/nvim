@@ -110,23 +110,67 @@ os_type=`uname  -a`
 if [[ $os_type =~ 'Darwin' ]];then
     echo "macOS"
     brew install ripgrep
-    brew install gnu-sed 
+    brew install gnu-sed
     brew install llvm
     brew tap universal-ctags/universal-ctags
     brew install --HEAD universal-ctags
     brew install tig
-    python3 -m pip install debugpy autopep8 cmakelang
+    python3 -m pip install debugpy autopep8 cmakelang neovim
     unzip -d ~/.config/nvim/data/debug/tools/ ~/.config/nvim/data/debug/codelldb-x86_64-darwin.vsix
+
+    # install clangd
+    CLANGD_FILE=~/.config/coc/extensions/coc-clangd-data/download/clangd-mac-15.0.6.zip
+    CLANGD_PATH=~/.config/coc/extensions/coc-clangd-data/install/15.0.6
+    if [ -f "$CLANGD_FILE" ]; then
+      echo "$CLANGD_FILE exist"
+      if [ -f "$CLANGD_PATH" ]; then
+        echo "$CLANGD_PATH exist"
+      else
+        echo "$CLANGD_PATH dose not exist"
+        unzip -d $CLANGD_PATH $CLANGD_FILE
+      fi
+    else 
+      echo "$CLANGD_FILE does not exist"
+      wget https://github.com/clangd/clangd/releases/download/15.0.6/clangd-mac-15.0.6.zip -P ~/.config/coc/extensions/coc-clangd-data/download/
+      if [ -f "$CLANGD_PATH" ]; then
+        echo "$CLANGD_PATH exist"
+      else
+        echo "$CLANGD_PATH dose not exist"
+        unzip -d $CLANGD_PATH $CLANGD_FILE
+      fi
+    fi
 elif [[ $os_type =~ 'Linux' ]];then
     echo "Ubuntu"
     # curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
     sudo dpkg -i ~/.config/nvim/data/ripgrep_0.10.0_amd64.deb
     sudo apt install ctags
     sudo apt install python3-venv # coc.nvim 中的coc-jedi模块需要依赖venv
-    python3 -m pip install debugpy autopep8 cmakelang
+    python3 -m pip install debugpy autopep8 cmakelang neovim
     unzip -d ~/.config/nvim/data/debug/tools/ ~/.config/nvim/data/debug/codelldb-x86_64-linux.vsix
     sudo apt install llvm
     sudo apt install tig
+
+    # install clangd
+    CLANGD_FILE=~/.config/coc/extensions/coc-clangd-data/download/clangd-linux-15.0.6.zip
+    CLANGD_PATH=~/.config/coc/extensions/coc-clangd-data/install/15.0.6
+    if [ -f "$CLANGD_FILE" ]; then
+      echo "$CLANGD_FILE exist"
+      if [ -f "$CLANGD_PATH" ]; then
+        echo "$CLANGD_PATH exist"
+      else
+        echo "$CLANGD_PATH dose not exist"
+        unzip -d $CLANGD_PATH $CLANGD_FILE
+      fi
+    else 
+      echo "$CLANGD_FILE does not exist"
+      wget https://github.com/clangd/clangd/releases/download/15.0.6/clangd-linux-15.0.6.zip -P ~/.config/coc/extensions/coc-clangd-data/download/
+      if [ -f "$CLANGD_PATH" ]; then
+        echo "$CLANGD_PATH exist"
+      else
+        echo "$CLANGD_PATH dose not exist"
+        unzip -d $CLANGD_PATH $CLANGD_FILE
+      fi
+    fi
   else
     echo $os_type
 fi
