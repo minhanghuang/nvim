@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = false }
+local expr_opts = { silent = true, noremap = true, expr = true }
 
 local term_opts = { silent = true }
 local display_opts = { silent = false }
@@ -13,19 +14,19 @@ vim.g.maplocalleader = " "
 
 -- ***********************************
 --  vim 快捷键
---         Normal | Visual | Insert | Operator | Command 
---   map:    T        T                  T               
---   !map:                     T                   T               
---   nmap:   T   
---   vmap:            T  
---   imap:                     T      
---   omap:                               T          
---   cmap:                                         T          
+--         Normal | Visual | Insert | Operator | Command
+--   map:    T        T                  T
+--   !map:                     T                   T
+--   nmap:   T
+--   vmap:            T
+--   imap:                     T
+--   omap:                               T
+--   cmap:                                         T
 --
 --   default map:
---    yaw: 复制光标所在单词 
+--    yaw: 复制光标所在单词
 --    yy: 复制当前行
---    yyP: 拷贝当前行到上一行 
+--    yyP: 拷贝当前行到上一行
 --    yyp: 拷贝当前行到下一行
 --    ^或0: 行首
 --    $: 行尾
@@ -38,7 +39,7 @@ vim.g.maplocalleader = " "
 --    G: 光标移动到文件结尾处
 --    dd: 剪切当前行
 --    x: 删除当前字母
---    dw: 以光标为界,删除单词后半部分 
+--    dw: 以光标为界,删除单词后半部分
 --    diw: 删除光标所在单词
 --    o: 当前行向下插入一空行
 --    O: 当前行向上插入一空行
@@ -48,22 +49,22 @@ vim.g.maplocalleader = " "
 --   <C-i>: 回到上一次光标所在位置
 --   <C-l>: 刷新屏幕
 --   y: vmap模式,复制选中内容
---   :/ : 当前buffer搜索(n:下一个, N:上一个) <C-l>恢复屏幕 
+--   :/ : 当前buffer搜索(n:下一个, N:上一个) <C-l>恢复屏幕
 --   *: 当前BUFFER搜索光标所在单词(n:下一个,N:上一个)
---   gu: 大写转小写 
---   gU: 小写转大写 
---   rx: x替换当前光标所在字母  
---   fx: 光标向后移动到第一个x所在位置   
---   Fx: 光标向前移动到第一个x所在位置   
---   :[addr]s/old/new/[option] : 替换 
+--   gu: 大写转小写
+--   gU: 小写转大写
+--   rx: x替换当前光标所在字母
+--   fx: 光标向后移动到第一个x所在位置
+--   Fx: 光标向前移动到第一个x所在位置
+--   :[addr]s/old/new/[option] : 替换
 --     s是substitute缩写
---     [addr]: 
+--     [addr]:
 --       "1,n":表示从第1行到n行
 --       ".,$:表示从当前行到文件尾
 --       "%":表示整个文件,同"1,$"
---     [option]: g c p i 省略时仅对每行第一个匹配串进行替换 
+--     [option]: g c p i 省略时仅对每行第一个匹配串进行替换
 --       g: global 全局替换
---       c: confirm 确认 
+--       c: confirm 确认
 --       p: 表示替代结果逐行显示,<C-l>恢复屏幕
 --       i:ignore 不区分大小写
 --     #为转义符
@@ -123,10 +124,10 @@ keymap("n", "o", "o<Esc>", opts)
 -- <C-v>: 垂直打开新窗口
 -- type a: 新建文件/文件夹(文件夹后加下划线/)
 -- type o: 打开文件/文件夹
--- type r: 修改文件名 
--- type x: 剪切 
--- type c: 复制 
--- type p: 粘贴 
+-- type r: 修改文件名
+-- type x: 剪切
+-- type c: 复制
+-- type p: 粘贴
 -- type y: 拷贝文件名(系统剪切板)
 -- type Y: 拷贝文件相对路径(系统剪切板)
 -- type gy: 拷贝文件绝对路径(系统剪切板)
@@ -136,22 +137,22 @@ keymap("n", "o", "o<Esc>", opts)
 keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", opts)
 
--- debuggger(dap) 
--- 断点 
+-- debuggger(dap)
+-- 断点
 -- keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", opts)
 -- 断点(持久化)
 keymap("n", "<Leader>db", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>j", opts)
 -- 清空断点
 keymap("n", "<Leader>dB", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
--- 显示变量信息 
+-- 显示变量信息
 keymap("n", "<Leader>de", "<cmd>lua require'dapui'.eval()<CR>", opts)
--- 开始/下一个断点 
+-- 开始/下一个断点
 keymap("n", "<Leader>dg", "<cmd>lua require'dap'.continue()<CR>", opts)
--- Requests the debugee to step into a function or method if possible. 
+-- Requests the debugee to step into a function or method if possible.
 keymap("n", "<Leader>di", "<cmd>lua require'dap'.step_into()<CR>", opts)
--- Requests the debugee to run again for one step. 
+-- Requests the debugee to run again for one step.
 keymap("n", "<Leader>dn", "<cmd>lua require'dap'.step_over()<CR>", opts)
--- Requests the debugee to step out of a function or method if possible. 
+-- Requests the debugee to step out of a function or method if possible.
 keymap("n", "<Leader>do", "<cmd>lua require'dap'.step_out()<CR>", opts)
 -- Steps one step back. Debug adapter must support reverse debugging.
 keymap("n", "<Leader>dp", "<cmd>lua require'dap'.step_back()<CR>", opts)
@@ -161,23 +162,26 @@ keymap("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", opts)
 keymap("n", "<Leader>dc", "<cmd>lua require'dap'.run_to_cursor()<CR>", opts)
 -- 结束
 keymap("n",
-  "<Leader>dd", 
-  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR><cmd>q<CR>", 
+  "<Leader>dd",
+  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR><cmd>q<CR>"
+  ,
   opts
 )
 
--- 搜索(telescope) 
+-- 搜索(telescope)
 function _G.grep_string_the_file()
   require('telescope.builtin').grep_string({
-      grep_open_files = true
+    grep_open_files = true
   })
 end
+
 function _G.live_grep_the_file()
   require('telescope.builtin').live_grep({
-      grep_open_files = true
+    grep_open_files = true
   })
 end
--- 搜索文件 
+
+-- 搜索文件
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 -- 搜索字符串(所有文件)
 keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<cr>", opts)
@@ -187,7 +191,7 @@ keymap("n", "<Leader>fj", "<cmd>lua _G.live_grep_the_file()<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", opts)
 -- 搜索光标所在字符串(当前文件)
 keymap("n", "<Leader>fc", "<cmd>lua _G.grep_string_the_file()<cr>", opts)
--- 搜索TODO LIST 
+-- 搜索TODO LIST
 keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", opts)
 -- 指定路径搜索文件/字符 在 ./lua/pligin/nvim-tree.lua中
 
@@ -205,7 +209,7 @@ keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", opts)
 -- tagbar(preservim/tagbar)
 keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
 
--- 括号归属(haringsrob/nvim_context_vt) 
+-- 括号归属(haringsrob/nvim_context_vt)
 keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", opts)
 
 -- code-format
@@ -219,9 +223,9 @@ keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", opts)
 keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", opts)
 keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", opts)
--- 查看git diff 
+-- 查看git diff
 keymap("n", "<Leader>gd", "<Leader>o<CR>:DiffviewOpen HEAD~", display_opts)
--- 退出git diff 
+-- 退出git diff
 keymap("n", "<Leader>gc", ":DiffviewClose<CR><Leader>o<CR>", display_opts)
 
 -- terminal
@@ -245,15 +249,16 @@ keymap("v", "<C-/>", "gc", term_opts)
 
 -- 函数跳转(coc.nvim)
 function _G.show_docs()
-    local cw = vim.fn.expand('<cword>')
-    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
-        vim.api.nvim_command('h ' .. cw)
-    elseif vim.api.nvim_eval('coc#rpc#ready()') then
-        vim.fn.CocActionAsync('doHover')
-    else
-        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-    end
+  local cw = vim.fn.expand('<cword>')
+  if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
+    vim.api.nvim_command('h ' .. cw)
+  elseif vim.api.nvim_eval('coc#rpc#ready()') then
+    vim.fn.CocActionAsync('doHover')
+  else
+    vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+  end
 end
+
 -- 显示变量类型 或 函数接口文档
 keymap("n", "<Leader>cs", "<cmd>lua _G.show_docs()<CR>", term_opts)
 -- 下(上)一个报错的位置
@@ -263,7 +268,7 @@ keymap("n", "<Leader>=", "<Plug>(coc-diagnostic-next)", term_opts)
 -- 跳转函数定义(实现)
 keymap("n", "<Leader>cd", "<Plug>(coc-definition)", term_opts)
 keymap("n", "<Leader>ci", "<Plug>(coc-implementation)", term_opts)
--- 列出函数被引用的位置 
+-- 列出函数被引用的位置
 keymap("n", "<Leader>cr", "<Plug>(coc-references)", term_opts)
 -- 重新命名变量
 keymap("n", "<Leader>cn", "<Plug>(coc-rename)", term_opts)
@@ -299,7 +304,7 @@ keymap("n", "<S-r>", "zR", term_opts)
 -- 打开全部
 keymap("n", "<S-m>", "zM", term_opts)
 
--- 书签 
+-- 书签
 keymap("n", "mm", ":BookmarkToggle<CR>", opts)
 keymap("n", "mt", ":BookmarkAnnotate ", opts)
 keymap("n", "ma", ":BookmarkShowAll<CR>", opts)
@@ -312,4 +317,3 @@ keymap("n", "<Leader>sw", ":SudaWrite<CR>", opts)
 
 -- inserted annotation
 keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", opts)
-
