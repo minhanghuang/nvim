@@ -127,6 +127,7 @@ if [[ $os_type =~ 'Darwin' ]];then
         echo "$CLANGD_PATH exist"
       else
         echo "$CLANGD_PATH dose not exist"
+        mkdir -p $CLANGD_PATH
         unzip -d $CLANGD_PATH $CLANGD_FILE
       fi
     else 
@@ -136,6 +137,7 @@ if [[ $os_type =~ 'Darwin' ]];then
         echo "$CLANGD_PATH exist"
       else
         echo "$CLANGD_PATH dose not exist"
+        mkdir -p $CLANGD_PATH
         unzip -d $CLANGD_PATH $CLANGD_FILE
       fi
     fi
@@ -159,6 +161,7 @@ elif [[ $os_type =~ 'Linux' ]];then
         echo "$CLANGD_PATH exist"
       else
         echo "$CLANGD_PATH dose not exist"
+        mkdir -p $CLANGD_PATH
         unzip -d $CLANGD_PATH $CLANGD_FILE
       fi
     else 
@@ -168,6 +171,7 @@ elif [[ $os_type =~ 'Linux' ]];then
         echo "$CLANGD_PATH exist"
       else
         echo "$CLANGD_PATH dose not exist"
+        mkdir -p $CLANGD_PATH
         unzip -d $CLANGD_PATH $CLANGD_FILE
       fi
     fi
