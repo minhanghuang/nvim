@@ -107,12 +107,14 @@ keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", opts)
 
 keymap("i", "<C-;>", "<Esc>", opts)
 keymap("v", "<C-;>", "<Esc>", opts)
+keymap("t", "<C-;>", "<C-\\><C-n>", opts)
 
 keymap("n", "<C-s>", "<cmd>w<CR>", opts)
 keymap("i", "<C-s>", "<cmd>w<CR>", opts)
 keymap("v", "<C-s>", "<cmd>w<CR>", opts)
 
 keymap("n", "<C-w>", "<C-w>w", opts)
+keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", opts)
 keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 keymap("n", "<C-d>", "yyp", opts)
 keymap("n", "<C-f>", "*", opts)
