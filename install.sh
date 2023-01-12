@@ -180,3 +180,66 @@ elif [[ $os_type =~ 'Linux' ]];then
     echo $os_type
 fi
 
+function system_type() {
+  local os_type=`uname  -a`
+  if [[ $os_type =~ 'Darwin' ]];then
+    echo "Mac"
+  elif [[ $os_type =~ 'Linux' ]];then
+    echo "Linux"
+  else
+    echo "other"
+  fi
+}
+
+function download_dap() {
+  echo "download dap."
+  type=$(system_type)
+  download_url=""
+  download_path=~/.config/nvim/data/debug/
+  codelldb_tar=~/.config/nvim/data/debug/
+  codelldb_path=~/.config/nvim/data/debug/tools/
+  case $type in
+    "Mac")
+      download_url=https://github.com/vadimcn/vscode-lldb/releases/download/v1.7.0/codelldb-x86_64-darwin.vsix
+      codelldb_tar+=codelldb-x86_64-darwin.vsix
+      ;;
+    "Linux")
+      download_url=https://github.com/vadimcn/vscode-lldb/releases/download/v1.7.0/codelldb-x86_64-linux.vsix
+      codelldb_tar+=codelldb-x86_64-linux.vsix
+      ;;
+    "other")
+      echo "other"
+      ;;
+    *)
+      echo "error"
+      exit 8
+    esac
+  echo $download_url
+
+  # 判断dap压缩包是否已经存在
+  if [ -f "$codelldb_tar" ]; then
+    echo "$codelldb_tar : exist"
+  else
+    echo "$codelldb_tar : dose not exist"
+    mkdir -p $download_path
+    wget $download_url -P $download_path
+  fi
+  
+  # 判断是否已经解压dap
+  if [ -d "$codelldb_path" ]; then
+    echo "$codelldb_path exist"
+    rm -rf $codelldb_path
+  else
+    echo "$codelldb_path dose not exist"
+    mkdir -p $codelldb_path
+  fi
+  unzip -d $codelldb_path $codelldb_tar # 解压
+}
+
+function main() {
+  download_dap
+  return
+}
+
+main "$@"
+
