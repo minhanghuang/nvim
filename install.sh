@@ -125,7 +125,7 @@ function install_coc_clangd() {
         echo "$clangd_mac : 文件存在"
       else
         echo "$clangd_mac : 文件不存在"
-        wget clangd_mac_download_url -P clangd_download_path
+        wget $clangd_mac_download_url -P $clangd_download_path
       fi
       # 判断clangd是否存在
       $(directory_or_file_exists $clangd_install_path)
@@ -135,7 +135,7 @@ function install_coc_clangd() {
         rm -rf $clangd_install_path
       else
         echo "$clangd_install_path: 文件不存在, 创建"
-        mkdir $clangd_install_path
+        mkdir -p $clangd_install_path
       fi
       echo "解压: $clangd_download_path$clangd_mac ->>>> $clangd_install_path"
       unzip -d $clangd_install_path $clangd_download_path$clangd_mac
@@ -148,7 +148,7 @@ function install_coc_clangd() {
         echo "$clangd_linux : 文件存在"
       else
         echo "$clangd_linux : 文件不存在"
-        wget clangd_linux_download_url -P clangd_download_path
+        wget $clangd_linux_download_url -P $clangd_download_path
       fi
       # 判断clangd是否存在
       $(directory_or_file_exists $clangd_install_path)
@@ -158,7 +158,7 @@ function install_coc_clangd() {
         rm -rf $clangd_install_path
       else
         echo "$clangd_install_path: 文件不存在, 创建"
-        mkdir $clangd_install_path
+        mkdir -p $clangd_install_path
       fi
       echo "解压: $clangd_download_path$clangd_linux ->>>> $clangd_install_path"
       unzip -d $clangd_install_path $clangd_download_path$clangd_linux
