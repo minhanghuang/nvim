@@ -279,9 +279,10 @@ keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", term_opts)
 -- 翻译
 keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", term_opts)
 
-keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_opts)
-keymap("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<Up>"]], expr_opts)
-keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "<CR>"]], expr_opts)
+-- coc version: 0.82.0
+-- keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_opts)
+-- keymap("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<Up>"]], expr_opts)
+-- keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "<CR>"]], expr_opts)
 
 -- 替换(windwp/nvim-spectre)
 -- 全文替换-当前光标所在单词
