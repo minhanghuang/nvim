@@ -278,6 +278,7 @@ keymap("n", "<Leader>cn", "<Plug>(coc-rename)", term_opts)
 keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", term_opts)
 -- 翻译
 keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", term_opts)
+keymap("v", "<C-t>", "<Plug>(coc-translator-pv)", term_opts)
 
 -- coc version: 0.82.0
 -- keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_opts)
