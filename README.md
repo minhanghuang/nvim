@@ -5,7 +5,7 @@
 ![neovim](./data/cpp-debug.gif)
 
 ```shell
-git clone git@github.com:minhanghuang/nvim.git ~/.config/nvim
+git clone --depth 1 https://github.com/minhanghuang/nvim.git ~/.config/nvim
 ```
 
 ## #1 Installation
