@@ -1,21 +1,21 @@
 vim.g.coc_global_extensions = {
-  'coc-vetur', -- vue
-  'coc-sumneko-lua',
-  'coc-json',
-  'coc-css@1.3.0',
-  'coc-clangd',
-  'coc-cmake',
-  'coc-yaml',
-  'coc-sh',
-  'coc-highlight@1.3.0',
-  'coc-markdownlint',
-  'coc-snippets',
-  'coc-emmet',
-  'coc-html',
-  'coc-jedi', -- python
-  'coc-pyright',
-  'coc-translator',
-  'coc-xml'
+    'coc-vetur', -- vue
+    'coc-sumneko-lua',
+    'coc-json',
+    'coc-css@1.3.0',
+    'coc-clangd@0.25.0',
+    'coc-cmake',
+    'coc-yaml',
+    'coc-sh',
+    'coc-highlight@1.3.0',
+    'coc-markdownlint',
+    'coc-snippets',
+    'coc-emmet',
+    'coc-html',
+    'coc-jedi', -- python
+    'coc-pyright',
+    'coc-translator',
+    'coc-xml'
 }
 
 -- <C-j> <C-k> 冲突
