@@ -22,13 +22,10 @@ Plug 'sharkdp/fd' " 搜索插件 文件查找 (telescope.nvim require)
 Plug 'kevinhwang91/nvim-hlslens', {'commit': '1b629c0c28c4c5aa7923043e00a9e388b0ad937a'}  " 搜索美化 [2/56]
 Plug 'folke/todo-comments.nvim' " todo list
 
-" 5. 美化
-Plug 'luochen1990/rainbow' " 括号颜色
-Plug 'jiangmiao/auto-pairs' " 补全括号
-
 " 6. 代码相关
 Plug 'neoclide/coc.nvim', {'tag' : 'v0.0.81'} " 跳转
 " Plug 'neoclide/coc.nvim', {'tag' : 'release'} " 跳转
+Plug 'jiangmiao/auto-pairs' " 补全括号
 Plug 'preservim/tagbar' " 显示class function ...
 Plug 'tpope/vim-commentary' " 注释
 Plug 'lukas-reineke/indent-blankline.nvim' " 缩进
