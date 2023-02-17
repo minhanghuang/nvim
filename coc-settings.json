@@ -7,5 +7,6 @@
   "translator.engines": [
     "youdao"
   ],
+  "dialog.floatHighlight": "CocFloatingBorder",
   "snippets.ultisnips.pythonPrompt": false
 }
