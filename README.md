@@ -39,22 +39,23 @@ sudo dpkg -i nvim-linux64.deb
 
 ```shell
 brew install nodejs yarn
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-yarn config set registry https://registry.npm.taobao.org/
+npm config set registry http://registry.npmmirror.com
+yarn config set registry http://registry.npmmirror.com
 ```
 
 - Ubuntu
 
 ```shell
-sudo apt install -y python3-venv nodejs npm
-sudo npm config set registry https://registry.npm.taobao.org
+sudo apt install -y python3-venv
+sudo apt install -y nodejs npm
+sudo npm config set http://registry.npmmirror.com
 sudo npm install n -g
 sudo n stable
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update
 sudo apt install yarn
-yarn config set registry https://registry.npm.taobao.org/
+yarn config set registry http://registry.npmmirror.com
 ```
 
 ### #1.3 python lib
