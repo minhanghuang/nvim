@@ -76,7 +76,8 @@ Plug 'danymat/neogen'
 
 call plug#end()
 
-lua require("options")
-lua require("plugins")
-lua require("keymaps")
+lua require("config.autocommands")
+lua require("config.options")
+lua require("config.plugins")
+lua require("config.keymaps")
 
