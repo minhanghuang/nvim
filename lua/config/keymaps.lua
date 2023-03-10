@@ -164,22 +164,22 @@ keymap("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", opts)
 keymap("n", "<Leader>dc", "<cmd>lua require'dap'.run_to_cursor()<CR>", opts)
 -- 结束
 keymap("n",
-    "<Leader>dd",
-    "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR><cmd>q<CR>"
-    ,
-    opts
+  "<Leader>dd",
+  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR><cmd>q<CR>"
+  ,
+  opts
 )
 
 -- 搜索(telescope)
 function _G.grep_string_the_file()
   require('telescope.builtin').grep_string({
-      grep_open_files = true
+    grep_open_files = true
   })
 end
 
 function _G.live_grep_the_file()
   require('telescope.builtin').live_grep({
-      grep_open_files = true
+    grep_open_files = true
   })
 end
 
