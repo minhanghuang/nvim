@@ -12,4 +12,3 @@ local function delete_hidden_buffers()
 end
 
 vim.api.nvim_create_user_command('BdeleteHidden', delete_hidden_buffers, { bang = true })
-

@@ -11,4 +11,3 @@ require('wlsample.airline')
 -- require('wlsample.simple')
 -- require('wlsample.vscode')
 -- require('wlsample.rainbow')
-
