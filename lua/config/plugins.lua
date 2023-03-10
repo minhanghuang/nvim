@@ -43,7 +43,6 @@ require("plugins/filetype")
 require("plugins/vim-floaterm")
 
 -- 括号
-require("plugins/rainbow")
 require("plugins/nvim_context_vt")
 
 -- Markdown
@@ -51,9 +50,6 @@ require("plugins/markdown-preview")
 
 -- 跳转
 require("plugins/coc")
-
--- 注释
-require("plugins/vim-commentary")
 
 -- 快捷建
 require("plugins/which-key")
@@ -72,8 +68,5 @@ require("plugins/autosave")
 
 -- 括号补全
 require("plugins/auto-pairs")
-
--- startify
-require("plugins/vim-startify")
 
 require("plugins/neogen")

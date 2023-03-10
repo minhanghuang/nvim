@@ -6,7 +6,7 @@ require 'diffview'.setup {
   enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
   use_icons = true,         -- Requires nvim-web-devicons
   icons = {
-                            -- Only applies when use_icons is true.
+    -- Only applies when use_icons is true.
     folder_closed = "",
     folder_open = "",
   },
@@ -15,12 +15,12 @@ require 'diffview'.setup {
     fold_open = "",
   },
   file_panel = {
-    position = "left",                 -- One of 'left', 'right', 'top', 'bottom'
-    width = 35,                        -- Only applies when position is 'left' or 'right'
-    height = 10,                       -- Only applies when position is 'top' or 'bottom'
-    listing_style = "tree",            -- One of 'list' or 'tree'
+    position = "left",      -- One of 'left', 'right', 'top', 'bottom'
+    width = 35,             -- Only applies when position is 'left' or 'right'
+    height = 10,            -- Only applies when position is 'top' or 'bottom'
+    listing_style = "tree", -- One of 'list' or 'tree'
     tree_options = {
-                                       -- Only applies when listing_style is 'tree'
+      -- Only applies when listing_style is 'tree'
       flatten_dirs = true,             -- Flatten dirs that only contain one single dir
       folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
     },
@@ -39,7 +39,7 @@ require 'diffview'.setup {
     },
   },
   default_args = {
-                   -- Default args prepended to the arg-list for the listed commands
+    -- Default args prepended to the arg-list for the listed commands
     DiffviewOpen = {},
     DiffviewFileHistory = {},
   },

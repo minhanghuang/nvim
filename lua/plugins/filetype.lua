@@ -11,7 +11,7 @@ require("filetype").setup({
     },
     complex = {
       -- Set the filetype of any full filename matching the regex to gitconfig
-      [".*git/config"] = "gitconfig",       -- Included in the plugin
+      [".*git/config"] = "gitconfig", -- Included in the plugin
     },
     -- The same as the ones above except the keys map to functions
     function_extensions = {

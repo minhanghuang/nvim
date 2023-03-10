@@ -321,3 +321,6 @@ keymap("n", "<Leader>sw", ":SudaWrite<CR>", opts)
 
 -- inserted annotation
 keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", opts)
+
+-- startify
+keymap("n", "o", "<plug>(startify-open-buffers)", term_opts)

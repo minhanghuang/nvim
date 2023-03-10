@@ -1,5 +1,5 @@
 vim.g.coc_global_extensions = {
-  'coc-vetur',   -- vue
+  'coc-vetur', -- vue
   'coc-sumneko-lua',
   'coc-json',
   'coc-css@1.3.0',
@@ -12,7 +12,7 @@ vim.g.coc_global_extensions = {
   'coc-snippets',
   'coc-emmet',
   'coc-html',
-  'coc-jedi',   -- python
+  'coc-jedi', -- python
   'coc-pyright',
   'coc-translator',
   'coc-xml'
