@@ -1,16 +1,8 @@
-local opts = { noremap = true, silent = false }
-local expr_opts = { silent = true, noremap = true, expr = true }
-
-local term_opts = { silent = true }
-local display_opts = { silent = false }
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
-
---Remap space as leader key
-keymap("", ";", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- ***********************************
 --  vim 快捷键
@@ -69,57 +61,57 @@ vim.g.maplocalleader = " "
 --       i:ignore 不区分大小写
 --     #为转义符
 --
-keymap("n", "<C-j>", "10j", opts)
-keymap("v", "<C-j>", "10j", opts)
-keymap("n", "<C-k>", "10k", opts)
-keymap("v", "<C-k>", "10k", opts)
+keymap("n", "<C-j>", "10j", { silent = true })
+keymap("v", "<C-j>", "10j", { silent = true })
+keymap("n", "<C-k>", "10k", { silent = true })
+keymap("v", "<C-k>", "10k", { silent = true })
 
-keymap("v", ">", ">gv", opts)
-keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", { silent = true })
+keymap("v", "<", "<gv", { silent = true })
 
-keymap("n", "<C-h>", "^", opts)
-keymap("n", "<C-l>", "$", opts)
-keymap("v", "<C-h>", "^", opts)
-keymap("v", "<C-l>", "$", opts)
+keymap("n", "<C-h>", "^", { silent = true })
+keymap("n", "<C-l>", "$", { silent = true })
+keymap("v", "<C-h>", "^", { silent = true })
+keymap("v", "<C-l>", "$", { silent = true })
 
-keymap("n", "<Leader><Leader>y", "\"+y", opts)
-keymap("n", "<Leader><Leader>p", "\"+p", opts)
+keymap("n", "<Leader><Leader>y", "\"+y", { silent = true })
+keymap("n", "<Leader><Leader>p", "\"+p", { silent = true })
 
-keymap("i", "<C-h>", "<Left>", opts)
-keymap("i", "<C-j>", "<Down>", opts)
-keymap("i", "<C-k>", "<Up>", opts)
-keymap("i", "<C-l>", "<Right>", opts)
+keymap("i", "<C-h>", "<Left>", { silent = true })
+keymap("i", "<C-j>", "<Down>", { silent = true })
+keymap("i", "<C-k>", "<Up>", { silent = true })
+keymap("i", "<C-l>", "<Right>", { silent = true })
 
-keymap("i", "<C-o>", "<Esc>o", opts)
+keymap("i", "<C-o>", "<Esc>o", { silent = true })
 
-keymap("i", "<C-b>", "<PageUp>", opts)
-keymap("i", "<C-f>", "<PageDown>", opts)
+keymap("i", "<C-b>", "<PageUp>", { silent = true })
+keymap("i", "<C-f>", "<PageDown>", { silent = true })
 
-keymap("n", "<C-a>", "ggVG$", opts)
-keymap("i", "<C-a>", "<Esc>ggVG$", opts)
+keymap("n", "<C-a>", "ggVG$", { silent = true })
+keymap("i", "<C-a>", "<Esc>ggVG$", { silent = true })
 
-keymap("n", "<S-Up>", ":resize -2<CR>", opts)
-keymap("n", "<S-Down>", ":resize +2<CR>", opts)
-keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
-keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", opts)
-keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", opts)
+keymap("n", "<S-Up>", ":resize -2<CR>", { silent = true })
+keymap("n", "<S-Down>", ":resize +2<CR>", { silent = true })
+keymap("n", "<S-Left>", ":vertical resize -2<CR>", { silent = true })
+keymap("n", "<S-Right>", ":vertical resize +2<CR>", { silent = true })
+keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", { silent = true })
+keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 
-keymap("i", "<C-;>", "<Esc>", opts)
-keymap("v", "<C-;>", "<Esc>", opts)
-keymap("t", "<C-;>", "<C-\\><C-n>", opts)
+keymap("i", "<C-;>", "<Esc>", { silent = true })
+keymap("v", "<C-;>", "<Esc>", { silent = true })
+keymap("t", "<C-;>", "<C-\\><C-n>", { silent = true })
 
-keymap("n", "<C-s>", "<cmd>w<CR>", opts)
-keymap("i", "<C-s>", "<cmd>w<CR>", opts)
-keymap("v", "<C-s>", "<cmd>w<CR>", opts)
+keymap("n", "<C-s>", "<cmd>w<CR>", { silent = true })
+keymap("i", "<C-s>", "<cmd>w<CR>", { silent = true })
+keymap("v", "<C-s>", "<cmd>w<CR>", { silent = true })
 
-keymap("n", "<C-w>", "<C-w>w", opts)
-keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", opts)
-keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
-keymap("n", "<C-d>", "yyp", opts)
-keymap("n", "<C-f>", "*", opts)
+keymap("n", "<C-w>", "<C-w>w", { silent = true })
+keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", { silent = true })
+keymap("n", "<C-c>", ":nohlsearch<CR>", { silent = true })
+keymap("n", "<C-d>", "yyp", { silent = true })
+keymap("n", "<C-f>", "*", { silent = true })
 
-keymap("n", "o", "o<Esc>", opts)
+keymap("n", "o", "o<Esc>", { silent = true })
 
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
@@ -136,38 +128,38 @@ keymap("n", "o", "o<Esc>", opts)
 -- type d: 删除文件(确认)
 -- type R: 刷新
 -- type H: 显示/不显示 隐藏文件
-keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", opts)
+keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", { silent = true })
+keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", { silent = true })
 
 -- debuggger(dap)
 -- 断点
--- keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", opts)
+-- keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", {silent = true})
 -- 断点(持久化)
-keymap("n", "<Leader>db", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>j", opts)
+keymap("n", "<Leader>db", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>j", { silent = true })
 -- 清空断点
-keymap("n", "<Leader>dB", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", opts)
+keymap("n", "<Leader>dB", "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", { silent = true })
 -- 显示变量信息
-keymap("n", "<Leader>de", "<cmd>lua require'dapui'.eval()<CR>", opts)
+keymap("n", "<Leader>de", "<cmd>lua require'dapui'.eval()<CR>", { silent = true })
 -- 开始/下一个断点
-keymap("n", "<Leader>dg", "<cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<Leader>dg", "<cmd>lua require'dap'.continue()<CR>", { silent = true })
 -- Requests the debugee to step into a function or method if possible.
-keymap("n", "<Leader>di", "<cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<Leader>di", "<cmd>lua require'dap'.step_into()<CR>", { silent = true })
 -- Requests the debugee to run again for one step.
-keymap("n", "<Leader>dn", "<cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<Leader>dn", "<cmd>lua require'dap'.step_over()<CR>", { silent = true })
 -- Requests the debugee to step out of a function or method if possible.
-keymap("n", "<Leader>do", "<cmd>lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<Leader>do", "<cmd>lua require'dap'.step_out()<CR>", { silent = true })
 -- Steps one step back. Debug adapter must support reverse debugging.
-keymap("n", "<Leader>dp", "<cmd>lua require'dap'.step_back()<CR>", opts)
+keymap("n", "<Leader>dp", "<cmd>lua require'dap'.step_back()<CR>", { silent = true })
 -- 重新运行
-keymap("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", opts)
+keymap("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { silent = true })
 -- 运行到光标处
-keymap("n", "<Leader>dc", "<cmd>lua require'dap'.run_to_cursor()<CR>", opts)
+keymap("n", "<Leader>dc", "<cmd>lua require'dap'.run_to_cursor()<CR>", { silent = true })
 -- 结束
 keymap("n",
   "<Leader>dd",
   "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR><cmd>q<CR>"
   ,
-  opts
+  { silent = true }
 )
 
 -- 搜索(telescope)
@@ -184,70 +176,70 @@ function _G.live_grep_the_file()
 end
 
 -- 搜索文件
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { silent = true })
 -- 搜索字符串(所有文件)
-keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<cr>", { silent = true })
 -- 搜索字符串(当前文件)
-keymap("n", "<Leader>fj", "<cmd>lua _G.live_grep_the_file()<cr>", opts)
+keymap("n", "<Leader>fj", "<cmd>lua _G.live_grep_the_file()<cr>", { silent = true })
 -- 搜索光标所在字符串(所有文件)
-keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", opts)
+keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", { silent = true })
 -- 搜索光标所在字符串(当前文件)
-keymap("n", "<Leader>fc", "<cmd>lua _G.grep_string_the_file()<cr>", opts)
+keymap("n", "<Leader>fc", "<cmd>lua _G.grep_string_the_file()<cr>", { silent = true })
 -- 搜索TODO LIST
-keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", opts)
+keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", { silent = true })
 -- 指定路径搜索文件/字符 在 ./lua/pligin/nvim-tree.lua中
 
 -- buffers
-keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", opts)
-keymap("i", "<C-n>", "<Esc>:BufferLineCycleNext<CR>i", opts)
-keymap("n", "<C-p>", ":BufferLineCyclePrev<CR>", opts)
-keymap("i", "<C-p>", "<Esc>:BufferLineCyclePrev<CR>i", opts)
-keymap("n", "<Leader>fd", ":Bdelete!<CR>", opts)
-keymap("n", "<Leader>bmn", ":BufferLineMoveNext<CR>", opts)
-keymap("n", "<Leader>bmp", ":BufferLineMovePrev<CR>", opts)
-keymap("n", "<Leader>bb", ":BufferLineSortByDirectory<CR>", opts)
-keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", opts)
+keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", { silent = true })
+keymap("i", "<C-n>", "<Esc>:BufferLineCycleNext<CR>i", { silent = true })
+keymap("n", "<C-p>", ":BufferLineCyclePrev<CR>", { silent = true })
+keymap("i", "<C-p>", "<Esc>:BufferLineCyclePrev<CR>i", { silent = true })
+keymap("n", "<Leader>fd", ":Bdelete!<CR>", { silent = true })
+keymap("n", "<Leader>bmn", ":BufferLineMoveNext<CR>", { silent = true })
+keymap("n", "<Leader>bmp", ":BufferLineMovePrev<CR>", { silent = true })
+keymap("n", "<Leader>bb", ":BufferLineSortByDirectory<CR>", { silent = true })
+keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", { silent = true })
 
 -- tagbar(preservim/tagbar)
-keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", opts)
+keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", { silent = true })
 
 -- 括号归属(haringsrob/nvim_context_vt)
-keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", opts)
+keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", { silent = true })
 
 -- code-format
-keymap("n", "<Leader>cf", ":call CocActionAsync('format')<CR>", opts)
+keymap("n", "<Leader>cf", ":call CocActionAsync('format')<CR>", { silent = true })
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
-keymap("n", "<Leader>gt", ":Gitsigns toggle_current_line_blame<CR>", opts)
-keymap("n", "<Leader>gn", ":Gitsigns next_hunk<CR>", opts)
-keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", opts)
-keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", opts)
-keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", opts)
-keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<Leader>gt", ":Gitsigns toggle_current_line_blame<CR>", { silent = true })
+keymap("n", "<Leader>gn", ":Gitsigns next_hunk<CR>", { silent = true })
+keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", { silent = true })
+keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", { silent = true })
+keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", { silent = true })
+keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", { silent = true })
 -- 查看git diff
-keymap("n", "<Leader>gd", "<Leader>o<CR>:DiffviewOpen HEAD~", display_opts)
+keymap("n", "<Leader>gd", "<Leader>o<CR>:DiffviewOpen HEAD~", { silent = true })
 -- 退出git diff
-keymap("n", "<Leader>gc", ":DiffviewClose<CR><Leader>o<CR>", display_opts)
+keymap("n", "<Leader>gc", ":DiffviewClose<CR><Leader>o<CR>", { silent = true })
 
 -- terminal
-keymap("t", "<Esc>", "<C-\\><C-n>", opts)
-keymap("t", "<C-n>", "<C-\\><C-n>:FloatermNext<CR>", opts)
-keymap("t", "<Leader>tw", "<C-\\><C-n>:FloatermNew<CR>", opts)
-keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", opts)
-keymap("n", "<Leader>tt", ":FloatermToggle<CR>", opts)
-keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", opts)
+keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
+keymap("t", "<C-n>", "<C-\\><C-n>:FloatermNext<CR>", { silent = true })
+keymap("t", "<Leader>tw", "<C-\\><C-n>:FloatermNew<CR>", { silent = true })
+keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { silent = true })
+keymap("n", "<Leader>tt", ":FloatermToggle<CR>", { silent = true })
+keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", { silent = true })
 
 -- 翻译(voldikss/vim-translator)
-keymap("n", "<Leader>tr", ":Translate<CR>", opts)
+keymap("n", "<Leader>tr", ":Translate<CR>", { silent = true })
 
 -- Markdown(iamcco/markdown-preview.nvim)
-keymap("n", "<Leader>md", ":MarkdownPreview<CR>", opts)
+keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
 
 -- 注释(tpope/vim-commentary)
-keymap("n", "<C-/>", "gcc<CR>", term_opts)
-keymap("i", "<C-/>", "<Esc>gcc<CR>i", term_opts)
-keymap("v", "<C-/>", "gc", term_opts)
+keymap("n", "<C-/>", "gcc<CR>", { silent = true })
+keymap("i", "<C-/>", "<Esc>gcc<CR>i", { silent = true })
+keymap("v", "<C-/>", "gc", { silent = true })
 
 -- 函数跳转(coc.nvim)
 function _G.show_docs()
@@ -262,62 +254,62 @@ function _G.show_docs()
 end
 
 -- 显示变量类型 或 函数接口文档
-keymap("n", "<Leader>cs", "<cmd>lua _G.show_docs()<CR>", term_opts)
+keymap("n", "<Leader>cs", "<cmd>lua _G.show_docs()<CR>", { silent = true })
 -- 下(上)一个报错的位置
-keymap("n", "<Leader>-", "<Plug>(coc-diagnostic-prev)", term_opts)
-keymap("n", "<Leader>=", "<Plug>(coc-diagnostic-next)", term_opts)
--- keymap("n", "<Leader>gw", "<Plug>(coc-diagnostic-next)", term_opts)
+keymap("n", "<Leader>-", "<Plug>(coc-diagnostic-prev)", { silent = true })
+keymap("n", "<Leader>=", "<Plug>(coc-diagnostic-next)", { silent = true })
+-- keymap("n", "<Leader>gw", "<Plug>(coc-diagnostic-next)", term_{silent = true})
 -- 跳转函数定义(实现)
-keymap("n", "<Leader>cd", "<Plug>(coc-definition)", term_opts)
-keymap("n", "<Leader>ci", "<Plug>(coc-implementation)", term_opts)
+keymap("n", "<Leader>cd", "<Plug>(coc-definition)", { silent = true })
+keymap("n", "<Leader>ci", "<Plug>(coc-implementation)", { silent = true })
 -- 列出函数被引用的位置
-keymap("n", "<Leader>cr", "<Plug>(coc-references)", term_opts)
+keymap("n", "<Leader>cr", "<Plug>(coc-references)", { silent = true })
 -- 重新命名变量
-keymap("n", "<Leader>cn", "<Plug>(coc-rename)", term_opts)
+keymap("n", "<Leader>cn", "<Plug>(coc-rename)", { silent = true })
 -- 自动修复当前行的报错
-keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", term_opts)
+keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", { silent = true })
 -- 翻译
-keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", term_opts)
-keymap("v", "<C-t>", "<Plug>(coc-translator-pv)", term_opts)
+keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", { silent = true })
+keymap("v", "<C-t>", "<Plug>(coc-translator-pv)", { silent = true })
 
 -- coc version: 0.82.0
--- keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_opts)
--- keymap("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<Up>"]], expr_opts)
--- keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "<CR>"]], expr_opts)
+-- keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_{silent = true})
+-- keymap("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<Up>"]], expr_{silent = true})
+-- keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "<CR>"]], expr_{silent = true})
 
 -- 替换(windwp/nvim-spectre)
 -- 全文替换-当前光标所在单词
-keymap("n", "<Leader>rw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", opts)
+keymap("n", "<Leader>rw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
 -- 替换当前文件
-keymap("n", "<Leader>r", "viw:lua require('spectre').open_file_search()<CR>", opts)
+keymap("n", "<Leader>r", "viw:lua require('spectre').open_file_search()<CR>", { silent = true })
 -- -- 任意替换
--- keymap("n", "<Leader>a", "<cmd>lua require('spectre').open()<CR>", opts)
+-- keymap("n", "<Leader>a", "<cmd>lua require('spectre').open()<CR>", {silent = true})
 -- -- 全文替换
--- keymap("n", "<Leader>c", "<cmd>lua require('spectre').open_visual()<CR>", opts)
+-- keymap("n", "<Leader>c", "<cmd>lua require('spectre').open_visual()<CR>", {silent = true})
 
 -- which-key
-keymap("n", "<Leader>h", ":WhichKey W <CR>", term_opts)
+keymap("n", "<Leader>h", ":WhichKey W <CR>", { silent = true })
 
 -- flod
 -- 折叠
-keymap("n", "<S-c>", "zc", term_opts)
+keymap("n", "<S-c>", "zc", { silent = true })
 -- 打开
-keymap("n", "<S-o>", "zo", term_opts)
+keymap("n", "<S-o>", "zo", { silent = true })
 -- 折叠全部
-keymap("n", "<S-r>", "zR", term_opts)
+keymap("n", "<S-r>", "zR", { silent = true })
 -- 打开全部
-keymap("n", "<S-m>", "zM", term_opts)
+keymap("n", "<S-m>", "zM", { silent = true })
 
 -- 书签
-keymap("n", "mm", ":BookmarkToggle<CR>", opts)
-keymap("n", "mt", ":BookmarkAnnotate ", opts)
-keymap("n", "ma", ":BookmarkShowAll<CR>", opts)
-keymap("n", "mn", ":BookmarkNext<CR>", opts)
-keymap("n", "mp", ":BookmarkPrev<CR>", opts)
-keymap("n", "mc", ":BookmarkClearAll<CR>", opts)
+keymap("n", "mm", ":BookmarkToggle<CR>", { silent = true })
+keymap("n", "mt", ":BookmarkAnnotate ", { silent = true })
+keymap("n", "ma", ":BookmarkShowAll<CR>", { silent = true })
+keymap("n", "mn", ":BookmarkNext<CR>", { silent = true })
+keymap("n", "mp", ":BookmarkPrev<CR>", { silent = true })
+keymap("n", "mc", ":BookmarkClearAll<CR>", { silent = true })
 
 -- sudo file
-keymap("n", "<Leader>sw", ":SudaWrite<CR>", opts)
+keymap("n", "<Leader>sw", ":SudaWrite<CR>", { silent = true })
 
 -- inserted annotation
-keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", opts)
+keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = true })
