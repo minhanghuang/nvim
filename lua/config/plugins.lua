@@ -70,3 +70,6 @@ require("plugins/autosave")
 require("plugins/auto-pairs")
 
 require("plugins/neogen")
+
+-- startify
+require("plugins/startify")
