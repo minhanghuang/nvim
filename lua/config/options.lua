@@ -31,6 +31,10 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd([[
+  language en_US.UTF-8
+]])
+
 -- -- ssh copy and clipboard
 -- local function copy(lines, _)
 --   vim.fn.OSCYankString(table.concat(lines, "\n"))
