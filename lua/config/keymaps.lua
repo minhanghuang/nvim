@@ -224,7 +224,7 @@ keymap("n", "<Leader>gc", ":DiffviewClose<CR><Leader>o<CR>", { silent = true })
 
 -- terminal
 keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
-keymap("t", "<C-n>", "<C-\\><C-n>:FloatermNext<CR>", { silent = true })
+-- keymap("t", "<C-n>", "<C-\\><C-n>:FloatermNext<CR>", { silent = true })
 keymap("t", "<Leader>tw", "<C-\\><C-n>:FloatermNew<CR>", { silent = true })
 keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { silent = true })
 keymap("n", "<Leader>tt", ":FloatermToggle<CR>", { silent = true })
