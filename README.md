@@ -1,4 +1,4 @@
-[TOC]
+[[toc]]
 
 # NeoVim
 
@@ -58,18 +58,9 @@ sudo apt install yarn
 yarn config set registry http://registry.npmmirror.com
 ```
 
-### #1.3 python lib
-
-```shell
-pip3 install neovim
-pip3 install jedi
-pip3 install jedi-language-server==0.35.1
-```
-
-### #1.4 vim plugin
+### #1.3 vim plugin
 
 ```shell
 cd ~/.config/nvim
 ./install.sh
 ```
-
