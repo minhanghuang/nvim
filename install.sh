@@ -34,7 +34,7 @@ function system_type() {
 
 function install_plugin() {
   echo "install vim plugin."
-  # ## plug 管理工具 
+  # ## plug 管理工具
   git clone git@github.com:rktjmp/lush.nvim.git ~/.config/nvim/plugged
   # ## 主题
   git clone git@github.com:ellisonleao/gruvbox.nvim.git ~/.config/nvim/plugged/gruvbox.nvim
@@ -109,7 +109,7 @@ function install_plugin() {
 
 function install_python_libs() {
   echo "install python library."
-  python3 -m pip install debugpy autopep8 cmakelang neovim
+  python3 -m pip install debugpy autopep8 cmakelang neovim jedi jedi-language-server==0.35.1
 }
 
 function install_coc_clangd() {
