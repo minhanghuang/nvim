@@ -73,3 +73,6 @@ require("plugins/neogen")
 
 -- startify
 require("plugins/startify")
+
+-- leap 移动光标
+require("plugins/leap")

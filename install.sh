@@ -51,7 +51,7 @@ function install_plugin() {
   git clone git@github.com:neoclide/coc.nvim.git ~/.config/nvim/plugged/coc.nvim
   cd ~/.config/nvim/plugged/coc.nvim && git checkout v0.0.81
   # cd ~/.config/nvim/plugged/coc.nvim && git checkout release
-  # ## 彩虹括号 
+  # ## 彩虹括号
   git clone git@github.com:jiangmiao/auto-pairs.git ~/.config/nvim/plugged/auto-pairs
   git clone git@github.com:junegunn/fzf.git  ~/.fzf
   cd ~/.fzf && ./install --all
@@ -75,11 +75,11 @@ function install_plugin() {
   git clone git@github.com:tpope/vim-commentary.git ~/.config/nvim/plugged/vim-commentary
   # ## preservim/tagbar
   git clone git@github.com:preservim/tagbar.git ~/.config/nvim/plugged/tagbar
-  # ## 显示tab缩进 
+  # ## 显示tab缩进
   git clone git@github.com:lukas-reineke/indent-blankline.nvim.git ~/.config/nvim/plugged/indent-blankline.nvim
   # ## 缓存当前光标信息
   git clone git@github.com:ethanholz/nvim-lastplace.git ~/.config/nvim/plugged/nvim-lastplace
-  # ## 语法高亮 
+  # ## 语法高亮
   git clone git@github.com:nvim-treesitter/nvim-treesitter.git ~/.config/nvim/plugged/nvim-treesitter
   # ## 括号
   git clone git@github.com:haringsrob/nvim_context_vt.git ~/.config/nvim/plugged/nvim_context_vt
@@ -95,6 +95,7 @@ function install_plugin() {
   git clone git@github.com:folke/which-key.nvim.git ~/.config/nvim/plugged/which-key.nvim
   git clone git@github.com:nvim-pack/nvim-spectre.git ~/.config/nvim/plugged/nvim-spectre
   git clone git@github.com:folke/todo-comments.nvim.git ~/.config/nvim/plugged/todo-comments.nvim
+  git clone git clone git@github.com:ggandor/leap.nvim.git ~/.config/nvim/plugged/leap.nvim
   git clone git@github.com:MattesGroeger/vim-bookmarks.git ~/.config/nvim/plugged/vim-bookmarks
   git clone git@github.com:sindrets/diffview.nvim.git ~/.config/nvim/plugged/diffview.nvim
   git clone git@github.com:Pocco81/auto-save.nvim.git ~/.config/nvim/plugged/auto-save.nvim

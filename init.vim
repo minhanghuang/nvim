@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" 1. 主题 
+" 1. 主题
 Plug 'ellisonleao/gruvbox.nvim' " 主题
 Plug 'kyazdani42/nvim-web-devicons' " file icons (ellisonleao/gruvbox.nvim)
 
@@ -21,6 +21,7 @@ Plug 'BurntSushi/ripgrep' " 搜索插件 文本查找 (telescope.nvim require)
 Plug 'sharkdp/fd' " 搜索插件 文件查找 (telescope.nvim require)
 Plug 'kevinhwang91/nvim-hlslens', {'commit': '1b629c0c28c4c5aa7923043e00a9e388b0ad937a'}  " 搜索美化 [2/56]
 Plug 'folke/todo-comments.nvim' " todo list
+Plug 'ggandor/leap.nvim' " 光标移动
 
 " 6. 代码相关
 Plug 'neoclide/coc.nvim', {'tag' : 'v0.0.81'} " 跳转
