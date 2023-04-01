@@ -313,3 +313,7 @@ keymap("n", "<Leader>sw", ":SudaWrite<CR>", { silent = true })
 
 -- inserted annotation
 keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = true })
+
+-- leap
+keymap("n", "f", "<Plug>(leap-forward-to)", { silent = true })
+keymap("n", "F", "<Plug>(leap-backward-to)", { silent = true })
