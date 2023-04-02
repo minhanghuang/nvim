@@ -308,9 +308,6 @@ keymap("n", "mn", ":BookmarkNext<CR>", { silent = true })
 keymap("n", "mp", ":BookmarkPrev<CR>", { silent = true })
 keymap("n", "mc", ":BookmarkClearAll<CR>", { silent = true })
 
--- sudo file
-keymap("n", "<Leader>sw", ":SudaWrite<CR>", { silent = true })
-
 -- inserted annotation
 keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = true })
 

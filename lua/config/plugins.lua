@@ -69,6 +69,7 @@ require("plugins/autosave")
 -- 括号补全
 require("plugins/auto-pairs")
 
+-- 接口注释
 require("plugins/neogen")
 
 -- startify
