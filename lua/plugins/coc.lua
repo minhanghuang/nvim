@@ -15,7 +15,8 @@ vim.g.coc_global_extensions = {
   'coc-jedi', -- python
   'coc-pyright',
   'coc-translator',
-  'coc-xml'
+  'coc-xml',
+  'coc-spell-checker', -- 单词校验
 }
 
 -- <C-j> <C-k> 冲突
