@@ -1,6 +1,6 @@
 vim.g.coc_global_extensions = {
   'coc-vetur', -- vue
-  'coc-sumneko-lua',
+  'coc-sumneko-lua@3.6.17',
   'coc-json',
   'coc-css@1.3.0',
   'coc-clangd@0.25.0',
