@@ -12,7 +12,6 @@ vim.g.coc_global_extensions = {
   'coc-snippets',
   'coc-emmet',
   'coc-html',
-  'coc-jedi', -- python
   'coc-pyright',
   'coc-translator',
   'coc-xml',
