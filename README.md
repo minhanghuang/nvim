@@ -1,5 +1,3 @@
-[[toc]]
-
 # NeoVim
 
 ![neovim](./data/cpp-debug.gif)
@@ -46,8 +44,8 @@ yarn config set registry http://registry.npmmirror.com
 - Ubuntu
 
 ```shell
-sudo apt install -y python3-venv
-sudo apt install -y nodejs npm
+sudo apt update
+sudo apt install -y python3-venv nodejs npm:
 sudo npm config set http://registry.npmmirror.com
 sudo npm install n -g
 sudo n stable
