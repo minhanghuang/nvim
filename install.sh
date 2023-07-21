@@ -41,6 +41,7 @@ function install_plugin() {
   git clone git@github.com:kyazdani42/nvim-web-devicons.git ~/.config/nvim/plugged/nvim-web-devicons
   # ## 文件树
   git clone git@github.com:nvim-tree/nvim-tree.lua.git ~/.config/nvim/plugged/nvim-tree.lua
+  ~/.config/nvim/plugged/nvim-tree.lua && git checkout b601b5a
   # ## 窗口tag
   git clone git@github.com:akinsho/bufferline.nvim.git ~/.config/nvim/plugged/bufferline.nvim
   git clone git@github.com:famiu/bufdelete.nvim.git ~/.config/nvim/plugged/bufdelete.nvim
