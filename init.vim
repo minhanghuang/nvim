@@ -1,3 +1,7 @@
+"
+" Thank you Bram Moolenaar!
+"
+
 call plug#begin('~/.config/nvim/plugged')
 
 " 1. 主题
