@@ -10,7 +10,7 @@ git clone --depth 1 https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 ### #1.1 neovim
 
-> minimum neovim 0.7.0
+> minimum neovim 0.8.3
 
 - macOS
 
@@ -21,7 +21,7 @@ brew install neovim
 - Ubuntu
 
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.tar.gz
 tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
 
@@ -45,7 +45,7 @@ yarn config set registry http://registry.npmmirror.com
 
 ```shell
 sudo apt update
-sudo apt install -y python3-venv nodejs npm:
+sudo apt install -y python3-venv nodejs npm
 sudo npm config set http://registry.npmmirror.com
 sudo npm install n -g
 sudo n stable
