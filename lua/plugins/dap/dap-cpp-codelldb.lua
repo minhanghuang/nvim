@@ -2,7 +2,7 @@
 
 local dap = require("dap")
 
-local cmd = os.getenv("HOME") .. "/.config/nvim/data/debug/tools/extension/adapter/codelldb"
+local cmd = os.getenv("HOME") .. "/.config/nvim/data/debug/tools/extension/vscode-lldb_v1.7.0/adapter/codelldb"
 dap.adapters.codelldb = function(on_adapter)
   -- This asks the system for a free port
   local tcp = vim.loop.new_tcp()
