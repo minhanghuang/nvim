@@ -1,5 +1,4 @@
-
-# idea 
+# idea
 cmake-build*
 build
 .cache
@@ -14,7 +13,7 @@ build
 # log files
 *.log
 
-# neovim 
-plugged
+# neovim
+plugged/
 
-
+third_party/

@@ -24,14 +24,9 @@ brew install neovim
 wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.tar.gz
 tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
-
-// Or
-
-wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-sudo dpkg -i nvim-linux64.deb
 ```
 
-### #1.2 node.js
+### #1.2 Node.js
 
 - macOS
 
@@ -45,7 +40,7 @@ yarn config set registry http://registry.npmmirror.com
 
 ```shell
 sudo apt update
-sudo apt install -y python3-venv nodejs npm
+sudo apt install -y nodejs npm
 sudo npm config set http://registry.npmmirror.com
 sudo npm install n -g
 sudo n stable
@@ -56,9 +51,29 @@ sudo apt install yarn
 yarn config set registry http://registry.npmmirror.com
 ```
 
-### #1.3 vim plugin
+### #1.3 depandency
 
 ```shell
-cd ~/.config/nvim
-./install.sh
+python3 -m pip install -r requirement.txt
 ```
+
+```shell
+python3 setup.py
+```
+
+- macOS
+
+```shell
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+brew install ripgrep gnu-sed llvm tig
+```
+
+- Ubuntu
+
+```shell
+sudo apt update
+sudo dpkg -i data/ripgrep_0.10.0_amd64.deb
+sudo apt install -y ctags python3-venv llvm tig
+```
+
