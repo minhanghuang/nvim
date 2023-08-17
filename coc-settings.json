@@ -17,6 +17,10 @@
   "dialog.floatHighlight": "CocFloatingBorder",
   "snippets.ultisnips.pythonPrompt": false,
   "cSpell.ignoreWords": [
-    "geometrys"
+    "dpkg",
+    "geometrys",
+    "neovim",
+    "nvim",
+    "venv"
   ]
 }
