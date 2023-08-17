@@ -61,6 +61,11 @@ python3 -m pip install -r requirement.txt
 python3 setup.py
 ```
 
+```shell
+vim
+:PlugInstall
+```
+
 - macOS
 
 ```shell
