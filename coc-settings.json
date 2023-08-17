@@ -15,5 +15,8 @@
     "--max-line-length", "80"
   ],
   "dialog.floatHighlight": "CocFloatingBorder",
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "cSpell.ignoreWords": [
+    "geometrys"
+  ]
 }
