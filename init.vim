@@ -6,7 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " 1. 主题
 Plug 'ellisonleao/gruvbox.nvim', {'commit' : '353be59'} " 主题
-Plug 'kyazdani42/nvim-web-devicons' , {'commit' : 'eb8f80f'} " file icons (ellisonleao/gruvbox.nvim)
+Plug 'kyazdani42/nvim-web-devicons' , {'commit' : '2d02a56'} " file icons (ellisonleao/gruvbox.nvim)
 
 " 2. 文件
 Plug 'nvim-tree/nvim-tree.lua', {'commit' : 'b601b5a'} " 文件树
