@@ -17,10 +17,14 @@
   "dialog.floatHighlight": "CocFloatingBorder",
   "snippets.ultisnips.pythonPrompt": false,
   "cSpell.ignoreWords": [
+    "clangd",
+    "cuda",
     "dpkg",
     "geometrys",
     "neovim",
     "nvim",
+    "protobuf",
+    "robo",
     "venv"
   ]
 }
