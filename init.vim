@@ -33,7 +33,7 @@ Plug 'jiangmiao/auto-pairs', {'commit' : '39f06b8'}  " 补全括号
 Plug 'preservim/tagbar', {'commit' : 'be56353'}  " 显示class function ...
 Plug 'tpope/vim-commentary', {'commit' : 'e87cd90'}  " 注释
 Plug 'lukas-reineke/indent-blankline.nvim', {'commit' : 'e87cd90'}  " 缩进
-Plug 'nvim-treesitter/nvim-treesitter', {'tag' : 'v0.9.1'}  " 代码语法高亮
+Plug 'nvim-treesitter/nvim-treesitter', {'commit' : '0efa55a'}  " 代码语法高亮
 Plug 'haringsrob/nvim_context_vt', {'commit' : 'e592a91'}  " 括号后提示所属条件
 Plug 'lewis6991/gitsigns.nvim', {'commit' : '372d5cb'}  " git
 Plug 'sindrets/diffview.nvim', {'commit' : '63720aa'}
