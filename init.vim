@@ -5,8 +5,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " 1. 主题
-Plug 'ellisonleao/gruvbox.nvim', {'commit' : 'e685aeb'} " 主题
-Plug 'kyazdani42/nvim-web-devicons' , {'commit' : '4ec26d6'} " file icons (ellisonleao/gruvbox.nvim)
+Plug 'ellisonleao/gruvbox.nvim', {'commit' : '353be59'} " 主题
+Plug 'kyazdani42/nvim-web-devicons' , {'commit' : '2d02a56'} " file icons (ellisonleao/gruvbox.nvim)
 
 " 2. 文件
 Plug 'nvim-tree/nvim-tree.lua', {'commit' : 'b601b5a'} " 文件树
@@ -14,7 +14,7 @@ Plug 'mhinz/vim-startify', {'commit' : '81e36c3'} " 驱动画面
 Plug 'nathom/filetype.nvim', {'commit' : 'b522628'} " 加速neovim
 
 "3. buffers
-Plug 'akinsho/bufferline.nvim', {'commit' : '46255e4a76c4fb450a94885527f5e58a7d96983c'} " buffers
+Plug 'akinsho/bufferline.nvim', {'commit' : '417b303'} " buffers
 Plug 'famiu/bufdelete.nvim' , {'commit' : '8933abc'} " 关闭buffer
 Plug 'windwp/windline.nvim', {'commit' : '20d628f'} " 底部状态栏美化
 
@@ -33,7 +33,7 @@ Plug 'jiangmiao/auto-pairs', {'commit' : '39f06b8'}  " 补全括号
 Plug 'preservim/tagbar', {'commit' : 'be56353'}  " 显示class function ...
 Plug 'tpope/vim-commentary', {'commit' : 'e87cd90'}  " 注释
 Plug 'lukas-reineke/indent-blankline.nvim', {'commit' : 'e87cd90'}  " 缩进
-Plug 'nvim-treesitter/nvim-treesitter', {'commit' : '0efa55a'}  " 代码语法高亮
+Plug 'nvim-treesitter/nvim-treesitter', {'tag' : 'v0.9.1'}  " 代码语法高亮
 Plug 'haringsrob/nvim_context_vt', {'commit' : 'e592a91'}  " 括号后提示所属条件
 Plug 'lewis6991/gitsigns.nvim', {'commit' : '372d5cb'}  " git
 Plug 'sindrets/diffview.nvim', {'commit' : '63720aa'}

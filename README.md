@@ -51,7 +51,7 @@ sudo apt install yarn
 yarn config set registry http://registry.npmmirror.com
 ```
 
-### #1.3 depandency
+### #1.3 dependency
 
 ```shell
 python3 -m pip install -r requirement.txt
@@ -59,6 +59,11 @@ python3 -m pip install -r requirement.txt
 
 ```shell
 python3 setup.py
+```
+
+```shell
+nvim
+:PlugInstall
 ```
 
 - macOS
