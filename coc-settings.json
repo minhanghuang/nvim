@@ -18,6 +18,7 @@
   "snippets.ultisnips.pythonPrompt": false,
   "cSpell.ignoreWords": [
     "clangd",
+    "cmake",
     "cuda",
     "dpkg",
     "geometrys",
