@@ -61,7 +61,7 @@ Plug 'rcarriga/nvim-dap-ui', {'commit' : 'b0bc932ce6ca57bdec5536d773ab643e5b2f57
 " 11. 显示快捷键
 Plug 'folke/which-key.nvim', {'commit' : '4b73390'}
 
-" 12. 书签 
+" 12. 书签
 Plug 'MattesGroeger/vim-bookmarks', {'commit' : '9cc5fa7'}
 
 " 13. 自动保存
