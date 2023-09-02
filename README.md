@@ -82,3 +82,12 @@ sudo dpkg -i data/ripgrep_0.10.0_amd64.deb
 sudo apt install -y ctags python3-venv llvm tig
 ```
 
+## #2 Usage
+
+### #2.1 Theme
+
+| theme | commands |
+| :--- | :--- |
+| gruvbox   |  :colorscheme gruvbox |
+| dracula   |  :colorscheme dracula |
+

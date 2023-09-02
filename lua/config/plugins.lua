@@ -1,5 +1,5 @@
 --  主题
-require("plugins/gruvbox")
+require("plugins/theme")
 
 --  搜索
 require("plugins/telescope")
