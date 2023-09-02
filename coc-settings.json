@@ -12,10 +12,13 @@
   "python.formatting.provider": "autopep8",
   "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
   "python.formatting.autopep8Args": [
-    "--max-line-length", "80"
+    "--max-line-length",
+    "80"
   ],
   "dialog.floatHighlight": "CocFloatingBorder",
   "snippets.ultisnips.pythonPrompt": false,
+  "cSpell.enabled": true,
+  "cSpell.minWordLength": 4,
   "cSpell.ignoreWords": [
     "clangd",
     "cmake",
