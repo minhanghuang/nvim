@@ -271,10 +271,12 @@ keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", { silent = true })
 -- 翻译
 keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", { silent = true })
 keymap("v", "<C-t>", "<Plug>(coc-translator-pv)", { silent = true })
--- 单词校验
+-- 单词校验(spell select)
 keymap("n", "<Leader>ss", "<Plug>(coc-codeaction-selected)<CR>", { silent = true })
--- 添加单词
+-- 添加单词(speel add)
 keymap("n", "<Leader>sa", ":CocCommand cSpell.addIgnoreWordToUser<CR>", { silent = true })
+-- 取消单词校验(spell disable)
+-- keymap("n", "<Leader>sd", ":CocCommand cSpell.toggleEnableSpellChecker<CR>", { silent = true })
 
 -- coc version: 0.82.0
 -- keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_{silent = true})
