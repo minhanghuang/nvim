@@ -54,7 +54,7 @@ yarn config set registry http://registry.npmmirror.com
 ### #1.3 dependency
 
 ```shell
-python3 -m pip install -r requirement.txt
+sudo python3 -m pip install --prefix=/usr/local -r requirement.txt
 ```
 
 ```shell
