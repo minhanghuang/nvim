@@ -24,12 +24,18 @@
     "cmake",
     "cuda",
     "dpkg",
+    "endforeach",
     "geometrys",
     "gruvbox",
     "neovim",
     "nvim",
+    "proto",
     "protobuf",
+    "protoc",
     "robo",
+    "skippable",
+    "smatch",
+    "stoi",
     "venv"
   ]
 }
