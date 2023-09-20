@@ -320,3 +320,8 @@ keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = tr
 -- leap
 keymap("n", "f", "<Plug>(leap-forward-to)", { silent = true })
 keymap("n", "F", "<Plug>(leap-backward-to)", { silent = true })
+
+-- 平滑滚动
+keymap("n", "<C-u>", "<Plug>(SmoothieUpwards)", { silent = true })
+keymap("n", "<C-m>", "<Plug>(SmoothieDownwards)", { silent = true })
+
