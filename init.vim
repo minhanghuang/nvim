@@ -76,6 +76,9 @@ Plug 'ojroques/vim-oscyank', {'commit' : 'ffe827a'}
 " 17. 添加接口注释
 Plug 'danymat/neogen', {'commit' : '9c17225'}
 
+" 平滑滚动
+Plug 'psliwka/vim-smoothie'
+
 call plug#end()
 
 lua require("config.autocommands")
