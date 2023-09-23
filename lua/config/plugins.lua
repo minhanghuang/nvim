@@ -77,3 +77,6 @@ require("plugins/startify")
 
 -- leap 移动光标
 require("plugins/leap")
+
+-- 平滑滚动
+require("plugins/vim-smoothie")
