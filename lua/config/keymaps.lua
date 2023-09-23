@@ -321,7 +321,7 @@ keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = tr
 keymap("n", "f", "<Plug>(leap-forward-to)", { silent = true })
 keymap("n", "F", "<Plug>(leap-backward-to)", { silent = true })
 
--- 平滑滚动
-keymap("n", "<C-u>", "<Plug>(SmoothieUpwards)", { silent = true })
-keymap("n", "<C-m>", "<Plug>(SmoothieDownwards)", { silent = true })
+-- 平滑滚动 <C-m>和系统快捷键有冲突, 暂时先使用<C-S->
+keymap("n", "<C-S-k>", "<Plug>(SmoothieUpwards)", { silent = true })
+keymap("n", "<C-S-j>", "<Plug>(SmoothieDownwards)", { silent = true })
 
