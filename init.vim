@@ -2,8 +2,10 @@
 " Thank you Bram Moolenaar!
 "
 
+lua require("user.options")
+lua require("user.keymaps")
+lua require("user.autocommands")
 lua require("user.plugins")
-lua require("config.autocommands")
-lua require("config.options")
-lua require("config.plugins")
-lua require("config.keymaps")
+lua require("user.colorscheme")
+lua require("user.conf")
+lua require("user.dap")

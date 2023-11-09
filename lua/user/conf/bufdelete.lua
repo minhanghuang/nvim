@@ -1,4 +1,8 @@
-local bdelete = require('bufdelete').bufdelete
+local status_ok, bdelete = pcall(require, "bufdelete")
+if not status_ok then
+  vim.notify("bufdelete not found!")
+  return
+end
 
 -- 删除当前窗口之外的所有窗口
 local function delete_hidden_buffers()
@@ -7,7 +11,7 @@ local function delete_hidden_buffers()
   end, vim.api.nvim_list_bufs())
 
   for _, bufnr in ipairs(hidden_bufs) do
-    bdelete(bufnr)
+    bdelete.bufdelete(bufnr)
   end
 end
 
