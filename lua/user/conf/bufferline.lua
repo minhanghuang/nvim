@@ -1,6 +1,11 @@
 -- https://github.com/akinsho/bufferline.nvim
-vim.opt.termguicolors = true
-require("bufferline").setup {
+local status_ok, bufferline = pcall(require, "bufferline")
+if not status_ok then
+  vim.notify("bufferline not found!")
+  return
+end
+
+bufferline.setup {
   options = {
     -- 使用 nvim 内置lsp
     diagnostics = "nvim_lsp",

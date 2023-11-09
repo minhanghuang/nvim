@@ -3,11 +3,9 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- 1. 主题
 Plug('ellisonleao/gruvbox.nvim', {commit = '353be59'})
-Plug('dracula/vim', {as = 'dracula'})
 Plug('kyazdani42/nvim-web-devicons', {commit = '2d02a56'}) --  file icons (ellisonleao/gruvbox.nvim)
 
 -- 2. 文件
-
 Plug('nvim-tree/nvim-tree.lua', {commit = 'b601b5a'}) --  文件树
 Plug('mhinz/vim-startify', {commit = '81e36c3'}) --  驱动画面
 Plug('nathom/filetype.nvim', {commit = 'b522628'}) --  加速neovim
@@ -41,9 +39,7 @@ Plug('sindrets/diffview.nvim', {commit = '63720aa'})
 Plug('voldikss/vim-floaterm', {commit = 'ff6a871'})
 
 --  8. 文本
-Plug('iamcco/markdown-preview.nvim', {commit = '02cc387', ['do']= 'cd app && yarn install'})
 Plug('ethanholz/nvim-lastplace', {commit = '75a2b78'})
-Plug('windwp/nvim-spectre', {commit = '6e5ce37'})
 
 --  9. 代码块
 --  引擎 + 集合
@@ -56,9 +52,6 @@ Plug('mfussenegger/nvim-dap', {commit = 'f4a3be57f61893cffa1e22aa5e1e7bded495fcf
 Plug('theHamsta/nvim-dap-virtual-text', {commit = 'a36982259216afd710f55bcdc220477c74b5bc35'})
 Plug('rcarriga/nvim-dap-ui', {commit = 'b0bc932ce6ca57bdec5536d773ab643e5b2f57ad'})
 
---  11. 显示快捷键
-Plug('folke/which-key.nvim', {commit = '4b73390'})
-
 --  12. 书签
 Plug('MattesGroeger/vim-bookmarks', {commit = '9cc5fa7'})
 
@@ -67,9 +60,6 @@ Plug('Pocco81/auto-save.nvim', {commit = '979b6c8'})
 
 --  14. 断点持久化
 Plug('Weissle/persistent-breakpoints.nvim', {commit = 'a6091f7'})
-
---  16. ssh复制粘贴板
-Plug('ojroques/vim-oscyank', {commit = 'ffe827a'})
 
 --  17. 添加接口注释
 Plug('danymat/neogen', {commit = '9c17225'})
