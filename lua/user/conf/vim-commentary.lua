@@ -1,10 +1,3 @@
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = "*",
-  callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
-  end,
-})
-
 -- 注释c/cpp文件时, 使用//
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "c,cpp",
