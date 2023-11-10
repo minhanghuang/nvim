@@ -9,7 +9,6 @@ vim.g.coc_global_extensions = {
   'coc-sh@1.0.0',
   'coc-highlight@1.3.0',
   'coc-markdownlint',
-  'coc-snippets',
   'coc-emmet',
   'coc-html',
   'coc-pyright',
