@@ -263,7 +263,17 @@ return {
     "windwp/windline.nvim",
     commit = '20d628f',
     config = function()
-      require("user.conf.windline")
+      local windline = require('windline')
+      require('wlsample.airline')
+      -- require('wlsample.airline_anim')
+      -- require('wlsample.airline_luffy')
+      -- require('wlsample.basic')
+      -- require('wlsample.wind')
+      -- require('wlsample.bubble')
+      -- require('wlsample.bubble2')
+      -- require('wlsample.simple')
+      -- require('wlsample.vscode')
+      -- require('wlsample.rainbow')
     end,
   },
 }
