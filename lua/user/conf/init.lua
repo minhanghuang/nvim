@@ -202,30 +202,23 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     commit = '6258d50',
+    dependencies = {
+      {
+        "nvim-lua/plenary.nvim",
+        commit = '9ac3e95',
+      },
+      {
+        "BurntSushi/ripgrep",
+        commit = '0415448',
+      },
+      {
+        "sharkdp/fd",
+        commit = '072c9e5',
+      },
+
+    },
     config = function()
       require("user.conf.telescope")
-    end,
-  },
-
-  -- telescope 依赖
-  {
-    "nvim-lua/plenary.nvim",
-    commit = '9ac3e95',
-    config = function()
-    end,
-  },
-  -- telescope 依赖
-  {
-    "BurntSushi/ripgrep",
-    commit = '0415448',
-    config = function()
-    end,
-  },
-  -- telescope 依赖
-  {
-    "sharkdp/fd",
-    commit = '072c9e5',
-    config = function()
     end,
   },
 
