@@ -110,9 +110,11 @@ return {
     config = function()
       require("luasnip").setup({
         history = true,
-        delete_check_events = "TextChanged",
+        delete_check_events = "TextChanged,TextChangedI",
       })
       require("luasnip.loaders.from_vscode").lazy_load()
+      -- 自定义代码片段需要将`endsnippet`删除并缩进一级(https://github.com/L3MON4D3/LuaSnip/wiki/Migrating-from-UltiSnips#snippets)
+      -- 这将和coc.snippets冲突
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
     end,
   },
