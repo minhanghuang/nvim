@@ -84,15 +84,6 @@ return {
     end,
   },
 
-  -- 光标快速跳转
-  {
-    "ggandor/leap.nvim",
-    commit = '98a72ad',
-    config = function()
-      require("user.conf.leap")
-    end,
-  },
-
   {
     "L3MON4D3/LuaSnip",
     version = "2.*",
