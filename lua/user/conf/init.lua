@@ -62,15 +62,6 @@ return {
     end,
   },
 
-  -- neovim加速
-  {
-    "nathom/filetype.nvim",
-    commit = 'b522628',
-    config = function()
-      require("user.conf.filetype")
-    end,
-  },
-
   -- git
   {
     "lewis6991/gitsigns.nvim",
