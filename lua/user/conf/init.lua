@@ -165,7 +165,6 @@ return {
   -- icon
   {
     "kyazdani42/nvim-web-devicons",
-    commit = '2d02a56',
     config = function()
       require("user.conf.nvim-web-devicons")
     end,
