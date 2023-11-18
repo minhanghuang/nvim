@@ -8,13 +8,15 @@ return {
     end,
   },
 
-  -- 自动补全括号
+  -- Autopairs
   {
-    "jiangmiao/auto-pairs",
-    commit = '39f06b8',
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function()
-      vim.g.AutoPairsMapCh = 0 -- 映射冲突, 关闭
+      require("user.conf.autopairs")
     end,
+    enabled = true,
+    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
   },
 
   -- 删除Buffer
