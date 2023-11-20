@@ -156,15 +156,6 @@ return {
     end,
   },
 
-  -- 括号后提示所属条件
-  {
-    "haringsrob/nvim_context_vt",
-    commit = 'e592a91',
-    config = function()
-      require("user.conf.nvim_context_vt")
-    end,
-  },
-
   -- 断点持久化
   {
     "Weissle/persistent-breakpoints.nvim",
