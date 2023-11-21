@@ -149,7 +149,7 @@ keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", { silent = true })
 keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", { silent = true })
 
 -- code-format
-keymap("n", "<Leader>cf", ":call CocActionAsync('format')<CR>", { silent = true })
+keymap("n", "<Leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
@@ -182,48 +182,6 @@ keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
 keymap("n", "<C-/>", "gcc<CR>", { silent = true })
 keymap("i", "<C-/>", "<Esc>gcc<CR>i", { silent = true })
 keymap("v", "<C-/>", "gc", { silent = true })
-
--- 函数跳转(coc.nvim)
-function _G.show_docs()
-  local cw = vim.fn.expand('<cword>')
-  if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
-    vim.api.nvim_command('h ' .. cw)
-  elseif vim.api.nvim_eval('coc#rpc#ready()') then
-    vim.fn.CocActionAsync('doHover')
-  else
-    vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-  end
-end
-
--- 显示变量类型 或 函数接口文档
-keymap("n", "<Leader>cs", "<cmd>lua _G.show_docs()<CR>", { silent = true })
--- 下(上)一个报错的位置
-keymap("n", "<Leader>-", "<Plug>(coc-diagnostic-prev)", { silent = true })
-keymap("n", "<Leader>=", "<Plug>(coc-diagnostic-next)", { silent = true })
--- keymap("n", "<Leader>gw", "<Plug>(coc-diagnostic-next)", term_{silent = true})
--- 跳转函数定义(实现)
-keymap("n", "<Leader>cd", "<Plug>(coc-definition)", { silent = true })
-keymap("n", "<Leader>ci", "<Plug>(coc-implementation)", { silent = true })
--- 列出函数被引用的位置
-keymap("n", "<Leader>cr", "<Plug>(coc-references)", { silent = true })
--- 重新命名变量
-keymap("n", "<Leader>cn", "<Plug>(coc-rename)", { silent = true })
--- 自动修复当前行的报错
-keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", { silent = true })
--- 翻译
-keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", { silent = true })
-keymap("v", "<C-t>", "<Plug>(coc-translator-pv)", { silent = true })
--- 单词校验(spell select)
-keymap("n", "<Leader>ss", "<Plug>(coc-codeaction-selected)<CR>", { silent = true })
--- 添加单词(speel add)
-keymap("n", "<Leader>sa", ":CocCommand cSpell.addIgnoreWordToUser<CR>", { silent = true })
--- 取消单词校验(spell disable)
--- keymap("n", "<Leader>sd", ":CocCommand cSpell.toggleEnableSpellChecker<CR>", { silent = true })
-
--- coc version: 0.82.0
--- keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_{silent = true})
--- keymap("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<Up>"]], expr_{silent = true})
--- keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "<CR>"]], expr_{silent = true})
 
 -- 替换(windwp/nvim-spectre)
 -- 全文替换-当前光标所在单词
