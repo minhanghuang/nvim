@@ -143,7 +143,9 @@ keymap("n", "<Leader>bb", ":BufferLineSortByDirectory<CR>", { silent = true })
 keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", { silent = true })
 
 -- code-format
-keymap("n", "<Leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
+-- lsp格式化不支持Python
+-- keymap("n", "<Leader>cf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { silent = true })
+-- keymap("n", "<Leader>cf", ":Neoformat<CR>", { silent = true })
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息

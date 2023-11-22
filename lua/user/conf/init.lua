@@ -63,6 +63,14 @@ return {
     end,
   },
 
+  -- formatting
+  {
+    "sbdchd/neoformat",
+    config = function()
+      require("user.conf.neoformat")
+    end,
+  },
+
   -- 缩进提示
   {
     "lukas-reineke/indent-blankline.nvim",
