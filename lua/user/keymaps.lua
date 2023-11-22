@@ -220,3 +220,7 @@ keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = tr
 -- 平滑滚动 <C-m>和系统快捷键有冲突, 暂时先使用<C-S->
 keymap("n", "<C-S-k>", "<Plug>(SmoothieUpwards)", { silent = true })
 keymap("n", "<C-S-j>", "<Plug>(SmoothieDownwards)", { silent = true })
+
+-- 翻译
+keymap("n", "<C-t>", "<Plug>TranslateW", { silent = true })
+keymap("v", "<C-t>", "<Plug>TranslateWV", { silent = true })
