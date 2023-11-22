@@ -142,12 +142,6 @@ keymap("n", "<Leader>bmp", ":BufferLineMovePrev<CR>", { silent = true })
 keymap("n", "<Leader>bb", ":BufferLineSortByDirectory<CR>", { silent = true })
 keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", { silent = true })
 
--- tagbar(preservim/tagbar)
-keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", { silent = true })
-
--- 括号归属(haringsrob/nvim_context_vt)
-keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", { silent = true })
-
 -- code-format
 keymap("n", "<Leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { silent = true })
 
@@ -172,9 +166,6 @@ keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { silent = true })
 keymap("n", "<Leader>tt", ":FloatermToggle<CR>", { silent = true })
 keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", { silent = true })
 
--- 翻译(voldikss/vim-translator)
-keymap("n", "<Leader>tr", ":Translate<CR>", { silent = true })
-
 -- Markdown(iamcco/markdown-preview.nvim)
 keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
 
@@ -183,20 +174,6 @@ keymap("n", "<C-/>", "gcc<CR>", { silent = true })
 keymap("i", "<C-/>", "<Esc>gcc<CR>i", { silent = true })
 keymap("v", "<C-/>", "gc", { silent = true })
 
--- 替换(windwp/nvim-spectre)
--- 全文替换-当前光标所在单词
-keymap("n", "<Leader>rw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
--- 替换当前文件
-keymap("n", "<Leader>r", "viw:lua require('spectre').open_file_search()<CR>", { silent = true })
--- -- 任意替换
--- keymap("n", "<Leader>a", "<cmd>lua require('spectre').open()<CR>", {silent = true})
--- -- 全文替换
--- keymap("n", "<Leader>c", "<cmd>lua require('spectre').open_visual()<CR>", {silent = true})
-
--- which-key
-keymap("n", "<Leader>h", ":WhichKey W <CR>", { silent = true })
-
--- flod
 -- 折叠
 keymap("n", "<S-c>", "zc", { silent = true })
 -- 打开
