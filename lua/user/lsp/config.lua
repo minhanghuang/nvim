@@ -37,6 +37,7 @@ local function lsp_keymaps(bufnr)
 
   -- 修改变量名
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cc", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
   -- 查看函数说明
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ch", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
