@@ -1,6 +1,6 @@
 # NeoVim
 
-![neovim](./data/cpp-debug.gif)
+![neovim](./data/images/cpp-debug.gif)
 
 ```shell
 git clone --depth 1 https://github.com/minhanghuang/nvim.git ~/.config/nvim
@@ -81,13 +81,3 @@ sudo apt update
 sudo dpkg -i data/ripgrep_0.10.0_amd64.deb
 sudo apt install -y ctags python3-venv llvm tig
 ```
-
-## #2 Usage
-
-### #2.1 Theme
-
-| theme | commands |
-| :--- | :--- |
-| gruvbox   |  :colorscheme gruvbox |
-| dracula   |  :colorscheme dracula |
-

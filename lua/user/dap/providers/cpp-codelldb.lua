@@ -2,7 +2,8 @@
 
 local dap = require("dap")
 
-local cmd = os.getenv("HOME") .. "/.config/nvim/data/debug/tools/extension/vscode-lldb_v1.7.0/adapter/codelldb"
+local cmd = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
+-- local cmd = "/home/trunk/.config/nvim/data/debug/tools/extension/adapter/codelldb"
 dap.adapters.codelldb = function(on_adapter)
   -- This asks the system for a free port
   local tcp = vim.loop.new_tcp()
@@ -75,7 +76,7 @@ dap.configurations.cpp = {
     request = "launch",
     args = function()
       local input = vim.fn.input("Input args: ")
-      return require("plugins.dap.dap-util").str2argtable(input)
+      return require("user.dap.dap-util").str2argtable(input)
     end,
     program = function()
       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
