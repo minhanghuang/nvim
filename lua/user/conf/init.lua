@@ -102,6 +102,7 @@ return {
   {
     "danymat/neogen",
     commit = '9c17225',
+    event = "VeryLazy",
     config = function()
       require("neogen").setup()
     end,
@@ -155,6 +156,7 @@ return {
   {
     "Weissle/persistent-breakpoints.nvim",
     commit = 'a6091f7',
+    event = "VeryLazy",
     config = function()
       require("user.conf.persistent-breakpoints")
     end,
@@ -206,6 +208,7 @@ return {
   {
     "MattesGroeger/vim-bookmarks",
     commit = '9cc5fa7',
+    event = "VeryLazy",
     config = function()
       require("user.conf.vim-bookmarks")
     end,
@@ -224,6 +227,7 @@ return {
   {
     "voldikss/vim-floaterm",
     commit = 'ff6a871',
+    event = "VeryLazy",
     config = function()
       require("user.conf.vim-floaterm")
     end,
@@ -234,6 +238,16 @@ return {
     "psliwka/vim-smoothie",
     config = function()
       require("user.conf.vim-smoothie")
+    end,
+  },
+
+  -- 翻译
+  {
+    "voldikss/vim-translator",
+    event = "VeryLazy",
+    config = function()
+      vim.g.translator_target_lang = "zh"
+      vim.g.translator_default_engines = { 'google', 'haici', 'youdao' }
     end,
   },
 
