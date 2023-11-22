@@ -1,6 +1,9 @@
 -- python3 -m pip install debugpy
-
-local dap = require("dap")
+local status_ok, dap = pcall(require, "dap")
+if not status_ok then
+  vim.notify("dap not found!")
+  return
+end
 
 dap.adapters.python = {
   type = "executable",
@@ -16,7 +19,7 @@ dap.configurations.python = {
     program = "${file}",
     args = function()
       local input = vim.fn.input("Input args: ")
-      return require("plugins.dap.dap-util").str2argtable(input)
+      return require("user.dap.dap-util").str2argtable(input)
     end,
     pythonPath = function()
       return "/usr/bin/python3"
