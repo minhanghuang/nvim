@@ -55,7 +55,7 @@ return {
         -- ~/.local/share/nvim/mason/bin/
         ensure_installed = {
           'python',   -- python
-          'codelldb', -- c++
+          -- 'codelldb', -- c++
           'cppdbg',   -- c++
         },
       })
