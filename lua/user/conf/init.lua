@@ -255,7 +255,11 @@ return {
     event = "VeryLazy",
     config = function()
       vim.g.translator_target_lang = "zh"
-      vim.g.translator_default_engines = { 'google', 'haici', 'youdao' }
+      vim.g.translator_default_engines = {
+        'google',
+        -- 'haici',
+        -- 'youdao',
+      }
     end,
   },
 
@@ -264,7 +268,6 @@ return {
     "windwp/windline.nvim",
     commit = '20d628f',
     config = function()
-      local windline = require('windline')
       require('wlsample.airline')
       -- require('wlsample.airline_anim')
       -- require('wlsample.airline_luffy')
