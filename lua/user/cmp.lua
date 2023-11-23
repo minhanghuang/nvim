@@ -27,12 +27,22 @@ return {
     config = function()
       local luasnip = require("luasnip")
       local lspkind = require("lspkind")
+      local types = require("cmp.types")
       local cmp = require("cmp")
 
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
+
+      local deprioritize_snippet = function(entry1, entry2)
+        if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
+          return false
+        end
+        if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
+          return true
+        end
       end
 
       vim.o.completeopt = "menu,menuone,noselect"
@@ -128,6 +138,20 @@ return {
             { name = 'emoji',  insert = true, priority = 20 },
           },
         }),
+
+        sorting = {
+          priority_weight = 2,
+          comparators = {         -- 定义了多个比较函数，用于确定补全项的顺序。这些函数按照列表中的顺序依次应用
+            deprioritize_snippet, -- 降低代码片段 (snippets) 的优先级
+            cmp.config.compare.locality,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.score,
+            cmp.config.compare.exact,
+            cmp.config.compare.offset,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.order,
+          },
+        },
 
         -- 设置补全显示的格式,非代码格式化
         formatting = {

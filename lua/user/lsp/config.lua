@@ -53,7 +53,7 @@ end
 
 local on_attach = function(_, bufnr)
   lsp_keymaps(bufnr)
-  require "lsp_signature".on_attach()
+  -- require "lsp_signature".on_attach()
 end
 
 M.flags = {
