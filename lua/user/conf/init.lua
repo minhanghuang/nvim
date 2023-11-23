@@ -12,11 +12,10 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
+    enabled = true,
     config = function()
       require("user.conf.autopairs")
     end,
-    enabled = true,
-    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
   },
 
   -- 删除Buffer
@@ -46,37 +45,6 @@ return {
     end,
   },
 
-  -- Coc
-  {
-    "neoclide/coc.nvim",
-    tag = "v0.0.81",
-    config = function()
-      vim.g.coc_global_extensions = {
-        'coc-vetur', -- vue
-        'coc-sumneko-lua@0.0.30',
-        'coc-json',
-        'coc-css@1.3.0',
-        'coc-clangd@0.25.0',
-        'coc-cmake',
-        'coc-yaml',
-        'coc-sh@1.0.0',
-        'coc-highlight@1.3.0',
-        'coc-markdownlint',
-        'coc-emmet',
-        'coc-html',
-        'coc-pyright',
-        'coc-translator',
-        'coc-snippets',
-        'coc-xml',
-        'coc-spell-checker', -- 单词校验
-      }
-
-      -- <C-j> <C-k> 冲突
-      vim.g.coc_snippet_prev = '<S-j>'
-      vim.g.coc_snippet_next = '<S-k>'
-    end,
-  },
-
   -- diffview
   {
     "sindrets/diffview.nvim",
@@ -95,6 +63,14 @@ return {
     end,
   },
 
+  -- formatting
+  {
+    "sbdchd/neoformat",
+    config = function()
+      require("user.conf.neoformat")
+    end,
+  },
+
   -- 缩进提示
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -108,27 +84,33 @@ return {
     end,
   },
 
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   version = "2.*",
-  --   dependencies = { "rafamadriz/friendly-snippets" },
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("luasnip").setup({
-  --       history = true,
-  --       delete_check_events = "TextChanged,TextChangedI",
-  --     })
-  --     require("luasnip.loaders.from_vscode").lazy_load()
-  --     -- 自定义代码片段需要将`endsnippet`删除并缩进一级(https://github.com/L3MON4D3/LuaSnip/wiki/Migrating-from-UltiSnips#snippets)
-  --     -- 这将和coc.snippets冲突
-  --     require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
-  --   end,
-  -- },
+  -- snippets engine
+  {
+    "L3MON4D3/LuaSnip",
+    version = "2.*",
+    dependencies = {
+      "honza/vim-snippets",          -- 代码片段(snipMate & UltiSnip)
+      "rafamadriz/friendly-snippets" -- 代码片段(LuaSnip)
+    },
+    event = "VeryLazy",
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip").setup({
+        history = true,
+        delete_check_events = "TextChanged,TextChangedI",
+      })
+      require("luasnip.loaders.from_lua").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_snipmate").lazy_load()
+      require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
+    end,
+  },
 
   -- 添加函数接口说明
   {
     "danymat/neogen",
     commit = '9c17225',
+    event = "VeryLazy",
     config = function()
       require("neogen").setup()
     end,
@@ -182,6 +164,7 @@ return {
   {
     "Weissle/persistent-breakpoints.nvim",
     commit = 'a6091f7',
+    event = "VeryLazy",
     config = function()
       require("user.conf.persistent-breakpoints")
     end,
@@ -233,6 +216,7 @@ return {
   {
     "MattesGroeger/vim-bookmarks",
     commit = '9cc5fa7',
+    event = "VeryLazy",
     config = function()
       require("user.conf.vim-bookmarks")
     end,
@@ -251,6 +235,7 @@ return {
   {
     "voldikss/vim-floaterm",
     commit = 'ff6a871',
+    event = "VeryLazy",
     config = function()
       require("user.conf.vim-floaterm")
     end,
@@ -261,6 +246,16 @@ return {
     "psliwka/vim-smoothie",
     config = function()
       require("user.conf.vim-smoothie")
+    end,
+  },
+
+  -- 翻译
+  {
+    "voldikss/vim-translator",
+    event = "VeryLazy",
+    config = function()
+      vim.g.translator_target_lang = "zh"
+      vim.g.translator_default_engines = { 'google', 'haici', 'youdao' }
     end,
   },
 
