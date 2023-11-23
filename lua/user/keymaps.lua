@@ -142,14 +142,10 @@ keymap("n", "<Leader>bmp", ":BufferLineMovePrev<CR>", { silent = true })
 keymap("n", "<Leader>bb", ":BufferLineSortByDirectory<CR>", { silent = true })
 keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", { silent = true })
 
--- tagbar(preservim/tagbar)
-keymap("n", "<Leader><Tab>", ":TagbarToggle<CR>", { silent = true })
-
--- 括号归属(haringsrob/nvim_context_vt)
-keymap("n", "<Leader>vt", ":NvimContextVtToggle<CR>", { silent = true })
-
 -- code-format
-keymap("n", "<Leader>cf", ":call CocActionAsync('format')<CR>", { silent = true })
+-- lsp格式化不支持Python
+-- keymap("n", "<Leader>cf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", { silent = true })
+-- keymap("n", "<Leader>cf", ":Neoformat<CR>", { silent = true })
 
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
@@ -172,9 +168,6 @@ keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { silent = true })
 keymap("n", "<Leader>tt", ":FloatermToggle<CR>", { silent = true })
 keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", { silent = true })
 
--- 翻译(voldikss/vim-translator)
-keymap("n", "<Leader>tr", ":Translate<CR>", { silent = true })
-
 -- Markdown(iamcco/markdown-preview.nvim)
 keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
 
@@ -183,62 +176,6 @@ keymap("n", "<C-/>", "gcc<CR>", { silent = true })
 keymap("i", "<C-/>", "<Esc>gcc<CR>i", { silent = true })
 keymap("v", "<C-/>", "gc", { silent = true })
 
--- 函数跳转(coc.nvim)
-function _G.show_docs()
-  local cw = vim.fn.expand('<cword>')
-  if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
-    vim.api.nvim_command('h ' .. cw)
-  elseif vim.api.nvim_eval('coc#rpc#ready()') then
-    vim.fn.CocActionAsync('doHover')
-  else
-    vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-  end
-end
-
--- 显示变量类型 或 函数接口文档
-keymap("n", "<Leader>cs", "<cmd>lua _G.show_docs()<CR>", { silent = true })
--- 下(上)一个报错的位置
-keymap("n", "<Leader>-", "<Plug>(coc-diagnostic-prev)", { silent = true })
-keymap("n", "<Leader>=", "<Plug>(coc-diagnostic-next)", { silent = true })
--- keymap("n", "<Leader>gw", "<Plug>(coc-diagnostic-next)", term_{silent = true})
--- 跳转函数定义(实现)
-keymap("n", "<Leader>cd", "<Plug>(coc-definition)", { silent = true })
-keymap("n", "<Leader>ci", "<Plug>(coc-implementation)", { silent = true })
--- 列出函数被引用的位置
-keymap("n", "<Leader>cr", "<Plug>(coc-references)", { silent = true })
--- 重新命名变量
-keymap("n", "<Leader>cn", "<Plug>(coc-rename)", { silent = true })
--- 自动修复当前行的报错
-keymap("n", "<Leader>ce", "<Plug>(coc-fix-current)", { silent = true })
--- 翻译
-keymap("n", "<Leader>ct", "<Plug>(coc-translator-p)", { silent = true })
-keymap("v", "<C-t>", "<Plug>(coc-translator-pv)", { silent = true })
--- 单词校验(spell select)
-keymap("n", "<Leader>ss", "<Plug>(coc-codeaction-selected)<CR>", { silent = true })
--- 添加单词(speel add)
-keymap("n", "<Leader>sa", ":CocCommand cSpell.addIgnoreWordToUser<CR>", { silent = true })
--- 取消单词校验(spell disable)
--- keymap("n", "<Leader>sd", ":CocCommand cSpell.toggleEnableSpellChecker<CR>", { silent = true })
-
--- coc version: 0.82.0
--- keymap("i", "<C-j>", [[coc#pum#visible() ? coc#pum#next(1) : "<Down>"]], expr_{silent = true})
--- keymap("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<Up>"]], expr_{silent = true})
--- keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "<CR>"]], expr_{silent = true})
-
--- 替换(windwp/nvim-spectre)
--- 全文替换-当前光标所在单词
-keymap("n", "<Leader>rw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
--- 替换当前文件
-keymap("n", "<Leader>r", "viw:lua require('spectre').open_file_search()<CR>", { silent = true })
--- -- 任意替换
--- keymap("n", "<Leader>a", "<cmd>lua require('spectre').open()<CR>", {silent = true})
--- -- 全文替换
--- keymap("n", "<Leader>c", "<cmd>lua require('spectre').open_visual()<CR>", {silent = true})
-
--- which-key
-keymap("n", "<Leader>h", ":WhichKey W <CR>", { silent = true })
-
--- flod
 -- 折叠
 keymap("n", "<S-c>", "zc", { silent = true })
 -- 打开
@@ -262,3 +199,7 @@ keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = tr
 -- 平滑滚动 <C-m>和系统快捷键有冲突, 暂时先使用<C-S->
 keymap("n", "<C-S-k>", "<Plug>(SmoothieUpwards)", { silent = true })
 keymap("n", "<C-S-j>", "<Plug>(SmoothieDownwards)", { silent = true })
+
+-- 翻译
+keymap("n", "<C-t>", "<Plug>TranslateW", { silent = true })
+keymap("v", "<C-t>", "<Plug>TranslateWV", { silent = true })
