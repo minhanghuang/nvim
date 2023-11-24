@@ -19,7 +19,6 @@ if not status_ok then
 end
 
 M.setup = function()
-
   mason.setup({
     ui = {
       icons = {
@@ -39,7 +38,7 @@ M.setup = function()
     'pyright',
     'clangd',
     'html',
-    'cmake',
+    'cmake', -- dependence python3-venv
     'jsonls',
   };
 
@@ -64,7 +63,6 @@ M.setup = function()
       lspconfig[name].setup({}) -- 默认配置
     end
   end
-
 end
 
 return M
