@@ -12,9 +12,15 @@ if not has_mason then
   return
 end
 
-local has_masonconfig, masonconfig = pcall(require, "mason-lspconfig")
-if not has_masonconfig then
+local has_mason_config, mason_config = pcall(require, "mason-lspconfig")
+if not has_mason_config then
   vim.notify("mason-lspconfig not found!")
+  return
+end
+
+local has_mason_tool_installer, mason_tool_installer = pcall(require, "mason-tool-installer")
+if not has_mason_tool_installer then
+  vim.notify("mason-tool-installer not found!")
   return
 end
 
@@ -30,26 +36,30 @@ M.setup = function()
   })
 
 
-  -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
   -- :Mason 查看lsp server状态
   -- :LspLog 查看lsp日志
-  local server_name = {
-    -- lsp server
-    'lua_ls',
-    'pyright',
-    'clangd',
-    'html',
-    'cmake',                           -- dependence python3-venv
-    'jsonls',                          -- json
-    'yamlls',                          -- yaml
-    'bashls',                          -- bash
-    'vls',                             -- vue.js
-    'docker_compose_language_service', -- docker-compose
-  };
-
-  masonconfig.setup {
-    ensure_installed = server_name,
+  mason_config.setup {
+    -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+    ensure_installed = {
+      'lua_ls',
+      'pyright',
+      'clangd',
+      'html',
+      'cmake',                           -- dependence python3-venv
+      'jsonls',                          -- json
+      'yamlls',                          -- yaml
+      'bashls',                          -- bash
+      'vls',                             -- vue.js
+      'docker_compose_language_service', -- docker-compose
+    },
   }
+
+  mason_tool_installer.setup({
+    ensure_installed = {
+      -- format
+      "autopep8", -- python formatter
+    },
+  })
 
   -- { key: 服务器名, value: 配置文件 }
   local servers = {
