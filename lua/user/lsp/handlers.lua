@@ -1,19 +1,19 @@
 local M = {}
 
-local status_ok, lspconfig = pcall(require, "lspconfig")
-if not status_ok then
+local has_lspconfig, lspconfig = pcall(require, "lspconfig")
+if not has_lspconfig then
   vim.notify("nvim-lspconfig not found!")
   return
 end
 
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
+local has_mason, mason = pcall(require, "mason")
+if not has_mason then
   vim.notify("mason not found!")
   return
 end
 
-local status_ok, masonconfig = pcall(require, "mason-lspconfig")
-if not status_ok then
+local has_masonconfig, masonconfig = pcall(require, "mason-lspconfig")
+if not has_masonconfig then
   vim.notify("mason-lspconfig not found!")
   return
 end
@@ -30,16 +30,21 @@ M.setup = function()
   })
 
 
-  -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+  -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
   -- :Mason 查看lsp server状态
   -- :LspLog 查看lsp日志
   local server_name = {
+    -- lsp server
     'lua_ls',
     'pyright',
     'clangd',
     'html',
-    'cmake', -- dependence python3-venv
-    'jsonls',
+    'cmake',                           -- dependence python3-venv
+    'jsonls',                          -- json
+    'yamlls',                          -- yaml
+    'bashls',                          -- bash
+    'vls',                             -- vue.js
+    'docker_compose_language_service', -- docker-compose
   };
 
   masonconfig.setup {
@@ -52,8 +57,12 @@ M.setup = function()
     lua_ls = require("user.lsp.providers.sumneko_lua"),
     pyright = require("user.lsp.providers.pyright"),
     clangd = require("user.lsp.providers.clangd"),
-    html = {},
-    cmake = {},
+    html = require("user.lsp.providers.html"),
+    cmake = require("user.lsp.providers.cmake"),
+    yamlls = require("user.lsp.providers.yamlls"),
+    bashls = require("user.lsp.providers.bashls"),
+    vuels = require("user.lsp.providers.vue"),
+    docker_compose_language_service = require("user.lsp.providers.docker-compose"),
   }
 
   for name, config in pairs(servers) do
