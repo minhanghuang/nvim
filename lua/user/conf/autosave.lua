@@ -1,5 +1,5 @@
-local status_ok, autosave = pcall(require, "autosave")
-if not status_ok then
+local has_autosave, autosave = pcall(require, "autosave")
+if not has_autosave then
   vim.notify("autosave not found!")
   return
 end

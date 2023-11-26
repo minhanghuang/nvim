@@ -1,6 +1,12 @@
-local actions = require "telescope.actions"
+local has_telescope, telescope = pcall(require, "telescope")
+if not has_telescope then
+  vim.notify("telescope not found!")
+  return
+end
 
-require('telescope').setup {
+local actions = require("telescope.actions")
+
+telescope.setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,

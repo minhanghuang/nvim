@@ -1,5 +1,5 @@
-local status_ok, diffview = pcall(require, "diffview")
-if not status_ok then
+local has_diffview, diffview = pcall(require, "diffview")
+if not has_diffview then
   vim.notify("diffview not found!")
   return
 end
