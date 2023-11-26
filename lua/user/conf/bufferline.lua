@@ -1,6 +1,6 @@
 -- https://github.com/akinsho/bufferline.nvim
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
+local has_bufferline, bufferline = pcall(require, "bufferline")
+if not has_bufferline then
   vim.notify("bufferline not found!")
   return
 end
