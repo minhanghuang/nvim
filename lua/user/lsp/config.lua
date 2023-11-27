@@ -3,6 +3,7 @@ local M = {}
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true -- 函数补全参数
 
+--- 代码格式化, 由于不是所有语言的lsp都支持formatting, 所有需要对这些语言使用插件格式化
 function FormatCode()
   local file_type = vim.api.nvim_buf_get_option(0, 'filetype')
 
@@ -16,6 +17,8 @@ function FormatCode()
   end
 end
 
+--- 配置快捷键
+---@param bufnr
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
 
@@ -51,8 +54,28 @@ local function lsp_keymaps(bufnr)
     opts)
 end
 
-local on_attach = function(_, bufnr)
+--- 光标所在的函数会高亮
+---@param client
+local function lsp_highlight_document(client)
+  -- Set autocommands conditional on server_capabilities
+  if client.server_capabilities.documentHighlightProvider then
+    vim.api.nvim_exec(
+      [[
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]],
+      false
+    )
+  end
+end
+
+
+local on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+  lsp_highlight_document(client)
   -- require "lsp_signature".on_attach()
 end
 
