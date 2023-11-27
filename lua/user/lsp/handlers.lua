@@ -58,6 +58,7 @@ M.setup = function()
     ensure_installed = {
       -- format
       "autopep8", -- python formatter
+      "black",    -- python formatter
     },
   })
 

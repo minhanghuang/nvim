@@ -65,11 +65,19 @@ return {
 
   -- formatting
   {
-    "sbdchd/neoformat",
+    "mhartington/formatter.nvim",
     config = function()
-      require("user.conf.neoformat")
+      require("user.conf.formatter")
     end,
   },
+
+  -- -- formatting
+  -- {
+  --   "sbdchd/neoformat",
+  --   config = function()
+  --     require("user.conf.neoformat")
+  --   end,
+  -- },
 
   -- 缩进提示
   {

@@ -9,7 +9,8 @@ function FormatCode()
 
   -- 如果是 Python 文件，使用 neoformat
   if file_type == 'python' then
-    vim.cmd('Neoformat')
+    -- vim.cmd('Neoformat') -- sbdchd/neoformat
+    vim.cmd("FormatWrite") -- mhartington/formatter.nvim
   else
     -- lsp不提供格式化Python方法
     -- 否则使用 LSP 的格式化
