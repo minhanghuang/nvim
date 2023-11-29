@@ -75,6 +75,12 @@ end
 
 
 local on_attach = function(client, bufnr)
+  -- 对yaml格式化单独处理
+  -- see https://github.com/redhat-developer/yaml-language-server/issues/486#issuecomment-1046792026
+  if client.name == "yamlls" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
   -- require "lsp_signature".on_attach()
