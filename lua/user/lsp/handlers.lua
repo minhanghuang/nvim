@@ -59,6 +59,7 @@ M.setup = function()
       -- format
       "autopep8", -- python formatter
       "black",    -- python formatter
+      "prettier", -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
     },
   })
 
