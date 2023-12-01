@@ -24,7 +24,7 @@ return {
       {
         'tzachar/cmp-tabnine',
         build = './install.sh',
-      }
+      },
 
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -54,7 +54,10 @@ return {
         end
       end
 
-      vim.o.completeopt = "menu,menuone,noselect"
+      -- menu: 一个弹出菜单，列出可能的自动补全项
+      -- menuone: 即使只有一个匹配项，该选项也会显示弹出菜单。这对于提供有关自动补全的附加信息很有用
+      -- noselect: 用户需要明确选择一个自动补全项，通过导航并按 Enter 键
+      vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
       cmp.setup({
         ghost_text = { enabled = true },
@@ -68,18 +71,20 @@ return {
 
         -- 窗口UI
         window = {
-          completion = {
-            border = "rounded",
-            winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
-            col_offset = -3,
-            side_padding = 1,
-            scrollbar = false,
-            scrolloff = 8,
-          },
-          documentation = {
-            border = "rounded",
-            winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
-          },
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+          -- completion = {
+          --   border = "rounded",
+          --   winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+          --   col_offset = -3,
+          --   side_padding = 1,
+          --   scrollbar = false,
+          --   scrolloff = 8,
+          -- },
+          -- documentation = {
+          --   border = "rounded",
+          --   winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
+          -- },
         },
 
         mapping = {
@@ -167,7 +172,8 @@ return {
         sorting = {
           priority_weight = 2,
           comparators = {
-            require('cmp_tabnine.compare'),
+            -- require('cmp_tabnine.compare'), -- tabnine智能补全
+            compare.locality,
             compare.offset,
             compare.exact,
             compare.score,
