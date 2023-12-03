@@ -190,8 +190,14 @@ return {
   -- 搜索
   {
     "nvim-telescope/telescope.nvim",
-    commit = '6258d50',
+    tag = '0.1.4',
+    -- or, branch = '0.1.x',
     dependencies = {
+      {
+        -- lsp code-action
+        -- Neovim 0.9+ https://github.com/nvim-telescope/telescope-ui-select.nvim/issues/29#issuecomment-1825841303
+        "nvim-telescope/telescope-ui-select.nvim",
+      },
       {
         "nvim-lua/plenary.nvim",
         commit = '9ac3e95',
