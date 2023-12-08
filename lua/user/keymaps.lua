@@ -34,8 +34,11 @@ keymap("i", "<C-a>", "<Esc>ggVG$", { silent = true })
 
 keymap("n", "<S-Up>", ":resize -2<CR>", { silent = true })
 keymap("n", "<S-Down>", ":resize +2<CR>", { silent = true })
-keymap("n", "<S-Left>", ":vertical resize -2<CR>", { silent = true })
-keymap("n", "<S-Right>", ":vertical resize +2<CR>", { silent = true })
+-- keymap("n", "<S-Left>", ":vertical resize -2<CR>", { silent = true })
+-- keymap("n", "<S-Right>", ":vertical resize +2<CR>", { silent = true })
+-- 使用nvim-tree提供的接口, 解决重新打开窗口时, 大小重置问题
+keymap("n", "<S-Left>", ":NvimTreeResize -2<CR>", { silent = true })
+keymap("n", "<S-Right>", ":NvimTreeResize +2<CR>", { silent = true })
 keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", { silent = true })
 keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 

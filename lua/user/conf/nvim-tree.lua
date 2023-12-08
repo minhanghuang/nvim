@@ -1,6 +1,4 @@
 -- following options are the default
-local tree_cb = require 'nvim-tree.config'.nvim_tree_callback
-
 local telescope = require('telescope.builtin')
 
 local function live_grep_the_node_cb(node)
