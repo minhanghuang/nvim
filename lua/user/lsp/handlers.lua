@@ -39,12 +39,13 @@ M.setup = function()
   -- :Mason 查看lsp server状态
   -- :LspLog 查看lsp日志
   mason_config.setup {
+    -- Node.js version: v15.4.0
     -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
     ensure_installed = {
       'lua_ls',
       'pyright',
       'clangd',
-      'html',
+      'html@4.0.0',
       'cmake',                           -- dependence python3-venv
       'jsonls',                          -- json
       'yamlls',                          -- yaml
