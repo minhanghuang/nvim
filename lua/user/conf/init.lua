@@ -18,28 +18,28 @@ return {
     end,
   },
 
-  -- 删除Buffer
-  {
-    "famiu/bufdelete.nvim",
-    commit = '8933abc',
-    config = function()
-      local function delete_hidden_buffers()
-        local hidden_bufs = vim.tbl_filter(function(bufnr)
-          return vim.fn.getbufinfo(bufnr)[1].hidden == 1
-        end, vim.api.nvim_list_bufs())
-
-        for _, bufnr in ipairs(hidden_bufs) do
-          require("bufdelete").bufdelete(bufnr)
-        end
-      end
-      vim.api.nvim_create_user_command('BdeleteHidden', delete_hidden_buffers, { bang = true })
-    end,
-  },
-
   -- Buffer
   {
     "akinsho/bufferline.nvim",
     commit = '417b303',
+    dependencies = {
+      {
+        "famiu/bufdelete.nvim", -- delete buffer
+        commit = '8933abc',
+        config = function()
+          local function delete_hidden_buffers()
+            local hidden_bufs = vim.tbl_filter(function(bufnr)
+              return vim.fn.getbufinfo(bufnr)[1].hidden == 1
+            end, vim.api.nvim_list_bufs())
+
+            for _, bufnr in ipairs(hidden_bufs) do
+              require("bufdelete").bufdelete(bufnr)
+            end
+          end
+          vim.api.nvim_create_user_command('BdeleteHidden', delete_hidden_buffers, { bang = true })
+        end,
+      },
+    },
     config = function()
       require("user.conf.bufferline")
     end,
