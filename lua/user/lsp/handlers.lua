@@ -52,6 +52,7 @@ M.setup = function()
       'bashls',                          -- bash
       'vls',                             -- vue.js
       'docker_compose_language_service', -- docker-compose
+      'dockerls',                        -- docker file
     },
   }
 
@@ -76,6 +77,7 @@ M.setup = function()
     bashls = require("user.lsp.providers.bashls"),
     vuels = require("user.lsp.providers.vue"),
     docker_compose_language_service = require("user.lsp.providers.docker-compose"),
+    dockerls = require("user.lsp.providers.default"),
   }
 
   for name, config in pairs(servers) do
