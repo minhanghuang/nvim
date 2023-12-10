@@ -42,7 +42,7 @@ git clone --depth 1 https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 6. 格式化
 
-- [ ] [sbdchd/neoformat](https://github.com/sbdchd/neoformat): lsp提供格式化功能, 但是有些语言不支持格式化(例如: Python), 这里加入一个格式化插件, 补充lsp格式化缺陷
+- [ ] [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim): lsp提供格式化功能, 但是有些语言不支持格式化(例如: Python), 这里加入一个格式化插件, 补充lsp格式化缺陷
 
 ## #2 环境
 
@@ -65,6 +65,8 @@ sudo cp -r nvim-linux64/* /usr/local
 ```
 
 ### #2.2 Node.js
+
+> Node版本选择: `v15.4.0`, 使用`nvm`对Node.js版本进行管理
 
 - macOS
 
@@ -89,6 +91,15 @@ sudo apt install yarn
 yarn config set registry http://registry.npmmirror.com
 ```
 
+- nvm(可选)
+
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.zshrc
+nvm install 15.4.0
+nvm alias default 15.4.0
+```
+
 ### #2.3 dependency
 
 ```shell
@@ -107,5 +118,5 @@ brew install ripgrep gnu-sed llvm tig
 
 ```shell
 sudo apt update
-sudo apt install -y ctags python3-venv llvm tig ripgrep
+sudo apt install -y universal-ctags global python3-venv llvm tig ripgrep
 ```
