@@ -20,11 +20,11 @@ return {
       -- lspkind
       "onsails/lspkind-nvim", -- 分类选项icon
 
-      -- 补全排序
-      {
-        'tzachar/cmp-tabnine',
-        build = './install.sh',
-      },
+      -- -- 补全排序
+      -- {
+      --   'tzachar/cmp-tabnine',
+      --   build = './install.sh',
+      -- },
 
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -153,47 +153,48 @@ return {
           { name = 'nvim_lsp_signature_help', priority = 10 },
         }),
 
-        -- sorting = {
-        --   priority_weight = 2,
-        --   comparators = {                     -- 定义了多个比较函数，用于确定补全项的顺序。这些函数按照列表中的顺序依次应用
-        --     -- deprioritize_snippet,             -- 降低代码片段 (snippets) 的优先级
-        --     cmp.config.compare.recently_used, -- 最近使用
-        --     cmp.config.compare.kind,          -- 补全项的数据类型进行排序
-        --     cmp.config.compare.score,         -- 补全项的得分进行排序
-        --     cmp.config.compare.locality,      -- 局部
-        --     cmp.config.compare.exact,         -- 补全项与用户输入的文本的匹配度进行排序
-        --     cmp.config.compare.offset,        -- 补全项在文件中的位置（偏移量）进行排序
-        --     cmp.config.compare.sort_text,     -- 补全项的排序文本进行排序
-        --     cmp.config.compare.order,         -- 插件内部的预定义顺序对补全项进行排序
-        --     cmp.config.compare.length,        -- 补全项的长度进行排序
-        --   },
-        -- },
-        --
         sorting = {
           priority_weight = 2,
-          comparators = {
-            -- require('cmp_tabnine.compare'), -- tabnine智能补全
-            compare.locality,
-            compare.offset,
-            compare.exact,
-            compare.score,
-            compare.recently_used,
-            compare.kind,
-            compare.sort_text,
-            compare.length,
-            compare.order,
+          comparators = {                     -- 定义了多个比较函数，用于确定补全项的顺序。这些函数按照列表中的顺序依次应用
+            -- deprioritize_snippet,             -- 降低代码片段 (snippets) 的优先级
+            cmp.config.compare.locality,      -- 局部
+            cmp.config.compare.offset,        -- 补全项在文件中的位置（偏移量）进行排序
+            cmp.config.compare.exact,         -- 补全项与用户输入的文本的匹配度进行排序
+            cmp.config.compare.score,         -- 补全项的得分进行排序
+            cmp.config.compare.recently_used, -- 最近使用
+            cmp.config.compare.kind,          -- 补全项的数据类型进行排序
+            cmp.config.compare.sort_text,     -- 补全项的排序文本进行排序
+            cmp.config.compare.length,        -- 补全项的长度进行排序
+            cmp.config.compare.order,         -- 插件内部的预定义顺序对补全项进行排序
           },
         },
 
+
+        -- sorting = {
+        --   priority_weight = 2,
+        --   comparators = {
+        --     -- require('cmp_tabnine.compare'), -- tabnine智能补全
+        --     compare.locality,
+        --     compare.offset,
+        --     compare.exact,
+        --     compare.score,
+        --     compare.recently_used,
+        --     compare.kind,
+        --     compare.sort_text,
+        --     compare.length,
+        --     compare.order,
+        --   },
+        -- },
+
         -- 设置补全显示的格式,非代码格式化
         formatting = {
-          fields = { cmp.ItemField.Menu, cmp.ItemField.Abbr, cmp.ItemField.Kind },
+          fields = { cmp.ItemField.Kind, cmp.ItemField.Menu, cmp.ItemField.Abbr, },
           format = lspkind.cmp_format({
             with_text = true,
             menu = {
               nvim_lsp = "",
               nvim_lua = "",
-              path = "ﱮ",
+              path = "",
               buffer = "﬘",
               vsnip = "",
               treesitter = "",
