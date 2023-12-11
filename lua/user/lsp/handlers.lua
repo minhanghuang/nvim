@@ -47,7 +47,7 @@ M.setup = function()
       'clangd',
       'html@4.0.0',
       'cmake',                           -- dependence python3-venv
-      'jsonls',                          -- json
+      'jsonls@4.0.0',                    -- json
       'yamlls',                          -- yaml
       'bashls',                          -- bash
       'vls',                             -- vue.js
