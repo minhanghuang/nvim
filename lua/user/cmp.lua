@@ -71,20 +71,22 @@ return {
 
         -- 窗口UI
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-          -- completion = {
-          --   border = "rounded",
-          --   winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
-          --   col_offset = -3,
-          --   side_padding = 1,
-          --   scrollbar = false,
-          --   scrolloff = 8,
-          -- },
-          -- documentation = {
-          --   border = "rounded",
-          --   winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
-          -- },
+          ---- 使用cmp.config.window 会导致悬浮窗口遮住源代码
+          -- completion = cmp.config.window.bordered(),
+          -- documentation = cmp.config.window.bordered(),
+
+          completion = {
+            border = "rounded",
+            winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
+            col_offset = -3,
+            side_padding = 1,
+            scrollbar = false,
+            scrolloff = 8,
+          },
+          documentation = {
+            border = "rounded",
+            winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
+          },
         },
 
         mapping = {
