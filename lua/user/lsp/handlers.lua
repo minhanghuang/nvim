@@ -49,7 +49,7 @@ M.setup = function()
       'cmake',                           -- dependence python3-venv
       'jsonls@4.0.0',                    -- json
       'yamlls',                          -- yaml
-      'bashls',                          -- bash
+      'bashls@4.0.0',                    -- bash
       'vls',                             -- vue.js
       'docker_compose_language_service', -- docker-compose
       'dockerls',                        -- docker file
