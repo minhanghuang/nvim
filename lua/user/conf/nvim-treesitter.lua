@@ -33,7 +33,10 @@ require("nvim-treesitter.configs").setup({
     "gitcommit",
     "gitignore",
     "markdown",
-    "markdown_inline"
+    "markdown_inline",
+    "proto",
+    "query",
+    "vimdoc",
   },
   -- 同步下载高亮支持
   sync_install = false,
