@@ -158,6 +158,8 @@ keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", { silent = true })
 keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", { silent = true })
 keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", { silent = true })
 keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", { silent = true })
+keymap("n", "<Leader>gj", "<cmd>lua require'gitsigns'.blame_line {full=true, ignore_whitespace=true}<CR>",
+  { silent = true })
 -- 查看git diff
 keymap("n", "<Leader>gd", "<Leader>o<CR>:DiffviewOpen HEAD~", { silent = true })
 -- 退出git diff
