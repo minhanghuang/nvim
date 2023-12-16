@@ -20,14 +20,16 @@ bufferline.setup {
     buffer_close_icon = "",
     modified_icon = "🚫",
     close_icon = "",
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      local s = " "
-      for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and " "
-            or (e == "warning" and " " or "")
-        s = s .. n .. sym
-      end
-      return s
-    end
+
+    -- 在buffer栏显示警告⚠️ 信息
+    -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+    --   local s = " "
+    --   for e, n in pairs(diagnostics_dict) do
+    --     local sym = e == "error" and " "
+    --         or (e == "warning" and " " or "")
+    --     s = s .. n .. sym
+    --   end
+    --   return s
+    -- end
   }
 }
