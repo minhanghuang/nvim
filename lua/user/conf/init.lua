@@ -160,6 +160,15 @@ return {
     end,
   },
 
+  -- 显示代码上下文
+  {
+    -- https://github.com/nvim-treesitter/nvim-treesitter-context
+    "nvim-treesitter/nvim-treesitter-context",
+    config = function()
+      require("user.conf.nvim-treesitter-context")
+    end,
+  },
+
   -- icon
   {
     "nvim-tree/nvim-web-devicons",
