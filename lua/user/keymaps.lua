@@ -193,10 +193,12 @@ keymap("n", "<S-m>", "zM", { silent = true })
 -- 书签
 keymap("n", "mm", ":BookmarkToggle<CR>", { silent = true })
 keymap("n", "mt", ":BookmarkAnnotate ", { silent = true })
-keymap("n", "ma", ":BookmarkShowAll<CR>", { silent = true })
+-- keymap("n", "ma", ":BookmarkShowAll<CR>", { silent = true })
 keymap("n", "mn", ":BookmarkNext<CR>", { silent = true })
 keymap("n", "mp", ":BookmarkPrev<CR>", { silent = true })
 keymap("n", "mc", ":BookmarkClearAll<CR>", { silent = true })
+-- keymap("n", "ma", "lua require('telescope').extensions.vim_bookmarks.all()<CR>", { silent = true })
+keymap("n", "ma", ":lua require('telescope').extensions.vim_bookmarks.current_file()<CR>", { silent = true })
 
 -- inserted annotation
 keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = true })
