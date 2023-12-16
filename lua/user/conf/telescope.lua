@@ -16,8 +16,8 @@ telescope.setup {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         -- 预览窗口 向上/下滚动
-        ["<C-u>"] = actions.preview_scrolling_up,
-        ["<C-d>"] = actions.preview_scrolling_down,
+        ["<C-n>"] = actions.preview_scrolling_down,
+        ["<C-p>"] = actions.preview_scrolling_up,
       }
     },
     -- other layout configuration here
