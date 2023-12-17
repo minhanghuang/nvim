@@ -154,7 +154,6 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
-    commit = '0efa55a',
     config = function()
       require("user.conf.nvim-treesitter")
     end,
