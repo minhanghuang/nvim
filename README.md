@@ -53,13 +53,15 @@ git clone --depth 1 https://github.com/minhanghuang/nvim.git ~/.config/nvim
 - macOS
 
 ```shell
-brew install neovim
+wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-macos.tar.gz
+tar -zxvf nvim-macos.tar.gz
+sudo cp -r nvim-macos/* /usr/local
 ```
 
 - Ubuntu
 
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
 tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
 ```
