@@ -54,6 +54,65 @@ return {
     end,
   },
 
+  -- 跳跃
+  {
+    -- https://github.com/folke/flash.nvim
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    vscode = true,
+    opts = {
+      search = {
+        -- forward = true, -- 仅正向搜索
+        -- mode = 'fuzzy', -- 模糊搜索
+      },
+      label = {
+        style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
+        rainbow = {
+          -- label颜色
+          enabled = true
+        }
+      },
+      jump = {
+        -- jump position
+        pos = "start", ---@type "start" | "end" | "range"
+        -- automatically jump when there is only one match
+        autojump = false,
+      },
+      char = {
+        enabled = true,
+        -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
+        char_actions = function(motion)
+          return {
+            ["w"] = "next", -- set to `right` to always go right
+            ["b"] = "prev", -- set to `left` to always go left
+            -- clever-f style
+            [motion:lower()] = "next",
+            [motion:upper()] = "prev",
+            -- jump2d style: same case goes next, opposite case goes prev
+            -- [motion] = "next",
+            -- [motion:match("%l") and motion:upper() or motion:lower()] = "prev",
+          }
+        end,
+      },
+    },
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "开启跳转界面" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "开启树状选择界面" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  },
+
+  -- 搜索美化(显示[c/N])
+  {
+    "kevinhwang91/nvim-hlslens",
+    commit = '1b629c0c28c4c5aa7923043e00a9e388b0ad937a',
+    config = function()
+      require("user.conf.nvim-hlslens")
+    end,
+  },
+
   -- git
   {
     "lewis6991/gitsigns.nvim",
@@ -121,15 +180,6 @@ return {
     event = "VeryLazy",
     config = function()
       require("neogen").setup()
-    end,
-  },
-
-  -- 搜索美化
-  {
-    "kevinhwang91/nvim-hlslens",
-    commit = '1b629c0c28c4c5aa7923043e00a9e388b0ad937a',
-    config = function()
-      require("user.conf.nvim-hlslens")
     end,
   },
 
