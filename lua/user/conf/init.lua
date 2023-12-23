@@ -406,18 +406,9 @@ return {
   -- 底部状态栏
   {
     "windwp/windline.nvim",
-    commit = '20d628f',
+    enabled = true,
     config = function()
-      require('wlsample.airline')
-      -- require('wlsample.airline_anim')
-      -- require('wlsample.airline_luffy')
-      -- require('wlsample.basic')
-      -- require('wlsample.wind')
-      -- require('wlsample.bubble')
-      -- require('wlsample.bubble2')
-      -- require('wlsample.simple')
-      -- require('wlsample.vscode')
-      -- require('wlsample.rainbow')
+      require("user.conf.windline")
     end,
   },
 }

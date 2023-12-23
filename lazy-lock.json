@@ -54,5 +54,5 @@
   "vim-snippets": { "branch": "master", "commit": "b039190177d97a968d80518470910aae7faf182a" },
   "vim-startify": { "branch": "master", "commit": "81e36c352a8deea54df5ec1e2f4348685569bed2" },
   "vim-translator": { "branch": "master", "commit": "6f0639c6d471a3a90ac19db96e1e379c030f74e3" },
-  "windline.nvim": { "branch": "master", "commit": "20d628f4647e3c501a3a7fa7a1731bf2bea6b300" }
+  "windline.nvim": { "branch": "master", "commit": "0820c1ffbeb923e81eb9da598cd3b9e4c9a65684" }
 }
