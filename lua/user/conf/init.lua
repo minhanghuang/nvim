@@ -59,17 +59,28 @@ return {
     -- https://github.com/folke/flash.nvim
     "folke/flash.nvim",
     event = "VeryLazy",
-    vscode = true,
+    vscode = false,
+    ---@type Flash.Config
     opts = {
+      labels = "asdfghjklqwertyuiopzxcvbnm",
+      -- labels = "asdfghjklqertyuiopzxcvnm", -- exlude: w b
       search = {
-        -- forward = true, -- 仅正向搜索
-        -- mode = 'fuzzy', -- 模糊搜索
+        forward = true,
+
+        -- when `false`, find only matches in the given direction
+        wrap = true,
+
+        -- Each mode will take ignorecase and smartcase into account.
+        -- * exact: exact match
+        -- * search: regular search
+        -- * fuzzy: fuzzy search
+        mode = "exact",
       },
       label = {
         style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
         rainbow = {
-          -- label颜色
-          enabled = true
+          -- label设置为彩虹🌈颜色
+          enabled = true,
         }
       },
       jump = {
@@ -78,29 +89,58 @@ return {
         -- automatically jump when there is only one match
         autojump = false,
       },
-      char = {
-        enabled = true,
-        -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
-        char_actions = function(motion)
-          return {
-            ["w"] = "next", -- set to `right` to always go right
-            ["b"] = "prev", -- set to `left` to always go left
-            -- clever-f style
-            [motion:lower()] = "next",
-            [motion:upper()] = "prev",
-            -- jump2d style: same case goes next, opposite case goes prev
-            -- [motion] = "next",
-            -- [motion:match("%l") and motion:upper() or motion:lower()] = "prev",
-          }
-        end,
-      },
+      modes = {
+        char = {
+          enabled = true,
+          label = { exclude = "hjkliardc" },
+          keys = { "f", "F", "t", "T", ";", "," },
+          -- 修改快捷键
+          -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
+        },
+      }
     },
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "开启跳转界面" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "开启树状选择界面" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      {
+        "<C-s>",
+        mode = { "n", "x", "o" },
+        function()
+          -- -- 跳转到任意字符
+          require("flash").jump(
+          -- 继续上次搜索
+          -- { continue = true }
+          )
+
+          -- -- 跳转到某一行
+          -- require("flash").jump({
+          --   search = { mode = "search", max_length = 0 },
+          --   label = { after = { 0, 0 } },
+          --   pattern = "^"
+          -- })
+
+          -- -- 仅匹配每个字符串单词的开头
+          -- -- http_status_ok: 只匹配ht..开头, 不匹配ok
+          -- require("flash").jump({
+          --   search = {
+          --     wrap = true,
+          --     mode = function(str)
+          --       return "\\<" .. str
+          --     end,
+          --   },
+          -- })
+        end,
+        desc = "匹配单词"
+      },
+      {
+        "S",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "开启树状选择界面"
+      },
+      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
 
@@ -272,6 +312,31 @@ return {
     commit = '8febc60',
     config = function()
       require("user.conf.todo-comments")
+    end,
+  },
+
+  -- ui
+  {
+    "stevearc/dressing.nvim",
+    lazy = true,
+    opts = {},
+    dependencies = {
+      {
+        "MunifTanjim/nui.nvim",
+        lazy = true,
+      }
+    },
+    init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
     end,
   },
 
