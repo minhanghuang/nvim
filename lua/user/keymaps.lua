@@ -52,7 +52,7 @@ keymap("t", "<C-;>", "<C-\\><C-n>", { silent = true })
 
 keymap("n", "<C-w>", "<C-w>w", { silent = true })
 keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", { silent = true })
-keymap("n", "<C-c>", ":nohlsearch<CR>", { silent = true })
+keymap("n", "<C-c>", ":nohlsearch<CR>", { silent = false })
 keymap("n", "<C-d>", "yyp", { silent = true })
 keymap("n", "<C-f>", "*", { silent = true })
 
