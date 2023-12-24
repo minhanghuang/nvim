@@ -33,11 +33,7 @@ M.setup = function()
 
   mason.setup({
     ui = {
-      icons = {
-        package_installed = "✓",
-        package_pending = "➜",
-        package_uninstalled = "✗"
-      }
+      icons = require("user.config").defaults.icons.mason
     }
   })
 

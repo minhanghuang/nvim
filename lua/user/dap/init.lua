@@ -21,42 +21,20 @@ return {
       require("user.dap.dap-virtual-text")
 
       local mason_dap = require("mason-nvim-dap")
+      local icons_dap = require("user.config").defaults.icons.dap
 
-      local dap_breakpoint = {
-        error = {
-          -- text = "🧘🛑⊚⭕🟢🔵🚫👉⭐️⛔️🔴",
-          text = "🔴",
-          texthl = "LspDiagnosticsSignError",
-          linehl = "",
-          numhl = "",
-        },
-        rejected = {
-          text = "",
-          texthl = "LspDiagnosticsSignHint",
-          linehl = "",
-          numhl = "",
-        },
-        stopped = {
-          text = "👉",
-          texthl = "LspDiagnosticsSignInformation",
-          linehl = "DiagnosticUnderlineInfo",
-          numhl = "LspDiagnosticsSignInformation",
-        },
-      }
-
-      vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
-      vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
-      vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
-
+      vim.fn.sign_define("DapBreakpoint", icons_dap.breakpoint)
+      vim.fn.sign_define("DapStopped", icons_dap.stopped)
+      vim.fn.sign_define("DapBreakpointRejected", icons_dap.rejected)
 
       mason_dap.setup({
         -- 下载DAP
         -- https://github.com/jay-babu/mason-nvim-dap.nvim/blob/main/lua/mason-nvim-dap/mappings/source.lua
         -- ~/.local/share/nvim/mason/bin/
         ensure_installed = {
-          'python',   -- python
+          'python', -- python
           -- 'codelldb', -- c++
-          'cppdbg',   -- c++
+          'cppdbg', -- c++
         },
       })
       require("user.dap.providers.python")

@@ -5,14 +5,7 @@ if not has_gitsigns then
 end
 
 gitsigns.setup {
-  signs = {
-    add          = { hl = 'GitSignsAdd', text = '▊', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-    change       = { hl = 'GitSignsChange', text = '▊', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-    topdelete    = { hl = 'GitSignsDelete', text = '▊', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-    delete       = { hl = 'GitSignsDelete', text = '▊', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-    changedelete = { hl = 'GitSignsChange', text = '┃', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-    untracked    = { hl = 'GitSignsUntracked', text = '┆', numhl = 'GitSignsUntracked', linehl = 'GitSignsUntrackedLn' },
-  },
+  signs = require("user.config").defaults.icons.git,
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = false,     -- Toggle with `:Gitsigns toggle_numhl`
   linehl = false,    -- Toggle with `:Gitsigns toggle_linehl`
