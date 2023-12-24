@@ -25,6 +25,12 @@ if not has_mason_tool_installer then
 end
 
 M.setup = function()
+  -- diagnostics
+  for name, icon in pairs(require("user.config").defaults.icons.diagnostics) do
+    name = "DiagnosticSign" .. name
+    vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+  end
+
   mason.setup({
     ui = {
       icons = {
