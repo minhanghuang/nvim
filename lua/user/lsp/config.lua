@@ -29,7 +29,8 @@ local function lsp_keymaps(bufnr)
 
   -- 跳转到函数定义
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cd", "<cmd>lua require('telescope.builtin').lsp_definitions({})<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cd", "<cmd>lua require('telescope.builtin').lsp_definitions({})<CR>",
+    opts)
 
   -- 跳转到声明
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ci", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -76,12 +77,28 @@ local function lsp_highlight_document(client)
   end
 end
 
+-- 设置 LSP handlers
+local custom_handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+  }),
+
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "rounded",
+  }),
+}
+
 
 local on_attach = function(client, bufnr)
   -- 对yaml格式化单独处理
   -- see https://github.com/redhat-developer/yaml-language-server/issues/486#issuecomment-1046792026
   if client.name == "yamlls" then
     client.server_capabilities.documentFormattingProvider = true
+  end
+
+  -- 应用自定义的 handlers
+  for method, handler in pairs(custom_handlers) do
+    client.handlers[method] = handler
   end
 
   lsp_keymaps(bufnr)
