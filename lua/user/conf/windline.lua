@@ -178,7 +178,7 @@ basic.lsp_diagnos = {
       return {
         { lsp_comps.lsp_error({ format = '  %s', show_zero = true }), 'red' },
         { lsp_comps.lsp_warning({ format = '  %s', show_zero = true }), 'yellow' },
-        { lsp_comps.lsp_hint({ format = '  %s', show_zero = true }), 'blue' },
+        { lsp_comps.lsp_hint({ format = '  %s', show_zero = true }), 'blue' },
       }
     end
     return { ' ', 'red' }
