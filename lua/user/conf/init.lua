@@ -367,7 +367,6 @@ return {
     "tpope/vim-commentary",
     commit = 'e87cd90',
     config = function()
-      require("user.conf.vim-commentary")
     end,
   },
 
