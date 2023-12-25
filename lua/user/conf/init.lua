@@ -244,6 +244,15 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      {
+        -- nvim-treesitter parser
+        "nathom/filetype.nvim",
+        config = function()
+          require("filetype").setup({})
+        end,
+      },
+    },
     config = function()
       require("user.conf.nvim-treesitter")
     end,
