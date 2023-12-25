@@ -69,6 +69,7 @@ return {
           'vls',                             -- vue.js
           'docker_compose_language_service', -- docker-compose
           'dockerls',                        -- docker file
+          'marksman',                        -- markdown
         },
       }
 
@@ -82,6 +83,7 @@ return {
       })
 
       -- { key: 服务器名, value: 配置文件 }
+      -- 配置: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
       local servers = {
         jsonls = require("user.lsp.providers.jsonls"),
         lua_ls = require("user.lsp.providers.sumneko_lua"),
@@ -94,6 +96,7 @@ return {
         vuels = require("user.lsp.providers.vue"),
         docker_compose_language_service = require("user.lsp.providers.docker-compose"),
         dockerls = require("user.lsp.providers.default"),
+        marksman = require("user.lsp.providers.default"),
       }
 
       for name, config in pairs(servers) do
