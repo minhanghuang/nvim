@@ -105,6 +105,15 @@ local defaults = {
   },
 }
 
+local function get_python_version()
+  local python_version = vim.fn.system('python3 --version | awk \'{print $2}\' | cut -d "." -f 1-2')
+  return string.gsub(python_version, "\n", "")
+end
+
+function M:load()
+  vim.g.python_version = get_python_version()
+end
+
 M.defaults = defaults
 
 return M
