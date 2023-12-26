@@ -1,6 +1,9 @@
 local M = {}
 
 local defaults = {
+
+  theme = "gruvbox", -- 主题(gruvbox tokyonight catppuccin)
+
   -- icons used by other plugins
   -- stylua: ignore
   icons = {
