@@ -133,9 +133,14 @@ basic.section_y = {
   hl_colors = airline_colors.b,
   text = function(_, _, width)
     if width > width_breakpoint then
+      local python_version = ''
+      if vim.bo[vim.fn.bufnr()].filetype == "python" then
+        python_version = vim.g.python_version
+      end
       return {
         { sep.left_filled,                               state.mode[2] .. 'Sep' },
         { b_components.cache_file_type({ icon = true }), state.mode[2] },
+        { python_version },
         { ' ' },
         { lsp_comps.lsp_name({ format = '%s' }), },
         { ' ' },
