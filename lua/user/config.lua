@@ -4,6 +4,58 @@ local defaults = {
 
   theme = "gruvbox", -- 主题(gruvbox tokyonight catppuccin)
 
+  -- 拓展插件
+  extensions = {
+    treesitter = {
+      "c",
+      "cpp",
+      "python",
+      "bash",
+      "cmake",
+      "lua",
+      "css",
+      "json",
+      "json5",
+      "jsonc",
+      "javascript",
+      "make",
+      "vue",
+      "yaml",
+      "vim",
+      "html",
+      "dockerfile",
+      "diff",
+      "git_config",
+      "git_rebase",
+      "gitcommit",
+      "gitignore",
+      "markdown",
+      "markdown_inline",
+      "proto",
+      "query",
+      "vimdoc",
+    },
+    lsp_server = {
+      'lua_ls',
+      'pyright',
+      'clangd',
+      'html@4.0.0',
+      'cmake',                           -- dependence python3-venv
+      'jsonls@4.0.0',                    -- json
+      'yamlls',                          -- yaml
+      'bashls@4.0.0',                    -- bash
+      'vls',                             -- vue.js
+      'docker_compose_language_service', -- docker-compose
+      'dockerls',                        -- docker file
+      'marksman',                        -- markdown
+    },
+    formatter = {
+      "autopep8", -- python formatter
+      "black",    -- python formatter
+      "prettier", -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
+    },
+  },
+
   -- icons used by other plugins
   -- stylua: ignore
   icons = {
