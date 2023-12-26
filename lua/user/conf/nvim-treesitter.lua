@@ -9,39 +9,13 @@ else
   ft_to_parser.json = "jsonc"
 end
 
+local config = require("user.config")
+
 require("nvim-treesitter.configs").setup({
   -- 安装的高亮支持来源
   -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
   -- ensure_installed = "maintained",
-  ensure_installed = {
-    "c",
-    "cpp",
-    "python",
-    "bash",
-    "cmake",
-    "lua",
-    "css",
-    "json",
-    "json5",
-    "jsonc",
-    "javascript",
-    "make",
-    "vue",
-    "yaml",
-    "vim",
-    "html",
-    "dockerfile",
-    "diff",
-    "git_config",
-    "git_rebase",
-    "gitcommit",
-    "gitignore",
-    "markdown",
-    "markdown_inline",
-    "proto",
-    "query",
-    "vimdoc",
-  },
+  ensure_installed = config.defaults.extensions.treesitter,
   -- 同步下载高亮支持
   sync_install = false,
   -- 高亮相关

@@ -39,6 +39,7 @@ return {
       local mason = require("mason")
       local mason_config = require("mason-lspconfig")
       local mason_tool_installer = require("mason-tool-installer")
+      local config = require("user.config")
 
       -- diagnostics signs
       for name, icon in pairs(require("user.config").defaults.icons.diagnostics) do
@@ -57,29 +58,11 @@ return {
       mason_config.setup {
         -- Node.js version: v15.4.0
         -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
-        ensure_installed = {
-          'lua_ls',
-          'pyright',
-          'clangd',
-          'html@4.0.0',
-          'cmake',                           -- dependence python3-venv
-          'jsonls@4.0.0',                    -- json
-          'yamlls',                          -- yaml
-          'bashls@4.0.0',                    -- bash
-          'vls',                             -- vue.js
-          'docker_compose_language_service', -- docker-compose
-          'dockerls',                        -- docker file
-          'marksman',                        -- markdown
-        },
+        ensure_installed = config.defaults.extensions.lsp_server,
       }
 
       mason_tool_installer.setup({
-        ensure_installed = {
-          -- format
-          "autopep8", -- python formatter
-          "black",    -- python formatter
-          "prettier", -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
-        },
+        ensure_installed = config.defaults.extensions.formatter,
       })
 
       -- { key: 服务器名, value: 配置文件 }
