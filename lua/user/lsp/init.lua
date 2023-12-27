@@ -39,7 +39,7 @@ return {
       local mason = require("mason")
       local mason_config = require("mason-lspconfig")
       local mason_tool_installer = require("mason-tool-installer")
-      local config = require("user.config")
+      local g_config = require("user.config")
 
       -- diagnostics signs
       for name, icon in pairs(require("user.config").defaults.icons.diagnostics) do
@@ -58,11 +58,14 @@ return {
       mason_config.setup {
         -- Node.js version: v15.4.0
         -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
-        ensure_installed = config.defaults.extensions.lsp_server,
+        ensure_installed = g_config.defaults.extensions.lsp_server,
       }
 
       mason_tool_installer.setup({
-        ensure_installed = config.defaults.extensions.formatter,
+        ensure_installed = {
+          g_config.defaults.extensions.formatter,
+          g_config.defaults.extensions.linter,
+        },
       })
 
       -- { key: 服务器名, value: 配置文件 }

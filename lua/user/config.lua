@@ -54,6 +54,11 @@ local defaults = {
       "black",    -- python formatter
       "prettier", -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
     },
+    linter = {
+      -- "cspell",       -- spell
+      "cmakelint",    -- cmake
+      "markdownlint", -- markdown
+    },
   },
 
   -- icons used by other plugins
