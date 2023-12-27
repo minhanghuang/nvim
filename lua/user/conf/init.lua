@@ -153,6 +153,16 @@ return {
     end,
   },
 
+  -- lint
+  {
+    -- https://github.com/mfussenegger/nvim-lint
+    "mfussenegger/nvim-lint",
+    event = "BufReadPre",
+    config = function()
+      require("user.conf.nvim-lint")
+    end,
+  },
+
   -- git
   {
     "lewis6991/gitsigns.nvim",
