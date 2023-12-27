@@ -62,7 +62,10 @@ return {
       }
 
       mason_tool_installer.setup({
-        ensure_installed = g_config.defaults.extensions.formatter,
+        ensure_installed = {
+          g_config.defaults.extensions.formatter,
+          g_config.defaults.extensions.linter,
+        },
       })
 
       -- { key: 服务器名, value: 配置文件 }
