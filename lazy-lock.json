@@ -37,6 +37,7 @@
   "nvim-dap-virtual-text": { "branch": "master", "commit": "a36982259216afd710f55bcdc220477c74b5bc35" },
   "nvim-hlslens": { "branch": "main", "commit": "1b629c0c28c4c5aa7923043e00a9e388b0ad937a" },
   "nvim-lastplace": { "branch": "main", "commit": "75a2b78bdbbd20467d499defceb5b20c0967a1ca" },
+  "nvim-lint": { "branch": "master", "commit": "3a7c15331a57ba40a56f00f29173700af853fa03" },
   "nvim-lspconfig": { "branch": "master", "commit": "d5d7412ff267b92a11a94e6559d5507c43670a52" },
   "nvim-tree.lua": { "branch": "master", "commit": "b601b5aa25627f68d3d73ba9269b49e4f04ce126" },
   "nvim-treesitter": { "branch": "master", "commit": "5a713474e38a3999b85c6cb3f5cac3248a16c7d0" },
