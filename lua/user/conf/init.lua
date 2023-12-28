@@ -45,6 +45,28 @@ return {
     end,
   },
 
+  -- color颜色板
+  {
+    -- https://github.com/NvChad/nvim-colorizer.lua
+    "NvChad/nvim-colorizer.lua",
+    event = "VeryLazy",
+    config = function()
+      require("colorizer").setup({
+        filetypes = {
+          "typescript",
+          "typescriptreact",
+          "javascript",
+          "javascriptreact",
+          "css",
+          "sass",
+          "html",
+          "astro",
+          "vue",
+        },
+      })
+    end,
+  },
+
   -- diffview
   {
     "sindrets/diffview.nvim",
