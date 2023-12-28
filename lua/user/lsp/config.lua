@@ -7,12 +7,11 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true -- 函
 function FormatCode()
   local file_type = vim.api.nvim_buf_get_option(0, 'filetype')
 
-  -- 如果是 Python 文件，使用 neoformat
-  if file_type == 'python' then
+  -- 如果是下面这些文件, 使用第三方插件进行格式化
+  if 'python' == file_type or 'vue' == file_type then
     -- vim.cmd('Neoformat') -- sbdchd/neoformat
     vim.cmd("FormatWrite") -- mhartington/formatter.nvim
   else
-    -- lsp不提供格式化Python方法
     -- 否则使用 LSP 的格式化
     vim.lsp.buf.format { async = true }
   end
