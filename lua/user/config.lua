@@ -40,6 +40,7 @@ local defaults = {
       'pyright',
       'clangd',
       'html@4.0.0',
+      'tsserver',                        -- js ts
       'cmake',                           -- dependence python3-venv
       'jsonls@4.0.0',                    -- json
       'yamlls',                          -- yaml
