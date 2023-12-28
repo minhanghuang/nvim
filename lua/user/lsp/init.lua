@@ -76,6 +76,7 @@ return {
         pyright = require("user.lsp.providers.pyright"),
         clangd = require("user.lsp.providers.clangd"),
         html = require("user.lsp.providers.html"),
+        tsserver = require("user.lsp.providers.typescript"),
         cmake = require("user.lsp.providers.cmake"),
         yamlls = require("user.lsp.providers.yamlls"),
         bashls = require("user.lsp.providers.bashls"),

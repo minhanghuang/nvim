@@ -4,6 +4,7 @@ local options = {
   cursorline = true,    -- highlight the current line
   shiftwidth = 2,       -- the number of spaces inserted for each indentation
   expandtab = true,     -- convert tabs to spaces
+  tabstop = 2,          -- Number of spaces tabs count for
   termguicolors = true, -- set term gui colors (most terminals support this)
   history = 1024,
   showcmd = true,
@@ -32,4 +33,3 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
