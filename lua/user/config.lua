@@ -45,7 +45,8 @@ local defaults = {
       'jsonls@4.0.0',                    -- json
       'yamlls',                          -- yaml
       'bashls@4.0.0',                    -- bash
-      'vls',                             -- vue.js
+      'vuels',                           -- vue.js 2(vuels)
+      -- 'vue',                             -- vue.js 3(volar)
       'docker_compose_language_service', -- docker-compose
       'dockerls',                        -- docker file
       'marksman',                        -- markdown
