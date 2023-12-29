@@ -52,9 +52,9 @@ local defaults = {
       'marksman',                        -- markdown
     },
     formatter = {
-      "autopep8", -- python formatter
-      "black",    -- python formatter
-      "prettier", -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
+      "clang-format",      -- cpp
+      "autopep8", "black", -- python
+      "prettier",          -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
     },
     linter = {
       -- "cspell",       -- spell
