@@ -223,28 +223,6 @@ return {
     end,
   },
 
-  -- snippets engine
-  {
-    "L3MON4D3/LuaSnip",
-    version = "2.*",
-    dependencies = {
-      "honza/vim-snippets",          -- 代码片段(snipMate & UltiSnip)
-      "rafamadriz/friendly-snippets" -- 代码片段(LuaSnip)
-    },
-    event = "VeryLazy",
-    build = "make install_jsregexp",
-    config = function()
-      require("luasnip").setup({
-        history = true,
-        delete_check_events = "TextChanged,TextChangedI",
-      })
-      require("luasnip.loaders.from_lua").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_snipmate").lazy_load()
-      require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
-    end,
-  },
-
   -- 添加函数接口说明
   {
     "danymat/neogen",

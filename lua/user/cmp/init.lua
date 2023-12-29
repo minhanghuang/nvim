@@ -14,7 +14,13 @@ return {
         -- For luasnip users.
         "saadparwaiz1/cmp_luasnip",
         dependencies = {
-          "L3MON4D3/LuaSnip",
+          "honza/vim-snippets",           -- 代码片段(snipMate & UltiSnip)
+          "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
+          {
+            "L3MON4D3/LuaSnip",
+            version = "v2.*",  -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            build = "make install_jsregexp",
+          },
         }
       },
       -- lspkind
@@ -60,6 +66,16 @@ return {
         end
       end
 
+      -- snippets
+      luasnip.setup({
+        history = true,
+        delete_check_events = "TextChanged,TextChangedI",
+      })
+      require("luasnip.loaders.from_lua").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_snipmate").lazy_load()
+      require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fn.stdpath("config") .. "/lua/user/completion/snippets" } })
+
       -- menu: 一个弹出菜单，列出可能的自动补全项
       -- menuone: 即使只有一个匹配项，该选项也会显示弹出菜单。这对于提供有关自动补全的附加信息很有用
       -- noselect: 用户需要明确选择一个自动补全项，通过导航并按 Enter 键
@@ -71,7 +87,7 @@ return {
         -- 代码片段
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            luasnip.lsp_expand(args.body) -- For `luasnip` users.
           end,
         },
 
