@@ -1,4 +1,5 @@
-if vim.version().minor == 9 then
+if vim.version().major >= 0 and vim.version().minor >= 9 then
+  -- Neovim version: 0.9+
   vim.treesitter.language.register("html", "xodr")
   vim.treesitter.language.register("html", "launch")
   vim.treesitter.language.register("jsonc", "json")
