@@ -89,12 +89,6 @@ local custom_handlers = {
 
 
 local on_attach = function(client, bufnr)
-  -- 对yaml格式化单独处理
-  -- see https://github.com/redhat-developer/yaml-language-server/issues/486#issuecomment-1046792026
-  if client.name == "yamlls" then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
   -- 应用自定义的 handlers
   for method, handler in pairs(custom_handlers) do
     client.handlers[method] = handler
