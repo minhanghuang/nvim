@@ -98,12 +98,21 @@ basic.section_b = {
 
 basic.section_c = {
   hl_colors = airline_colors.c,
-  text = function()
+  text = function(bufnr)
+    local file_name = b_components.cache_file_name('[No Name]', 'unique')
+    if file_name(bufnr) ~= '[No Name] ' then
+      local bufname = vim.api.nvim_buf_get_name(bufnr)
+      local file_path = vim.fn.fnamemodify(bufname, ':~:.')
+      if #file_path < 50 then
+        file_name = file_path
+      end
+    end
     return {
-      { ' ',                                                state.mode[2] },
-      { b_components.cache_file_name('[No Name]', 'unique') },
+      { ' ',              state.mode[2] },
+      -- { b_components.cache_file_name('[No Name]', 'unique') }, -- 显示当前文件名
+      { file_name }, -- 显示当前文件相对路径
       { ' ' },
-      { sep.right_filled,                                   state.mode[2] .. 'Sep' },
+      { sep.right_filled, state.mode[2] .. 'Sep' },
     }
   end,
 }
