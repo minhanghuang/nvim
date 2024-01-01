@@ -140,8 +140,12 @@ basic.section_x = {
 
 basic.section_y = {
   hl_colors = airline_colors.b,
-  text = function(_, _, width)
+  text = function(bufnr, _, width)
     if width > width_breakpoint then
+      local lsp_status = ''
+      if not lsp_comps.check_lsp(bufnr) then
+        local lsp_status = '[]'
+      end
       local python_version = ''
       if vim.bo[vim.fn.bufnr()].filetype == "python" then
         python_version = vim.g.python_version
@@ -152,6 +156,7 @@ basic.section_y = {
         { python_version },
         { ' ' },
         { lsp_comps.lsp_name({ format = '%s' }), },
+        { lsp_status, },
         { ' ' },
       }
     end
