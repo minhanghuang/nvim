@@ -18,7 +18,7 @@ return {
           "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
           {
             "L3MON4D3/LuaSnip",
-            version = "v2.*",  -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
             build = "make install_jsregexp",
           },
         }
@@ -45,6 +45,7 @@ return {
       }
     },
     config = function()
+      local autopairs = require("nvim-autopairs.completion.cmp")
       local luasnip = require("luasnip")
       local lspkind = require("lspkind")
       -- local compare = require('cmp.config.compare')
@@ -65,6 +66,9 @@ return {
           return true
         end
       end
+
+      -- auto pair
+      cmp.event:on("confirm_done", autopairs.on_confirm_done { map_char = { tex = "" } })
 
       -- snippets
       luasnip.setup({
