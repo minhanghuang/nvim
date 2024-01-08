@@ -78,7 +78,7 @@ return {
       require("luasnip.loaders.from_lua").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_snipmate").lazy_load()
-      require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fn.stdpath("config") .. "/lua/user/completion/snippets" } })
+      require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fn.stdpath("config") .. "/lua/user/cmp/snippets" } })
 
       -- menu: 一个弹出菜单，列出可能的自动补全项
       -- menuone: 即使只有一个匹配项，该选项也会显示弹出菜单。这对于提供有关自动补全的附加信息很有用
