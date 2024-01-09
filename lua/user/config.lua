@@ -54,6 +54,7 @@ local defaults = {
     formatter = {
       "clang-format",      -- cpp
       "autopep8", "black", -- python
+      "cmakelang",         -- cmakelists
       "prettier",          -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
     },
     linter = {
