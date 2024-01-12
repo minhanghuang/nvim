@@ -1,0 +1,102 @@
+###########################################################################
+#                            Txt Snippets                            #
+###########################################################################
+snippet Copyright
+	/*
+	 * Copyright (C) `!p if not snip.c: snip.rv = vim.eval("strftime('%Y')")` minhanghuang <job@minhang.me>. - All Rights Reserved
+	 */
+	${0}
+
+snippet start_trunk
+	/*
+	* Copyright (C) Trunk Technology, Inc. - All Rights Reserved
+	*
+	* Unauthorized copying of this file, via any medium is strictly prohibited
+	* Proprietary and confidential
+	*
+	* Written by Minhang Huang <huangminhang@trunk.tech>
+	*/
+
+	${0}
+
+snippet ifndef
+	#ifndef ${1/([A-Za-z0-9_]+).*/$1/}
+	#define ${1:SYMBOL}
+	#endif // $1
+
+snippet define
+	#ifndef ${1/([A-Za-z0-9_]+).*/$1/}
+	#define ${1:SYMBOL}
+	#endif // $1
+
+
+###########################################################################
+#                            Function Snippets                            #
+###########################################################################
+snippet main
+	int main(int argc, char *argv[]) {
+		${0}
+		return 0;
+	}
+
+snippet std_cout
+	std::cout << "${1}" << std::endl;
+
+snippet std_err
+	std::cerr << "${1}" << std::endl;
+
+snippet std_co_debug
+	std::cout << "[debug] ${1}" << std::endl;
+
+snippet #ifndef
+	#ifndef ${1:Name}
+	#define $1
+
+
+	#endif // $1
+
+###########################################################################
+#                            Key Snippets                            #
+###########################################################################
+snippet for
+	for (const auto& ${1:it} : ${2:list}) {
+		${3}
+	}
+
+snippet while
+	while(${1:true}) {
+	        ${2}
+	}
+
+snippet class
+	class ${1:Class} {
+	public:
+	 $1() = default;
+	 ~$1() = default;
+	private:
+	 $2
+	};
+
+snippet class
+	class ${1:Class} {
+	public:
+
+	private:
+
+	};
+
+snippet struct
+	struct ${1:Class} {
+
+	};
+
+snippet def
+	${2:void} ${1:name}($3){
+		${3}
+	}
+
+snippet namespace
+	namespace ${1:namespace} {
+		
+	} // $1
+

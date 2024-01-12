@@ -2,5 +2,5 @@ debugpy
 autopep8
 cmakelang
 neovim
-jedi
+jedi==0.18.2
 jedi-language-server==0.35.1
