@@ -3,27 +3,13 @@ local M = {}
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true -- 函数补全参数
 
---- 代码格式化, 由于不是所有语言的lsp都支持formatting, 所有需要对这些语言使用插件格式化
-function FormatCode()
-  local file_type = vim.api.nvim_buf_get_option(0, 'filetype')
-
-  -- 如果是下面这些文件, 使用第三方插件进行格式化
-  if 'python' == file_type or 'vue' == file_type then
-    -- vim.cmd('Neoformat') -- sbdchd/neoformat
-    vim.cmd("FormatWrite") -- mhartington/formatter.nvim
-  else
-    -- 否则使用 LSP 的格式化
-    vim.lsp.buf.format { async = true }
-  end
-end
-
 --- 配置快捷键
 ---@param bufnr
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
 
   -- 格式化
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cf", "<cmd>lua FormatCode()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cf", ":lua require('user.util').format_code()<cr>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 
   -- 跳转到函数定义
