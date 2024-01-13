@@ -1,6 +1,6 @@
 # NeoVim
 
-![neovim](./data/images/cpp-debug.gif)
+![neovim](https://raw.githubusercontent.com/wiki/minhanghuang/nvim/images/cpp-debug.gif)
 
 ```shell
 git clone --depth 1 https://github.com/minhanghuang/nvim.git ~/.config/nvim
