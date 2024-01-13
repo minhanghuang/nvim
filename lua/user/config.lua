@@ -62,6 +62,11 @@ local defaults = {
       "cmakelint",    -- cmake
       "markdownlint", -- markdown
     },
+    dap = {
+      "python",   -- python
+      -- "codelldb", -- c++
+      "cppdbg",   -- c++
+    },
   },
 
   -- icons used by other plugins

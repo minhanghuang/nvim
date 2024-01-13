@@ -276,16 +276,6 @@ return {
     end,
   },
 
-  -- 断点持久化
-  {
-    "Weissle/persistent-breakpoints.nvim",
-    commit = 'a6091f7',
-    event = "VeryLazy",
-    config = function()
-      require("user.conf.persistent-breakpoints")
-    end,
-  },
-
   -- 启动画面
   {
     "mhinz/vim-startify",
