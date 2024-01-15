@@ -1,6 +1,1 @@
-debugpy
-autopep8
-cmakelang
 neovim
-jedi==0.18.2
-jedi-language-server==0.35.1
