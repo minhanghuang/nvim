@@ -38,7 +38,7 @@ return {
       --   end
       -- }
 
-      -- clang拓展插件
+      -- clangd拓展插件
       {
         -- https://github.com/p00f/clangd_extensions.nvim
         "p00f/clangd_extensions.nvim",
