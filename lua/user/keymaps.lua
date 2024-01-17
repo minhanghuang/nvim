@@ -110,7 +110,7 @@ keymap("n",
 -- 搜索文件
 keymap("n", "<Leader>ff", ":lua require('user.util').telescope('find_files')<cr>", { silent = true })
 -- 搜索字符串(所有文件)
-keymap("n", "<Leader>ff", ":lua require('user.util').telescope('live_grep')<cr>", { silent = true })
+keymap("n", "<Leader>fs", ":lua require('user.util').telescope('live_grep')<cr>", { silent = true })
 -- 搜索字符串(当前文件)
 keymap("n", "<Leader>fj", ":lua require('user.util').telescope('live_grep', {grep_open_files = true})<cr>",
   { silent = true })
