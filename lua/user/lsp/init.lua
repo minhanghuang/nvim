@@ -73,7 +73,8 @@ return {
       local servers = {
         jsonls = require("user.lsp.providers.jsonls"),
         lua_ls = require("user.lsp.providers.sumneko_lua"),
-        pyright = require("user.lsp.providers.pyright"),
+        -- pyright = require("user.lsp.providers.pyright"),
+        pylsp = require("user.lsp.providers.pylsp"),
         clangd = require("user.lsp.providers.clangd"),
         html = require("user.lsp.providers.html"),
         tsserver = require("user.lsp.providers.typescript"),
