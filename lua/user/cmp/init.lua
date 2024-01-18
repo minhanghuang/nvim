@@ -2,6 +2,7 @@ return {
   -- CMP
   {
     "hrsh7th/nvim-cmp",
+    event = "VeryLazy",
     dependencies = {
       -- nvim-cmp
       "hrsh7th/cmp-nvim-lsp",                -- 内置lsp补全

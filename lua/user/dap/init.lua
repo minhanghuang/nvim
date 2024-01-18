@@ -3,6 +3,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     commit = 'f4a3be57f61893cffa1e22aa5e1e7bded495fcf2',
+    event = "VeryLazy",
     dependencies = {
       {
         "jay-babu/mason-nvim-dap.nvim"
