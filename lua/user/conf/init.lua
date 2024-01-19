@@ -21,6 +21,7 @@ return {
   -- Buffer
   {
     "akinsho/bufferline.nvim",
+    event = "VeryLazy",
     commit = '417b303',
     dependencies = {
       {
@@ -71,6 +72,7 @@ return {
   {
     "sindrets/diffview.nvim",
     commit = "63720aa",
+    event = "VeryLazy",
     config = function()
       require("user.conf.diffview")
     end,
@@ -170,6 +172,7 @@ return {
   {
     "kevinhwang91/nvim-hlslens",
     commit = '1b629c0c28c4c5aa7923043e00a9e388b0ad937a',
+    event = "VeryLazy",
     config = function()
       require("user.conf.nvim-hlslens")
     end,
@@ -189,6 +192,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     commit = '372d5cb',
+    event = "VeryLazy",
     config = function()
       require("user.conf.gitsigns")
     end,
@@ -197,6 +201,7 @@ return {
   -- formatting
   {
     "mhartington/formatter.nvim",
+    event = "VeryLazy",
     config = function()
       require("user.conf.formatter")
     end,
@@ -214,6 +219,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     commit = '4541d69',
+    event = "VeryLazy",
     config = function()
       vim.opt.list = true
       require("indent_blankline").setup {
@@ -254,6 +260,8 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
+    -- 禁止设置VeryLazy, 会影响filetype.nvim插件
+    -- event = "VeryLazy",
     dependencies = {
       {
         -- nvim-treesitter parser
@@ -288,6 +296,7 @@ return {
   -- 搜索
   {
     "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
     tag = '0.1.4',
     -- or, branch = '0.1.x',
     dependencies = {
@@ -319,6 +328,7 @@ return {
   {
     "folke/todo-comments.nvim",
     commit = '8febc60',
+    event = "VeryLazy",
     config = function()
       require("user.conf.todo-comments")
     end,
@@ -327,7 +337,7 @@ return {
   -- ui
   {
     "stevearc/dressing.nvim",
-    lazy = true,
+    event = "VeryLazy",
     opts = {},
     dependencies = {
       {
@@ -375,6 +385,7 @@ return {
   {
     "tpope/vim-commentary",
     commit = 'e87cd90',
+    event = "VeryLazy",
     config = function()
     end,
   },
@@ -392,6 +403,7 @@ return {
   -- 平滑滚动
   {
     "psliwka/vim-smoothie",
+    event = "VeryLazy",
     config = function()
       require("user.conf.vim-smoothie")
     end,

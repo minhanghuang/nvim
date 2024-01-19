@@ -88,3 +88,23 @@ brew install ripgrep gnu-sed llvm tig
 sudo apt update
 sudo apt install -y universal-ctags global python3-venv llvm tig ripgrep
 ```
+
+## # Supplement
+
+### #.1 Auto Completion With Python Protobuf
+
+1. installation
+
+```shell
+python3 -m pip install mypy-protobuf protobuf
+```
+
+```shell
+export PATH=~/.local/bin:$PATH
+```
+
+2. generate python protobuf
+
+```shell
+protoc -I=./ --python_out=. --mypy_out=. *.proto
+```
