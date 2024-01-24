@@ -16,8 +16,7 @@ return {
         autoImportCompletions = true,
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
-        -- 暂时不需要
-        -- extraPaths = util.get_all_python_package_paths("/usr/local/lib"),
+        extraPaths = util.get_current_python_package_paths(),
       },
       pythonPath = util.get_python_path(),
     }
