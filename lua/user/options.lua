@@ -33,3 +33,25 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+-- 从Neovim 0.10.0开始, 支持原生OSC52, 不需要安装插件, 实现ssh远端复制粘贴功能
+-- https://github.com/neovim/neovim/pull/25872
+-- :h clipboard-osc52
+if pcall(require, 'vim.ui.clipboard.osc52') then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy('+'),
+      ["*"] = require("vim.ui.clipboard.osc52").copy('*'),
+    },
+    paste = {
+      -- 不允许在终端内使用系统粘贴板, 防止出现长时间等待问题
+      -- Waiting for OSC 52 response from the terminal. Press Ctrl-C to interrupt...
+      -- https://github.com/neovim/neovim/pull/25872#issuecomment-1808182953
+      -- ["+"] = require("vim.ui.clipboard.osc52").paste('+'),
+      -- ["*"] = require("vim.ui.clipboard.osc52").paste('*'),
+      ["+"] = function() end,
+      ["*"] = function() end,
+    },
+  }
+end
