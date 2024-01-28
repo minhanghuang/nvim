@@ -10,7 +10,7 @@ git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 ### #1.1 neovim
 
-> minimum neovim 0.8.3
+> Neovim minimum version required: `0.8.3`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
 
 - macOS
 
@@ -34,12 +34,16 @@ sudo cp -r nvim-linux64/* /usr/local
 
 ### #1.3 Node.js
 
-> The Node.js version I am using is selected as' v15.4.0 ', and I am using' nvm 'to manage the Node.js version
+> The Node.js version I am using is selected as `v15.4.0`, and I am using `nvm` to manage the Node.js version
 
 - macOS
 
 ```shell
 brew install nodejs yarn
+```
+
+```shell
+# option
 npm config set registry http://registry.npmmirror.com
 yarn config set registry http://registry.npmmirror.com
 ```
@@ -49,13 +53,17 @@ yarn config set registry http://registry.npmmirror.com
 ```shell
 sudo apt update
 sudo apt install -y nodejs npm
-sudo npm config set http://registry.npmmirror.com
 sudo npm install n -g
 sudo n stable
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update
 sudo apt install yarn
+```
+
+```shell
+# option
+sudo npm config set http://registry.npmmirror.com
 yarn config set registry http://registry.npmmirror.com
 ```
 
