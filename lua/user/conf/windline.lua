@@ -147,13 +147,18 @@ basic.section_y = {
         local lsp_status = '[]'
       end
       local python_version = ''
+      local python_venv_name = ''
       if vim.bo[vim.fn.bufnr()].filetype == "python" then
         python_version = vim.g.python_version
+        if '' ~= vim.g.python_venv_name then
+          python_venv_name = "(" .. vim.g.python_venv_name .. ")"
+        end
       end
       return {
         { sep.left_filled,                               state.mode[2] .. 'Sep' },
         { b_components.cache_file_type({ icon = true }), state.mode[2] },
         { python_version },
+        { python_venv_name },
         { ' ' },
         { lsp_comps.lsp_name({ format = '%s' }), },
         { lsp_status, },

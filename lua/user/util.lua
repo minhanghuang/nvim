@@ -39,6 +39,21 @@ M.get_python_version = function()
   return string.gsub(python_version, "\n", "")
 end
 
+--- 获取Python虚拟环境名
+M.get_python_venv_name = function()
+  local virtualenv_path = os.getenv("VIRTUAL_ENV")
+  -- 判断是否在虚拟环境中
+  if virtualenv_path then
+    -- 使用字符串处理函数提取环境名
+    local _, _, virtualenv_name = string.find(virtualenv_path, "/([^/]+)$")
+
+    if virtualenv_name then
+      return virtualenv_name
+    end
+  end
+  return ""
+end
+
 --- 获取所有Python版本的dist-packages site-packages路径
 ---@param root_path: Python安装路径
 ---@return dist-packages和site-packages绝对路径(/usr/local/lib/python2.7/dist-packages)
