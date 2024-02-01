@@ -69,13 +69,18 @@ end
 --- 获取当前终端Python路径
 ---@return [path1, path2]
 M.get_current_python_package_paths = function()
-  local current_python_path = vim.fn.getenv("PYTHONPATH")
-  local split_paths = vim.fn.split(current_python_path, ":")
+  -- 无法获取虚拟环境路径
+  -- local current_python_path = vim.fn.getenv("PYTHONPATH")
+  -- local split_paths = vim.fn.split(current_python_path, ":")
+
+  local current_python_path = vim.fn.system('python3 -c "import sys; print(\':\'.join(sys.path))"')
+  local split_paths = vim.fn.split(current_python_path, ':')
+
 
   -- 用冒号分割字符串
   local paths = {}
   for _, path in ipairs(split_paths) do
-    if not vim.tbl_contains(paths, path) then
+    if not vim.tbl_contains(paths, path) and '' ~= path then
       table.insert(paths, path)
     end
   end
