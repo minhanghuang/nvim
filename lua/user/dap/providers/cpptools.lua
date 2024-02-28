@@ -16,7 +16,7 @@ dap.adapters.cppdbg = {
 local configurations = {
   -- launch exe
   {
-    name = "Launch file",
+    name = "Launch file(best)",
     type = "cppdbg",
     request = "launch",
     program = function()
