@@ -111,14 +111,14 @@ keymap("n",
 keymap("n", "<Leader>ff", ":lua require('user.util').telescope('find_files')<cr>", { silent = true })
 -- 搜索字符串(所有文件)
 keymap("n", "<Leader>fs", ":lua require('user.util').telescope('live_grep')<cr>", { silent = true })
--- 搜索字符串(当前文件)
+-- 搜索字符串(当前打开的文件)
 keymap("n", "<Leader>fj", ":lua require('user.util').telescope('live_grep', {grep_open_files = true})<cr>",
   { silent = true })
 -- 搜索光标所在字符串(所有文件)
-keymap("n", "<Leader>ff", ":lua require('user.util').telescope('grep_string')<cr>", { silent = true })
--- 搜索光标所在字符串(当前文件)
-keymap("n", "<Leader>fc", ":lua require('user.util').telescope('grep_string', {grep_open_files = true})<cr>",
-  { silent = true })
+-- keymap("n", "<Leader>fa", ":lua require('user.util').telescope('grep_string')<cr>", { silent = true })
+-- 搜索光标所在字符串(当前打开的文件)
+-- keymap("n", "<Leader>fc", ":lua require('user.util').telescope('grep_string', {grep_open_files = true})<cr>",
+  -- { silent = true })
 -- 搜索TODO LIST
 keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", { silent = true })
 -- 指定路径搜索文件/字符 在 ./lua/pligin/nvim-tree.lua中
