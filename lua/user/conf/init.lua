@@ -231,11 +231,22 @@ return {
 
   -- 添加函数接口说明
   {
+    -- https://github.com/danymat/neogen
     "danymat/neogen",
     commit = '9c17225',
     event = "VeryLazy",
     config = function()
-      require("neogen").setup()
+      require("neogen").setup({
+        languages = {
+          -- 修改Python模版
+          python = {
+            template = {
+              annotation_convention =
+              "reST"
+            }
+          },
+        }
+      })
     end,
   },
 
