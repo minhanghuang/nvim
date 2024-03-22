@@ -46,6 +46,18 @@ return {
     end,
   },
 
+  {
+    -- https://github.com/wellle/context.vim
+    "wellle/context.vim",
+    init = function()
+      vim.g.context_enabled = 1
+      vim.g.context_add_mappings = 0 -- 自动更新上下文
+      vim.g.context_border_char = '#' -- 上下文与缓冲区上下文分割线
+      vim.keymap.set("n", "<Leader>c", "<cmd>ContextToggleWindow<cr>")
+    end,
+    config = function()
+    end,
+  },
   -- color颜色板
   {
     -- https://github.com/NvChad/nvim-colorizer.lua
