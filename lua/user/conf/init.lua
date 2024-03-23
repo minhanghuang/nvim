@@ -51,7 +51,7 @@ return {
     "wellle/context.vim",
     init = function()
       vim.g.context_enabled = 1
-      vim.g.context_add_mappings = 0 -- 自动更新上下文
+      vim.g.context_add_mappings = 0  -- 自动更新上下文
       vim.g.context_border_char = '#' -- 上下文与缓冲区上下文分割线
       vim.keymap.set("n", "<Leader>c", "<cmd>ContextToggleWindow<cr>")
     end,
@@ -379,6 +379,17 @@ return {
         require("lazy").load({ plugins = { "dressing.nvim" } })
         return vim.ui.input(...)
       end
+    end,
+  },
+
+  {
+    -- https://github.com/nvimdev/lspsaga.nvim
+    "nvimdev/lspsaga.nvim",
+    cmd = { "Lspsaga" },
+    event = "BufReadPost",
+    config = function()
+      require("user.conf.lspsaga")
+      vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<cr>")
     end,
   },
 
