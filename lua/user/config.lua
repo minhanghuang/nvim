@@ -66,9 +66,9 @@ local defaults = {
       "markdownlint", -- markdown
     },
     dap = {
-      "python", -- python
+      "python",   -- python
       -- "codelldb", -- c++
-      "cppdbg", -- c++
+      "cpptools", -- c++
     },
   },
 
