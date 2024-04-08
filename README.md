@@ -30,7 +30,7 @@ sudo cp -r nvim-linux64/* /usr/local
 
 ### #1.2 font
 
-[DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
+- [DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
 
 ### #1.3 Node.js
 
@@ -87,6 +87,9 @@ python3 -m pip install -r requirement.txt
 ```shell
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+```
+
+```shell
 brew install ripgrep gnu-sed llvm tig
 ```
 
@@ -94,7 +97,21 @@ brew install ripgrep gnu-sed llvm tig
 
 ```shell
 sudo apt update
-sudo apt install -y universal-ctags global python3-venv llvm tig ripgrep
+sudo apt install -y python3-venv
+```
+
+```shell
+sudo apt install -y universal-ctags global llvm tig
+```
+
+
+```shell
+# Ubuntu20.04+
+sudo apt install -y ripgrep
+
+# Ubuntu18.04
+wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
+sudo dpkg -i ripgrep_14.1.0-1_amd64.deb
 ```
 
 ## # Supplement

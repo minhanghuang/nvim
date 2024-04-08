@@ -38,21 +38,21 @@ local defaults = {
       "vimdoc",
     },
     lsp_server = {
-      'lua_ls',
-      'pyright',
-      'pylsp',
-      'clangd',
+      'lua_ls@3.7.3',
+      'pyright@1.1.335',
+      'pylsp@1.9.0',
+      'clangd@16.0.2',
       'html@4.0.0',
-      'tsserver',                        -- js ts
-      'cmake',                           -- dependence python3-venv
-      'jsonls@4.0.0',                    -- json
-      'yamlls',                          -- yaml
-      'bashls@4.0.0',                    -- bash
-      'vuels',                           -- vue.js 2(vuels)
+      'tsserver@4.2.0',                        -- js ts
+      'cmake@0.1.8',                           -- dependence python3-venv
+      'jsonls@4.0.0',                          -- json
+      'yamlls@1.14.0',                         -- yaml
+      'bashls@4.0.0',                          -- bash
+      'vuels@0.8.5',                           -- vue.js 2(vuels)
       -- 'vue',                             -- vue.js 3(volar)
-      'docker_compose_language_service', -- docker-compose
-      'dockerls',                        -- docker file
-      'marksman',                        -- markdown
+      'docker_compose_language_service@0.2.0', -- docker-compose
+      'dockerls@0.11.0',                       -- docker file
+      'marksman@2023-12-09',                   -- markdown
     },
     formatter = {
       "clang-format",      -- cpp
@@ -62,13 +62,13 @@ local defaults = {
     },
     linter = {
       -- "cspell",       -- spell
-      "cmakelint",    -- cmake
-      "markdownlint", -- markdown
+      "cmakelint@1.4.2",     -- cmake
+      "markdownlint@0.38.0", -- markdown
     },
     dap = {
-      "python",   -- python
+      "python@1.8.0",     -- python
       -- "codelldb", -- c++
-      "cpptools", -- c++
+      "cpptools@v1.18.5", -- c++
     },
   },
 
