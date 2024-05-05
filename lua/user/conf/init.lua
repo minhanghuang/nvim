@@ -90,95 +90,95 @@ return {
     end,
   },
 
-  -- 跳跃
-  {
-    -- https://github.com/folke/flash.nvim
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    vscode = false,
-    ---@type Flash.Config
-    opts = {
-      labels = "asdfghjklqwertyuiopzxcvbnm",
-      -- labels = "asdfghjklqertyuiopzxcvnm", -- exlude: w b
-      search = {
-        forward = true,
+  ---- 跳跃
+  --{
+  --  -- https://github.com/folke/flash.nvim
+  --  "folke/flash.nvim",
+  --  event = "VeryLazy",
+  --  vscode = false,
+  --  ---@type Flash.Config
+  --  opts = {
+  --    labels = "asdfghjklqwertyuiopzxcvbnm",
+  --    -- labels = "asdfghjklqertyuiopzxcvnm", -- exlude: w b
+  --    search = {
+  --      forward = true,
 
-        -- when `false`, find only matches in the given direction
-        wrap = true,
+  --      -- when `false`, find only matches in the given direction
+  --      wrap = true,
 
-        -- Each mode will take ignorecase and smartcase into account.
-        -- * exact: exact match
-        -- * search: regular search
-        -- * fuzzy: fuzzy search
-        mode = "exact",
-      },
-      label = {
-        style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
-        rainbow = {
-          -- label设置为彩虹🌈颜色
-          enabled = true,
-        }
-      },
-      jump = {
-        -- jump position
-        pos = "start", ---@type "start" | "end" | "range"
-        -- automatically jump when there is only one match
-        autojump = false,
-      },
-      modes = {
-        char = {
-          enabled = true,
-          label = { exclude = "hjkliardc" },
-          keys = { "f", "F", "t", "T", ";", "," },
-          -- 修改快捷键
-          -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
-        },
-      }
-    },
-    keys = {
-      {
-        "<C-s>",
-        mode = { "n", "x", "o" },
-        function()
-          -- -- 跳转到任意字符
-          require("flash").jump(
-          -- 继续上次搜索
-          -- { continue = true }
-          )
+  --      -- Each mode will take ignorecase and smartcase into account.
+  --      -- * exact: exact match
+  --      -- * search: regular search
+  --      -- * fuzzy: fuzzy search
+  --      mode = "exact",
+  --    },
+  --    label = {
+  --      style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
+  --      rainbow = {
+  --        -- label设置为彩虹🌈颜色
+  --        enabled = true,
+  --      }
+  --    },
+  --    jump = {
+  --      -- jump position
+  --      pos = "start", ---@type "start" | "end" | "range"
+  --      -- automatically jump when there is only one match
+  --      autojump = false,
+  --    },
+  --    modes = {
+  --      char = {
+  --        enabled = true,
+  --        label = { exclude = "hjkliardc" },
+  --        keys = { "f", "F", "t", "T", ";", "," },
+  --        -- 修改快捷键
+  --        -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
+  --      },
+  --    }
+  --  },
+  --  keys = {
+  --    {
+  --      "<C-s>",
+  --      mode = { "n", "x", "o" },
+  --      function()
+  --        -- -- 跳转到任意字符
+  --        require("flash").jump(
+  --        -- 继续上次搜索
+  --        -- { continue = true }
+  --        )
 
-          -- -- 跳转到某一行
-          -- require("flash").jump({
-          --   search = { mode = "search", max_length = 0 },
-          --   label = { after = { 0, 0 } },
-          --   pattern = "^"
-          -- })
+  --        -- -- 跳转到某一行
+  --        -- require("flash").jump({
+  --        --   search = { mode = "search", max_length = 0 },
+  --        --   label = { after = { 0, 0 } },
+  --        --   pattern = "^"
+  --        -- })
 
-          -- -- 仅匹配每个字符串单词的开头
-          -- -- http_status_ok: 只匹配ht..开头, 不匹配ok
-          -- require("flash").jump({
-          --   search = {
-          --     wrap = true,
-          --     mode = function(str)
-          --       return "\\<" .. str
-          --     end,
-          --   },
-          -- })
-        end,
-        desc = "匹配单词"
-      },
-      {
-        "S",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").treesitter()
-        end,
-        desc = "开启树状选择界面"
-      },
-      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
-  },
+  --        -- -- 仅匹配每个字符串单词的开头
+  --        -- -- http_status_ok: 只匹配ht..开头, 不匹配ok
+  --        -- require("flash").jump({
+  --        --   search = {
+  --        --     wrap = true,
+  --        --     mode = function(str)
+  --        --       return "\\<" .. str
+  --        --     end,
+  --        --   },
+  --        -- })
+  --      end,
+  --      desc = "匹配单词"
+  --    },
+  --    {
+  --      "S",
+  --      mode = { "n", "x", "o" },
+  --      function()
+  --        require("flash").treesitter()
+  --      end,
+  --      desc = "开启树状选择界面"
+  --    },
+  --    -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+  --    -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+  --    -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  --  },
+  --},
 
   -- 搜索美化(显示[c/N])
   {
