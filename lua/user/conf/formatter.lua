@@ -7,15 +7,8 @@ end
 formatter.setup {
   filetype = {
     python = {
-      function()
-        return {
-          exe = "autopep8",
-          args = {
-            "--in-place --aggressive --aggressive",
-          },
-          stdin = false
-        }
-      end
+      require("formatter.filetypes.python").black,
+      require("formatter.filetypes.python").isort
     },
     vue = {
       -- 使用默认配置
