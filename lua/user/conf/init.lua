@@ -8,6 +8,17 @@ return {
     end,
   },
 
+  -- Ros
+  {
+    "minhanghuang/ros.nvim",
+    config = function()
+      require("ros").setup({
+        enabled = true,
+        auto_generate_compile_commands = true
+      })
+    end,
+  },
+
   -- Autopairs
   {
     "windwp/nvim-autopairs",
