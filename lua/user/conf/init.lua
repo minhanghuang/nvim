@@ -224,19 +224,21 @@ return {
   -- formatting
   {
     "mhartington/formatter.nvim",
+    enabled = true,
     event = "VeryLazy",
     config = function()
       require("user.conf.formatter")
     end,
   },
 
-  -- -- formatting
-  -- {
-  --   "sbdchd/neoformat",
-  --   config = function()
-  --     require("user.conf.neoformat")
-  --   end,
-  -- },
+  -- formatting
+  {
+    "sbdchd/neoformat",
+    enabled = false,
+    config = function()
+      require("user.conf.neoformat")
+    end,
+  },
 
   -- 缩进提示
   {
