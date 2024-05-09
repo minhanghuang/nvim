@@ -285,7 +285,8 @@ return {
   -- 文件树
   {
     "nvim-tree/nvim-tree.lua",
-    commit = 'b601b5a',
+    tag = 'v1.3',
+    -- commit = 'b601b5a',
     config = function()
       require("user.conf.nvim-tree")
     end,
