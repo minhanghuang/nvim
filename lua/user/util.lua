@@ -105,4 +105,22 @@ M.get_current_python_package_paths = function()
   return paths
 end
 
+--- 定位文件所在位置
+M.nvim_tree_find_file = function()
+  local current_file = vim.fn.expand('%:p')
+  if current_file:find(vim.fn.getcwd(), 1, true) == 1 then
+    vim.cmd('NvimTreeFindFile')
+    -- print('Current file is inside the project root directory.')
+  else
+    vim.cmd('NvimTreeFindFile!')
+    -- print('Current file is outside the project root directory.')
+  end
+end
+
+--- 跳转workspace
+M.nvim_tree_goto_root = function()
+  local api = require("nvim-tree.api")
+  api.tree.change_root(vim.fn.getcwd())
+end
+
 return M
