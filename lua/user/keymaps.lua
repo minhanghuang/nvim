@@ -74,9 +74,8 @@ keymap("n", "o", "o<Esc>", { silent = true })
 -- type R: 刷新
 -- type H: 显示/不显示 隐藏文件
 keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", { silent = true })
--- keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", { silent = true })
 keymap("n", "<Leader><Leader>o", ":lua require('user.util').nvim_tree_find_file()<cr>", { silent = true })
-keymap("n", "<Leader>r", ":lua require('user.util').nvim_tree_goto_root()<cr>", { silent = true })
+keymap("n", "<Leader><Leader>r", ":lua require('user.util').nvim_tree_goto_root()<cr>", { silent = true })
 
 -- debuggger(dap)
 -- 断点
