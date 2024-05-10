@@ -74,7 +74,9 @@ keymap("n", "o", "o<Esc>", { silent = true })
 -- type R: 刷新
 -- type H: 显示/不显示 隐藏文件
 keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", { silent = true })
-keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", { silent = true })
+-- keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", { silent = true })
+keymap("n", "<Leader><Leader>o", ":lua require('user.util').nvim_tree_find_file()<cr>", { silent = true })
+keymap("n", "<Leader>r", ":lua require('user.util').nvim_tree_goto_root()<cr>", { silent = true })
 
 -- debuggger(dap)
 -- 断点
@@ -118,7 +120,7 @@ keymap("n", "<Leader>fj", ":lua require('user.util').telescope('live_grep', {gre
 -- keymap("n", "<Leader>fa", ":lua require('user.util').telescope('grep_string')<cr>", { silent = true })
 -- 搜索光标所在字符串(当前打开的文件)
 -- keymap("n", "<Leader>fc", ":lua require('user.util').telescope('grep_string', {grep_open_files = true})<cr>",
-  -- { silent = true })
+-- { silent = true })
 -- 搜索TODO LIST
 keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", { silent = true })
 -- 指定路径搜索文件/字符 在 ./lua/pligin/nvim-tree.lua中
