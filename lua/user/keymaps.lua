@@ -77,6 +77,14 @@ keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", { silent = true })
 keymap("n", "<Leader><Leader>o", ":lua require('user.util').nvim_tree_find_file()<cr>", { silent = true })
 keymap("n", "<Leader><Leader>r", ":lua require('user.util').nvim_tree_goto_root()<cr>", { silent = true })
 
+-- nvim-spectre(文本替换)
+--- Toggle Spectre
+keymap("n", "<Leader>ss", ":lua require('spectre').toggle()<CR>", { silent = true })
+--- Search current word
+keymap("n", "<Leader>sw", ":lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
+--- Search on current file
+keymap("n", "<Leader>sp", ":lua require('spectre').open_file_search({select_word=true})<CR>", { silent = true })
+
 -- debuggger(dap)
 -- 断点
 -- keymap("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>j", {silent = true})

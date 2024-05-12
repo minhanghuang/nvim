@@ -361,6 +361,22 @@ return {
     end,
   },
 
+  -- 替换
+  {
+    -- https://github.com/nvim-pack/nvim-spectre
+    "nvim-pack/nvim-spectre",
+    commit = '4651801',
+    dependencies = {
+      {
+        "nvim-lua/plenary.nvim",
+        commit = '9ac3e95',
+      },
+    },
+    config = function()
+      require("user.conf.nvim-spectre")
+    end,
+  },
+
   -- TODO LIST
   {
     "folke/todo-comments.nvim",
