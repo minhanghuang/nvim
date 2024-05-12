@@ -8,7 +8,8 @@ lint.linters_by_ft = {
   -- 不支持[*]匹配所有文件(https://github.com/mfussenegger/nvim-lint/issues/355#issuecomment-1759203127)
   -- cpp = { "cspell" },
   cmake = { "cmakelint" },
-  markdown = { "markdownlint" },
+  -- markdownlint在buffer切换文件时会报错: https://github.com/minhanghuang/nvim/issues/29
+  -- markdown = { "markdownlint" },
 }
 
 -- -- cspell
