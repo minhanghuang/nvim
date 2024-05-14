@@ -365,6 +365,7 @@ return {
   {
     -- https://github.com/nvim-pack/nvim-spectre
     "nvim-pack/nvim-spectre",
+    event = "VeryLazy",
     commit = '4651801',
     dependencies = {
       {
