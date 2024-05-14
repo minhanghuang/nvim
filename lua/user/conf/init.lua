@@ -221,6 +221,44 @@ return {
     end,
   },
 
+  -- git UI
+  {
+    -- https://github.com/kdheepak/lazygit.nvim
+    -- need install lazygit(https://github.com/jesseduffield/lazygit)
+    -- https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
+    "kdheepak/lazygit.nvim",
+    event = "VeryLazy",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      {
+        "nvim-lua/plenary.nvim",
+        commit = '9ac3e95',
+      },
+      {
+        "nvim-telescope/telescope.nvim",
+        tag = '0.1.4',
+      },
+    },
+    config = function()
+      -- keymap
+      -- 上下左右箭头
+      require("telescope").load_extension("lazygit")
+      vim.api.nvim_create_autocmd('BufEnter', {
+        desc = 'makes sure any opened buffer inside a git repo will be tracked by lazygit',
+        callback = function()
+          require('lazygit.utils').project_root_dir()
+        end,
+        group = vim.api.nvim_create_augroup('Lazygit', { clear = false }),
+      })
+    end,
+  },
+
   -- formatting
   {
     "mhartington/formatter.nvim",

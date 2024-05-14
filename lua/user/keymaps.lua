@@ -162,6 +162,8 @@ keymap("n", "<Leader>gj", "<cmd>lua require'gitsigns'.blame_line {full=true, ign
 keymap("n", "<Leader>gd", "<Leader>o<CR>:DiffviewOpen HEAD~", { silent = true })
 -- 退出git diff
 keymap("n", "<Leader>gc", ":DiffviewClose<CR><Leader>o<CR>", { silent = true })
+-- lazygit UI
+keymap("n", "<Leader>gg", ":LazyGit<CR>", { silent = true })
 
 -- terminal
 keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
