@@ -33,7 +33,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
-    commit = '417b303',
+    commit = '73540cb95f8d95aa1af3ed57713c6720c78af915', -- Neovim 0.10.0 stable更新
     dependencies = {
       {
         "famiu/bufdelete.nvim", -- delete buffer
