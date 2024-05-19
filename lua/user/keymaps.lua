@@ -42,9 +42,13 @@ keymap("n", "<S-Right>", ":NvimTreeResize +2<CR>", { silent = true })
 keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", { silent = true })
 keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 
+--- <C-[>取代<C-;>
 keymap("i", "<C-;>", "<Esc>", { silent = true })
 keymap("v", "<C-;>", "<Esc>", { silent = true })
 keymap("t", "<C-;>", "<C-\\><C-n>", { silent = true })
+keymap("i", "<C-[>", "<Esc>", { silent = true })
+keymap("v", "<C-[>", "<Esc>", { silent = true })
+keymap("t", "<C-[>", "<C-\\><C-n>", { silent = true })
 
 -- keymap("n", "<C-s>", "<cmd>w<CR>", { silent = true })
 -- keymap("i", "<C-s>", "<cmd>w<CR>", { silent = true })
