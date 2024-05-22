@@ -42,15 +42,20 @@ keymap("n", "<S-Right>", ":NvimTreeResize +2<CR>", { silent = true })
 keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", { silent = true })
 keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 
+--- <C-[>取代<C-;>
 keymap("i", "<C-;>", "<Esc>", { silent = true })
 keymap("v", "<C-;>", "<Esc>", { silent = true })
 keymap("t", "<C-;>", "<C-\\><C-n>", { silent = true })
+keymap("i", "<C-[>", "<Esc>", { silent = true })
+keymap("v", "<C-[>", "<Esc>", { silent = true })
+keymap("t", "<C-[>", "<C-\\><C-n>", { silent = true })
 
 -- keymap("n", "<C-s>", "<cmd>w<CR>", { silent = true })
 -- keymap("i", "<C-s>", "<cmd>w<CR>", { silent = true })
 -- keymap("v", "<C-s>", "<cmd>w<CR>", { silent = true })
 
-keymap("n", "<C-w>", "<C-w>w", { silent = true })
+--- Neovim 0.10.0 stable开始<C-w>映射相应很慢, 故将其删除, 切换窗口使用原始快捷键<C-w>w
+-- keymap("n", "<C-w>", "<C-w>w", { silent = true })
 keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", { silent = true })
 keymap("n", "<C-c>", ":nohlsearch<CR>", { silent = false })
 keymap("n", "<C-d>", "yyp", { silent = true })

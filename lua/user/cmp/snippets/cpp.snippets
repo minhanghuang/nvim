@@ -29,6 +29,14 @@ snippet define
 	#define ${1:SYMBOL}
 	#endif // $1
 
+snippet sleep
+	std::this_thread::sleep_for(std::chrono::seconds($1));
+
+snippet sleep_s
+	std::this_thread::sleep_for(std::chrono::seconds($1));
+
+snippet sleep_ms
+	std::this_thread::sleep_for(std::chrono::milliseconds($1));
 
 ###########################################################################
 #                            Function Snippets                            #
