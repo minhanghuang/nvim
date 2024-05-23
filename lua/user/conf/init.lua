@@ -322,6 +322,15 @@ return {
     end,
   },
 
+  -- icon
+  {
+    "nvim-tree/nvim-web-devicons",
+    commit = '2d02a56', -- 指定旧版本, 解决无法自定义icon问题(https://github.com/nvim-tree/nvim-web-devicons/issues/465)
+    config = function()
+      require("user.conf.nvim-web-devicons")
+    end,
+  },
+
   -- 文件树
   {
     "nvim-tree/nvim-tree.lua",
@@ -348,14 +357,6 @@ return {
     },
     config = function()
       require("user.conf.nvim-treesitter")
-    end,
-  },
-
-  -- icon
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("user.conf.nvim-web-devicons")
     end,
   },
 
