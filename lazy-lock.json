@@ -46,7 +46,7 @@
   "nvim-spectre": { "branch": "master", "commit": "4651801ba37a9407b7257287aec45b6653ffc5e9" },
   "nvim-tree.lua": { "branch": "master", "commit": "76db7ed0da3027882dd0a72de18643c2e26956dc" },
   "nvim-treesitter": { "branch": "master", "commit": "1d83fc08d4711077501d91deb4f0b2ae528e8b34" },
-  "nvim-web-devicons": { "branch": "master", "commit": "11eb26fc166742db8d1e8a6f5a7de9df37b09aae" },
+  "nvim-web-devicons": { "branch": "master", "commit": "b77921fdc44833c994fdb389d658ccbce5490c16" },
   "persistent-breakpoints.nvim": { "branch": "main", "commit": "db2ad5974b0435cb806cd287e7525219d6ac4bd3" },
   "plenary.nvim": { "branch": "master", "commit": "9ac3e9541bbabd9d73663d757e4fe48a675bb054" },
   "ripgrep": { "branch": "master", "commit": "041544853c86dde91c49983e5ddd0aa799bd2831" },

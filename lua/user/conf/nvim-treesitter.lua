@@ -3,11 +3,13 @@ if vim.version().major >= 0 and vim.version().minor >= 9 then
   vim.treesitter.language.register("html", "xodr")
   vim.treesitter.language.register("html", "launch")
   vim.treesitter.language.register("jsonc", "json")
+  vim.treesitter.language.register("yaml", "rviz")
 else
   local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
   ft_to_parser.xodr = "html"
   ft_to_parser.launch = "html"
   ft_to_parser.json = "jsonc"
+  ft_to_parser.rviz = "yaml"
 end
 
 local g_config = require("user.config")
