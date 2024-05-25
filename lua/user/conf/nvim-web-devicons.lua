@@ -23,12 +23,6 @@ local my_icons = {
     cterm_color = "173",
     name = "Xml",
   },
-  ["cu"] = {
-    icon = "",
-    color = "#f34b7d",
-    cterm_color = "204",
-    name = "CPlusPlus",
-  },
   ["launch"] = {
     icon = "謹",
     color = "#e37933",
