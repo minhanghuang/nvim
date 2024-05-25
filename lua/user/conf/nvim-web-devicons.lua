@@ -29,6 +29,12 @@ local my_icons = {
     cterm_color = "173",
     name = "Xml",
   },
+  ["rviz"] = {
+    icon = "",
+    color = "#6d8086",
+    cterm_color = "66",
+    name = "Yaml",
+  },
 }
 
 if web_devicons.has_loaded then
