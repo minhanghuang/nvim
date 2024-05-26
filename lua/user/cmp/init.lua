@@ -113,6 +113,7 @@ return {
           documentation = {
             border = "rounded",
             winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
+            max_width = vim.o.columns / 2, -- 弹窗文档提示最大宽度
           },
         },
 
@@ -221,6 +222,7 @@ return {
         formatting = {
           fields = { cmp.ItemField.Kind, cmp.ItemField.Menu, cmp.ItemField.Abbr, },
           format = lspkind.cmp_format({
+            maxwidth = vim.o.columns / 2, -- prevent the popup from showing more than provided characters
             with_text = true,
             menu = {
               nvim_lsp = "",
