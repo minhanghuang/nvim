@@ -178,8 +178,11 @@ keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { silent = true })
 keymap("n", "<Leader>tt", ":FloatermToggle<CR>", { silent = true })
 keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", { silent = true })
 
--- Markdown(iamcco/markdown-preview.nvim)
-keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
+-- Markdown
+-- [弃用]iamcco/markdown-preview.nvim
+-- keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
+--  ellisonleao/glow.nvim
+keymap("n", "<Leader>md", ":Glow<CR>", { silent = true })
 
 -- 注释(tpope/vim-commentary)
 keymap("n", "<C-/>", "gcc<CR>", { silent = true })
