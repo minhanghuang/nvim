@@ -504,6 +504,21 @@ return {
     end,
   },
 
+  -- Markdown preview
+  {
+    -- https://github.com/ellisonleao/glow.nvim
+    "ellisonleao/glow.nvim",
+    commit = "238070a686c1da3bccccf1079700eb4b5e19aea4",
+    event = "VeryLazy",
+    cmd = "Glow",
+    config = function()
+      require("glow").setup({
+        -- style = "dark",
+        -- width = 120,
+      })
+    end,
+  },
+
   -- 平滑滚动
   {
     "psliwka/vim-smoothie",
