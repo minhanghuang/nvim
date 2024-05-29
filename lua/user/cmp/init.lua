@@ -15,12 +15,18 @@ return {
         -- For luasnip users.
         "saadparwaiz1/cmp_luasnip",
         dependencies = {
-          "honza/vim-snippets",           -- 代码片段(snipMate & UltiSnip)
-          "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
           {
-            "L3MON4D3/LuaSnip",
-            version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            "L3MON4D3/LuaSnip", -- snippets engine(不支持UltiSnip类型代码片段)
+            version = "v2.*",   -- Replace <CurrentMajor> by the latest released major (first number of latest release)
             build = "make install_jsregexp",
+            dependencies = {
+              {
+                "honza/vim-snippets", -- 代码片段(snipMate & UltiSnip)
+              },
+              {
+                "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
+              },
+            },
           },
         }
       },
