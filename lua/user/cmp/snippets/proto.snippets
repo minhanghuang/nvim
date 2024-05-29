@@ -1,0 +1,30 @@
+# #################################################################
+# L3MON4D3/LuaSnip 不支持UltiSnip类型代码片段, 需要手动添加snipMate
+# #################################################################
+
+snippet syntax2
+	syntax = "proto2";
+	$1
+
+snippet syntax3
+	syntax = "proto3";
+	$1
+
+snippet import
+	import "$1";
+
+snippet package
+	package $1;
+
+snippet message "Proto message" b
+	message ${1:Name} {
+	$0
+	}
+
+snippet repeated "Repeated field" b
+	repeated $1 ${2:name} = ${3:1};
+
+snippet enum "Enumeration" b
+	enum ${1:Name} {
+		UNKNOWN = 0;
+	}
