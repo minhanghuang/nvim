@@ -8,27 +8,38 @@ git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 ## #1 env
 
-### #1.1 neovim
+### #1.1 Neovim
 
 > Neovim minimum version required: `0.8.3`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
 
 - macOS
 
 ```shell
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-macos.tar.gz
-tar -zxvf nvim-macos.tar.gz
-sudo cp -r nvim-macos/* /usr/local
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-x86_64.tar.gz
+tar -zxvf nvim-macos-x86_64.tar.gz
+sudo cp -r nvim-macos-x86_64/* /usr/local
 ```
+
+<details>
+<summary>Apple Silicon</summary>
+
+```shell
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-arm64.tar.gz
+tar -zxvf nvim-macos-arm64.tar.gz
+sudo cp -r nvim-macos-arm64/* /usr/local
+```
+
+</details>
 
 - Ubuntu
 
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
 tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
 ```
 
-### #1.2 font
+### #1.2 Font
 
 - [DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
 
