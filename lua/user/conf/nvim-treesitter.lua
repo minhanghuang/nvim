@@ -1,4 +1,21 @@
+local has_nvim_treesitter, nvim_treesitter = pcall(require, "nvim-treesitter.configs")
+if not has_nvim_treesitter then
+  vim.notify("nvim-treesitter not found!")
+  return
+end
+
 if vim.version().major >= 0 and vim.version().minor >= 9 then
+  -- issues: https://github.com/minhanghuang/nvim/issues/46
+  vim.filetype.add {
+    extension = { -- 一个将文件扩展名映射到文件类型的表
+      xodr = "html",
+      launch = "html",
+      json = "jsonc",
+      rviz = "yaml",
+    },
+    -- filename = {}, -- 一个将文件路径模式映射到文件类型的表
+    -- pattern = {}, -- 一个将文件名映射到文件类型的表
+  }
   -- Neovim version: 0.9+
   vim.treesitter.language.register("html", "xodr")
   vim.treesitter.language.register("html", "launch")
@@ -14,7 +31,7 @@ end
 
 local g_config = require("user.config")
 
-require("nvim-treesitter.configs").setup({
+nvim_treesitter.setup({
   -- 安装的高亮支持来源
   -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
   -- ensure_installed = "maintained",
@@ -38,5 +55,4 @@ require("nvim-treesitter.configs").setup({
       scope_incremental = '<TAB>',
     }
   },
-}
-)
+})
