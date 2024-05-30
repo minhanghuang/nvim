@@ -344,17 +344,34 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
+    cmd = {
+      "TSInstall",
+      "TSInstallSync",
+      "TSInstallInfo",
+      "TSUpdate",
+      "TSUpdateSync",
+      "TSUninstall",
+      "TSBufEnable",
+      "TSBufDisable",
+      "TSBufToggle",
+      "TSEnable",
+      "TSDisable",
+      "TSToggle",
+      "TSModuleInfo",
+      "TSEditQuery",
+      "TSEditQueryUserAfter",
+    },
     -- 禁止设置VeryLazy, 会影响filetype.nvim插件
     -- event = "VeryLazy",
-    dependencies = {
-      {
-        -- nvim-treesitter parser
-        "nathom/filetype.nvim",
-        config = function()
-          require("filetype").setup({})
-        end,
-      },
-    },
+    -- dependencies = {
+    --   {
+    --     -- nvim-treesitter parser (https://github.com/minhanghuang/nvim/issues/23)
+    --     "nathom/filetype.nvim",
+    --     config = function()
+    --       require("filetype").setup({})
+    --     end,
+    --   },
+    -- },
     config = function()
       require("user.conf.nvim-treesitter")
     end,
