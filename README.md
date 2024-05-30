@@ -8,27 +8,38 @@ git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 ## #1 env
 
-### #1.1 neovim
+### #1.1 Neovim
 
 > Neovim minimum version required: `0.8.3`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
 
 - macOS
 
 ```shell
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-macos.tar.gz
-tar -zxvf nvim-macos.tar.gz
-sudo cp -r nvim-macos/* /usr/local
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-x86_64.tar.gz
+tar -zxvf nvim-macos-x86_64.tar.gz
+sudo cp -r nvim-macos-x86_64/* /usr/local
 ```
+
+<details>
+<summary>Apple Silicon</summary>
+
+```shell
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-arm64.tar.gz
+tar -zxvf nvim-macos-arm64.tar.gz
+sudo cp -r nvim-macos-arm64/* /usr/local
+```
+
+</details>
 
 - Ubuntu
 
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
 tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
 ```
 
-### #1.2 font
+### #1.2 Font
 
 - [DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
 
@@ -93,6 +104,16 @@ brew install --HEAD universal-ctags
 brew install ripgrep gnu-sed llvm tig
 ```
 
+<details>
+<summary>lazygit(Option)</summary>
+
+```shell
+# https://github.com/jesseduffield/lazygit?tab=readme-ov-file#homebrew
+brew install lazygit
+```
+
+</details>
+
 - Ubuntu
 
 ```shell
@@ -104,6 +125,7 @@ sudo apt install -y python3-venv
 sudo apt install -y universal-ctags global llvm tig
 ```
 
+> ripgrep
 
 ```shell
 # Ubuntu20.04+
@@ -113,6 +135,19 @@ sudo apt install -y ripgrep
 wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
 sudo dpkg -i ripgrep_14.1.0-1_amd64.deb
 ```
+
+<details>
+<summary>lazygit(Option)</summary>
+
+```shell
+# https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+```
+
+</details>
 
 ## # Supplement
 
