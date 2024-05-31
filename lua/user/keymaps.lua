@@ -59,7 +59,10 @@ keymap("t", "<C-[>", "<C-\\><C-n>", { silent = true })
 keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", { silent = true })
 keymap("n", "<C-c>", ":nohlsearch<CR>", { silent = false })
 keymap("n", "<C-d>", "yyp", { silent = true })
-keymap("n", "<C-f>", "*", { silent = true })
+
+-- 光标停留在当前字符, 不会跳转至下一个匹配的字符
+-- keymap("n", "<C-f>", "g*", { silent = true })
+keymap('n', '<C-f>', [[:let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'<CR> :set hls<CR>]], { silent = true })
 
 keymap("n", "o", "o<Esc>", { silent = true })
 
