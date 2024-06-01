@@ -1,79 +1,60 @@
 # NeoVim
 
-![neovim](./data/images/cpp-debug.gif)
+![neovim](https://raw.githubusercontent.com/wiki/minhanghuang/nvim/images/cpp-debug.gif)
 
 ```shell
-git clone --depth 1 https://github.com/minhanghuang/nvim.git ~/.config/nvim
+git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 ```
 
-## #1 配置
+## #1 env
 
-### #1.1 字体
+### #1.1 Neovim
 
-[DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
-
-### #1.2 插件
-
-1. 包管理
-
-- [ ] [lazy.nvim](https://github.com/folke/lazy.nvim)
-
-2. LSP
-
-- [ ] [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig): neovim官方提供的基础配置
-- [ ] [mason.nvim](https://github.com/williamboman/mason.nvim): 管理lsp/dap/linter/format包工具
-- [ ] [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim): 连接nvim-lspconfig和mason.nvim这两个插件
-
-3. Complele
-
-- [ ] [nvim-cmp](https://github.com/hrsh7th/nvim-cmp): 有了lsp还需要代码自动补全功能
-
-4. DAP
-
-- [ ] [nvim-dap](https://github.com/mfussenegger/nvim-dap): 基础的代码debug插件
-- [ ] [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui): debug过程可视化插件
-- [ ] [mason-nvim-dap](https://github.com/jay-babu/mason-nvim-dap.nvim): 提供dap基础接口, 简化配置
-
-5. 代码片段
-
-- [ ] [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip): 代码片段引擎 
-- [ ] [honza/vim-snippets](https://github.com/honza/vim-snippets): snipMate和UltiSnip类型
-- [ ] [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets): LuaSnip类型
-
-6. 格式化
-
-- [ ] [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim): lsp提供格式化功能, 但是有些语言不支持格式化(例如: Python), 这里加入一个格式化插件, 补充lsp格式化缺陷
-
-## #2 环境
-
-### #2.1 neovim
-
-> minimum neovim 0.8.3
+> Neovim minimum version required: `0.8.3`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
 
 - macOS
 
 ```shell
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-macos.tar.gz
-tar -zxvf nvim-macos.tar.gz
-sudo cp -r nvim-macos/* /usr/local
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-x86_64.tar.gz
+tar -zxvf nvim-macos-x86_64.tar.gz
+sudo cp -r nvim-macos-x86_64/* /usr/local
 ```
+
+<details>
+<summary>Apple Silicon</summary>
+
+```shell
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-arm64.tar.gz
+tar -zxvf nvim-macos-arm64.tar.gz
+sudo cp -r nvim-macos-arm64/* /usr/local
+```
+
+</details>
 
 - Ubuntu
 
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
 tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
 ```
 
-### #2.2 Node.js
+### #1.2 Font
 
-> Node版本选择: `v15.4.0`, 使用`nvm`对Node.js版本进行管理
+- [DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
+
+### #1.3 Node.js
+
+> The Node.js version I am using is selected as `v15.4.0`, and I am using `nvm` to manage the Node.js version
 
 - macOS
 
 ```shell
 brew install nodejs yarn
+```
+
+```shell
+# option
 npm config set registry http://registry.npmmirror.com
 yarn config set registry http://registry.npmmirror.com
 ```
@@ -83,17 +64,21 @@ yarn config set registry http://registry.npmmirror.com
 ```shell
 sudo apt update
 sudo apt install -y nodejs npm
-sudo npm config set http://registry.npmmirror.com
 sudo npm install n -g
 sudo n stable
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update
 sudo apt install yarn
+```
+
+```shell
+# option
+sudo npm config set http://registry.npmmirror.com
 yarn config set registry http://registry.npmmirror.com
 ```
 
-- nvm(可选)
+- nvm(option)
 
 ```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -102,7 +87,7 @@ nvm install 15.4.0
 nvm alias default 15.4.0
 ```
 
-### #2.3 dependency
+### #1.3 dependency
 
 ```shell
 sudo python3 -m pip install --prefix=/usr/local -r requirement.txt
@@ -113,12 +98,73 @@ sudo python3 -m pip install --prefix=/usr/local -r requirement.txt
 ```shell
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
+```
+
+```shell
 brew install ripgrep gnu-sed llvm tig
 ```
+
+<details>
+<summary>lazygit(Option)</summary>
+
+```shell
+# https://github.com/jesseduffield/lazygit?tab=readme-ov-file#homebrew
+brew install lazygit
+```
+
+</details>
 
 - Ubuntu
 
 ```shell
 sudo apt update
-sudo apt install -y universal-ctags global python3-venv llvm tig ripgrep
+sudo apt install -y python3-venv
+```
+
+```shell
+sudo apt install -y universal-ctags global llvm tig
+```
+
+> ripgrep
+
+```shell
+# Ubuntu20.04+
+sudo apt install -y ripgrep
+
+# Ubuntu18.04
+wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
+sudo dpkg -i ripgrep_14.1.0-1_amd64.deb
+```
+
+<details>
+<summary>lazygit(Option)</summary>
+
+```shell
+# https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+```
+
+</details>
+
+## # Supplement
+
+### #.1 Auto Completion With Python Protobuf
+
+1. installation
+
+```shell
+python3 -m pip install mypy-protobuf protobuf
+```
+
+```shell
+export PATH=~/.local/bin:$PATH
+```
+
+2. generate python protobuf
+
+```shell
+protoc -I=./ --python_out=. --mypy_out=. *.proto
 ```

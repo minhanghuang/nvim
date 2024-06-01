@@ -4,6 +4,7 @@ return {
   capabilities = config.capabilities,
   on_attach = config.on_attach,
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#clangd
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' }, -- 禁止Protobuf lsp(https://github.com/minhanghuang/nvim/issues/41)
   cmd = {
     "clangd",
     "--background-index",               -- 后台建立索引，并持久化到disk

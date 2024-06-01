@@ -8,6 +8,17 @@ return {
     end,
   },
 
+  -- Ros
+  {
+    "minhanghuang/ros.nvim",
+    config = function()
+      require("ros").setup({
+        enabled = true,
+        auto_generate_compile_commands = true
+      })
+    end,
+  },
+
   -- Autopairs
   {
     "windwp/nvim-autopairs",
@@ -21,7 +32,8 @@ return {
   -- Buffer
   {
     "akinsho/bufferline.nvim",
-    commit = '417b303',
+    event = "VeryLazy",
+    commit = '73540cb95f8d95aa1af3ed57713c6720c78af915', -- Neovim 0.10.0 stable更新
     dependencies = {
       {
         "famiu/bufdelete.nvim", -- delete buffer
@@ -45,6 +57,18 @@ return {
     end,
   },
 
+  {
+    -- https://github.com/wellle/context.vim
+    "wellle/context.vim",
+    init = function()
+      vim.g.context_enabled = 1
+      vim.g.context_add_mappings = 0  -- 自动更新上下文
+      vim.g.context_border_char = '#' -- 上下文与缓冲区上下文分割线
+      vim.keymap.set("n", "<Leader>c", "<cmd>ContextToggleWindow<cr>")
+    end,
+    config = function()
+    end,
+  },
   -- color颜色板
   {
     -- https://github.com/NvChad/nvim-colorizer.lua
@@ -71,105 +95,107 @@ return {
   {
     "sindrets/diffview.nvim",
     commit = "63720aa",
+    event = "VeryLazy",
     config = function()
       require("user.conf.diffview")
     end,
   },
 
-  -- 跳跃
-  {
-    -- https://github.com/folke/flash.nvim
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    vscode = false,
-    ---@type Flash.Config
-    opts = {
-      labels = "asdfghjklqwertyuiopzxcvbnm",
-      -- labels = "asdfghjklqertyuiopzxcvnm", -- exlude: w b
-      search = {
-        forward = true,
+  ---- 跳跃
+  --{
+  --  -- https://github.com/folke/flash.nvim
+  --  "folke/flash.nvim",
+  --  event = "VeryLazy",
+  --  vscode = false,
+  --  ---@type Flash.Config
+  --  opts = {
+  --    labels = "asdfghjklqwertyuiopzxcvbnm",
+  --    -- labels = "asdfghjklqertyuiopzxcvnm", -- exlude: w b
+  --    search = {
+  --      forward = true,
 
-        -- when `false`, find only matches in the given direction
-        wrap = true,
+  --      -- when `false`, find only matches in the given direction
+  --      wrap = true,
 
-        -- Each mode will take ignorecase and smartcase into account.
-        -- * exact: exact match
-        -- * search: regular search
-        -- * fuzzy: fuzzy search
-        mode = "exact",
-      },
-      label = {
-        style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
-        rainbow = {
-          -- label设置为彩虹🌈颜色
-          enabled = true,
-        }
-      },
-      jump = {
-        -- jump position
-        pos = "start", ---@type "start" | "end" | "range"
-        -- automatically jump when there is only one match
-        autojump = false,
-      },
-      modes = {
-        char = {
-          enabled = true,
-          label = { exclude = "hjkliardc" },
-          keys = { "f", "F", "t", "T", ";", "," },
-          -- 修改快捷键
-          -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
-        },
-      }
-    },
-    keys = {
-      {
-        "<C-s>",
-        mode = { "n", "x", "o" },
-        function()
-          -- -- 跳转到任意字符
-          require("flash").jump(
-          -- 继续上次搜索
-          -- { continue = true }
-          )
+  --      -- Each mode will take ignorecase and smartcase into account.
+  --      -- * exact: exact match
+  --      -- * search: regular search
+  --      -- * fuzzy: fuzzy search
+  --      mode = "exact",
+  --    },
+  --    label = {
+  --      style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
+  --      rainbow = {
+  --        -- label设置为彩虹🌈颜色
+  --        enabled = true,
+  --      }
+  --    },
+  --    jump = {
+  --      -- jump position
+  --      pos = "start", ---@type "start" | "end" | "range"
+  --      -- automatically jump when there is only one match
+  --      autojump = false,
+  --    },
+  --    modes = {
+  --      char = {
+  --        enabled = true,
+  --        label = { exclude = "hjkliardc" },
+  --        keys = { "f", "F", "t", "T", ";", "," },
+  --        -- 修改快捷键
+  --        -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
+  --      },
+  --    }
+  --  },
+  --  keys = {
+  --    {
+  --      "<C-s>",
+  --      mode = { "n", "x", "o" },
+  --      function()
+  --        -- -- 跳转到任意字符
+  --        require("flash").jump(
+  --        -- 继续上次搜索
+  --        -- { continue = true }
+  --        )
 
-          -- -- 跳转到某一行
-          -- require("flash").jump({
-          --   search = { mode = "search", max_length = 0 },
-          --   label = { after = { 0, 0 } },
-          --   pattern = "^"
-          -- })
+  --        -- -- 跳转到某一行
+  --        -- require("flash").jump({
+  --        --   search = { mode = "search", max_length = 0 },
+  --        --   label = { after = { 0, 0 } },
+  --        --   pattern = "^"
+  --        -- })
 
-          -- -- 仅匹配每个字符串单词的开头
-          -- -- http_status_ok: 只匹配ht..开头, 不匹配ok
-          -- require("flash").jump({
-          --   search = {
-          --     wrap = true,
-          --     mode = function(str)
-          --       return "\\<" .. str
-          --     end,
-          --   },
-          -- })
-        end,
-        desc = "匹配单词"
-      },
-      {
-        "S",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").treesitter()
-        end,
-        desc = "开启树状选择界面"
-      },
-      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
-  },
+  --        -- -- 仅匹配每个字符串单词的开头
+  --        -- -- http_status_ok: 只匹配ht..开头, 不匹配ok
+  --        -- require("flash").jump({
+  --        --   search = {
+  --        --     wrap = true,
+  --        --     mode = function(str)
+  --        --       return "\\<" .. str
+  --        --     end,
+  --        --   },
+  --        -- })
+  --      end,
+  --      desc = "匹配单词"
+  --    },
+  --    {
+  --      "S",
+  --      mode = { "n", "x", "o" },
+  --      function()
+  --        require("flash").treesitter()
+  --      end,
+  --      desc = "开启树状选择界面"
+  --    },
+  --    -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+  --    -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+  --    -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  --  },
+  --},
 
   -- 搜索美化(显示[c/N])
   {
     "kevinhwang91/nvim-hlslens",
     commit = '1b629c0c28c4c5aa7923043e00a9e388b0ad937a',
+    event = "VeryLazy",
     config = function()
       require("user.conf.nvim-hlslens")
     end,
@@ -189,31 +215,74 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     commit = '372d5cb',
+    event = "VeryLazy",
     config = function()
       require("user.conf.gitsigns")
+    end,
+  },
+
+  -- git UI
+  {
+    -- https://github.com/kdheepak/lazygit.nvim
+    -- need install lazygit(https://github.com/jesseduffield/lazygit)
+    -- https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
+    "kdheepak/lazygit.nvim",
+    event = "VeryLazy",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      {
+        "nvim-lua/plenary.nvim",
+        commit = '9ac3e95',
+      },
+      {
+        "nvim-telescope/telescope.nvim",
+        tag = '0.1.4',
+      },
+    },
+    config = function()
+      -- keymap
+      -- 上下左右箭头
+      require("telescope").load_extension("lazygit")
+      vim.api.nvim_create_autocmd('BufEnter', {
+        desc = 'makes sure any opened buffer inside a git repo will be tracked by lazygit',
+        callback = function()
+          require('lazygit.utils').project_root_dir()
+        end,
+        group = vim.api.nvim_create_augroup('Lazygit', { clear = false }),
+      })
     end,
   },
 
   -- formatting
   {
     "mhartington/formatter.nvim",
+    enabled = true,
+    event = "VeryLazy",
     config = function()
       require("user.conf.formatter")
     end,
   },
 
-  -- -- formatting
-  -- {
-  --   "sbdchd/neoformat",
-  --   config = function()
-  --     require("user.conf.neoformat")
-  --   end,
-  -- },
+  -- formatting
+  {
+    "sbdchd/neoformat",
+    enabled = false,
+    config = function()
+      require("user.conf.neoformat")
+    end,
+  },
 
   -- 缩进提示
   {
     "lukas-reineke/indent-blankline.nvim",
     commit = '4541d69',
+    event = "VeryLazy",
     config = function()
       vim.opt.list = true
       require("indent_blankline").setup {
@@ -225,11 +294,22 @@ return {
 
   -- 添加函数接口说明
   {
+    -- https://github.com/danymat/neogen
     "danymat/neogen",
     commit = '9c17225',
     event = "VeryLazy",
     config = function()
-      require("neogen").setup()
+      require("neogen").setup({
+        languages = {
+          -- 修改Python模版
+          python = {
+            template = {
+              annotation_convention =
+              "reST"
+            }
+          },
+        }
+      })
     end,
   },
 
@@ -242,10 +322,20 @@ return {
     end,
   },
 
+  -- icon
+  {
+    "nvim-tree/nvim-web-devicons",
+    commit = "b77921fdc44833c994fdb389d658ccbce5490c16", -- 解决自定义icos不生效问题(https://github.com/nvim-tree/nvim-web-devicons/issues/465)
+    config = function()
+      require("user.conf.nvim-web-devicons")
+    end,
+  },
+
   -- 文件树
   {
     "nvim-tree/nvim-tree.lua",
-    commit = 'b601b5a',
+    tag = 'v1.3',
+    -- commit = 'b601b5a',
     config = function()
       require("user.conf.nvim-tree")
     end,
@@ -254,35 +344,36 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      {
-        -- nvim-treesitter parser
-        "nathom/filetype.nvim",
-        config = function()
-          require("filetype").setup({})
-        end,
-      },
+    cmd = {
+      "TSInstall",
+      "TSInstallSync",
+      "TSInstallInfo",
+      "TSUpdate",
+      "TSUpdateSync",
+      "TSUninstall",
+      "TSBufEnable",
+      "TSBufDisable",
+      "TSBufToggle",
+      "TSEnable",
+      "TSDisable",
+      "TSToggle",
+      "TSModuleInfo",
+      "TSEditQuery",
+      "TSEditQueryUserAfter",
     },
+    -- 禁止设置VeryLazy, 会影响filetype.nvim插件
+    -- event = "VeryLazy",
+    -- dependencies = {
+    --   {
+    --     -- nvim-treesitter parser (https://github.com/minhanghuang/nvim/issues/23)
+    --     "nathom/filetype.nvim",
+    --     config = function()
+    --       require("filetype").setup({})
+    --     end,
+    --   },
+    -- },
     config = function()
       require("user.conf.nvim-treesitter")
-    end,
-  },
-
-  -- icon
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("user.conf.nvim-web-devicons")
-    end,
-  },
-
-  -- 断点持久化
-  {
-    "Weissle/persistent-breakpoints.nvim",
-    commit = 'a6091f7',
-    event = "VeryLazy",
-    config = function()
-      require("user.conf.persistent-breakpoints")
     end,
   },
 
@@ -298,6 +389,7 @@ return {
   -- 搜索
   {
     "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
     tag = '0.1.4',
     -- or, branch = '0.1.x',
     dependencies = {
@@ -325,10 +417,28 @@ return {
     end,
   },
 
+  -- 替换
+  {
+    -- https://github.com/nvim-pack/nvim-spectre
+    "nvim-pack/nvim-spectre",
+    event = "VeryLazy",
+    commit = '4651801',
+    dependencies = {
+      {
+        "nvim-lua/plenary.nvim",
+        commit = '9ac3e95',
+      },
+    },
+    config = function()
+      require("user.conf.nvim-spectre")
+    end,
+  },
+
   -- TODO LIST
   {
     "folke/todo-comments.nvim",
     commit = '8febc60',
+    event = "VeryLazy",
     config = function()
       require("user.conf.todo-comments")
     end,
@@ -337,7 +447,7 @@ return {
   -- ui
   {
     "stevearc/dressing.nvim",
-    lazy = true,
+    event = "VeryLazy",
     opts = {},
     dependencies = {
       {
@@ -356,6 +466,17 @@ return {
         require("lazy").load({ plugins = { "dressing.nvim" } })
         return vim.ui.input(...)
       end
+    end,
+  },
+
+  {
+    -- https://github.com/nvimdev/lspsaga.nvim
+    "nvimdev/lspsaga.nvim",
+    cmd = { "Lspsaga" },
+    event = "BufReadPost",
+    config = function()
+      require("user.conf.lspsaga")
+      vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<cr>")
     end,
   },
 
@@ -385,6 +506,7 @@ return {
   {
     "tpope/vim-commentary",
     commit = 'e87cd90',
+    event = "VeryLazy",
     config = function()
     end,
   },
@@ -399,9 +521,25 @@ return {
     end,
   },
 
+  -- Markdown preview
+  {
+    -- https://github.com/ellisonleao/glow.nvim
+    "ellisonleao/glow.nvim",
+    commit = "238070a686c1da3bccccf1079700eb4b5e19aea4",
+    event = "VeryLazy",
+    cmd = "Glow",
+    config = function()
+      require("glow").setup({
+        -- style = "dark",
+        -- width = 120,
+      })
+    end,
+  },
+
   -- 平滑滚动
   {
     "psliwka/vim-smoothie",
+    event = "VeryLazy",
     config = function()
       require("user.conf.vim-smoothie")
     end,

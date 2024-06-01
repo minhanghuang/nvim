@@ -1,7 +1,8 @@
 return {
   -- LSP
   {
-    "neovim/nvim-lspconfig",                         -- lsp配置
+    "neovim/nvim-lspconfig", -- lsp配置
+    event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",                     -- 管理lsp插件
       "williamboman/mason-lspconfig.nvim",           -- 配置nvim-lspconfig
@@ -73,7 +74,11 @@ return {
       local servers = {
         jsonls = require("user.lsp.providers.jsonls"),
         lua_ls = require("user.lsp.providers.sumneko_lua"),
+
+        -- Python使用两个lsp, pylsp作为辅助, 补全第三方库(rospy、Protobuf等)
         pyright = require("user.lsp.providers.pyright"),
+        pylsp = require("user.lsp.providers.pylsp"),
+
         clangd = require("user.lsp.providers.clangd"),
         html = require("user.lsp.providers.html"),
         tsserver = require("user.lsp.providers.typescript"),

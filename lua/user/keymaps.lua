@@ -42,19 +42,27 @@ keymap("n", "<S-Right>", ":NvimTreeResize +2<CR>", { silent = true })
 keymap("t", "<S-Up>", "<cmd>:resize +2<CR>", { silent = true })
 keymap("t", "<S-Down>", "<cmd>:resize -2<CR>", { silent = true })
 
+--- <C-[>取代<C-;>
 keymap("i", "<C-;>", "<Esc>", { silent = true })
 keymap("v", "<C-;>", "<Esc>", { silent = true })
 keymap("t", "<C-;>", "<C-\\><C-n>", { silent = true })
+keymap("i", "<C-[>", "<Esc>", { silent = true })
+keymap("v", "<C-[>", "<Esc>", { silent = true })
+keymap("t", "<C-[>", "<C-\\><C-n>", { silent = true })
 
 -- keymap("n", "<C-s>", "<cmd>w<CR>", { silent = true })
 -- keymap("i", "<C-s>", "<cmd>w<CR>", { silent = true })
 -- keymap("v", "<C-s>", "<cmd>w<CR>", { silent = true })
 
-keymap("n", "<C-w>", "<C-w>w", { silent = true })
+--- Neovim 0.10.0 stable开始<C-w>映射相应很慢, 故将其删除, 切换窗口使用原始快捷键<C-w>w
+-- keymap("n", "<C-w>", "<C-w>w", { silent = true })
 keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", { silent = true })
 keymap("n", "<C-c>", ":nohlsearch<CR>", { silent = false })
 keymap("n", "<C-d>", "yyp", { silent = true })
-keymap("n", "<C-f>", "*", { silent = true })
+
+-- 光标停留在当前字符, 不会跳转至下一个匹配的字符
+-- keymap("n", "<C-f>", "g*", { silent = true })
+keymap('n', '<C-f>', [[:let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'<CR> :set hls<CR>]], { silent = true })
 
 keymap("n", "o", "o<Esc>", { silent = true })
 
@@ -74,7 +82,16 @@ keymap("n", "o", "o<Esc>", { silent = true })
 -- type R: 刷新
 -- type H: 显示/不显示 隐藏文件
 keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", { silent = true })
-keymap("n", "<Leader><Leader>o", ":NvimTreeFindFile<CR>", { silent = true })
+keymap("n", "<Leader><Leader>o", ":lua require('user.util').nvim_tree_find_file()<cr>", { silent = true })
+keymap("n", "<Leader><Leader>r", ":lua require('user.util').nvim_tree_goto_root()<cr>", { silent = true })
+
+-- nvim-spectre(文本替换)
+--- Toggle Spectre
+keymap("n", "<Leader>ss", ":lua require('spectre').toggle()<CR>", { silent = true })
+--- Search current word
+keymap("n", "<Leader>sw", ":lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
+--- Search on current file
+keymap("n", "<Leader>sp", ":lua require('spectre').open_file_search({select_word=true})<CR>", { silent = true })
 
 -- debuggger(dap)
 -- 断点
@@ -107,29 +124,18 @@ keymap("n",
   { silent = true }
 )
 
--- 搜索(telescope)
-function _G.grep_string_the_file()
-  require('telescope.builtin').grep_string({
-    grep_open_files = true
-  })
-end
-
-function _G.live_grep_the_file()
-  require('telescope.builtin').live_grep({
-    grep_open_files = true
-  })
-end
-
 -- 搜索文件
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { silent = true })
+keymap("n", "<Leader>ff", ":lua require('user.util').telescope('find_files')<cr>", { silent = true })
 -- 搜索字符串(所有文件)
-keymap("n", "<Leader>fs", "<cmd>Telescope live_grep<cr>", { silent = true })
--- 搜索字符串(当前文件)
-keymap("n", "<Leader>fj", "<cmd>lua _G.live_grep_the_file()<cr>", { silent = true })
+keymap("n", "<Leader>fs", ":lua require('user.util').telescope('live_grep')<cr>", { silent = true })
+-- 搜索字符串(当前打开的文件)
+keymap("n", "<Leader>fj", ":lua require('user.util').telescope('live_grep', {grep_open_files = true})<cr>",
+  { silent = true })
 -- 搜索光标所在字符串(所有文件)
-keymap("n", "<Leader>fh", "<cmd>Telescope grep_string<cr>", { silent = true })
--- 搜索光标所在字符串(当前文件)
-keymap("n", "<Leader>fc", "<cmd>lua _G.grep_string_the_file()<cr>", { silent = true })
+-- keymap("n", "<Leader>fa", ":lua require('user.util').telescope('grep_string')<cr>", { silent = true })
+-- 搜索光标所在字符串(当前打开的文件)
+-- keymap("n", "<Leader>fc", ":lua require('user.util').telescope('grep_string', {grep_open_files = true})<cr>",
+-- { silent = true })
 -- 搜索TODO LIST
 keymap("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", { silent = true })
 -- 指定路径搜索文件/字符 在 ./lua/pligin/nvim-tree.lua中
@@ -164,6 +170,8 @@ keymap("n", "<Leader>gj", "<cmd>lua require'gitsigns'.blame_line {full=true, ign
 keymap("n", "<Leader>gd", "<Leader>o<CR>:DiffviewOpen HEAD~", { silent = true })
 -- 退出git diff
 keymap("n", "<Leader>gc", ":DiffviewClose<CR><Leader>o<CR>", { silent = true })
+-- lazygit UI
+keymap("n", "<Leader>gg", ":LazyGit<CR>", { silent = true })
 
 -- terminal
 keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
@@ -173,8 +181,11 @@ keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { silent = true })
 keymap("n", "<Leader>tt", ":FloatermToggle<CR>", { silent = true })
 keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", { silent = true })
 
--- Markdown(iamcco/markdown-preview.nvim)
-keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
+-- Markdown
+-- [弃用]iamcco/markdown-preview.nvim
+-- keymap("n", "<Leader>md", ":MarkdownPreview<CR>", { silent = true })
+--  ellisonleao/glow.nvim
+keymap("n", "<Leader>md", ":Glow<CR>", { silent = true })
 
 -- 注释(tpope/vim-commentary)
 keymap("n", "<C-/>", "gcc<CR>", { silent = true })

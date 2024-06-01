@@ -1,9 +1,12 @@
+local has_dap, dap = pcall(require, "dap")
+if not has_dap then
+  vim.notify("dap not found!")
+  return
+end
+
 -- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(via--codelldb)
+local path = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
 
-local dap = require("dap")
-
-local cmd = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
--- local cmd = "/home/trunk/.config/nvim/data/debug/tools/extension/adapter/codelldb"
 dap.adapters.codelldb = function(on_adapter)
   -- This asks the system for a free port
   local tcp = vim.loop.new_tcp()
@@ -23,7 +26,7 @@ dap.adapters.codelldb = function(on_adapter)
   local pid_or_err
   handle, pid_or_err =
       vim.loop.spawn(
-        cmd,
+        path,
         opts,
         function(code)
           stdout:close()
@@ -69,32 +72,30 @@ dap.adapters.codelldb = function(on_adapter)
   )
 end
 
-dap.configurations.cpp = {
+local configurations = {
   {
     name = "Launch file",
     type = "codelldb",
     request = "launch",
     args = function()
       local input = vim.fn.input("Input args: ")
-      return require("user.dap.dap-util").str2argtable(input)
+      return require("user.dap.util").str2argtable(input)
     end,
     program = function()
       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
     end,
-    pid = function()
-      local handle = io.popen("pgrep hw$")
-      local result = handle:read()
-      handle:close()
-      return result
-    end,
+    -- pid = function()
+    --   local handle = io.popen("pgrep hw$")
+    --   local result = handle:read()
+    --   handle:close()
+    --   return result
+    -- end,
     cwd = "${workspaceFolder}",
-    stopOnEntry = true
+    stopOnEntry = true,
     -- terminal = "integrated"
   }
 }
 
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
-
--- 加载断点数据
-vim.api.nvim_create_autocmd({ "BufReadPost" }, { callback = require('persistent-breakpoints.api').load_breakpoints })
+dap.configurations.c = configurations
+dap.configurations.cpp = configurations
+dap.configurations.rust = configurations

@@ -2,6 +2,7 @@ return {
   -- CMP
   {
     "hrsh7th/nvim-cmp",
+    event = "VeryLazy",
     dependencies = {
       -- nvim-cmp
       "hrsh7th/cmp-nvim-lsp",                -- 内置lsp补全
@@ -14,12 +15,18 @@ return {
         -- For luasnip users.
         "saadparwaiz1/cmp_luasnip",
         dependencies = {
-          "honza/vim-snippets",           -- 代码片段(snipMate & UltiSnip)
-          "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
           {
-            "L3MON4D3/LuaSnip",
-            version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            "L3MON4D3/LuaSnip", -- snippets engine(不支持UltiSnip类型代码片段)
+            version = "v2.*",   -- Replace <CurrentMajor> by the latest released major (first number of latest release)
             build = "make install_jsregexp",
+            dependencies = {
+              {
+                "honza/vim-snippets", -- 代码片段(snipMate & UltiSnip)
+              },
+              {
+                "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
+              },
+            },
           },
         }
       },
@@ -38,7 +45,7 @@ return {
       --   end
       -- }
 
-      -- clang拓展插件
+      -- clangd拓展插件
       {
         -- https://github.com/p00f/clangd_extensions.nvim
         "p00f/clangd_extensions.nvim",
@@ -112,6 +119,7 @@ return {
           documentation = {
             border = "rounded",
             winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
+            max_width = vim.o.columns / 2, -- 弹窗文档提示最大宽度
           },
         },
 
@@ -220,6 +228,7 @@ return {
         formatting = {
           fields = { cmp.ItemField.Kind, cmp.ItemField.Menu, cmp.ItemField.Abbr, },
           format = lspkind.cmp_format({
+            maxwidth = vim.o.columns / 2, -- prevent the popup from showing more than provided characters
             with_text = true,
             menu = {
               nvim_lsp = "",

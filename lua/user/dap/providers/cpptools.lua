@@ -1,15 +1,22 @@
-local dap = require('dap')
+local has_dap, dap = pcall(require, "dap")
+if not has_dap then
+  vim.notify("dap not found!")
+  return
+end
 
-local dbg_path = vim.fn.stdpath("data") .. "/mason/bin/OpenDebugAD7"
+-- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
+local path = vim.fn.stdpath("data") .. "/mason/bin/OpenDebugAD7"
+
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = "executable",
-  command = dbg_path,
+  command = path,
 }
-dap.configurations.cpp = {
+
+local configurations = {
   -- launch exe
   {
-    name = "Launch file",
+    name = "Launch file(best)",
     type = "cppdbg",
     request = "launch",
     program = function()
@@ -17,7 +24,7 @@ dap.configurations.cpp = {
     end,
     args = function()
       local input = vim.fn.input("Input args: ")
-      return require("user.dap.dap-util").str2argtable(input)
+      return require("user.dap.util").str2argtable(input)
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = true,
@@ -69,5 +76,6 @@ dap.configurations.cpp = {
   },
 }
 
--- setup other language
-dap.configurations.c = dap.configurations.cpp
+dap.configurations.c = configurations
+dap.configurations.cpp = configurations
+dap.configurations.rust = configurations
