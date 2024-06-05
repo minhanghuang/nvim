@@ -63,8 +63,14 @@ local defaults = {
     },
     linter = {
       -- "cspell",       -- spell
-      "cmakelint@1.4.2",     -- cmake
-      "markdownlint@0.38.0", -- markdown
+      {
+        -- https://github.com/minhanghuang/nvim/issues/50
+        "cmakelint",
+        version = "1.4.2",              -- cmake
+      },
+      {
+        "markdownlint", version = "0.38.0", -- markdown
+      },
     },
     dap = {
       "python@1.8.0",     -- python
