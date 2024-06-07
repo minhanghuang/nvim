@@ -73,7 +73,6 @@ return {
           g_config.defaults.extensions.linter,
         })
       })
-      vim.defer_fn(vim.cmd.MasonToolsInstall, 2000) -- 自动安装
 
       -- { key: 服务器名, value: 配置文件 }
       -- 配置: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md

@@ -37,3 +37,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.api.nvim_buf_set_option(0, 'commentstring', '// %s')
   end,
 })
+
+-- lazy.nvim安装插件完成后触发
+vim.api.nvim_create_autocmd({ "User" }, {
+  group = augroup("LazyComplete"),
+  pattern = { "LazyInstall" },
+  callback = function()
+    vim.defer_fn(vim.cmd.MasonToolsInstall, 2000) --  安装Mason其他插件
+  end,
+})
