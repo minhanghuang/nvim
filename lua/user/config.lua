@@ -129,6 +129,7 @@ local defaults = {
 }
 
 function M:load()
+  util.enable_tmux()
   vim.g.python_version = util.get_python_version()
   vim.g.python_venv_name = util.get_python_venv_name()
 end

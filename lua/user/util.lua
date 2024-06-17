@@ -155,4 +155,17 @@ end
 --   })
 -- end
 
+M.enable_tmux = function()
+  if vim.fn.exists('$TMUX') == 1 then
+    -- Hide tmux status bar
+    vim.fn.system('tmux set status off')
+    -- Restore tmux status bar on Vim exit
+    vim.api.nvim_create_autocmd("VimLeave", {
+      callback = function()
+        vim.fn.system('tmux set status on')
+      end
+    })
+  end
+end
+
 return M
