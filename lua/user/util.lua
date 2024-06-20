@@ -123,4 +123,49 @@ M.nvim_tree_goto_root = function()
   api.tree.change_root(vim.fn.getcwd())
 end
 
+-- M.install_python_dependence = function()
+--   local requirement_path = vim.fn.stdpath("config") .. "/requirement.txt"
+--   local file = io.open(requirement_path, "r")
+--   if not file then
+--     return
+--   end
+--   file:close()
+--   local command = "pip install -r " .. requirement_path
+--   vim.fn.jobstart(command, {
+--     on_stdout = function(job_id, data, event)
+--       -- 可以在这里处理输出，例如记录到日志文件
+--       -- if data then
+--       --   print("requirement.txt installation output: ", table.concat(data, "\n"))
+--       -- end
+--     end,
+--     on_stderr = function(job_id, data, event)
+--       -- 错误处理
+--       if data then
+--         print("requirement.txt installation error: ", table.concat(data, "\n"))
+--       end
+--     end,
+--     on_exit = function(job_id, code, event)
+--       -- 安装完成后的处理
+--       if code == 0 then
+--         print("requirement.txt installed successfully")
+--       else
+--         print("requirement.txt installation failed")
+--       end
+--     end,
+--   })
+-- end
+
+M.enable_tmux = function()
+  if vim.fn.exists('$TMUX') == 1 then
+    -- Hide tmux status bar
+    vim.fn.system('tmux set status off')
+    -- Restore tmux status bar on Vim exit
+    vim.api.nvim_create_autocmd("VimLeave", {
+      callback = function()
+        vim.fn.system('tmux set status on')
+      end
+    })
+  end
+end
+
 return M

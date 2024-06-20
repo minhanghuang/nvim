@@ -4,10 +4,14 @@ return {
     "neovim/nvim-lspconfig", -- lsp配置
     event = "VeryLazy",
     dependencies = {
-      "williamboman/mason.nvim",                     -- 管理lsp插件
+      {
+        "williamboman/mason.nvim", -- 管理lsp插件
+        cmd = { "Mason", "MasonInstall" },
+      },
       "williamboman/mason-lspconfig.nvim",           -- 配置nvim-lspconfig
       {
         "WhoIsSethDaniel/mason-tool-installer.nvim", -- 安装工具(解决一些非lsp工具mason-lspconfig.nvim无法安装问题)
+        cmd = "MasonToolsUpdate",
       },
       {
         lazy = true,
@@ -63,10 +67,11 @@ return {
       }
 
       mason_tool_installer.setup({
-        ensure_installed = {
+        -- issue: https://github.com/minhanghuang/nvim/issues/50
+        ensure_installed = vim.tbl_flatten({
           g_config.defaults.extensions.formatter,
           g_config.defaults.extensions.linter,
-        },
+        })
       })
 
       -- { key: 服务器名, value: 配置文件 }
