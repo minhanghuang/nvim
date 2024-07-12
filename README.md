@@ -12,7 +12,23 @@ git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 > Neovim minimum version required: `0.8.3`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
 
-- macOS
+
+<details open>
+<summary>Ubuntu</summary>
+
+```
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
+tar -zxvf nvim-linux64.tar.gz
+sudo cp -r nvim-linux64/* /usr/local
+```
+
+</details>
+
+<details>
+<summary>macOS</summary>
+
+- Intel Silicon
+
 
 ```shell
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-x86_64.tar.gz
@@ -20,8 +36,7 @@ tar -zxvf nvim-macos-x86_64.tar.gz
 sudo cp -r nvim-macos-x86_64/* /usr/local
 ```
 
-<details>
-<summary>Apple Silicon</summary>
+- Apple Silicon
 
 ```shell
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-arm64.tar.gz
@@ -31,13 +46,36 @@ sudo cp -r nvim-macos-arm64/* /usr/local
 
 </details>
 
-- Ubuntu
+<details>
+<summary>Source</summary>
 
+> support x86_64 arrch64
+
+```shell
+# macOS
+brew install luajit
+
+# ubuntu
+sudo apt install -y gettext luajit
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
-tar -zxvf nvim-linux64.tar.gz
-sudo cp -r nvim-linux64/* /usr/local
+
+```shell
+git clone --branch v0.10.0 --single-branch --depth 1 https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+
+# option
+## make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim"
+
+# Ubuntu option create package of deb
+## cd build && sudo cpack -G DEB TGZ && sudo dpkg -i nvim-*.deb
 ```
+
+```shell
+sudo make install
+```
+
+</details>
 
 ### #1.2 Font
 
