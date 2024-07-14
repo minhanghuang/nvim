@@ -206,3 +206,13 @@ export PATH=~/.local/bin:$PATH
 ```shell
 protoc -I=./ --python_out=. --mypy_out=. *.proto
 ```
+
+### #.2 About Neovim OSC 52 Clipboard Support
+
+1. Neovim version should be 0.10.0+ or higher
+
+2. Configure the host terminal, for example `iTerm2`:
+   Go to Settings -> General -> Selection
+   Check the boxes for:
+   - `Copy to pasteboard on selection`
+   - `Applications in terminal may access clipboard Allow sending of clipboard contents?`
