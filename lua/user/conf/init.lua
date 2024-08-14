@@ -484,7 +484,6 @@ return {
   {
     -- https://github.com/MattesGroeger/vim-bookmarks
     "MattesGroeger/vim-bookmarks",
-    commit = '9cc5fa7',
     event = "VeryLazy",
     dependencies = {
       {

@@ -202,13 +202,19 @@ keymap("n", "<S-r>", "zR", { silent = true })
 keymap("n", "<S-m>", "zM", { silent = true })
 
 -- 书签
+-- 标记/取消书签
 keymap("n", "mm", ":BookmarkToggle<CR>", { silent = true })
-keymap("n", "mt", ":BookmarkAnnotate ", { silent = true })
+-- 添加注释
+keymap("n", "mt", ":BookmarkAnnotate<CR>", { silent = true })
+-- 删除当前缓存书签
+keymap("n", "mc", ":BookmarkClear<CR>", { silent = true })
+-- 删除所有缓存书签
+keymap("n", "mx", ":BookmarkClearAll<CR>", { silent = true })
 -- keymap("n", "ma", ":BookmarkShowAll<CR>", { silent = true })
 keymap("n", "mn", ":BookmarkNext<CR>", { silent = true })
 keymap("n", "mp", ":BookmarkPrev<CR>", { silent = true })
-keymap("n", "mc", ":BookmarkClearAll<CR>", { silent = true })
 -- keymap("n", "ma", "lua require('telescope').extensions.vim_bookmarks.all()<CR>", { silent = true })
+-- 查看书签列表
 keymap("n", "ma", ":lua require('telescope').extensions.vim_bookmarks.current_file()<CR>", { silent = true })
 
 -- inserted annotation
