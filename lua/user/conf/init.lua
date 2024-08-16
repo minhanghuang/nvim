@@ -473,7 +473,7 @@ return {
     -- https://github.com/nvimdev/lspsaga.nvim
     "nvimdev/lspsaga.nvim",
     cmd = { "Lspsaga" },
-    event = "BufReadPost",
+    event = "LspAttach",
     config = function()
       require("user.conf.lspsaga")
       vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<cr>")
