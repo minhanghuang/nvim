@@ -28,4 +28,15 @@ lspsaga.setup({
     layout = 'float',
     close_after_jump = true,
   },
+  code_action = {
+    -- 显示lsp服务器名
+    show_server_name = true,
+    extend_gitsigns = false,
+  },
+  diagnostic = {
+    max_height = 0.8,
+    keys = {
+      quit = { 'q', '<ESC>' }
+    }
+  },
 })
