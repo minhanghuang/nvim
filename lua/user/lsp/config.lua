@@ -29,7 +29,6 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ce", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
   -- 修改变量名
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cc", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
   -- 查看函数说明
@@ -42,6 +41,12 @@ local function lsp_keymaps(bufnr)
   -- 跳转到上一个错误
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>=", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
     opts)
+
+  -- 打开一个浮动窗口，显示光标下的完整错误信息
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>co", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
+  -- 查看错误列表
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cl", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts)
 end
 
 --- 光标所在的函数会高亮
