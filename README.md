@@ -10,7 +10,7 @@ git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 ### #1.1 Neovim
 
-> Neovim minimum version required: `0.8.3`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
+> Neovim minimum version required: `0.9.0`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
 
 
 <details open>
