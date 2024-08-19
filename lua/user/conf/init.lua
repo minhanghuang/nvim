@@ -487,14 +487,45 @@ return {
     end,
   },
 
+  -- LSP增强
   {
     -- https://github.com/nvimdev/lspsaga.nvim
     "nvimdev/lspsaga.nvim",
+    enable = true,
     cmd = { "Lspsaga" },
     event = "LspAttach",
     config = function()
       require("user.conf.lspsaga")
-      vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<cr>")
+      -- 查看函数和变量
+      vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<CR>")
+      -- 跳转到下一个错误, code action
+      vim.keymap.set("n", "<Leader>-", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+      -- 跳转到上一个错误, code action
+      vim.keymap.set("n", "<Leader>=", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+      -- code action
+      vim.keymap.set("n", "<Leader>ce", "<cmd>Lspsaga code_action<CR>")
+    end,
+  },
+  {
+    -- https://github.com/folke/trouble.nvim
+    "folke/trouble.nvim",
+    enable = true,
+    dependencies = {
+      {
+        "nvim-tree/nvim-web-devicons",
+        commit = "b77921fdc44833c994fdb389d658ccbce5490c16",
+      },
+    },
+    cmd = "Trouble",
+    config = function()
+      require("trouble").setup({
+        -- global config
+        auto_close = true, -- auto close when there are no items
+      })
+      -- 显示诊断列表(:lua vim.diagnostic.setqflist())
+      vim.keymap.set("n", "<Leader>cl", "<cmd>Trouble diagnostics toggle focus=true win.type='split' filter.buf=0 <CR>")
+      -- -- 查看函数和变量 ui界面不佳, 使用lspsaga
+      -- vim.keymap.set("n", "<Leader><Tab>", "<cmd>Trouble symbols toggle focus=true win.type='split' filter.buf=0 <CR>")
     end,
   },
 
