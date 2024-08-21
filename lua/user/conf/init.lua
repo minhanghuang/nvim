@@ -432,6 +432,14 @@ return {
     },
     config = function()
       require("user.conf.telescope")
+      -- 历史命令
+      vim.keymap.set("n", "<Leader>f;", "<cmd>lua require('telescope.builtin').command_history()<CR>")
+      -- 搜索历史
+      vim.keymap.set("n", "<Leader>f/", "<cmd>lua require('telescope.builtin').search_history()<CR>")
+      -- 单词拼写建议
+      vim.keymap.set("n", "<Leader>fe", "<cmd>lua require('telescope.builtin').spell_suggest()<CR>")
+      -- 查看键盘映射
+      vim.keymap.set("n", "<Leader>fm", "<cmd>lua require('telescope.builtin').keymaps()<CR>")
     end,
   },
 
