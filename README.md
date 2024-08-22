@@ -47,7 +47,7 @@ sudo cp -r nvim-macos-arm64/* /usr/local
 </details>
 
 <details>
-<summary>Source Code</summary>
+<summary>Source</summary>
 
 > support x86_64 arrch64
 
