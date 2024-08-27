@@ -11,6 +11,7 @@ return {
       "hrsh7th/cmp-path",                    -- 路径补全
       "hrsh7th/cmp-cmdline",                 -- 解析命令行的来源
       "hrsh7th/cmp-nvim-lsp-signature-help", -- 补全参数提示
+      "lukas-reineke/cmp-rg",
       "hrsh7th/cmp-emoji",                   -- emoji表情(使用:xxx)
       {
         -- For luasnip users.
@@ -185,6 +186,7 @@ return {
           { name = 'nvim_lua',                priority = 50 },
           { name = 'buffer',                  priority = 40 },
           { name = 'path',                    priority = 30 },
+          { name = 'rg',                      priority = 20, keyword_length = 3, max_item_count = 5 },
           { name = 'luasnip',                 priority = 20 },
           { name = 'emoji',                   priority = 10 },
           -- { name = 'cmp_tabnine',             priority = 10 },
