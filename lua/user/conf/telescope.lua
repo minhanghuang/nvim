@@ -16,6 +16,8 @@ telescope.setup {
     mappings = {
       -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua#L133
       i = {
+        -- 关闭telescope窗口
+        ["<esc>"] = actions.close,
         -- 结果窗口 向上/下选择
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
