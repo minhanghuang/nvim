@@ -80,6 +80,7 @@ sudo make install
 ### #1.2 Font
 
 - [DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
+- [Monaco](https://github.com/Karmenzind/monaco-nerd-fonts/blob/master/fonts/MonacoNerdFont-Regular.ttf)
 
 ### #1.3 Node.js
 
