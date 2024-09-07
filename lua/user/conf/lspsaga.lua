@@ -12,7 +12,11 @@ lspsaga.setup({
     show_file = true, -- 是否显示文件路径
   },
   lightbulb = {
-    sign = false,
+    enable = true,
+    sign = false,        -- show sign column
+    virtual_text = true, -- show virtual text
+    debounce = 10,
+    sign_priority = 40,
   },
   outline = {
     -- 显示当前缓存页面的函数列表
@@ -23,5 +27,16 @@ lspsaga.setup({
     },
     layout = 'float',
     close_after_jump = true,
+  },
+  code_action = {
+    -- 显示lsp服务器名
+    show_server_name = true,
+    extend_gitsigns = false,
+  },
+  diagnostic = {
+    max_height = 0.8,
+    keys = {
+      quit = { 'q', '<ESC>' }
+    }
   },
 })

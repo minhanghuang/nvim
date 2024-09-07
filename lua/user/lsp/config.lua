@@ -25,23 +25,26 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cr", "<cmd>lua require('telescope.builtin').lsp_references({})<CR>",
     opts)
 
-  -- 代码优化
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ce", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  -- 交给lspsaga处理
+  -- -- 代码优化
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ce", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
   -- 修改变量名
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cc", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
   -- 查看函数说明
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ch", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 
-  -- 跳转到下一个错误
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>-", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
-    opts)
+  -- 交给lspsaga处理
+  -- -- 跳转到下一个错误
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>-", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
+  --   opts)
+  -- -- 跳转到上一个错误
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>=", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
+  --   opts)
 
-  -- 跳转到上一个错误
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>=", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
-    opts)
+  -- 打开一个浮动窗口，显示光标下的完整错误信息
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>co", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 end
 
 --- 光标所在的函数会高亮

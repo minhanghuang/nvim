@@ -57,18 +57,6 @@ return {
     end,
   },
 
-  {
-    -- https://github.com/wellle/context.vim
-    "wellle/context.vim",
-    init = function()
-      vim.g.context_enabled = 1
-      vim.g.context_add_mappings = 0  -- 自动更新上下文
-      vim.g.context_border_char = '#' -- 上下文与缓冲区上下文分割线
-      vim.keymap.set("n", "<Leader>c", "<cmd>ContextToggleWindow<cr>")
-    end,
-    config = function()
-    end,
-  },
   -- color颜色板
   {
     -- https://github.com/NvChad/nvim-colorizer.lua
@@ -377,6 +365,36 @@ return {
     end,
   },
 
+  -- 上下文
+  {
+    -- https://github.com/nvim-treesitter/nvim-treesitter-context
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy",
+    cmd = {
+      "TSContextEnable",
+      "TSContextDisable",
+      "TSContextToggle",
+    },
+    config = function()
+      require("treesitter-context").setup({
+        enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
+        max_lines = 0,            -- How many lines the window should span. Values <= 0 mean no limit.
+        min_window_height = 0,    -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+        line_numbers = true,
+        multiline_threshold = 20, -- Maximum number of lines to show for a single context
+        trim_scope = 'outer',     -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+        mode = 'cursor',          -- Line used to calculate context. Choices: 'cursor', 'topline'
+        -- Separator between context and content. Should be a single character string, like '-'.
+        -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+        separator = nil,
+        zindex = 20,     -- The Z-index of the context window
+        on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+      })
+      -- 跳转到上下文的上文
+      vim.keymap.set("n", "[c", "<cmd>lua require('treesitter-context').go_to_context(vim.v.count1)<CR>")
+    end,
+  },
+
   -- 启动画面
   {
     "mhinz/vim-startify",
@@ -414,6 +432,14 @@ return {
     },
     config = function()
       require("user.conf.telescope")
+      -- 历史命令
+      vim.keymap.set("n", "<Leader>f;", "<cmd>lua require('telescope.builtin').command_history()<CR>")
+      -- 搜索历史
+      vim.keymap.set("n", "<Leader>f/", "<cmd>lua require('telescope.builtin').search_history()<CR>")
+      -- 单词拼写建议
+      vim.keymap.set("n", "<Leader>fe", "<cmd>lua require('telescope.builtin').spell_suggest()<CR>")
+      -- 查看键盘映射
+      vim.keymap.set("n", "<Leader>fm", "<cmd>lua require('telescope.builtin').keymaps()<CR>")
     end,
   },
 
@@ -469,14 +495,45 @@ return {
     end,
   },
 
+  -- LSP增强
   {
     -- https://github.com/nvimdev/lspsaga.nvim
     "nvimdev/lspsaga.nvim",
+    enable = true,
     cmd = { "Lspsaga" },
-    event = "BufReadPost",
+    event = "LspAttach",
     config = function()
       require("user.conf.lspsaga")
-      vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<cr>")
+      -- 查看函数和变量
+      vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<CR>")
+      -- 跳转到下一个错误, code action
+      vim.keymap.set("n", "<Leader>-", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+      -- 跳转到上一个错误, code action
+      vim.keymap.set("n", "<Leader>=", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+      -- code action
+      vim.keymap.set("n", "<Leader>ce", "<cmd>Lspsaga code_action<CR>")
+    end,
+  },
+  {
+    -- https://github.com/folke/trouble.nvim
+    "folke/trouble.nvim",
+    enable = true,
+    dependencies = {
+      {
+        "nvim-tree/nvim-web-devicons",
+        commit = "b77921fdc44833c994fdb389d658ccbce5490c16",
+      },
+    },
+    cmd = "Trouble",
+    config = function()
+      require("trouble").setup({
+        -- global config
+        auto_close = true, -- auto close when there are no items
+      })
+      -- 显示诊断列表(:lua vim.diagnostic.setqflist())
+      vim.keymap.set("n", "<Leader>cl", "<cmd>Trouble diagnostics toggle focus=true win.type='split' filter.buf=0 <CR>")
+      -- -- 查看函数和变量 ui界面不佳, 使用lspsaga
+      -- vim.keymap.set("n", "<Leader><Tab>", "<cmd>Trouble symbols toggle focus=true win.type='split' filter.buf=0 <CR>")
     end,
   },
 
@@ -484,7 +541,6 @@ return {
   {
     -- https://github.com/MattesGroeger/vim-bookmarks
     "MattesGroeger/vim-bookmarks",
-    commit = '9cc5fa7',
     event = "VeryLazy",
     dependencies = {
       {
