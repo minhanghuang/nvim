@@ -592,6 +592,42 @@ return {
     end,
   },
 
+  {
+    -- https://github.com/MeanderingProgrammer/render-markdown.nvim
+    "MeanderingProgrammer/render-markdown.nvim",
+    cmds = { "RenderMarkdown" },
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ft = { "markdown", "norg", "rmd", "org" },
+    opts = {
+      file_types = { "markdown", "norg", "rmd", "org" },
+      render_modes = { "n", "c", "i", "v", "V" },
+      heading = {
+        -- 标题
+        width = { 'full', 'block', 'full', 'block' },
+        min_width = 30,
+        -- icons = {}, -- disables icons
+      },
+      code = {
+        -- 代码块
+        enabled = true,
+        sign = true,
+        style = 'full',
+        position = 'right',
+        width = 'block',
+        right_pad = 10,
+        language_pad = 0,
+        disable_background = { 'diff' },
+        left_pad = 0,
+        min_width = 0,
+        border = 'thin',
+        above = '▄',
+        below = '▀',
+        highlight = 'RenderMarkdownCode',
+        highlight_inline = 'RenderMarkdownCodeInline',
+      },
+    },
+  },
+
   -- 平滑滚动
   {
     "psliwka/vim-smoothie",
