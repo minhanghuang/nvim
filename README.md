@@ -188,6 +188,20 @@ sudo install lazygit /usr/local/bin
 
 </details>
 
+### #1.4 ai
+
+1. [login codeium](https://codeium.com/vim_tutorial?extensionName=neovim)
+
+2. Can be done by running: `:Codeium Auth`
+
+3. Select `Display URL`
+
+![codeium-auth](https://raw.githubusercontent.com/wiki/minhanghuang/nvim/images/codeium-auth.jpg)
+
+4. Copy and paste the URL into the browser
+
+5. Copy Token and paste your Token
+
 ## # Supplement
 
 ### #.1 Auto Completion With Python Protobuf
