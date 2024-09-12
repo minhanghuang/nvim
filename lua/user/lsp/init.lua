@@ -17,6 +17,27 @@ return {
         lazy = true,
         "b0o/schemastore.nvim", -- json schemas
       },
+      {
+        -- https://github.com/j-hui/fidget.nvim
+        -- Useful status updates for LSP
+        -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+        "j-hui/fidget.nvim",
+        event = { 'BufReadPre', 'BufNewFile' },
+        tag = "v1.0.0",
+        config = function()
+          require("fidget").setup({
+            progress = {
+              -- text = {
+              --   spinner = 'dots_negative',
+              -- },
+              display = {
+                render_limit = 10,
+                done_ttl = 3,
+              }
+            }
+          })
+        end,
+      },
     },
     opts = {
       -- options for vim.diagnostic.config()
