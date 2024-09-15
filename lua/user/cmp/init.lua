@@ -51,7 +51,24 @@ return {
       {
         -- https://github.com/p00f/clangd_extensions.nvim
         "p00f/clangd_extensions.nvim",
-      }
+      },
+
+      -- ai
+      {
+        -- https://github.com/Exafunction/codeium.nvim
+        -- 添加代理报错: https://github.com/Exafunction/codeium.nvim/issues/164
+        -- export no_proxy=127.0.0.1
+        "Exafunction/codeium.nvim",
+        cmd = "Codeium",
+        build = ":Codeium Auth",
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+          "hrsh7th/nvim-cmp",
+        },
+        config = function()
+          require("codeium").setup({})
+        end,
+      },
     },
     config = function()
       local autopairs = require("nvim-autopairs.completion.cmp")
@@ -183,6 +200,7 @@ return {
         -- 补全来源
         sources = cmp.config.sources({
           { name = 'nvim_lsp',                priority = 50 },
+          { name = 'codeium',                 priority = 50 },
           { name = 'nvim_lua',                priority = 50 },
           { name = 'buffer',                  priority = 40 },
           { name = 'path',                    priority = 30 },
@@ -232,8 +250,9 @@ return {
         formatting = {
           fields = { cmp.ItemField.Kind, cmp.ItemField.Menu, cmp.ItemField.Abbr, },
           format = lspkind.cmp_format({
+            mode = "symbol_text",         -- 'text', 'text_symbol', 'symbol_text', 'symbol'
             maxwidth = vim.o.columns / 2, -- prevent the popup from showing more than provided characters
-            with_text = true,
+            -- with_text = true,
             menu = {
               nvim_lsp = "",
               nvim_lua = "",
@@ -242,6 +261,34 @@ return {
               vsnip = "",
               treesitter = "",
               zsh = "",
+            },
+            symbol_map = {
+              Text = "󰉿",
+              Method = "󰆧",
+              Function = "󰊕",
+              Constructor = "",
+              Field = "󰜢",
+              Variable = "󰀫",
+              Class = "󰠱",
+              Interface = "",
+              Module = "󰕳",
+              Property = "",
+              Unit = "󰑭",
+              Value = "󰎠",
+              Enum = "",
+              Keyword = "󰌋",
+              Snippet = "",
+              Color = "󰏘",
+              File = "󰈙",
+              Reference = "󰈇",
+              Folder = "󰉋",
+              EnumMember = "",
+              Constant = "󰏿",
+              Struct = "󰙅",
+              Event = "",
+              Operator = "󰆕",
+              TypeParameter = "",
+              Codeium = "",
             },
           }),
         },
