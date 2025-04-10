@@ -1,20 +1,24 @@
-# NeoVim
+# 🌟 NeoVim Configuration
 
 ![neovim](https://raw.githubusercontent.com/wiki/minhanghuang/nvim/images/cpp-debug.gif)
+
+A highly customized **Neovim** configuration tailored for C++/Python development, featuring rich plugin support, debugging, fuzzy search, LSP, and AI autocompletion tools like GitHub Copilot and Codeium.
+
+## 📦 Installation
 
 ```shell
 git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 ```
 
-## #1 env
+## 🛠 Environment Setup
 
-### #1.1 neovim
+### ✅ Neovim
 
-> Neovim minimum version required: `0.9.0`. If you wish to enable copying and pasteing functionality in SSH or docker containers, please upgrade to version `0.10.0` or `later`. [related link](https://github.com/neovim/neovim/pull/25872)
+- Minimum required version: 0.9.0
+- Recommended version (for clipboard support in SSH/docker): 0.10.0+ [Related PR](https://github.com/neovim/neovim/pull/25872)
 
 
-<details open>
-<summary>Ubuntu</summary>
+#### Ubuntu
 
 ```
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
@@ -22,14 +26,9 @@ tar -zxvf nvim-linux64.tar.gz
 sudo cp -r nvim-linux64/* /usr/local
 ```
 
-</details>
-
-<details>
-<summary>macOS</summary>
+#### macOS
 
 - Intel Silicon
-
-
 ```shell
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-x86_64.tar.gz
 tar -zxvf nvim-macos-x86_64.tar.gz
@@ -37,19 +36,13 @@ sudo cp -r nvim-macos-x86_64/* /usr/local
 ```
 
 - Apple Silicon
-
 ```shell
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-arm64.tar.gz
 tar -zxvf nvim-macos-arm64.tar.gz
 sudo cp -r nvim-macos-arm64/* /usr/local
 ```
 
-</details>
-
-<details>
-<summary>Source Code</summary>
-
-> support x86_64 arrch64
+#### From Source (supports x86_64 & aarch64)
 
 ```shell
 # macOS
@@ -77,17 +70,15 @@ sudo make install
 
 </details>
 
-### #1.2 Font
+### 🖋 Fonts
 
+Download and install one of the following [Nerd Fonts](https://www.nerdfonts.com/font-downloads):
 - [DejaVuSansMono](https://www.nerdfonts.com/font-downloads)
 - [Monaco](https://github.com/Karmenzind/monaco-nerd-fonts/blob/master/fonts/MonacoNerdFont-Regular.ttf)
 
-### #1.3 Dependency
+### 🔗 Dependencies
 
-
-#### #1.3.1 Node.js
-
-> The `Node.js` version I'm using is selected as `v18.19.0`, and I am using `nvm` to manage the Node.js version
+#### Node.js (via nvm)
 
 ```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -96,37 +87,29 @@ nvm install v18.19.0
 nvm alias default 18.19.0
 ```
 
-#### #1.3.2 third_party
+#### Third-Party Tools
 
-- macOS
-
+##### macOS
 ```shell
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
-```
-
-```shell
 brew install ripgrep gnu-sed llvm tig sqlite
 ```
 
-<details>
-<summary>lazygit(Option)</summary>
+Optional: Install [Lazygit](https://github.com/jesseduffield/lazygit)
 
 ```shell
-# https://github.com/jesseduffield/lazygit?tab=readme-ov-file#homebrew
 brew install lazygit
 ```
 
-</details>
-
-- Ubuntu
+##### Ubuntu
 
 ```shell
 sudo apt update
 sudo apt install -y python3-venv universal-ctags global llvm tig sqlite3 libsqlite3-0
 ```
 
-> ripgrep
+- ripgrep
 
 ```shell
 # Ubuntu20.04+
@@ -137,8 +120,7 @@ wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1
 sudo dpkg -i ripgrep_14.1.0-1_amd64.deb
 ```
 
-<details>
-<summary>lazygit(Option)</summary>
+Optional: Install [Lazygit](https://github.com/jesseduffield/lazygit)
 
 ```shell
 # https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
@@ -148,11 +130,9 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 ```
 
-</details>
+### 🤖 AI Code Completion
 
-### #1.4 AI
-
-#### #1.4.1 Copilot
+#### GitHub Copilot
 
 ![copilot-auth](https://raw.githubusercontent.com/wiki/minhanghuang/nvim/images/copilot-auth.jpg)
 
@@ -164,7 +144,7 @@ sudo install lazygit /usr/local/bin
 
 4. Enter the verification code
 
-#### #1.4.2 Codeium
+#### Codeium
 
 ![codeium-auth](https://raw.githubusercontent.com/wiki/minhanghuang/nvim/images/codeium-auth.jpg)
 
@@ -178,32 +158,28 @@ sudo install lazygit /usr/local/bin
 
 5. Copy Token and paste your Token
 
-## # Supplement
+## 🧩 Supplement
 
-### #.1 Auto Completion With Python Protobuf
+### Auto Completion With Python + Protobuf
 
-1. installation
+Install dependencies:
 
 ```shell
 python3 -m pip install mypy-protobuf protobuf
-```
-
-```shell
 export PATH=~/.local/bin:$PATH
 ```
 
-2. generate python protobuf
-
+Generate .py + .pyi:
 ```shell
 protoc -I=./ --python_out=. --mypy_out=. *.proto
 ```
 
-### #.2 About Neovim OSC 52 Clipboard Support
+### Clipboard Support (OSC52)
 
-1. Neovim version should be 0.10.0+ or higher
+- Neovim version should be 0.10.0+ or higher
+- Configure the host terminal, for example `iTerm2`:
 
-2. Configure the host terminal, for example `iTerm2`:
-   Go to Settings -> General -> Selection
-   Check the boxes for:
-   - `Copy to pasteboard on selection`
-   - `Applications in terminal may access clipboard Allow sending of clipboard contents?`
+Go to: Settings → General → Selection
+- [x] Copy to pasteboard on selection
+- [x] Applications in terminal may access clipboard
+
