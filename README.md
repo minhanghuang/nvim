@@ -96,6 +96,11 @@ brew install --HEAD universal-ctags
 brew install ripgrep gnu-sed llvm tig sqlite
 ```
 
+```shell
+# for image view
+brew install imagemagick
+```
+
 Optional: Install [Lazygit](https://github.com/jesseduffield/lazygit)
 
 ```shell
@@ -108,6 +113,11 @@ brew install lazygit
 sudo apt update
 sudo apt install -y python3-venv universal-ctags global llvm tig sqlite3 libsqlite3-0
 ```
+
+```shell
+# for image view
+sudo apt install imagemagick
+``````
 
 - ripgrep
 

@@ -29,6 +29,7 @@
   "gruvbox": { "branch": "main", "commit": "353be593e52e2008ce17d61208668747dd557248" },
   "hlargs.nvim": { "branch": "main", "commit": "023021a330956eecf54e1015ecba55900d284365" },
   "hlchunk.nvim": { "branch": "main", "commit": "5465dd33ade8676d63f6e8493252283060cd72ca" },
+  "image.nvim": { "branch": "master", "commit": "4c51d6202628b3b51e368152c053c3fb5c5f76f2" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
   "lazygit.nvim": { "branch": "main", "commit": "ad3e1ea592f9d13e86e0d4e850224d9d78069508" },
   "leetcode.nvim": { "branch": "master", "commit": "422b6beb4a64eca0524fbff94edd9550c156afc5" },

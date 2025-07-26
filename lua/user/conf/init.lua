@@ -600,6 +600,19 @@ return {
     end,
   },
 
+  -- image, dependence: https://github.com/3rd/image.nvim?tab=readme-ov-file#imagemagick
+  -- kitty terminal
+  {
+    "3rd/image.nvim",
+    build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+    opts = {
+      processor = "magick_cli",
+    },
+    config = function()
+      require("user.conf.image")
+    end,
+  },
+
   -- leetcode
   {
     -- https://github.com/kawre/leetcode.nvim
@@ -609,6 +622,7 @@ return {
       -- include a picker of your choice, see picker section for more details
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
+      "3rd/image.nvim",
     },
     -- 如何在nvim中使用leetcode?
     --  1. 在终端输入: nvim leetcode
@@ -626,6 +640,7 @@ return {
         translator = true, ---@type boolean
         translate_problems = true, ---@type boolean
       },
+      image_support = true,
     },
   },
 
