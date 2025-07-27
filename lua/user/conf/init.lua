@@ -600,6 +600,50 @@ return {
     end,
   },
 
+  -- image, dependence: https://github.com/3rd/image.nvim?tab=readme-ov-file#imagemagick
+  -- kitty terminal
+  {
+    "3rd/image.nvim",
+    build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+    opts = {
+      processor = "magick_cli",
+    },
+    config = function()
+      require("user.conf.image")
+    end,
+  },
+
+  -- leetcode
+  {
+    -- https://github.com/kawre/leetcode.nvim
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+    dependencies = {
+      -- include a picker of your choice, see picker section for more details
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "3rd/image.nvim",
+    },
+    -- 如何在nvim中使用leetcode?
+    --  1. 在终端输入: nvim leetcode
+    --
+    -- 如何登录? https://github.com/kawre/leetcode.nvim?tab=readme-ov-file#sign-in
+    --  1. 使用浏览器打开leetcode.cn, 登录后, 打开开发者工具, 在Application->Cookies中(过略:graphql)找到cookie
+    --  2. 打开leetcode.nvim, 在登录选项中选择"使用cookie登录", 然后将在浏览器中复制的cookie粘贴到输入框中
+    opts = {
+      -- configuration goes here
+      -- default config: https://github.com/kawre/leetcode.nvim?tab=readme-ov-file#%EF%B8%8F-default-configuration
+      arg = "leetcode",
+      lang = "cpp",
+      cn = { -- leetcode.cn
+        enabled = true, ---@type boolean
+        translator = true, ---@type boolean
+        translate_problems = true, ---@type boolean
+      },
+      image_support = true,
+    },
+  },
+
   -- 书签
   {
     -- https://github.com/MattesGroeger/vim-bookmarks
