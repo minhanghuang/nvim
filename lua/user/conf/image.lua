@@ -5,7 +5,8 @@ if not has_image then
 end
 
 image.setup({
-  backend = "kitty",
+  -- backend = "kitty",
+  backend = "sixel", -- iterm2
   processor = "magick_cli", -- or "magick_rock"
   integrations = {
     markdown = {
