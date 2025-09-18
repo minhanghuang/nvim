@@ -4,9 +4,16 @@ if not has_image then
   return
 end
 
+local terminal_type = require('user.util').detect_terminal()
+--- kitty: kitty
+--- iterm2: sixel
+local backend_type = "kitty"
+if terminal_type == 'iterm2' then
+  backend_type = "sixel"
+end
+
 image.setup({
-  -- backend = "kitty",
-  backend = "sixel", -- iterm2
+  backend = backend_type,
   processor = "magick_cli", -- or "magick_rock"
   integrations = {
     markdown = {
