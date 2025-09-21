@@ -192,4 +192,19 @@ M.has_sqlite = function()
   return result and #result > 0
 end
 
+--- 获取当前终端类型
+M.detect_terminal = function()
+  local term_program = vim.env.TERM_PROGRAM or ""
+  local term = vim.env.TERM or ""
+  local kitty_id = vim.env.KITTY_WINDOW_ID
+
+  if term_program:lower():find("iterm") then
+    return "iterm2"
+  elseif term == "xterm-kitty" or kitty_id ~= nil then
+    return "kitty"
+  else
+    return "unknown"
+  end
+end
+
 return M
