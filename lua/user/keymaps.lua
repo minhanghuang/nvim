@@ -189,6 +189,9 @@ keymap("n", "<Leader>md", ":Glow<CR>", { silent = true })
 keymap("n", "<C-/>", "gcc<CR>", { silent = true })
 keymap("i", "<C-/>", "<Esc>gcc<CR>i", { silent = true })
 keymap("v", "<C-/>", "gc", { silent = true })
+keymap("n", "<C-_>", "gcc<CR>", { silent = true }) -- 兼容Ubuntu desktop
+keymap("i", "<C-_>", "<Esc>gcc<CR>i", { silent = true })
+keymap("v", "<C-_>", "gc", { silent = true })
 
 -- 折叠
 keymap("n", "<S-c>", "zc", { silent = true })
