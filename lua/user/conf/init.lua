@@ -744,6 +744,24 @@ return {
     end,
   },
 
+  -- 单词拼写检查
+  {
+    "minhanghuang/spell.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("user.conf.spell")
+    end,
+  },
+  -- -- dev单词拼写检查
+  -- {
+  --   dir = "/Users/cox/work/code/github/spell.nvim", -- 本地repo绝对路径
+  --   name = "nvim-spell",                            -- 可选,便于识别
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("user.conf.spell")
+  --   end,
+  -- },
+
   -- 翻译
   {
     "voldikss/vim-translator",
