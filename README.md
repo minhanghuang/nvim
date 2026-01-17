@@ -87,7 +87,11 @@ nvm install v18.19.0
 nvm alias default 18.19.0
 ```
 
-#### Third-Party Tools
+#### ThirdParty
+
+```bash
+python3 -m pip install -r requirement.txt
+```
 
 ##### macOS
 ```shell
@@ -116,7 +120,7 @@ sudo apt install -y python3-venv universal-ctags global llvm tig sqlite3 libsqli
 
 ```shell
 # for image view
-sudo apt install imagemagick
+sudo apt install -y imagemagick
 ``````
 
 - ripgrep

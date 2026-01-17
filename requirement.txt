@@ -1,5 +1,2 @@
 neovim
-pylsp-mypy
-
-## python protoBuf completion
-# mypy-protobuf
+debugpy
