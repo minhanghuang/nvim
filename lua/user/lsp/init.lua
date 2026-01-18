@@ -5,15 +5,6 @@ return {
     event = "VeryLazy",
     dependencies = {
       {
-        "williamboman/mason.nvim", -- 管理lsp插件
-        cmd = { "Mason", "MasonInstall" },
-      },
-      "williamboman/mason-lspconfig.nvim",           -- 配置nvim-lspconfig
-      {
-        "WhoIsSethDaniel/mason-tool-installer.nvim", -- 安装工具(解决一些非lsp工具mason-lspconfig.nvim无法安装问题)
-        cmd = "MasonToolsUpdate",
-      },
-      {
         lazy = true,
         "b0o/schemastore.nvim", -- json schemas
       },
@@ -71,38 +62,11 @@ return {
     },
     config = function()
       local lspconfig = require("lspconfig")
-      local mason = require("mason")
-      local mason_config = require("mason-lspconfig")
-      local mason_tool_installer = require("mason-tool-installer")
-      local g_config = require("user.config")
-
       -- diagnostics signs
       for name, icon in pairs(require("user.config").defaults.icons.diagnostics) do
         name = "DiagnosticSign" .. name
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
-
-      mason.setup({
-        ui = {
-          icons = require("user.config").defaults.icons.mason
-        }
-      })
-
-      -- :Mason 查看lsp server状态
-      -- :LspLog 查看lsp日志
-      mason_config.setup {
-        -- Node.js version: v15.4.0
-        -- 安装列表: https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
-        ensure_installed = g_config.defaults.extensions.lsp_server,
-      }
-
-      mason_tool_installer.setup({
-        -- issue: https://github.com/minhanghuang/nvim/issues/50
-        ensure_installed = vim.tbl_flatten({
-          g_config.defaults.extensions.formatter,
-          g_config.defaults.extensions.linter,
-        })
-      })
 
       -- { key: 服务器名, value: 配置文件 }
       -- 配置: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
