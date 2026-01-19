@@ -20,6 +20,10 @@ mason.setup({
   ui = {
     icons = require("user.config").defaults.icons.mason
   },
+  registries = {
+    "github:mason-org/mason-registry",
+  },
+  log_level = vim.log.levels.INFO,
 })
 
 lsp_config_installer.setup({

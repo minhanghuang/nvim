@@ -2,6 +2,7 @@ return {
   --mason
   {
     "mason-org/mason.nvim",
+    version = "v2.1.0",
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog", "MasonUpdate" },
     dependencies = {
       "mason-org/mason.nvim",                      -- 管理lsp插件
