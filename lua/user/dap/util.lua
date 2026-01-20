@@ -1,5 +1,10 @@
+local has_dap, dap = pcall(require, "dap")
+if not has_dap then
+  vim.notify("dap not found!")
+  return
+end
+
 local M = {}
-local dap = require 'dap'
 
 -- refresh config
 M.reload_continue = function()

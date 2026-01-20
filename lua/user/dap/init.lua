@@ -1,22 +1,11 @@
 return {
-  -- 调试
   {
     "mfussenegger/nvim-dap",
-    commit = 'f4a3be57f61893cffa1e22aa5e1e7bded495fcf2',
     event = "VeryLazy",
     dependencies = {
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        commit = 'a36982259216afd710f55bcdc220477c74b5bc35',
-      },
-      {
-        "rcarriga/nvim-dap-ui",
-        commit = 'b0bc932ce6ca57bdec5536d773ab643e5b2f57ad',
-      },
-      {
-        "Weissle/persistent-breakpoints.nvim",
-        event = "VeryLazy",
-      },
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "Weissle/persistent-breakpoints.nvim",
     },
     config = function()
       local breakpoint = require("persistent-breakpoints")
