@@ -1,9 +1,11 @@
 return {
-  -- LSP
   {
     "neovim/nvim-lspconfig", -- lsp配置
     event = "VeryLazy",
     dependencies = {
+      {
+        "mason-org/mason-lspconfig.nvim", -- nvim-lspconfig配置
+      },
       {
         lazy = true,
         "b0o/schemastore.nvim", -- json schemas
@@ -11,7 +13,6 @@ return {
       {
         -- https://github.com/j-hui/fidget.nvim
         -- Useful status updates for LSP
-        -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
         "j-hui/fidget.nvim",
         event = { 'BufReadPre', 'BufNewFile' },
         tag = "v1.0.0",
@@ -62,6 +63,13 @@ return {
     },
     config = function()
       local lspconfig = require("lspconfig")
+      local mason_installer = require("mason-lspconfig")
+
+      -- mason installer 只能放在lsp-config里
+      mason_installer.setup({
+        ensure_installed = require("user.config").defaults.extensions.lsp_server,
+      })
+
       -- diagnostics signs
       for name, icon in pairs(require("user.config").defaults.icons.diagnostics) do
         name = "DiagnosticSign" .. name
