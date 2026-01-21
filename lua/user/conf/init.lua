@@ -254,10 +254,7 @@ return {
       "LazyGitFilterCurrentFile",
     },
     dependencies = {
-      {
-        "nvim-lua/plenary.nvim",
-        commit = '9ac3e95',
-      },
+      "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope.nvim",
         tag = '0.1.4',
@@ -481,10 +478,7 @@ return {
         -- Neovim 0.9+ https://github.com/nvim-telescope/telescope-ui-select.nvim/issues/29#issuecomment-1825841303
         "nvim-telescope/telescope-ui-select.nvim",
       },
-      {
-        "nvim-lua/plenary.nvim",
-        commit = '9ac3e95',
-      },
+      "nvim-lua/plenary.nvim",
       {
         "BurntSushi/ripgrep",
         commit = '0415448',
@@ -515,10 +509,7 @@ return {
     event = "VeryLazy",
     commit = '4651801',
     dependencies = {
-      {
-        "nvim-lua/plenary.nvim",
-        commit = '9ac3e95',
-      },
+      "nvim-lua/plenary.nvim",
     },
     config = function()
       require("user.conf.nvim-spectre")
