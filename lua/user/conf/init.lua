@@ -47,12 +47,9 @@ return {
   -- Buffer
   {
     "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    commit = '73540cb95f8d95aa1af3ed57713c6720c78af915', -- Neovim 0.10.0 stable更新
     dependencies = {
       {
         "famiu/bufdelete.nvim", -- delete buffer
-        commit = '8933abc',
         config = function()
           local function delete_hidden_buffers()
             local hidden_bufs = vim.tbl_filter(function(bufnr)
