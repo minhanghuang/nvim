@@ -94,7 +94,6 @@ return {
   -- diffview
   {
     "sindrets/diffview.nvim",
-    commit = "63720aa",
     event = "VeryLazy",
     config = function()
       require("user.conf.diffview")
