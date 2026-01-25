@@ -52,48 +52,6 @@ return {
         -- https://github.com/p00f/clangd_extensions.nvim
         "p00f/clangd_extensions.nvim",
       },
-
-      -- AI
-      {
-        -- https://github.com/Exafunction/codeium.nvim
-        -- 添加代理报错: https://github.com/Exafunction/codeium.nvim/issues/164
-        -- export no_proxy=127.0.0.1
-        "Exafunction/codeium.nvim",
-        enabled = true,
-        cmd = "Codeium",
-        build = ":Codeium Auth",
-        dependencies = {
-          "nvim-lua/plenary.nvim",
-          "hrsh7th/nvim-cmp",
-        },
-        config = function()
-          require("codeium").setup({})
-        end,
-      },
-
-      {
-        -- https://github.com/zbirenbaum/copilot.lua
-        "zbirenbaum/copilot.lua",
-        enabled = true,
-        cmd = { "Copilot", "Copilot Auth" },
-        event = "InsertEnter",
-        dependencies = {
-          {
-            -- https://github.com/zbirenbaum/copilot-cmp
-            "zbirenbaum/copilot-cmp",
-            after = { "copilot.lua", "nvim-cmp" },
-            config = function()
-              require("copilot_cmp").setup()
-            end
-          },
-        },
-        config = function()
-          require("copilot").setup({
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-          })
-        end
-      },
     },
     config = function()
       local autopairs = require("nvim-autopairs.completion.cmp")
