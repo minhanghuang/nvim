@@ -21,7 +21,12 @@ dap.configurations.python = {
       return require("user.dap.util").str2argtable(input)
     end,
     pythonPath = function()
-      return vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
+      local venv = os.getenv("VIRTUAL_ENV")
+      if venv then
+        return venv .. '/bin/python'
+      else
+        return vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
+      end
     end
   }
 }
