@@ -12,6 +12,8 @@ if vim.version().major >= 0 and vim.version().minor >= 9 then
       launch = "html",
       json = "jsonc",
       rviz = "yaml",
+      cu= "cpp",
+      cuh = "cpp",
     },
     -- filename = {}, -- 一个将文件路径模式映射到文件类型的表
     -- pattern = {}, -- 一个将文件名映射到文件类型的表
@@ -21,12 +23,16 @@ if vim.version().major >= 0 and vim.version().minor >= 9 then
   vim.treesitter.language.register("html", "launch")
   vim.treesitter.language.register("jsonc", "json")
   vim.treesitter.language.register("yaml", "rviz")
+  vim.treesitter.language.register("cpp", "cu")
+  vim.treesitter.language.register("cpp", "cuh")
 else
   local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
   ft_to_parser.xodr = "html"
   ft_to_parser.launch = "html"
   ft_to_parser.json = "jsonc"
   ft_to_parser.rviz = "yaml"
+  ft_to_parser.cu = "cpp"
+  ft_to_parser.cuh = "cpp"
 end
 
 local g_config = require("user.config")
