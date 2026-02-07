@@ -660,6 +660,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "3rd/image.nvim",
+      'nvim-treesitter/nvim-treesitter',
     },
     -- 如何在nvim中使用leetcode?
     --  1. 在终端输入: nvim leetcode
