@@ -1,4 +1,4 @@
-local has_nvim_treesitter, nvim_treesitter = pcall(require, "nvim-treesitter.configs")
+local has_nvim_treesitter, nvim_treesitter = pcall(require, "nvim-treesitter.config")
 if not has_nvim_treesitter then
   vim.notify("nvim-treesitter not found!")
   return
@@ -35,13 +35,11 @@ else
   ft_to_parser.cuh = "cpp"
 end
 
-local g_config = require("user.config")
-
 nvim_treesitter.setup({
   -- 安装的高亮支持来源
   -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
   -- ensure_installed = "maintained",
-  ensure_installed = g_config.defaults.extensions.treesitter,
+  ensure_installed = require("user.config").defaults.extensions.treesitter,
   -- 同步下载高亮支持
   sync_install = false,
   -- 高亮相关
