@@ -334,7 +334,6 @@ return {
   -- -- 缩进提示
   -- {
   --   "lukas-reineke/indent-blankline.nvim",
-  --   commit = '4541d69',
   --   event = "VeryLazy",
   --   config = function()
   --     vim.opt.list = true
@@ -375,7 +374,6 @@ return {
   {
     -- https://github.com/danymat/neogen
     "danymat/neogen",
-    commit = '9c17225',
     event = "VeryLazy",
     config = function()
       require("neogen").setup({
@@ -395,7 +393,6 @@ return {
   -- 打开上次编辑位置
   {
     "ethanholz/nvim-lastplace",
-    commit = '75a2b78',
     config = function()
       require("user.conf.nvim-lastplace")
     end,
@@ -404,7 +401,6 @@ return {
   -- icon
   {
     "nvim-tree/nvim-web-devicons",
-    commit = "b77921fdc44833c994fdb389d658ccbce5490c16", -- 解决自定义icos不生效问题(https://github.com/nvim-tree/nvim-web-devicons/issues/465)
     config = function()
       require("user.conf.nvim-web-devicons")
     end,
@@ -626,10 +622,7 @@ return {
     "folke/trouble.nvim",
     enable = true,
     dependencies = {
-      {
-        "nvim-tree/nvim-web-devicons",
-        commit = "b77921fdc44833c994fdb389d658ccbce5490c16",
-      },
+      "nvim-tree/nvim-web-devicons",
     },
     cmd = "Trouble",
     config = function()
