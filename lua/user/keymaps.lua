@@ -185,7 +185,7 @@ keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", { s
 --  ellisonleao/glow.nvim
 keymap("n", "<Leader>md", ":Glow<CR>", { silent = true })
 
--- 注释(tpope/vim-commentary)
+-- 注释
 keymap("n", "<C-/>", "gcc<CR>", { silent = true })
 keymap("i", "<C-/>", "<Esc>gcc<CR>i", { silent = true })
 keymap("v", "<C-/>", "gc", { silent = true })
