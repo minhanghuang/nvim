@@ -672,11 +672,32 @@ return {
   },
 
   -- 注释
+  -- {
+  --   "tpope/vim-commentary",
+  --   commit = 'e87cd90',
+  --   event = "VeryLazy",
+  --   config = function()
+  --   end,
+  -- },
   {
-    "tpope/vim-commentary",
-    commit = 'e87cd90',
+    "numToStr/Comment.nvim",
     event = "VeryLazy",
     config = function()
+      require('Comment').setup({
+        toggler = {
+          ---Line-comment toggle keymap
+          line = 'gcc',
+          ---Block-comment toggle keymap
+          block = 'gbc',
+        },
+        ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+        opleader = {
+          ---Line-comment keymap
+          line = 'gc',
+          ---Block-comment keymap
+          block = 'gb',
+        },
+      })
     end,
   },
 
