@@ -14,6 +14,48 @@ return {
     end,
   },
 
+  -- AI
+  {
+    -- https://github.com/Exafunction/codeium.nvim
+    -- 添加代理报错: https://github.com/Exafunction/codeium.nvim/issues/164
+    -- export no_proxy=127.0.0.1
+    "Exafunction/codeium.nvim",
+    enabled = false,
+    cmd = "Codeium",
+    build = ":Codeium Auth",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      require("codeium").setup({})
+    end,
+  },
+
+  {
+    -- https://github.com/zbirenbaum/copilot.lua
+    "zbirenbaum/copilot.lua",
+    enabled = true,
+    cmd = { "Copilot", "Copilot Auth" },
+    event = "InsertEnter",
+    dependencies = {
+      {
+        -- https://github.com/zbirenbaum/copilot-cmp
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua", "nvim-cmp" },
+        config = function()
+          require("copilot_cmp").setup()
+        end
+      },
+    },
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end
+  },
+
   -- 自动保存
   {
     "Pocco81/auto-save.nvim",
@@ -47,12 +89,9 @@ return {
   -- Buffer
   {
     "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    commit = '73540cb95f8d95aa1af3ed57713c6720c78af915', -- Neovim 0.10.0 stable更新
     dependencies = {
       {
         "famiu/bufdelete.nvim", -- delete buffer
-        commit = '8933abc',
         config = function()
           local function delete_hidden_buffers()
             local hidden_bufs = vim.tbl_filter(function(bufnr)
@@ -97,7 +136,6 @@ return {
   -- diffview
   {
     "sindrets/diffview.nvim",
-    commit = "63720aa",
     event = "VeryLazy",
     config = function()
       require("user.conf.diffview")
@@ -296,7 +334,6 @@ return {
   -- -- 缩进提示
   -- {
   --   "lukas-reineke/indent-blankline.nvim",
-  --   commit = '4541d69',
   --   event = "VeryLazy",
   --   config = function()
   --     vim.opt.list = true
@@ -337,7 +374,6 @@ return {
   {
     -- https://github.com/danymat/neogen
     "danymat/neogen",
-    commit = '9c17225',
     event = "VeryLazy",
     config = function()
       require("neogen").setup({
@@ -357,7 +393,6 @@ return {
   -- 打开上次编辑位置
   {
     "ethanholz/nvim-lastplace",
-    commit = '75a2b78',
     config = function()
       require("user.conf.nvim-lastplace")
     end,
@@ -366,7 +401,6 @@ return {
   -- icon
   {
     "nvim-tree/nvim-web-devicons",
-    commit = "b77921fdc44833c994fdb389d658ccbce5490c16", -- 解决自定义icos不生效问题(https://github.com/nvim-tree/nvim-web-devicons/issues/465)
     config = function()
       require("user.conf.nvim-web-devicons")
     end,
@@ -588,10 +622,7 @@ return {
     "folke/trouble.nvim",
     enable = true,
     dependencies = {
-      {
-        "nvim-tree/nvim-web-devicons",
-        commit = "b77921fdc44833c994fdb389d658ccbce5490c16",
-      },
+      "nvim-tree/nvim-web-devicons",
     },
     cmd = "Trouble",
     config = function()
@@ -629,6 +660,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "3rd/image.nvim",
+      'nvim-treesitter/nvim-treesitter',
     },
     -- 如何在nvim中使用leetcode?
     --  1. 在终端输入: nvim leetcode
