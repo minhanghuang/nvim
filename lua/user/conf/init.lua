@@ -20,7 +20,7 @@ return {
     -- 添加代理报错: https://github.com/Exafunction/codeium.nvim/issues/164
     -- export no_proxy=127.0.0.1
     "Exafunction/codeium.nvim",
-    enabled = true,
+    enabled = false,
     cmd = "Codeium",
     build = ":Codeium Auth",
     dependencies = {
