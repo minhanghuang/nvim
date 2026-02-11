@@ -59,7 +59,6 @@ return {
   -- 自动保存
   {
     "Pocco81/auto-save.nvim",
-    commit = '979b6c8',
     config = function()
       require("user.conf.autosave")
     end,
@@ -270,7 +269,6 @@ return {
   -- git
   {
     "lewis6991/gitsigns.nvim",
-    commit = '372d5cb',
     event = "VeryLazy",
     config = function()
       require("user.conf.gitsigns")
@@ -410,7 +408,6 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     tag = 'v1.3',
-    -- commit = 'b601b5a',
     config = function()
       require("user.conf.nvim-tree")
     end,
@@ -494,7 +491,6 @@ return {
   -- 启动画面
   {
     "mhinz/vim-startify",
-    commit = '81e36c3',
     config = function()
       require("user.conf.startify")
     end,
@@ -511,15 +507,9 @@ return {
         -- lsp code-action
         -- Neovim 0.9+ https://github.com/nvim-telescope/telescope-ui-select.nvim/issues/29#issuecomment-1825841303
         "nvim-telescope/telescope-ui-select.nvim",
-      },
-      "nvim-lua/plenary.nvim",
-      {
+        "nvim-lua/plenary.nvim",
         "BurntSushi/ripgrep",
-        commit = '0415448',
-      },
-      {
         "sharkdp/fd",
-        commit = '072c9e5',
       },
 
     },
@@ -541,7 +531,6 @@ return {
     -- https://github.com/nvim-pack/nvim-spectre
     "nvim-pack/nvim-spectre",
     event = "VeryLazy",
-    commit = '4651801',
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -566,7 +555,6 @@ return {
   -- TODO LIST
   {
     "folke/todo-comments.nvim",
-    commit = '8febc60',
     event = "VeryLazy",
     config = function()
       require("user.conf.todo-comments")
@@ -704,13 +692,6 @@ return {
   },
 
   -- 注释
-  -- {
-  --   "tpope/vim-commentary",
-  --   commit = 'e87cd90',
-  --   event = "VeryLazy",
-  --   config = function()
-  --   end,
-  -- },
   {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
@@ -736,7 +717,6 @@ return {
   -- 终端
   {
     "voldikss/vim-floaterm",
-    commit = 'ff6a871',
     event = "VeryLazy",
     config = function()
       require("user.conf.vim-floaterm")
@@ -747,7 +727,6 @@ return {
   {
     -- https://github.com/ellisonleao/glow.nvim
     "ellisonleao/glow.nvim",
-    commit = "238070a686c1da3bccccf1079700eb4b5e19aea4",
     event = "VeryLazy",
     cmd = "Glow",
     config = function()
