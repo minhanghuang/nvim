@@ -62,6 +62,8 @@ keymap("n", "<C-d>", "yyp", { silent = true })
 
 keymap("n", "o", "o<Esc>", { silent = true })
 
+keymap("n", "dwi", "diw", { silent = true })
+
 -- nvim-tree
 -- <C-ww>: 切换窗口(工作区与编辑区窗口)
 -- <C-v>: 垂直打开新窗口
