@@ -232,8 +232,9 @@ keymap("n", "<C-t>", "<Plug>TranslateW", { silent = true })
 keymap("v", "<C-t>", "<Plug>TranslateWV", { silent = true })
 
 -- 单词拼写校验
-keymap("n", "<leader>zs", ":SpellSuggest<CR>", { silent = true })
-keymap("n", "<leader>zg", ":SpellAdd<CR>", { silent = true })
-keymap("n", "<leader>zn", ":SpellNext<CR>", { silent = true })
-keymap("n", "<leader>zp", ":SpellPrev<CR>", { silent = true })
-keymap("n", "<leader>ze", ":SpellTogglePlugin<CR>", { silent = true })
+keymap("n", "<leader>zs", ":SpellSuggest<CR>", { desc = "Spell: Suggest & replace" })
+keymap("n", "<leader>zt", ":SpellAdd<CR>", { desc = "Spell: Add word (temp)" }) -- 临时添加
+keymap("n", "<leader>zn", ":SpellNext<CR>", { desc = "Spell: Next error" })
+keymap("n", "<leader>zp", ":SpellPrev<CR>", { desc = "Spell: Prev error" })
+keymap("n", "<leader>ze", ":SpellTogglePlugin<CR>", { desc = "Spell: Toggle on/off" })
+keymap("n", "<leader>zc", ":SpellCheckBuffer<CR>", { desc = "Spell: Check buffer" })
