@@ -6,7 +6,7 @@ if not has_dap then
   return
 end
 if not has_ui then
-  vim.notify("dap not found!")
+  vim.notify("dapui not found!")
   return
 end
 
