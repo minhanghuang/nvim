@@ -268,7 +268,7 @@ return {
   -- 文件树
   {
     "nvim-tree/nvim-tree.lua",
-    tag = 'v1.3',
+    tag = 'v1.17.0',
     config = function()
       require("user.conf.nvim-tree")
     end,
