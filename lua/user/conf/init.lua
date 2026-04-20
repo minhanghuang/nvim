@@ -361,8 +361,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     event = "VeryLazy",
-    tag = '0.1.4',
-    -- or, branch = '0.1.x',
+    tag = 'v0.1.9',
     dependencies = {
       {
         -- lsp code-action
