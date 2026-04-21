@@ -33,7 +33,10 @@ return {
         }
       },
       -- lspkind
-      "onsails/lspkind-nvim", -- 分类选项icon
+      {
+        "onsails/lspkind-nvim", -- 分类选项icon
+        commit = "57610d5",
+      },
 
       -- -- 补全排序
       -- {
