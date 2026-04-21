@@ -277,6 +277,7 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
+    tag = "v0.10.0",
     cmd = {
       "TSInstall",
       "TSInstallSync",

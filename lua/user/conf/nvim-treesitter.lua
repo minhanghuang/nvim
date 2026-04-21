@@ -1,6 +1,6 @@
-local has_nvim_treesitter, nvim_treesitter = pcall(require, "nvim-treesitter.config")
+local has_nvim_treesitter, nvim_treesitter = pcall(require, "nvim-treesitter")
 if not has_nvim_treesitter then
-  vim.notify("nvim-treesitter not found!")
+  vim.notify("nvim-treesitter/nvim-treesitter not found!")
   return
 end
 
@@ -12,7 +12,7 @@ if vim.version().major >= 0 and vim.version().minor >= 9 then
       launch = "html",
       json = "jsonc",
       rviz = "yaml",
-      cu= "cpp",
+      cu = "cpp",
       cuh = "cpp",
     },
     -- filename = {}, -- 一个将文件路径模式映射到文件类型的表
