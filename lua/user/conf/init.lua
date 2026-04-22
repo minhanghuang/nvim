@@ -141,96 +141,6 @@ return {
     end,
   },
 
-  ---- 跳跃
-  --{
-  --  -- https://github.com/folke/flash.nvim
-  --  "folke/flash.nvim",
-  --  event = "VeryLazy",
-  --  vscode = false,
-  --  ---@type Flash.Config
-  --  opts = {
-  --    labels = "asdfghjklqwertyuiopzxcvbnm",
-  --    -- labels = "asdfghjklqertyuiopzxcvnm", -- exlude: w b
-  --    search = {
-  --      forward = true,
-
-  --      -- when `false`, find only matches in the given direction
-  --      wrap = true,
-
-  --      -- Each mode will take ignorecase and smartcase into account.
-  --      -- * exact: exact match
-  --      -- * search: regular search
-  --      -- * fuzzy: fuzzy search
-  --      mode = "exact",
-  --    },
-  --    label = {
-  --      style = "inline", ---@type "eol" | "overlay" | "right_align" | "inline"
-  --      rainbow = {
-  --        -- label设置为彩虹🌈颜色
-  --        enabled = true,
-  --      }
-  --    },
-  --    jump = {
-  --      -- jump position
-  --      pos = "start", ---@type "start" | "end" | "range"
-  --      -- automatically jump when there is only one match
-  --      autojump = false,
-  --    },
-  --    modes = {
-  --      char = {
-  --        enabled = true,
-  --        label = { exclude = "hjkliardc" },
-  --        keys = { "f", "F", "t", "T", ";", "," },
-  --        -- 修改快捷键
-  --        -- keys = { "f", "F", "t", "T", [";"] = "w", [","] = "b" },
-  --      },
-  --    }
-  --  },
-  --  keys = {
-  --    {
-  --      "<C-s>",
-  --      mode = { "n", "x", "o" },
-  --      function()
-  --        -- -- 跳转到任意字符
-  --        require("flash").jump(
-  --        -- 继续上次搜索
-  --        -- { continue = true }
-  --        )
-
-  --        -- -- 跳转到某一行
-  --        -- require("flash").jump({
-  --        --   search = { mode = "search", max_length = 0 },
-  --        --   label = { after = { 0, 0 } },
-  --        --   pattern = "^"
-  --        -- })
-
-  --        -- -- 仅匹配每个字符串单词的开头
-  --        -- -- http_status_ok: 只匹配ht..开头, 不匹配ok
-  --        -- require("flash").jump({
-  --        --   search = {
-  --        --     wrap = true,
-  --        --     mode = function(str)
-  --        --       return "\\<" .. str
-  --        --     end,
-  --        --   },
-  --        -- })
-  --      end,
-  --      desc = "匹配单词"
-  --    },
-  --    {
-  --      "S",
-  --      mode = { "n", "x", "o" },
-  --      function()
-  --        require("flash").treesitter()
-  --      end,
-  --      desc = "开启树状选择界面"
-  --    },
-  --    -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-  --    -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-  --    -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-  --  },
-  --},
-
   -- 搜索美化(显示[c/N])
   {
     "kevinhwang91/nvim-hlslens",
@@ -275,41 +185,6 @@ return {
     end,
   },
 
-  -- git UI
-  {
-    -- https://github.com/kdheepak/lazygit.nvim
-    -- need install lazygit(https://github.com/jesseduffield/lazygit)
-    -- https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
-    "kdheepak/lazygit.nvim",
-    event = "VeryLazy",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      {
-        "nvim-telescope/telescope.nvim",
-        tag = '0.1.4',
-      },
-    },
-    config = function()
-      -- keymap
-      -- 上下左右箭头
-      require("telescope").load_extension("lazygit")
-      vim.api.nvim_create_autocmd('BufEnter', {
-        desc = 'makes sure any opened buffer inside a git repo will be tracked by lazygit',
-        callback = function()
-          require('lazygit.utils').project_root_dir()
-        end,
-        group = vim.api.nvim_create_augroup('Lazygit', { clear = false }),
-      })
-    end,
-  },
-
   -- formatting
   {
     "mhartington/formatter.nvim",
@@ -319,8 +194,6 @@ return {
       require("user.conf.formatter")
     end,
   },
-
-  -- formatting
   {
     "sbdchd/neoformat",
     enabled = false,
@@ -329,18 +202,6 @@ return {
     end,
   },
 
-  -- -- 缩进提示
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     vim.opt.list = true
-  --     require("indent_blankline").setup {
-  --       show_end_of_line = true,
-  --       space_char_blankline = " ",
-  --     }
-  --   end,
-  -- },
   -- 缩进
   {
     -- https://github.com/shellRaining/hlchunk.nvim
@@ -407,7 +268,7 @@ return {
   -- 文件树
   {
     "nvim-tree/nvim-tree.lua",
-    tag = 'v1.3',
+    tag = 'v1.17.0',
     config = function()
       require("user.conf.nvim-tree")
     end,
@@ -416,6 +277,7 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
+    tag = "v0.10.0",
     cmd = {
       "TSInstall",
       "TSInstallSync",
@@ -500,8 +362,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     event = "VeryLazy",
-    tag = '0.1.4',
-    -- or, branch = '0.1.x',
+    tag = 'v0.1.9',
     dependencies = {
       {
         -- lsp code-action

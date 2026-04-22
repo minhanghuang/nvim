@@ -40,7 +40,7 @@ local defaults = {
     lsp_server = {
       'lua_ls@3.7.3',
       'pyright@1.1.335',
-      'pylsp@1.9.0',
+      'pylsp@1.11.0',
       'clangd@16.0.2',
       'html@4.0.0',
       'tsserver@4.2.0',                        -- js ts
