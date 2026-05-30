@@ -14,30 +14,29 @@ git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 ### ✅ Neovim
 
-- Minimum required version: 0.9.0
-- Recommended version (for clipboard support in SSH/docker): 0.10.0+ [Related PR](https://github.com/neovim/neovim/pull/25872)
-
+- Minimum required version: 0.12.0
+- Recommended version (for clipboard support in SSH/docker): 0.12.2+ [Related PR](https://github.com/neovim/neovim/pull/25872)
 
 #### Ubuntu
 
 ```
-wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
-tar -zxvf nvim-linux64.tar.gz
-sudo cp -r nvim-linux64/* /usr/local
+wget https://github.com/neovim/neovim/releases/download/v0.12.2/nvim-linux-x86_64.tar.gz
+tar -zxvf nvim-linux-x86_64.tar.gz
+sudo cp -r nvim-linux-x86_64/* /usr/local
 ```
 
 #### macOS
 
 - Intel Silicon
 ```shell
-wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-x86_64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.12.2/nvim-macos-x86_64.tar.gz
 tar -zxvf nvim-macos-x86_64.tar.gz
 sudo cp -r nvim-macos-x86_64/* /usr/local
 ```
 
 - Apple Silicon
 ```shell
-wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-macos-arm64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.12.2/nvim-macos-arm64.tar.gz
 tar -zxvf nvim-macos-arm64.tar.gz
 sudo cp -r nvim-macos-arm64/* /usr/local
 ```
@@ -53,7 +52,7 @@ sudo apt install -y gettext luajit
 ```
 
 ```shell
-git clone --branch v0.10.0 --single-branch --depth 1 https://github.com/neovim/neovim.git
+git clone --branch v0.12.0 --single-branch --depth 1 https://github.com/neovim/neovim.git
 cd neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 
