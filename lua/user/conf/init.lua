@@ -47,6 +47,19 @@ return {
           require("copilot_cmp").setup()
         end
       },
+      {
+        -- https://github.com/copilotlsp-nvim/copilot-lsp
+        "copilotlsp-nvim/copilot-lsp",
+        after = { "copilot.lua", "nvim-cmp" },
+        config = function()
+          require('copilot-lsp').setup({})
+          vim.keymap.set("n", "<esc>", function()
+            if not require("copilot-lsp.nes").clear() then
+              -- fallback to other functionality
+            end
+          end, { desc = "Clear Copilot suggestion or fallback" })
+        end
+      },
     },
     config = function()
       require("copilot").setup({
