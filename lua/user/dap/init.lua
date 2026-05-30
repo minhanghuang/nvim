@@ -10,7 +10,7 @@ return {
     config = function()
       local breakpoint = require("persistent-breakpoints")
 
-      require("user.dap.ui")
+      -- require("user.dap.ui")
       require("user.dap.virtual-text")
 
       local g_config = require("user.config")
