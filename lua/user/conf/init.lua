@@ -282,7 +282,8 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.10.0",
+    branch = "main",
+    build = ":TSUpdate",
     cmd = {
       "TSInstall",
       "TSInstallSync",
