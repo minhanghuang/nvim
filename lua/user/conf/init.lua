@@ -43,6 +43,7 @@ return {
         -- https://github.com/zbirenbaum/copilot-cmp
         "zbirenbaum/copilot-cmp",
         after = { "copilot.lua", "nvim-cmp" },
+        build = "patch -p1 --forward < ~/.config/nvim/patches/copilot-cmp.patch || true",
         config = function()
           require("copilot_cmp").setup()
         end
