@@ -47,6 +47,19 @@ return {
           require("copilot_cmp").setup()
         end
       },
+      {
+        -- https://github.com/copilotlsp-nvim/copilot-lsp
+        "copilotlsp-nvim/copilot-lsp",
+        after = { "copilot.lua", "nvim-cmp" },
+        config = function()
+          require('copilot-lsp').setup({})
+          vim.keymap.set("n", "<esc>", function()
+            if not require("copilot-lsp.nes").clear() then
+              -- fallback to other functionality
+            end
+          end, { desc = "Clear Copilot suggestion or fallback" })
+        end
+      },
     },
     config = function()
       require("copilot").setup({
@@ -161,8 +174,13 @@ return {
       vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', { noremap = true, silent = true })
       -- 光标停留在当前字符, 不会跳转至下一个匹配的字符
       -- keymap("n", "<C-f>", "g*", { silent = true })
-      vim.api.nvim_set_keymap('n', '<C-f>', [[:let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'<CR> :set hls<CR>]],
-        { noremap = true, silent = true })
+      vim.keymap.set('n', '<C-f>', function()
+        local cword = vim.fn.expand('<cword>')
+        local pattern = [[\V\<]] .. vim.fn.escape(cword, [[\]]) .. [[\>]]
+        vim.fn.setreg('/', pattern)
+        vim.opt.hlsearch = true
+        require('hlslens').start()
+      end, { noremap = true, silent = true })
     end,
   },
 
@@ -277,7 +295,8 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.10.0",
+    branch = "main",
+    build = ":TSUpdate",
     cmd = {
       "TSInstall",
       "TSInstallSync",

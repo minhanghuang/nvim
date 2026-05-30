@@ -23,9 +23,9 @@ mason.setup({
 
 package_installer.setup({
   -- issue: https://github.com/minhanghuang/nvim/issues/50
-  ensure_installed = vim.tbl_flatten({
+  ensure_installed = vim.iter({
     require("user.config").defaults.extensions.formatter,
     require("user.config").defaults.extensions.linter,
     require("user.config").defaults.extensions.dap,
-  })
+  }):flatten():totable(),
 })

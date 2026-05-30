@@ -43,7 +43,7 @@ local defaults = {
       'pylsp@1.11.0',
       'clangd@16.0.2',
       'html@4.0.0',
-      'tsserver@4.2.0',                        -- js ts
+      'ts_ls@4.2.0',                           -- js ts
       'cmake@0.1.0',                           -- dependence python3-venv
       'jsonls@4.0.0',                          -- json
       'yamlls@1.14.0',                         -- yaml

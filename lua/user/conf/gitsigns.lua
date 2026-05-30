@@ -21,9 +21,7 @@ gitsigns.setup {
     delay = 100,
     ignore_whitespace = false,
   },
-  current_line_blame_formatter_opts = {
-    relative_time = false,
-  },
+  current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d %H:%M> - <summary>",
   sign_priority = 6,
   update_debounce = 100,
   status_formatter = nil, -- Use default
@@ -35,8 +33,5 @@ gitsigns.setup {
     relative = "cursor",
     row = 0,
     col = 1,
-  },
-  yadm = {
-    enable = false,
   },
 }

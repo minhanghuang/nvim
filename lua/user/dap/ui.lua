@@ -2,11 +2,11 @@ local has_dap, dap = pcall(require, "dap")
 local has_ui, dap_ui = pcall(require, "dapui")
 
 if not has_dap then
-  vim.notify("dap not found!")
+  vim.notify("mfussenegger/nvim-dap not found!")
   return
 end
 if not has_ui then
-  vim.notify("dapui not found!")
+  vim.notify("rcarriga/nvim-dap-ui not found!")
   return
 end
 
