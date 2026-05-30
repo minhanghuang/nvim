@@ -65,13 +65,20 @@ local function lsp_highlight_document(client)
   end
 end
 
+local function with_opts(handler, opts)
+  return function(err, result, ctx, config)
+    config = vim.tbl_deep_extend("force", config or {}, opts)
+    return handler(err, result, ctx, config)
+  end
+end
+
 -- 设置 LSP handlers
 local custom_handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  ["textDocument/hover"] = with_opts(vim.lsp.handlers.hover, {
     border = "rounded",
   }),
 
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  ["textDocument/signatureHelp"] = with_opts(vim.lsp.handlers.signature_help, {
     border = "rounded",
   }),
 }

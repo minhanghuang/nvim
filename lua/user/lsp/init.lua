@@ -62,7 +62,6 @@ return {
       },
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local mason_installer = require("mason-lspconfig")
 
       -- mason installer 只能放在lsp-config里
@@ -88,7 +87,7 @@ return {
 
         clangd = require("user.lsp.providers.clangd"),
         html = require("user.lsp.providers.html"),
-        tsserver = require("user.lsp.providers.typescript"),
+        ts_ls = require("user.lsp.providers.typescript"),
         cmake = require("user.lsp.providers.cmake"),
         yamlls = require("user.lsp.providers.yamlls"),
         bashls = require("user.lsp.providers.bashls"),
@@ -100,10 +99,11 @@ return {
 
       for name, config in pairs(servers) do
         if config then
-          lspconfig[name].setup(config)
+          vim.lsp.config(name, config)
         else
-          lspconfig[name].setup({}) -- 默认配置
+          vim.lsp.config(name, {}) -- 默认配置
         end
+        vim.lsp.enable(name)
       end
     end,
   },
