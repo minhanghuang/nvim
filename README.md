@@ -82,8 +82,8 @@ Download and install one of the following [Nerd Fonts](https://www.nerdfonts.com
 ```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 source ~/.zshrc
-nvm install v18.19.0
-nvm alias default 18.19.0
+nvm install v22.22.2
+nvm alias default v22.22.2
 ```
 
 #### Third-Party Tools

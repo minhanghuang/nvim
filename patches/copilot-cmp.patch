@@ -1,0 +1,10 @@
+--- a/lua/copilot_cmp/source.lua
++++ b/lua/copilot_cmp/source.lua
+@@ -20,7 +20,7 @@
+
+ source.is_available = function(self)
+   -- client is stopped.
+-  if self.client.is_stopped() or not self.client.name == "copilot" then
++  if self.client:is_stopped() or not self.client.name == "copilot" then
+     return false
+   end

@@ -17,6 +17,7 @@ require('lazy').setup({
   require('user.lsp'),
   require('user.cmp'),
   require('user.dap'),
+  require('user.ai'),
 })
 
 require("user.config"):load()
