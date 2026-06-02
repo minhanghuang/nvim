@@ -385,6 +385,8 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
     cmd = {
       "TSInstall",
       "TSInstallSync",

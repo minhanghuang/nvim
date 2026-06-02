@@ -34,6 +34,7 @@ local g_config = require("user.config")
 nvim_treesitter.setup({
   -- 安装的高亮支持来源
   -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
+  install_dir = vim.fn.stdpath('data') .. '/site',
   -- ensure_installed = "maintained",
   ensure_installed = g_config.defaults.extensions.treesitter,
   -- 同步下载高亮支持
