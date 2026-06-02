@@ -240,7 +240,7 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
     cmd = {
       "TSInstall",
