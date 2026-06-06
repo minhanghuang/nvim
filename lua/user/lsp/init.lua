@@ -40,27 +40,6 @@ return {
         }
       },
     },
-    opts = {
-      -- options for vim.diagnostic.config()
-      diagnostics = {
-        underline = true, -- 将代码中诊断出的问题用下划线标记
-        update_in_insert = false, -- 控制是否在插入模式中更新诊断信息
-        severity_sort = true, -- 控制是否按照诊断的严重程度对其进行排序
-        float = { -- 在浮动窗口中显示诊断信息的设置
-          -- focusable = false,
-          style = "minimal", -- 设置浮动窗口的样式
-          border = "rounded", -- 设置浮动窗口的边框样式
-          source = "always", -- 控制何时显示浮动窗口
-          header = "", -- 定义浮动窗口的标题
-          prefix = "", -- 定义浮动窗口中每个诊断条目前面的前缀
-        },
-        virtual_text = { -- 设置虚拟文本（在行内显示的小标签）的样式和配置
-          spacing = 4, -- 定义虚拟文本与代码之间的间距
-          source = "if_many", -- 控制虚拟文本显示的信息，"if_many" 表示只有存在多个诊断时才显示虚拟文本
-          prefix = "●", -- 定义虚拟文本前缀
-        },
-      },
-    },
     config = function()
       local mason_installer = require("mason-lspconfig")
 
@@ -69,11 +48,39 @@ return {
         ensure_installed = require("user.config").defaults.extensions.lsp_server,
       })
 
-      -- diagnostics signs
-      for name, icon in pairs(require("user.config").defaults.icons.diagnostics) do
-        name = "DiagnosticSign" .. name
-        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-      end
+      -- diagnostics (Neovim 0.11+ 必须通过 vim.diagnostic.config 配置)
+      local diag_icons = require("user.config").defaults.icons.diagnostics
+      vim.diagnostic.config({
+        underline = true, -- 将代码中诊断出的问题用下划线标记
+        update_in_insert = false, -- 控制是否在插入模式中更新诊断信息
+        severity_sort = true, -- 控制是否按照诊断的严重程度对其进行排序
+        float = { -- 在浮动窗口中显示诊断信息的设置
+          style = "minimal", -- 设置浮动窗口的样式
+          border = "rounded", -- 设置浮动窗口的边框样式
+          source = true, -- 显示诊断来源 (0.11+ 用 true/false 替代 "always"/"if_many")
+          header = "", -- 定义浮动窗口的标题
+          prefix = "", -- 定义浮动窗口中每个诊断条目前面的前缀
+        },
+        virtual_text = { -- 设置虚拟文本（在行内显示的小标签）的样式和配置
+          spacing = 4, -- 定义虚拟文本与代码之间的间距
+          source = "if_many", -- 控制虚拟文本显示的信息，"if_many" 表示只有存在多个诊断时才显示虚拟文本
+          prefix = "●", -- 定义虚拟文本前缀
+        },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = diag_icons.Error,
+            [vim.diagnostic.severity.WARN]  = diag_icons.Warn,
+            [vim.diagnostic.severity.HINT]  = diag_icons.Hint,
+            [vim.diagnostic.severity.INFO]  = diag_icons.Info,
+          },
+          numhl = {
+            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+            [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
+            [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint",
+            [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
+          },
+        },
+      })
 
       -- { key: 服务器名, value: 配置文件 }
       -- 配置: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
