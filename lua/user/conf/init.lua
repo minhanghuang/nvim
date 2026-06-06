@@ -240,7 +240,7 @@ return {
   -- 语法解析
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
     cmd = {
       "TSInstall",
@@ -428,6 +428,8 @@ return {
       vim.keymap.set("n", "<Leader>=", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
       -- code action
       vim.keymap.set("n", "<Leader>ce", "<cmd>Lspsaga code_action<CR>")
+      -- show diagnostic in floating window
+      vim.keymap.set("n", "<Leader>di", "<cmd>Lspsaga show_line_diagnostics<CR>")
     end,
   },
   {
