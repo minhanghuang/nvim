@@ -452,6 +452,79 @@ return {
     end,
   },
 
+  {
+    -- https://github.com/folke/snacks.nvim
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      explorer = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 3000,
+        width = { min = 40, max = 0.4 },
+        height = { min = 1, max = 0.6 },
+        margin = { top = 0, right = 1, bottom = 0 },
+        padding = true,
+        sort = { "level", "added" },
+        level = vim.log.levels.TRACE,
+        icons = {
+          error = " ",
+          warn = " ",
+          info = " ",
+          debug = " ",
+          trace = " ",
+        },
+        style = "compact",
+        top_down = true,
+        date_format = "%R",
+        more_format = " ↓ %d lines ",
+        refresh = 50,
+        -- 自动展示 LSP 进度和 server 消息
+        sources = {
+          lsp = {
+            -- LSP progress (/progress)
+            progress = { enable = true, filter = { "client", "server" } },
+            -- LSP server messages (window/showMessage)
+            message = { enable = true, filter = { "warning", "error", "info" } },
+          },
+        },
+      },
+      picker = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = true },
+      statuscolumn = {
+        -- 符号列和行号之间间距
+        enabled = false,
+      },
+      words = { enabled = true },
+      styles = {
+        notification = {
+          -- wo = { wrap = true } -- Wrap notifications
+        }
+      }
+    },
+    keys = {
+      -- Top Pickers & Explorer
+      -- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+      { "<leader>nh", function() Snacks.notifier.show_history() end, desc = "Notification History" },
+      { "<leader>nd", function() Snacks.notifier.hide() end,         desc = "Dismiss All Notifications" },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "VeryLazy",
+        callback = function()
+          vim.notify = Snacks.notifier.notify
+        end,
+      })
+    end,
+  },
+
   -- image, dependence: https://github.com/3rd/image.nvim?tab=readme-ov-file#imagemagick
   -- kitty terminal
   {
@@ -598,15 +671,6 @@ return {
         highlight_inline = 'RenderMarkdownCodeInline',
       },
     },
-  },
-
-  -- 平滑滚动
-  {
-    "psliwka/vim-smoothie",
-    event = "VeryLazy",
-    config = function()
-      require("user.conf.vim-smoothie")
-    end,
   },
 
   -- 单词拼写检查
