@@ -159,11 +159,13 @@ keymap("n", "<Leader>bo", ":BdeleteHidden<CR>", { silent = true })
 -- git(lewis6991/gitsigns.nvim)
 -- 显示当前行git提交信息
 keymap("n", "<Leader>gt", ":Gitsigns toggle_current_line_blame<CR>", { silent = true })
-keymap("n", "<Leader>gn", ":Gitsigns next_hunk<CR>", { silent = true })
-keymap("n", "<Leader>gp", ":Gitsigns prev_hunk<CR>", { silent = true })
+keymap("n", "<Leader>gn", ":Gitsigns nav_hunk next<CR>", { silent = true })
+keymap("n", "<Leader>gp", ":Gitsigns nav_hunk prev<CR>", { silent = true })
 keymap("n", "<Leader>gs", ":Gitsigns stage_hunk<CR>", { silent = true })
 keymap("n", "<Leader>gu", ":Gitsigns reset_hunk<CR>", { silent = true })
 keymap("n", "<Leader>gh", ":Gitsigns preview_hunk<CR>", { silent = true })
+keymap("n", "<Leader>gb", ":Gitsigns blame<CR>", { silent = true })
+keymap("n", "<Leader>gb", ":Gitsigns blame<CR>", { silent = true })
 keymap("n", "<Leader>gj", "<cmd>lua require'gitsigns'.blame_line {full=true, ignore_whitespace=true}<CR>",
   { silent = true })
 -- 查看git diff

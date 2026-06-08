@@ -1,10 +1,10 @@
 local has_gitsigns, gitsigns = pcall(require, "gitsigns")
 if not has_gitsigns then
-  vim.notify("gitsigns not found!")
+  vim.notify("lewis6991/gitsigns.nvim not found!")
   return
 end
 
-gitsigns.setup {
+gitsigns.setup({
   signs = require("user.config").defaults.icons.git,
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = false,     -- Toggle with `:Gitsigns toggle_numhl`
@@ -34,4 +34,4 @@ gitsigns.setup {
     row = 0,
     col = 1,
   },
-}
+})
