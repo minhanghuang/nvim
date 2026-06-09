@@ -487,10 +487,12 @@ return {
         -- 自动展示 LSP 进度和 server 消息
         sources = {
           lsp = {
-            -- LSP progress (/progress)
-            progress = { enable = true, filter = { "client", "server" } },
-            -- LSP server messages (window/showMessage)
-            message = { enable = true, filter = { "warning", "error", "info" } },
+            -- -- LSP progress (/progress)
+            -- progress = { enable = true, filter = { "client", "server" } },
+            -- -- LSP server messages (window/showMessage)
+            -- message = { enable = true, filter = { "warning", "error", "info" } },
+            progress = { enable = false },
+            message = { enable = false },
           },
         },
       },
