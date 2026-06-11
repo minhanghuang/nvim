@@ -241,7 +241,12 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
-    build = ":TSUpdate",
+    build = "patch -p1 --forward < ~/.config/nvim/patches/nvim-treesitter-0.12.patch || true",
+    -- build = function(plugin)
+    --   -- Neovim 0.12 兼容补丁: pcall 保护 query_predicates.lua 中的 get_node_text 调用
+    --   vim.fn.system({ "patch", "-p1", "--forward", "-d", plugin.dir, "-i",
+    --     vim.fn.stdpath("config") .. "/patches/nvim-treesitter-0.12.patch" })
+    -- end,
     cmd = {
       "TSInstall",
       "TSInstallSync",

@@ -38,7 +38,7 @@ end
 nvim_treesitter.setup({
   -- 安装的高亮支持来源
   -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
-  install_dir = vim.fn.stdpath('data') .. '/site',
+  parser_install_dir = vim.fn.stdpath('data') .. '/site',
   -- ensure_installed = "maintained",
   ensure_installed = require("user.config").defaults.extensions.treesitter,
   -- 同步下载高亮支持

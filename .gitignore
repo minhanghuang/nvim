@@ -4,6 +4,7 @@ build
 .cache
 .DS_Store
 *.idea/*
+CLAUDE.md
 
 # vscode
 .vscode/c_cpp_properties.json
