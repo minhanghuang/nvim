@@ -1,0 +1,42 @@
+diff --git a/lua/nvim-treesitter/query_predicates.lua b/lua/nvim-treesitter/query_predicates.lua
+index 7539170d..ff4a95a7 100644
+--- a/lua/nvim-treesitter/query_predicates.lua
++++ b/lua/nvim-treesitter/query_predicates.lua
+@@ -117,7 +117,10 @@ query.add_directive("set-lang-from-mimetype!", function(match, _, bufnr, pred, m
+   if not node then
+     return
+   end
+-  local type_attr_value = vim.treesitter.get_node_text(node, bufnr)
++  local ok, type_attr_value = pcall(vim.treesitter.get_node_text, node, bufnr)
++  if not ok then
++    return
++  end
+   local configured = html_script_type_languages[type_attr_value]
+   if configured then
+     metadata["injection.language"] = configured
+@@ -138,7 +141,11 @@ query.add_directive("set-lang-from-info-string!", function(match, _, bufnr, pred
+   if not node then
+     return
+   end
+-  local injection_alias = vim.treesitter.get_node_text(node, bufnr):lower()
++  local ok, text = pcall(vim.treesitter.get_node_text, node, bufnr)
++  if not ok then
++    return
++  end
++  local injection_alias = text:lower()
+   metadata["injection.language"] = get_parser_from_markdown_info_string(injection_alias)
+ end, opts)
+
+@@ -159,7 +166,11 @@ query.add_directive("downcase!", function(match, _, bufnr, pred, metadata)
+     return
+   end
+
+-  local text = vim.treesitter.get_node_text(node, bufnr, { metadata = metadata[id] }) or ""
++  local ok, text = pcall(vim.treesitter.get_node_text, node, bufnr, { metadata = metadata[id] })
++  if not ok then
++    return
++  end
++  text = text or ""
+   if not metadata[id] then
+     metadata[id] = {}
+   end
