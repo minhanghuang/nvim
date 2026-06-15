@@ -1,11 +1,28 @@
-local has_spell, spell = pcall(require, "nvim-spell")
-if not has_spell then
-  vim.notify("nvim-spell not found!")
+local ok, spell = pcall(require, "nvim-spell")
+if not ok then
+  vim.notify("minhanghuang/spell.nvim not found!")
   return
 end
 
 spell.setup({
-  enabled = true,
-  spellfile = vim.fn.stdpath('config') .. '/spell/custom.en.utf-8.add',
-  spelllang = { "en_us,cjk" },
+  config_file = vim.fn.stdpath('config') .. '/spell/cspell.json',
+  dictionaries = {
+    'en_us',
+    'lua',
+    'bash',
+    'shell',
+    'softwareTerms',
+    'python',
+    'rust',
+    'typescript',
+    'golang',
+    'git',
+    'docker',
+    'npm',
+    'html',
+  },
+  locale = 'en-US',
+  check_on_save = true,
+  exclude_filetypes = { 'neo-tree', 'NvimTree', 'help', 'qf' },
+  diagnostic_severity = vim.diagnostic.severity.INFO,
 })

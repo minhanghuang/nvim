@@ -72,6 +72,7 @@ local defaults = {
       {
         "markdownlint", version = "0.38.0", -- markdown
       },
+      { "cspell-lsp", version = "1.1.5" },  -- cspell
     },
     dap = {
       { "debugpy",  version = "1.8.0" },   -- Python
