@@ -85,11 +85,11 @@ keymap("n", "<Leader><Leader>r", ":lua require('user.util').nvim_tree_goto_root(
 
 -- nvim-spectre(文本替换)
 --- Toggle Spectre
-keymap("n", "<Leader>ss", ":lua require('spectre').toggle()<CR>", { silent = true })
+keymap("n", "<Leader>wr", ":lua require('spectre').toggle()<CR>", { silent = true })
 --- Search current word
-keymap("n", "<Leader>sw", ":lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
+keymap("n", "<Leader>wc", ":lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
 --- Search on current file
-keymap("n", "<Leader>sp", ":lua require('spectre').open_file_search({select_word=true})<CR>", { silent = true })
+keymap("n", "<Leader>wf", ":lua require('spectre').open_file_search({select_word=true})<CR>", { silent = true })
 
 -- debuggger(dap)
 -- 断点

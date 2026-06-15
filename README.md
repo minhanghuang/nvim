@@ -14,8 +14,8 @@ git clone https://github.com/minhanghuang/nvim.git ~/.config/nvim
 
 ### ✅ Neovim
 
-- Minimum required version: 0.12.0
-- Recommended version (for clipboard support in SSH/docker): 0.12.2+ [Related PR](https://github.com/neovim/neovim/pull/25872)
+- Minimum required version: 0.12.2
+- Recommended version (for clipboard support in SSH/docker): 0.10+ [Related PR](https://github.com/neovim/neovim/pull/25872)
 
 #### Ubuntu
 
@@ -52,7 +52,7 @@ sudo apt install -y gettext luajit
 ```
 
 ```shell
-git clone --branch v0.12.0 --single-branch --depth 1 https://github.com/neovim/neovim.git
+git clone --branch v0.12.2 --single-branch --depth 1 https://github.com/neovim/neovim.git
 cd neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 
