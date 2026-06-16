@@ -225,18 +225,6 @@ keymap("n", "ma", ":lua require('telescope').extensions.vim_bookmarks.current_fi
 -- inserted annotation
 keymap("n", "<Leader>aa", ":lua require('neogen').generate()<CR>", { silent = true })
 
--- 平滑滚动 <C-m>和系统快捷键有冲突, 暂时先使用<C-S->
-keymap("n", "<C-S-k>", "<Plug>(SmoothieUpwards)", { silent = true })
-keymap("n", "<C-S-j>", "<Plug>(SmoothieDownwards)", { silent = true })
-
 -- 翻译
 keymap("n", "<C-t>", "<Plug>TranslateW", { silent = true })
 keymap("v", "<C-t>", "<Plug>TranslateWV", { silent = true })
-
--- 单词拼写校验
-keymap("n", "<leader>zs", ":SpellSuggest<CR>", { desc = "Spell: Suggest & replace" })
-keymap("n", "<leader>zt", ":SpellAdd<CR>", { desc = "Spell: Add word (temp)" }) -- 临时添加
-keymap("n", "<leader>zn", ":SpellNext<CR>", { desc = "Spell: Next error" })
-keymap("n", "<leader>zp", ":SpellPrev<CR>", { desc = "Spell: Prev error" })
-keymap("n", "<leader>ze", ":SpellTogglePlugin<CR>", { desc = "Spell: Toggle on/off" })
-keymap("n", "<leader>zc", ":SpellCheckBuffer<CR>", { desc = "Spell: Check buffer" })
