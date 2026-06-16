@@ -686,25 +686,24 @@ return {
     event = "VeryLazy",
     config = function()
       require("user.conf.spell")
-      vim.keymap.set("n", "<Leader>st", "<cmd>SpellTogglePlugin<CR>")
-      vim.keymap.set("n", "<Leader>ss", "<cmd>SpellSuggest<CR>")
-      vim.keymap.set("n", "<Leader>sa", "<cmd>SpellAdd!<CR>")
-      vim.keymap.set("n", "<Leader>sn", "<cmd>SpellNext<CR>")
-      vim.keymap.set("n", "<Leader>sp", "<cmd>SpellPrev<CR>")
+      vim.keymap.set("n", "<Leader>ze", "<cmd>SpellTogglePlugin<CR>")
+      vim.keymap.set("n", "<Leader>zs", "<cmd>SpellSuggest<CR>")
+      vim.keymap.set("n", "<Leader>za", "<cmd>SpellAdd!<CR>")
+      vim.keymap.set("n", "<Leader>zn", "<cmd>SpellNext<CR>")
+      vim.keymap.set("n", "<Leader>zp", "<cmd>SpellPrev<CR>")
     end,
   },
-  -- dev单词拼写检查
+  -- -- dev单词拼写检查
   -- {
   --   dir = "~/work/code/github/spell.nvim", -- 本地repo绝对路径
-  --   name = "nvim-spell",                   -- 可选,便于识别
   --   event = "VeryLazy",
   --   config = function()
   --     require("user.conf.spell")
-  --     vim.keymap.set("n", "<Leader>st", "<cmd>SpellTogglePlugin<CR>")
-  --     vim.keymap.set("n", "<Leader>ss", "<cmd>SpellSuggest<CR>")
-  --     vim.keymap.set("n", "<Leader>sa", "<cmd>SpellAdd!<CR>")
-  --     vim.keymap.set("n", "<Leader>sn", "<cmd>SpellNext<CR>")
-  --     vim.keymap.set("n", "<Leader>sp", "<cmd>SpellPrev<CR>")
+  --     vim.keymap.set("n", "<Leader>zt", "<cmd>SpellTogglePlugin<CR>")
+  --     vim.keymap.set("n", "<Leader>zs", "<cmd>SpellSuggest<CR>")
+  --     vim.keymap.set("n", "<Leader>za", "<cmd>SpellAdd!<CR>")
+  --     vim.keymap.set("n", "<Leader>zn", "<cmd>SpellNext<CR>")
+  --     vim.keymap.set("n", "<Leader>zp", "<cmd>SpellPrev<CR>")
   --   end,
   -- },
 
