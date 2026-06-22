@@ -78,5 +78,6 @@
   "vim-snippets": { "branch": "master", "commit": "b039190177d97a968d80518470910aae7faf182a" },
   "vim-startify": { "branch": "master", "commit": "4e089dffdad46f3f5593f34362d530e8fe823dcf" },
   "vim-translator": { "branch": "master", "commit": "6f0639c6d471a3a90ac19db96e1e379c030f74e3" },
+  "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
   "windline.nvim": { "branch": "master", "commit": "2e83922bf289ffd30fbd7f7028fdb4711592dd92" }
 }
