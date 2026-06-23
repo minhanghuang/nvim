@@ -157,13 +157,6 @@ return {
       require("user.conf.formatter")
     end,
   },
-  {
-    "sbdchd/neoformat",
-    enabled = false,
-    config = function()
-      require("user.conf.neoformat")
-    end,
-  },
 
   -- 缩进
   {
