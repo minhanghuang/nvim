@@ -531,6 +531,23 @@ return {
       })
     end,
   },
+  {
+    -- https://github.com/folke/which-key.nvim
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+    config = function()
+      require("user.conf.witch-key")
+    end
+  },
 
   -- image, dependence: https://github.com/3rd/image.nvim?tab=readme-ov-file#imagemagick
   -- kitty terminal
