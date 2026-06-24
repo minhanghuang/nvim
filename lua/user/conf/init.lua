@@ -688,6 +688,13 @@ return {
         highlight_inline = 'RenderMarkdownCodeInline',
       },
     },
+    config = function()
+      require('render-markdown').setup({
+        enabled = true,
+        file_types = { 'markdown', 'vimwiki' },
+        completions = { lsp = { enabled = true } },
+      })
+    end
   },
 
   -- 单词拼写检查
