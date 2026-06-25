@@ -12,25 +12,25 @@ local my_icons = {
     name = "Hpp"
   },
   ["urdf"] = {
-    icon = "謹",
+    icon = "󰗀",
     color = "#e37933",
     cterm_color = "173",
     name = "Xml",
   },
   ["xodr"] = {
-    icon = "謹",
+    icon = "󰗀",
     color = "#e37933",
     cterm_color = "173",
     name = "Xml",
   },
   ["launch"] = {
-    icon = "謹",
+    icon = "󰗀",
     color = "#e37933",
     cterm_color = "173",
     name = "Xml",
   },
   ["rviz"] = {
-    icon = "",
+    icon = "",
     color = "#6d8086",
     cterm_color = "66",
     name = "Yaml",
