@@ -117,10 +117,12 @@ keymap("n", "<Leader>dc", "<cmd>lua require'dap'.run_to_cursor()<CR>", { silent 
 -- 结束
 keymap("n",
   "<Leader>dd",
-  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR><cmd>q<CR>"
+  "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><CR>"
   ,
   { silent = true }
 )
+-- 跳过所有断点运行（仅清内存，持久化文件不动，下次启动自动恢复）
+keymap("n", "<Leader>ds", ":lua for _, b in ipairs(vim.api.nvim_list_bufs()) do require'dap'.clear_breakpoints(b) end require'dap'.continue()<CR>", { silent = true })
 
 -- 搜索文件
 keymap("n", "<Leader>ff", ":lua require('user.util').telescope('find_files')<cr>", { silent = true })
