@@ -77,8 +77,7 @@ local defaults = {
     },
     dap = {
       { "debugpy",  version = "1.8.0" },   -- Python
-      { "cpptools", version = "v1.18.5" }, -- C++
-      -- { "codelldb" },                      -- C++
+      { "codelldb", version = "v1.12.2" }, -- C/C++/Rust
     },
   },
 

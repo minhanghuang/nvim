@@ -92,6 +92,7 @@ local configurations = {
     -- end,
     cwd = "${workspaceFolder}",
     stopOnEntry = true,
+    terminal = "integrated", -- print/stdout 输出显示在终端
     -- terminal = "integrated"
   }
 }
