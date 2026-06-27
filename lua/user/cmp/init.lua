@@ -186,7 +186,8 @@ return {
         sources = cmp.config.sources({
           { name = 'nvim_lsp',                priority = 50 },
           { name = 'copilot',                 priority = 50 },
-          { name = 'codeium',                 priority = 50 },
+          { name = 'deepseek',                priority = 50 },
+          { name = 'minuet',                  priority = 50 },
           { name = 'nvim_lua',                priority = 50 },
           { name = 'buffer',                  priority = 40 },
           { name = 'path',                    priority = 30 },
@@ -276,6 +277,7 @@ return {
               TypeParameter = "",
               Codeium = "",
               Copilot = "",
+              Deepseek = "",
             },
           }),
         },
