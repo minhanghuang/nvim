@@ -45,25 +45,12 @@ return {
   -- Buffer
   {
     "akinsho/bufferline.nvim",
-    dependencies = {
-      {
-        "famiu/bufdelete.nvim", -- delete buffer
-        config = function()
-          local function delete_hidden_buffers()
-            local hidden_bufs = vim.tbl_filter(function(bufnr)
-              return vim.fn.getbufinfo(bufnr)[1].hidden == 1
-            end, vim.api.nvim_list_bufs())
-
-            for _, bufnr in ipairs(hidden_bufs) do
-              require("bufdelete").bufdelete(bufnr)
-            end
-          end
-          vim.api.nvim_create_user_command('BdeleteHidden', delete_hidden_buffers, { bang = true })
-        end,
-      },
-    },
     config = function()
       require("user.conf.bufferline")
+      -- 删除所有隐藏buffer
+      vim.api.nvim_create_user_command('BdeleteHidden', function()
+        require("snacks").bufdelete.invisible()
+      end, { bang = true })
     end,
   },
 
@@ -456,6 +443,7 @@ return {
     lazy = false,
     opts = {
       bigfile = { enabled = true },
+      bufdelete = { enabled = true },
       dashboard = { enabled = true },
       explorer = { enabled = true },
       indent = { enabled = true },
