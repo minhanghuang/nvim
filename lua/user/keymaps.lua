@@ -122,7 +122,9 @@ keymap("n",
   { silent = true }
 )
 -- 跳过所有断点运行（仅清内存，持久化文件不动，下次启动自动恢复）
-keymap("n", "<Leader>ds", ":lua for _, b in ipairs(vim.api.nvim_list_bufs()) do require'dap'.clear_breakpoints(b) end require'dap'.continue()<CR>", { silent = true })
+keymap("n", "<Leader>ds",
+  ":lua for _, b in ipairs(vim.api.nvim_list_bufs()) do require'dap'.clear_breakpoints(b) end require'dap'.continue()<CR>",
+  { silent = true })
 
 -- 搜索文件
 keymap("n", "<Leader>ff", ":lua require('user.util').telescope('find_files')<cr>", { silent = true })
@@ -147,7 +149,7 @@ keymap("n", "<C-n>", ":BufferLineCycleNext<CR>", { silent = true })
 keymap("i", "<C-n>", "<Esc>:BufferLineCycleNext<CR>i", { silent = true })
 keymap("n", "<C-p>", ":BufferLineCyclePrev<CR>", { silent = true })
 keymap("i", "<C-p>", "<Esc>:BufferLineCyclePrev<CR>i", { silent = true })
-keymap("n", "<Leader>fd", ":Bdelete!<CR>", { silent = true })
+keymap("n", "<Leader>fd", "<cmd>lua Snacks.bufdelete({ force = true })<CR>", { silent = true })
 keymap("n", "<Leader>bmn", ":BufferLineMoveNext<CR>", { silent = true })
 keymap("n", "<Leader>bmp", ":BufferLineMovePrev<CR>", { silent = true })
 keymap("n", "<Leader>bb", ":BufferLineSortByDirectory<CR>", { silent = true })
