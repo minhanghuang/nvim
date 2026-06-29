@@ -2,7 +2,6 @@ return {
   --mason
   {
     "mason-org/mason.nvim",
-    version = "v2.1.0",
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog", "MasonUpdate" },
     dependencies = {
       "mason-org/mason.nvim",                      -- 管理lsp插件
@@ -641,19 +640,6 @@ return {
   },
 
   -- Markdown preview
-  {
-    -- https://github.com/ellisonleao/glow.nvim
-    "ellisonleao/glow.nvim",
-    event = "VeryLazy",
-    cmd = "Glow",
-    config = function()
-      require("glow").setup({
-        -- style = "dark",
-        -- width = 120,
-      })
-    end,
-  },
-
   {
     -- https://github.com/MeanderingProgrammer/render-markdown.nvim
     "MeanderingProgrammer/render-markdown.nvim",
