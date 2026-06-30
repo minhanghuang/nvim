@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  require('user.colorscheme'),
+  require('user.themes'),
   require('user.conf'),
   require('user.lsp'),
   require('user.cmp'),
