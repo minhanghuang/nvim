@@ -63,4 +63,21 @@ M.str2argtable = function(str)
   return arg_list
 end
 
+---Clear all in-memory breakpoints across all buffers, then continue execution.
+---This only clears in-memory breakpoints; persistent breakpoints on disk are untouched
+---and will restore on next session start.
+M.clear_breakpoints_and_continue = function()
+  for _, b in ipairs(vim.api.nvim_list_bufs()) do
+    dap.clear_breakpoints(b)
+  end
+  dap.continue()
+end
+
+---Close all DAP-related UI: session, REPL, and DAP UI windows.
+M.close_all = function()
+  dap.close()
+  require('dap.repl').close()
+  require('dapui').close()
+end
+
 return M
