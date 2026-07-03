@@ -107,9 +107,9 @@ keymap("n", "<Leader><Leader>r", function() require('user.util').nvim_tree_goto_
 -- Search & Find (Telescope)
 -- ============================================================
 
-keymap("n", "<Leader>ff", function() require('user.util').telescope('find_files') end,
+keymap("n", "<Leader>ff", function() require('user.util').telescope('find_files', {}) end,
   { desc = "Find files", silent = true })
-keymap("n", "<Leader>fs", function() require('user.util').telescope('live_grep') end,
+keymap("n", "<Leader>fs", function() require('user.util').telescope('live_grep', {}) end,
   { desc = "Live grep (all files)", silent = true })
 keymap("n", "<Leader>fj", function() require('user.util').telescope('live_grep', { grep_open_files = true }) end,
   { desc = "Live grep (open files)", silent = true })
