@@ -4,23 +4,36 @@ if not ok then
   return
 end
 
+dap.adapters.codelldb = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    -- Adjust as needed, must be absolute path
+    command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb",
+    args = { "--port", "${port}" },
+  },
+  -- On windows you may have to uncomment this:
+  -- detached = false,
+}
+
 local configurations = {
   -- 1) 快速启动 (无参数)
   {
-    name = "Run executable",
+    name = "Run executable(codelldb)",
     type = "codelldb",
     request = "launch",
     program = function()
       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
     end,
-    cwd = "${workspaceFolder}",
-    stopOnEntry = true,
-    terminal = "integrated",
+    cwd = "${workspaceFolder}", -- 被调试程序运行时的工作目录
+    stopOnEntry = false,        -- false: 程序启动后直接运行,直到遇到断点或程序结束
+    terminal = "integrated",    -- 使用编辑器内部集成终端
+    args = {},                  -- 没有命令行参数
   },
 
   -- 2) 带参数启动
   {
-    name = "Run executable (with args)",
+    name = "Run executable(codelldb with args)",
     type = "codelldb",
     request = "launch",
     program = function()
