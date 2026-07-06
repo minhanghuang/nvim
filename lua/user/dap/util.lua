@@ -63,14 +63,20 @@ M.str2argtable = function(str)
   return arg_list
 end
 
----Clear all in-memory breakpoints across all buffers, then continue execution.
----This only clears in-memory breakpoints; persistent breakpoints on disk are untouched
----and will restore on next session start.
+---Clear all in-memory breakpoints, then continue execution.
+---Persistent breakpoints on disk are untouched.
+---After the debug session terminates, breakpoints are automatically reloaded
+---from persistent storage, so they reappear without restarting nvim.
 M.clear_breakpoints_and_continue = function()
   for _, b in ipairs(vim.api.nvim_list_bufs()) do
     dap.clear_breakpoints(b)
   end
   dap.continue()
+  -- One-shot listener: restore breakpoints when session ends
+  dap.listeners.after.event_terminated['persistent_bp_restore'] = function()
+    pcall(require('persistent-breakpoints.api').reload_breakpoints)
+    dap.listeners.after.event_terminated['persistent_bp_restore'] = nil
+  end
 end
 
 ---Close all DAP-related UI: session, REPL, and DAP UI windows.
