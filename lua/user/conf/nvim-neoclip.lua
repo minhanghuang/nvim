@@ -1,6 +1,6 @@
-local has_neoclip, neoclip = pcall(require, "neoclip")
-if not has_neoclip then
-  vim.notify("nvim-neoclip.lua not found!")
+local ok, neoclip = pcall(require, "neoclip")
+if not ok then
+  vim.notify("AckslD/nvim-neoclip.lua not found!")
   return
 end
 

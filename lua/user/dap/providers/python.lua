@@ -4,6 +4,10 @@ if not ok then
   return
 end
 
+require("dap-python").setup(
+  vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
+)
+
 dap.configurations.python = {
   -- 1) 快速启动(无参数，常用)
   {

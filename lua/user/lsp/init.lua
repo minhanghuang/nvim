@@ -7,15 +7,17 @@ return {
         "mason-org/mason-lspconfig.nvim", -- nvim-lspconfig配置
       },
       {
-        lazy = true,
         "b0o/schemastore.nvim", -- json schemas
+        lazy = true,
       },
       {
         -- https://github.com/j-hui/fidget.nvim
         -- Useful status updates for LSP
         "j-hui/fidget.nvim",
-        event = { 'BufReadPre', 'BufNewFile' },
-        tag = "v1.0.0",
+        event = {
+          'BufReadPre',
+          'BufNewFile',
+        },
         config = function()
           require("fidget").setup({
             progress = {
@@ -33,23 +35,22 @@ return {
       -- 杀死不活跃的lsp客户端
       {
         "zeioth/garbage-day.nvim",
-        dependencies = "neovim/nvim-lspconfig",
         event = "VeryLazy",
-        opts = {
-          -- your options here
-        }
+        dependencies = {
+          "neovim/nvim-lspconfig",
+        },
+        opts = {},
       },
     },
     config = function()
-      local mason_installer = require("mason-lspconfig")
-
+      local installer = require("mason-lspconfig")
       -- mason installer 只能放在lsp-config里
-      mason_installer.setup({
+      installer.setup({
         ensure_installed = require("user.config").defaults.extensions.lsp_server,
       })
 
       -- diagnostics (Neovim 0.11+ 必须通过 vim.diagnostic.config 配置)
-      local diag_icons = require("user.config").defaults.icons.diagnostics
+      local icons = require("user.config").defaults.icons.diagnostics
       vim.diagnostic.config({
         underline = true, -- 将代码中诊断出的问题用下划线标记
         update_in_insert = false, -- 控制是否在插入模式中更新诊断信息
@@ -68,10 +69,10 @@ return {
         },
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = diag_icons.Error,
-            [vim.diagnostic.severity.WARN]  = diag_icons.Warn,
-            [vim.diagnostic.severity.HINT]  = diag_icons.Hint,
-            [vim.diagnostic.severity.INFO]  = diag_icons.Info,
+            [vim.diagnostic.severity.ERROR] = icons.Error,
+            [vim.diagnostic.severity.WARN]  = icons.Warn,
+            [vim.diagnostic.severity.HINT]  = icons.Hint,
+            [vim.diagnostic.severity.INFO]  = icons.Info,
           },
           numhl = {
             [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",

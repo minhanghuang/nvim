@@ -1,7 +1,6 @@
-local has_lspsaga, lspsaga = pcall(require, "lspsaga")
-
-if not has_lspsaga then
-  vim.notify("lspsaga not found!")
+local ok, lspsaga = pcall(require, "lspsaga")
+if not ok then
+  vim.notify("nvimdev/lspsaga.nvim not found!")
   return
 end
 

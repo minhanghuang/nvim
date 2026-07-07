@@ -1,7 +1,6 @@
--- https://github.com/ethanholz/nvim-lastplace
-local has_lastplace, lastplace = pcall(require, "nvim-lastplace")
-if not has_lastplace then
-  vim.notify("lastplace not found!")
+local ok, lastplace = pcall(require, "nvim-lastplace")
+if not ok then
+  vim.notify("ethanholz/nvim-lastplace not found!")
   return
 end
 

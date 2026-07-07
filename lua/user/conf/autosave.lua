@@ -1,6 +1,6 @@
-local has_autosave, autosave = pcall(require, "auto-save")
-if not has_autosave then
-  vim.notify("autosave not found!")
+local ok, autosave = pcall(require, "auto-save")
+if not ok then
+  vim.notify("Pocco81/auto-save.nvim not found!")
   return
 end
 

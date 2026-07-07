@@ -1,10 +1,10 @@
-local has_formatter, formatter = pcall(require, "formatter")
-if not has_formatter then
-  vim.notify("formatter not found!")
+local ok, formatter = pcall(require, "formatter")
+if not ok then
+  vim.notify("mhartington/formatter.nvim not found!")
   return
 end
 
-formatter.setup {
+formatter.setup({
   filetype = {
     python = {
       require("formatter.filetypes.python").black,
@@ -24,4 +24,4 @@ formatter.setup {
       require("formatter.filetypes.any").remove_trailing_whitespace
     }
   }
-}
+})

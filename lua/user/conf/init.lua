@@ -1,8 +1,26 @@
 return {
+  {
+    "nvim-lua/plenary.nvim",
+    enabled = true,
+    init = function()
+      -- pass
+    end,
+    config = function()
+      -- pass
+    end,
+  },
+
   --mason
   {
     "mason-org/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog", "MasonUpdate" },
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+      "MasonUpdate"
+    },
     dependencies = {
       "mason-org/mason.nvim",                      -- 管理lsp插件
       "WhoIsSethDaniel/mason-tool-installer.nvim", -- 安装工具(解决一些非lsp工具mason-lspconfig.nvim无法安装问题)
@@ -88,7 +106,6 @@ return {
   -- 搜索美化(显示[c/N])
   {
     "kevinhwang91/nvim-hlslens",
-    tag = 'v1.1.0',
     event = "VeryLazy",
     config = function()
       require("user.conf.nvim-hlslens")
@@ -130,14 +147,13 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     config = function()
-      require("user.conf.gitsigns")
+      require("user.conf.nvim-gitsigns")
     end,
   },
 
   -- formatting
   {
     "mhartington/formatter.nvim",
-    enabled = true,
     event = "VeryLazy",
     config = function()
       require("user.conf.formatter")
@@ -182,8 +198,7 @@ return {
           -- 修改Python模版
           python = {
             template = {
-              annotation_convention =
-              "reST"
+              annotation_convention = "reST",
             }
           },
         }
@@ -210,7 +225,6 @@ return {
   -- 文件树
   {
     "nvim-tree/nvim-tree.lua",
-    tag = 'v1.17.0',
     config = function()
       require("user.conf.nvim-tree")
     end,
@@ -221,11 +235,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     build = "patch -p1 --forward < ~/.config/nvim/patches/nvim-treesitter-0.12.patch || true",
-    -- build = function(plugin)
-    --   -- Neovim 0.12 兼容补丁: pcall 保护 query_predicates.lua 中的 get_node_text 调用
-    --   vim.fn.system({ "patch", "-p1", "--forward", "-d", plugin.dir, "-i",
-    --     vim.fn.stdpath("config") .. "/patches/nvim-treesitter-0.12.patch" })
-    -- end,
     cmd = {
       "TSInstall",
       "TSInstallSync",
@@ -264,7 +273,7 @@ return {
     "m-demare/hlargs.nvim",
     event = { 'BufRead' },
     config = function()
-      require('hlargs').setup()
+      require('hlargs').setup({})
     end,
   },
 
@@ -310,7 +319,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     event = "VeryLazy",
-    tag = 'v0.1.9',
     dependencies = {
       {
         -- lsp code-action
@@ -323,7 +331,7 @@ return {
 
     },
     config = function()
-      require("user.conf.telescope")
+      require("user.conf.nvim-telescope")
       -- 历史命令
       vim.keymap.set("n", "<Leader>f;", "<cmd>lua require('telescope.builtin').command_history()<CR>")
       -- 搜索历史
@@ -586,11 +594,13 @@ return {
         "tom-anders/telescope-vim-bookmarks.nvim",
       }
     },
-    config = function()
+    init = function()
       vim.g.bookmark_sign = ''
       vim.g.bookmark_annotation_sign = ''
       vim.g.bookmark_highlight_lines = 1
       vim.g.bookmark_no_default_key_mappings = 1
+    end,
+    config = function()
       require('telescope').load_extension('vim_bookmarks')
     end,
   },
@@ -622,8 +632,12 @@ return {
   {
     "voldikss/vim-floaterm",
     event = "VeryLazy",
-    config = function()
-      require("user.conf.vim-floaterm")
+    init = function()
+      vim.g.floaterm_wintype = 'split'
+      vim.g.floaterm_position = 'belowright'
+      vim.g.floaterm_width = 0.6
+      vim.g.floaterm_height = 0.4
+      vim.g.floaterm_title = 'Terminal: $1/$2'
     end,
   },
 
@@ -631,8 +645,13 @@ return {
   {
     -- https://github.com/MeanderingProgrammer/render-markdown.nvim
     "MeanderingProgrammer/render-markdown.nvim",
-    cmds = { "RenderMarkdown" },
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    cmds = {
+      "RenderMarkdown",
+    },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons', -- if you prefer nvim-web-devicons
+    },
     ft = { "markdown", "norg", "rmd", "org" },
     opts = {
       file_types = { "markdown", "norg", "rmd", "org" },
@@ -702,7 +721,7 @@ return {
   {
     "voldikss/vim-translator",
     event = "VeryLazy",
-    config = function()
+    init = function()
       vim.g.translator_target_lang = "zh"
       vim.g.translator_default_engines = {
         'google',
