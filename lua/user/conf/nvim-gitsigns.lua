@@ -1,5 +1,5 @@
-local has_gitsigns, gitsigns = pcall(require, "gitsigns")
-if not has_gitsigns then
+local ok, gitsigns = pcall(require, "gitsigns")
+if not ok then
   vim.notify("lewis6991/gitsigns.nvim not found!")
   return
 end

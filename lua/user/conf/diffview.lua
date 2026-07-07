@@ -1,12 +1,12 @@
-local has_diffview, diffview = pcall(require, "diffview")
-if not has_diffview then
-  vim.notify("diffview not found!")
+local ok, diffview = pcall(require, "diffview")
+if not ok then
+  vim.notify("sindrets/diffview.nvim not found!")
   return
 end
 
 local cb = require('diffview.config').diffview_callback
 
-diffview.setup {
+diffview.setup({
   diff_binaries = false,    -- Show diffs for binaries
   enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
   use_icons = true,         -- Requires nvim-web-devicons
@@ -114,4 +114,4 @@ diffview.setup {
       ["q"]     = cb("close"),
     },
   },
-}
+})

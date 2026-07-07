@@ -19,7 +19,9 @@ return {
     -- https://github.com/milanglacier/minuet-ai.nvim
     "milanglacier/minuet-ai.nvim",
     enabled = true,
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
     config = function()
       require("minuet").setup({
         -- One completion at a time keeps DeepSeek FIM cost minimal.
@@ -54,13 +56,19 @@ return {
     -- https://github.com/zbirenbaum/copilot.lua
     "zbirenbaum/copilot.lua",
     enabled = true,
-    cmd = { "Copilot", "Copilot auth" },
+    cmd = {
+      "Copilot",
+      "Copilot auth",
+    },
     event = "InsertEnter",
     dependencies = {
       {
         -- https://github.com/zbirenbaum/copilot-cmp
         "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua", "nvim-cmp" },
+        after = {
+          "copilot.lua",
+          "nvim-cmp",
+        },
         build = "patch -p1 --forward < ~/.config/nvim/patches/copilot-cmp.patch || true",
         config = function()
           require("copilot_cmp").setup()
@@ -69,7 +77,10 @@ return {
       {
         -- https://github.com/copilotlsp-nvim/copilot-lsp
         "copilotlsp-nvim/copilot-lsp",
-        after = { "copilot.lua", "nvim-cmp" },
+        after = {
+          "copilot.lua",
+          "nvim-cmp",
+        },
         config = function()
           require('copilot-lsp').setup({})
           vim.keymap.set("n", "<esc>", function()
@@ -82,8 +93,12 @@ return {
     },
     config = function()
       require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = true },
+        suggestion = {
+          enabled = false,
+        },
+        panel = {
+          enabled = true,
+        },
       })
     end
   },

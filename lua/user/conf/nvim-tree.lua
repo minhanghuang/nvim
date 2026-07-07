@@ -1,6 +1,6 @@
-local has_nvim_tree, nvim_tree = pcall(require, "nvim-tree")
-if not has_nvim_tree then
-  vim.notify("nvim-tree.lua not found!")
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if not ok then
+  vim.notify("nvim-tree/nvim-tree.lua not found!")
   return
 end
 

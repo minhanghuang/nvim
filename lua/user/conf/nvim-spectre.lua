@@ -1,7 +1,6 @@
--- https://github.com/nvim-pack/nvim-spectre
-local has_spectre, spectre = pcall(require, "spectre")
-if not has_spectre then
-  vim.notify("nvim-spectre not found!")
+local ok, spectre = pcall(require, "spectre")
+if not ok then
+  vim.notify("nvim-pack/nvim-spectre not found!")
   return
 end
 

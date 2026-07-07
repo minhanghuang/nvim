@@ -1,6 +1,6 @@
-local has_web_devicons, web_devicons = pcall(require, "nvim-web-devicons")
-if not has_web_devicons then
-  vim.notify("nvim-web-devicons not found!")
+local ok, web_devicons = pcall(require, "nvim-web-devicons")
+if not ok then
+  vim.notify("nvim-tree/nvim-web-devicons not found!")
   return
 end
 

@@ -1,6 +1,6 @@
-local has_image, image = pcall(require, "image")
-if not has_image then
-  vim.notify("image.nvim not found!")
+local ok, image = pcall(require, "image")
+if not ok then
+  vim.notify("3rd/image.nvim not found!")
   return
 end
 

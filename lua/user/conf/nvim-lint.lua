@@ -1,6 +1,6 @@
-local has_lint, lint = pcall(require, "lint")
-if not has_lint then
-  vim.notify("nvim-lint not found!")
+local ok, lint = pcall(require, "lint")
+if not ok then
+  vim.notify("mfussenegger/nvim-lint not found!")
   return
 end
 
