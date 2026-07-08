@@ -9,7 +9,7 @@ local sorters = require('telescope.sorters')
 -- local trouble = require("trouble.sources.telescope")
 
 -- 参考: https://github.com/sxyazi/dotfiles/blob/main/nvim/lua/plugins/ui.lua#L267
-telescope.setup {
+telescope.setup({
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -81,6 +81,6 @@ telescope.setup {
       -- }
     }
   }
-}
+})
 
 require("telescope").load_extension("ui-select")

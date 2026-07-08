@@ -1,11 +1,10 @@
--- https://github.com/akinsho/bufferline.nvim
-local has_bufferline, bufferline = pcall(require, "bufferline")
-if not has_bufferline then
+local ok, bufferline = pcall(require, "bufferline")
+if not ok then
   vim.notify("bufferline not found!")
   return
 end
 
-bufferline.setup {
+bufferline.setup({
   options = {
     -- 使用 nvim 内置lsp
     diagnostics = "nvim_lsp",
@@ -32,4 +31,4 @@ bufferline.setup {
     --   return s
     -- end
   }
-}
+})

@@ -12,17 +12,6 @@ lint.linters_by_ft = {
   -- markdown = { "markdownlint" },
 }
 
--- -- cspell
--- -- https://github.com/streetsidesoftware/cspell
--- lint.linters.cspell.args = {
---   "lint",
---   "--no-color",
---   "--no-progress",
---   "--no-summary",
---   "--config",
---   vim.fn.expand(vim.fn.stdpath("config") .. "/spell/cspell/cspell.json"),
--- }
-
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
   group = vim.api.nvim_create_augroup('lint', { clear = true }),
   callback = function()

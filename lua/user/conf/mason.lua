@@ -1,12 +1,12 @@
 local has_mason, mason = pcall(require, "mason")
-local has_package_installer, package_installer = pcall(require, "mason-tool-installer")
-
 if not has_mason then
-  vim.notify("mason.nvim not found!")
+  vim.notify("mason-org/mason.nvim not found!")
   return
 end
-if not has_package_installer then
-  vim.notify("mason-tool-installer.nvim not found!")
+
+local has_installer, installer = pcall(require, "mason-tool-installer")
+if not has_installer then
+  vim.notify("WhoIsSethDaniel/mason-tool-installer.nvim not found!")
   return
 end
 
@@ -21,7 +21,7 @@ mason.setup({
   log_level = vim.log.levels.INFO,
 })
 
-package_installer.setup({
+installer.setup({
   -- issue: https://github.com/minhanghuang/nvim/issues/50
   ensure_installed = vim.iter({
     require("user.config").defaults.extensions.formatter,

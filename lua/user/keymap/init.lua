@@ -70,12 +70,10 @@ keymap("n", "<Leader><Leader>p", '"+p', { desc = "Paste from system clipboard", 
 -- Window Resizing
 -- ============================================================
 
-keymap("n", "<S-Up>", "<cmd>resize -2<CR>", { desc = "Decrease window height", silent = true })
-keymap("n", "<S-Down>", "<cmd>resize +2<CR>", { desc = "Increase window height", silent = true })
-keymap("n", "<S-Left>", "<cmd>NvimTreeResize -2<CR>", { desc = "Decrease NvimTree width", silent = true })
-keymap("n", "<S-Right>", "<cmd>NvimTreeResize +2<CR>", { desc = "Increase NvimTree width", silent = true })
-keymap("t", "<S-Up>", "<cmd>resize +2<CR>", { desc = "Increase terminal height", silent = true })
-keymap("t", "<S-Down>", "<cmd>resize -2<CR>", { desc = "Decrease terminal height", silent = true })
+keymap({ "n", "t" }, "<S-Up>", function() vim.cmd('resize +2') end, { desc = "Decrease window height", silent = true })
+keymap({ "n", "t" }, "<S-Down>", function() vim.cmd('resize -2') end, { desc = "Increase window height", silent = true })
+keymap("n", "<S-Left>", function() vim.cmd('NvimTreeResize -2') end, { desc = "Decrease NvimTree width", silent = true })
+keymap("n", "<S-Right>", function() vim.cmd('NvimTreeResize +2') end, { desc = "Increase NvimTree width", silent = true })
 
 -- ============================================================
 -- Escape / Mode Switching
@@ -97,7 +95,7 @@ keymap("t", "<C-w>", "<C-\\><C-n><C-w>w", { desc = "Switch window", silent = tru
 -- File Explorer (NvimTree)
 -- ============================================================
 
-keymap("n", "<Leader>o", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree", silent = true })
+keymap("n", "<Leader>o", function() vim.cmd('NvimTreeToggle') end, { desc = "Toggle NvimTree", silent = true })
 keymap("n", "<Leader><Leader>o", function() require('user.util').nvim_tree_find_file() end,
   { desc = "Find file in NvimTree", silent = true })
 keymap("n", "<Leader><Leader>r", function() require('user.util').nvim_tree_goto_root() end,
@@ -113,9 +111,8 @@ keymap("n", "<Leader>fs", function() require('user.util').telescope('live_grep',
   { desc = "Live grep (all files)", silent = true })
 keymap("n", "<Leader>fj", function() require('user.util').telescope('live_grep', { grep_open_files = true }) end,
   { desc = "Live grep (open files)", silent = true })
-keymap("n", "<Leader>ft", "<cmd>TodoTelescope<CR>",
-  { desc = "Search TODOs", silent = true })
-keymap("n", "<Leader>fc", "<cmd>Telescope neoclip<CR>",
+keymap("n", "<Leader>ft", function() vim.cmd('TodoTelescope') end, { desc = "Search TODOs", silent = true })
+keymap("n", "<Leader>fc", function() vim.cmd('Telescope neoclip') end,
   { desc = "Search clipboard history", silent = true })
 
 -- ============================================================
@@ -167,44 +164,47 @@ keymap("n", "<Leader>ds", function() require('user.dap.util').clear_breakpoints_
 
 keymap("n", "<Leader>fd", function() Snacks.bufdelete({ force = true }) end,
   { desc = "Delete buffer", silent = true })
-keymap("n", "<Leader>bmn", "<cmd>BufferLineMoveNext<CR>",
+keymap("n", "<Leader>bmn", function() vim.cmd('BufferLineMoveNext') end,
   { desc = "Move buffer right", silent = true })
-keymap("n", "<Leader>bmp", "<cmd>BufferLineMovePrev<CR>",
-  { desc = "Move buffer left", silent = true })
-keymap("n", "<Leader>bb", "<cmd>BufferLineSortByDirectory<CR>",
+keymap("n", "<Leader>bmp", function() vim.cmd('BufferLineMovePrev') end, { desc = "Move buffer left", silent = true })
+keymap("n", "<Leader>bb", function() vim.cmd('BufferLineSortByDirectory') end,
   { desc = "Sort buffers by directory", silent = true })
-keymap("n", "<Leader>bo", "<cmd>BdeleteHidden<CR>",
-  { desc = "Delete hidden buffers", silent = true })
+keymap("n", "<Leader>bo", function() vim.cmd('BdeleteHidden') end, { desc = "Delete hidden buffers", silent = true })
 
 -- ============================================================
 -- Git
 -- ============================================================
 
-keymap("n", "<Leader>gt", "<cmd>Gitsigns toggle_current_line_blame<CR>",
+keymap("n", "<Leader>gt", function() vim.cmd("Gitsigns toggle_current_line_blame") end,
   { desc = "Toggle current line blame", silent = true })
-keymap("n", "<Leader>gn", "<cmd>Gitsigns nav_hunk next<CR>",
+keymap("n", "<Leader>gn", function() vim.cmd("Gitsigns nav_hunk next") end,
   { desc = "Next hunk", silent = true })
-keymap("n", "<Leader>gp", "<cmd>Gitsigns nav_hunk prev<CR>",
+keymap("n", "<Leader>gp", function() vim.cmd("Gitsigns nav_hunk prev") end,
   { desc = "Previous hunk", silent = true })
-keymap("n", "<Leader>gs", "<cmd>Gitsigns stage_hunk<CR>",
+keymap("n", "<Leader>gs", function() vim.cmd("Gitsigns stage_hunk") end,
   { desc = "Stage hunk", silent = true })
-keymap("n", "<Leader>gu", "<cmd>Gitsigns reset_hunk<CR>",
+keymap("n", "<Leader>gu", function() vim.cmd("Gitsigns reset_hunk") end,
   { desc = "Reset hunk", silent = true })
-keymap("n", "<Leader>gh", "<cmd>Gitsigns preview_hunk<CR>",
+keymap("n", "<Leader>gh", function() vim.cmd("Gitsigns preview_hunk") end,
   { desc = "Preview hunk", silent = true })
-keymap("n", "<Leader>gb", "<cmd>Gitsigns blame<CR>",
+keymap("n", "<Leader>gb", function() vim.cmd("Gitsigns blame") end,
   { desc = "Git blame (full)", silent = true })
 keymap("n", "<Leader>gj",
   function()
     require('gitsigns').blame_line({ full = true, ignore_whitespace = true })
   end,
   { desc = "Git blame line", silent = true })
-keymap("n", "<Leader>gd", "<cmd>NvimTreeToggle<CR><cmd>DiffviewOpen HEAD~<CR>",
+keymap("n", "<Leader>gd", function()
+    vim.cmd("NvimTreeToggle")
+    vim.cmd("DiffviewOpen HEAD~")
+  end,
   { desc = "Open git diff", silent = true })
-keymap("n", "<Leader>gc", "<cmd>DiffviewClose<CR><cmd>NvimTreeToggle<CR>",
+keymap("n", "<Leader>gc", function()
+    vim.cmd("DiffviewClose")
+    vim.cmd("NvimTreeToggle")
+  end,
   { desc = "Close git diff", silent = true })
-keymap("n", "<Leader>gg", "<cmd>LazyGit<CR>",
-  { desc = "Open LazyGit UI", silent = true })
+keymap("n", "<Leader>gg", function() vim.cmd("LazyGit") end, { desc = "Open LazyGit UI", silent = true })
 
 -- ============================================================
 -- Terminal
@@ -213,8 +213,7 @@ keymap("n", "<Leader>gg", "<cmd>LazyGit<CR>",
 keymap("t", "<Leader>tw", "<C-\\><C-n>:FloatermNew<CR>", { desc = "New floaterm", silent = true })
 keymap("t", "<Leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "Toggle floaterm", silent = true })
 keymap("n", "<Leader>tt", ":FloatermToggle<CR>", { desc = "Toggle floaterm", silent = true })
-keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>",
-  { desc = "Kill floaterm", silent = true })
+keymap("t", "<Leader>tk", "<C-\\><C-n>:FloatermKill<CR>:FloatermToggle<CR>", { desc = "Kill floaterm", silent = true })
 
 -- ============================================================
 -- Comments
@@ -243,27 +242,22 @@ keymap("n", "<S-m>", "zM", { desc = "Fold close all", silent = true })
 -- Bookmarks
 -- ============================================================
 
-keymap("n", "mm", "<cmd>BookmarkToggle<CR>", { desc = "Toggle bookmark", silent = true })
-keymap("n", "mt", "<cmd>BookmarkAnnotate<CR>", { desc = "Add bookmark annotation", silent = true })
-keymap("n", "mc", "<cmd>BookmarkClear<CR>", { desc = "Clear buffer bookmarks", silent = true })
-keymap("n", "mx", "<cmd>BookmarkClearAll<CR>", { desc = "Clear all bookmarks", silent = true })
-keymap("n", "mn", "<cmd>BookmarkNext<CR>", { desc = "Next bookmark", silent = true })
-keymap("n", "mp", "<cmd>BookmarkPrev<CR>", { desc = "Previous bookmark", silent = true })
-keymap("n", "ma",
-  function()
-    require("telescope").extensions.vim_bookmarks.current_file()
-  end,
-  { desc = "Show bookmarks (current file)", silent = true }
-)
+keymap("n", "mm", function() vim.cmd("BookmarkToggle") end, { desc = "Toggle bookmark", silent = true })
+keymap("n", "mt", function() vim.cmd("BookmarkAnnotate") end, { desc = "Add bookmark annotation", silent = true })
+keymap("n", "mc", function() vim.cmd("BookmarkClear") end, { desc = "Clear buffer bookmarks", silent = true })
+keymap("n", "mx", function() vim.cmd("BookmarkClearAll") end, { desc = "Clear all bookmarks", silent = true })
+keymap("n", "mn", function() vim.cmd("BookmarkNext") end, { desc = "Next bookmark", silent = true })
+keymap("n", "mp", function() vim.cmd("BookmarkPrev") end, { desc = "Previous bookmark", silent = true })
+keymap("n", "ma", function() require("telescope").extensions.vim_bookmarks.current_file() end,
+  { desc = "Show bookmarks (current file)", silent = true })
 
 -- ============================================================
 -- Code Generation & Translation
 -- ============================================================
 
 -- Generate annotations (neogen)
-keymap("n", "<Leader>aa", function() require('neogen').generate() end,
-  { desc = "Generate annotations", silent = true })
+keymap("n", "<Leader>aa", function() require('neogen').generate() end, { desc = "Generate annotations", silent = true })
 
 -- Translate (zh)
-keymap("n", "<C-t>", "<Plug>TranslateW", { desc = "Translate word", silent = true })
-keymap("v", "<C-t>", "<Plug>TranslateWV", { desc = "Translate selection", silent = true })
+keymap("n", "<C-t>", function() vim.cmd("TranslateW") end, { desc = "Translate word", silent = true })
+keymap("v", "<C-t>", function() vim.cmd("TranslateWV") end, { desc = "Translate selection", silent = true })
