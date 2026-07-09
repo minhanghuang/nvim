@@ -1,5 +1,5 @@
-local has_hlslens, hlslens = pcall(require, "hlslens")
-if not has_hlslens then
+local ok, hlslens = pcall(require, "hlslens")
+if not ok then
   vim.notify("nvim-hlslens not found!")
   return
 end

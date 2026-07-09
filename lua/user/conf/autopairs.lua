@@ -1,10 +1,10 @@
-local has_autopairs, autopairs = pcall(require, "nvim-autopairs")
-if not has_autopairs then
-  vim.notify("nvim-autopairs not found!")
+local ok, autopairs = pcall(require, "nvim-autopairs")
+if not ok then
+  vim.notify("windwp/nvim-autopairs not found!")
   return
 end
 
-autopairs.setup {
+autopairs.setup({
   check_ts = true,
   ts_config = {
     lua = { "string", "source" },
@@ -23,4 +23,4 @@ autopairs.setup {
     highlight = "PmenuSel",
     highlight_grey = "LineNr",
   },
-}
+})

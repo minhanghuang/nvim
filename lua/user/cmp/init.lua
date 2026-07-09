@@ -19,7 +19,6 @@ return {
         dependencies = {
           {
             "L3MON4D3/LuaSnip", -- snippets engine(不支持UltiSnip类型代码片段)
-            version = "v2.*",   -- Replace <CurrentMajor> by the latest released major (first number of latest release)
             build = "make install_jsregexp",
             dependencies = {
               {

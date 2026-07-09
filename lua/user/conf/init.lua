@@ -1,7 +1,10 @@
 return {
   {
     "nvim-lua/plenary.nvim",
-    enabled = true,
+    lazy = false,
+    cmd = {},
+    opts = {},
+    dependencies = {},
     init = function()
       -- pass
     end,
@@ -54,7 +57,6 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    enabled = true,
     config = function()
       require("user.conf.autopairs")
     end,
@@ -115,13 +117,6 @@ return {
       vim.api.nvim_set_keymap('n', 'N',
         [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
         { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', { noremap = true, silent = true })
-      -- 光标停留在当前字符, 不会跳转至下一个匹配的字符
-      -- keymap("n", "<C-f>", "g*", { silent = true })
       vim.keymap.set('n', '<C-f>', function()
         local cword = vim.fn.expand('<cword>')
         local pattern = [[\V\<]] .. vim.fn.escape(cword, [[\]]) .. [[\>]]
@@ -129,6 +124,11 @@ return {
         vim.opt.hlsearch = true
         require('hlslens').start()
       end, { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', { noremap = true, silent = true })
     end,
   },
 
@@ -252,17 +252,6 @@ return {
       "TSEditQuery",
       "TSEditQueryUserAfter",
     },
-    -- 禁止设置VeryLazy, 会影响filetype.nvim插件
-    -- event = "VeryLazy",
-    -- dependencies = {
-    --   {
-    --     -- nvim-treesitter parser (https://github.com/minhanghuang/nvim/issues/23)
-    --     "nathom/filetype.nvim",
-    --     config = function()
-    --       require("filetype").setup({})
-    --     end,
-    --   },
-    -- },
     config = function()
       require("user.conf.nvim-treesitter")
     end,
@@ -287,6 +276,15 @@ return {
       "TSContextDisable",
       "TSContextToggle",
     },
+    keys = {
+      {
+        "[c",
+        function()
+          require('treesitter-context').go_to_context(vim.v.count1)
+        end,
+        desc = "跳转到上下文的上文",
+      },
+    },
     config = function()
       require("treesitter-context").setup({
         enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -302,8 +300,6 @@ return {
         zindex = 20,     -- The Z-index of the context window
         on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
       })
-      -- 跳转到上下文的上文
-      vim.keymap.set("n", "[c", "<cmd>lua require('treesitter-context').go_to_context(vim.v.count1)<CR>")
     end,
   },
 
@@ -328,18 +324,15 @@ return {
         "BurntSushi/ripgrep",
         "sharkdp/fd",
       },
-
+    },
+    keys = {
+      { "<leader>f;", function() require('telescope.builtin').command_history() end, desc = "历史命令" },
+      { "<leader>f/", function() require('telescope.builtin').search_history() end, desc = "搜索历史" },
+      { "<leader>fe", function() require('telescope.builtin').spell_suggest() end, desc = "单词拼写建议" },
+      { "<leader>fm", function() require('telescope.builtin').keymaps() end, desc = "查看键盘映射" },
     },
     config = function()
       require("user.conf.nvim-telescope")
-      -- 历史命令
-      vim.keymap.set("n", "<Leader>f;", "<cmd>lua require('telescope.builtin').command_history()<CR>")
-      -- 搜索历史
-      vim.keymap.set("n", "<Leader>f/", "<cmd>lua require('telescope.builtin').search_history()<CR>")
-      -- 单词拼写建议
-      vim.keymap.set("n", "<Leader>fe", "<cmd>lua require('telescope.builtin').spell_suggest()<CR>")
-      -- 查看键盘映射
-      vim.keymap.set("n", "<Leader>fm", "<cmd>lua require('telescope.builtin').keymaps()<CR>")
     end,
   },
 
@@ -384,10 +377,7 @@ return {
     event = "VeryLazy",
     opts = {},
     dependencies = {
-      {
-        "MunifTanjim/nui.nvim",
-        lazy = true,
-      }
+      "MunifTanjim/nui.nvim",
     },
     init = function()
       ---@diagnostic disable-next-line: duplicate-set-field
@@ -407,40 +397,41 @@ return {
   {
     -- https://github.com/nvimdev/lspsaga.nvim
     "nvimdev/lspsaga.nvim",
-    enable = true,
-    cmd = { "Lspsaga" },
     event = "LspAttach",
+    cmd = { "Lspsaga" },
+    keys = {
+      { "<leader><Tab>", function() vim.cmd('Lspsaga outline') end, desc = "查看函数和变量" },
+      { "<leader>-", function() vim.cmd('Lspsaga diagnostic_jump_next') end, desc = "跳转到下一个错误" },
+      { "<leader>=", function() vim.cmd('Lspsaga diagnostic_jump_prev') end, desc = "跳转到上一个错误" },
+      { "<leader>ce", function() vim.cmd('Lspsaga code_action') end, desc = "code action" },
+      { "<leader>di", function() vim.cmd('Lspsaga show_line_diagnostics') end, desc = "show diagnostic in window" },
+    },
     config = function()
       require("user.conf.lspsaga")
-      -- 查看函数和变量
-      vim.keymap.set("n", "<Leader><Tab>", "<cmd>Lspsaga outline<CR>")
-      -- 跳转到下一个错误, code action
-      vim.keymap.set("n", "<Leader>-", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-      -- 跳转到上一个错误, code action
-      vim.keymap.set("n", "<Leader>=", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-      -- code action
-      vim.keymap.set("n", "<Leader>ce", "<cmd>Lspsaga code_action<CR>")
-      -- show diagnostic in floating window
-      vim.keymap.set("n", "<Leader>di", "<cmd>Lspsaga show_line_diagnostics<CR>")
     end,
   },
   {
     -- https://github.com/folke/trouble.nvim
     "folke/trouble.nvim",
-    enable = true,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    cmd = "Trouble",
+    cmd = {
+      "Trouble",
+    },
+    keys = {
+      {
+        "<leader>cl",
+        function()
+          vim.cmd('Trouble diagnostics toggle focus=true win.type="split" filter.buf=0')
+        end,
+        desc = "显示诊断列表",
+      },
+    },
     config = function()
       require("trouble").setup({
-        -- global config
         auto_close = true, -- auto close when there are no items
       })
-      -- 显示诊断列表(:lua vim.diagnostic.setqflist())
-      vim.keymap.set("n", "<Leader>cl", "<cmd>Trouble diagnostics toggle focus=true win.type='split' filter.buf=0 <CR>")
-      -- -- 查看函数和变量 ui界面不佳, 使用lspsaga
-      -- vim.keymap.set("n", "<Leader><Tab>", "<cmd>Trouble symbols toggle focus=true win.type='split' filter.buf=0 <CR>")
     end,
   },
 
@@ -645,7 +636,7 @@ return {
   {
     -- https://github.com/MeanderingProgrammer/render-markdown.nvim
     "MeanderingProgrammer/render-markdown.nvim",
-    cmds = {
+    cmd = {
       "RenderMarkdown",
     },
     dependencies = {
@@ -694,26 +685,30 @@ return {
   {
     "minhanghuang/spell.nvim",
     event = "VeryLazy",
+    keys = {
+      { "<leader>ze", function() vim.cmd('SpellTogglePlugin') end, desc = "" },
+      { "<leader>zs", function() vim.cmd('SpellSuggest') end,      desc = "" },
+      { "<leader>za", function() vim.cmd('SpellAdd!') end,         desc = "" },
+      { "<leader>zn", function() vim.cmd('SpellNext') end,         desc = "" },
+      { "<leader>zp", function() vim.cmd('SpellPrev') end,         desc = "" },
+    },
     config = function()
       require("user.conf.spell")
-      vim.keymap.set("n", "<Leader>ze", "<cmd>SpellTogglePlugin<CR>")
-      vim.keymap.set("n", "<Leader>zs", "<cmd>SpellSuggest<CR>")
-      vim.keymap.set("n", "<Leader>za", "<cmd>SpellAdd!<CR>")
-      vim.keymap.set("n", "<Leader>zn", "<cmd>SpellNext<CR>")
-      vim.keymap.set("n", "<Leader>zp", "<cmd>SpellPrev<CR>")
     end,
   },
   -- -- dev单词拼写检查
   -- {
   --   dir = "~/work/code/github/spell.nvim", -- 本地repo绝对路径
   --   event = "VeryLazy",
+  --   keys = {
+  --     { "<leader>ze", function() vim.cmd('SpellTogglePlugin') end, desc = "" },
+  --     { "<leader>zs", function() vim.cmd('SpellSuggest') end,      desc = "" },
+  --     { "<leader>za", function() vim.cmd('SpellAdd!') end,         desc = "" },
+  --     { "<leader>zn", function() vim.cmd('SpellNext') end,         desc = "" },
+  --     { "<leader>zp", function() vim.cmd('SpellPrev') end,         desc = "" },
+  --   },
   --   config = function()
   --     require("user.conf.spell")
-  --     vim.keymap.set("n", "<Leader>zt", "<cmd>SpellTogglePlugin<CR>")
-  --     vim.keymap.set("n", "<Leader>zs", "<cmd>SpellSuggest<CR>")
-  --     vim.keymap.set("n", "<Leader>za", "<cmd>SpellAdd!<CR>")
-  --     vim.keymap.set("n", "<Leader>zn", "<cmd>SpellNext<CR>")
-  --     vim.keymap.set("n", "<Leader>zp", "<cmd>SpellPrev<CR>")
   --   end,
   -- },
 
@@ -734,7 +729,6 @@ return {
   -- 底部状态栏
   {
     "windwp/windline.nvim",
-    enabled = true,
     config = function()
       require("user.conf.windline")
     end,

@@ -6,15 +6,6 @@ end
 
 local api = require("nvim-tree.api")
 
--- local function live_grep_the_node_cb(node)
---   require('user.util').telescope('live_grep',
---     { prompt_title = "Search Path:" .. node.absolute_path, search_dirs = { node.absolute_path } })
--- end
--- local function find_files_the_node_cb(node)
---   require('user.util').telescope('find_files',
---     { search_dirs = { node.absolute_path } })
--- end
-
 local function live_grep_the_node_cb()
   local node = api.tree.get_node_under_cursor()
   require('user.util').telescope('live_grep',
