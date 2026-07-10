@@ -4,7 +4,6 @@ return {
     "hrsh7th/nvim-cmp",
     -- event = "VeryLazy",
     dependencies = {
-      -- nvim-cmp
       "hrsh7th/cmp-nvim-lsp",                -- 内置lsp补全
       "hrsh7th/cmp-nvim-lua",                -- vim.lsp补全
       "hrsh7th/cmp-buffer",                  -- 代码片段
@@ -13,45 +12,20 @@ return {
       "hrsh7th/cmp-nvim-lsp-signature-help", -- 补全参数提示
       "lukas-reineke/cmp-rg",
       "hrsh7th/cmp-emoji",                   -- emoji表情(使用:xxx)
+      "onsails/lspkind-nvim",                -- 分类选项icon
+      "p00f/clangd_extensions.nvim",         -- clangd拓展插件
       {
-        -- For luasnip users.
-        "saadparwaiz1/cmp_luasnip",
+        "saadparwaiz1/cmp_luasnip",          -- For luasnip users
         dependencies = {
           {
             "L3MON4D3/LuaSnip", -- snippets engine(不支持UltiSnip类型代码片段)
             build = "make install_jsregexp",
             dependencies = {
-              {
-                "honza/vim-snippets", -- 代码片段(snipMate & UltiSnip)
-              },
-              {
-                "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
-              },
+              "honza/vim-snippets",           -- 代码片段(snipMate & UltiSnip)
+              "rafamadriz/friendly-snippets", -- 代码片段(LuaSnip)
             },
           },
         }
-      },
-      -- lspkind
-      {
-        "onsails/lspkind-nvim", -- 分类选项icon
-      },
-
-      -- -- 补全排序
-      -- {
-      --   'tzachar/cmp-tabnine',
-      --   build = './install.sh',
-      -- },
-
-      -- {
-      --   "ray-x/lsp_signature.nvim",
-      --   config = function()
-      --   end
-      -- }
-
-      -- clangd拓展插件
-      {
-        -- https://github.com/p00f/clangd_extensions.nvim
-        "p00f/clangd_extensions.nvim",
       },
     },
     config = function()
@@ -240,12 +214,13 @@ return {
             maxwidth = vim.o.columns / 2, -- prevent the popup from showing more than provided characters
             -- with_text = true,
             menu = {
-              nvim_lsp = "",
-              nvim_lua = "",
-              path = "",
-              buffer = "﬘",
-              vsnip = "",
               treesitter = "",
+              nvim_lsp = "🅻",
+              nvim_lua = "",
+              luasnip = "",
+              buffer = "",
+              vsnip = "",
+              path = "",
               zsh = "",
             },
             symbol_map = {
