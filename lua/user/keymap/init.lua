@@ -57,7 +57,12 @@ keymap("n", "o", "o<Esc>", { desc = "Insert line below", silent = true })
 keymap("n", "dwi", "diw", { desc = "Delete inner word", silent = true })
 
 -- Clear search highlight (keep silent=false to show ":nohlsearch" feedback)
-keymap("n", "<C-c>", ":nohlsearch<CR>", { desc = "Clear search highlight", silent = false })
+-- keymap("n", "<C-c>", ":nohlsearch<CR>", { desc = "Clear search highlight", silent = false })
+keymap("n", "<C-c>", function()
+  Snacks.notifier.hide()
+  vim.cmd('nohlsearch')
+  vim.api.nvim_echo({ { ":nohlsearch", "Normal" } }, false, {})
+end, { desc = "Clear search highlight", silent = false })
 
 -- ============================================================
 -- System Clipboard
@@ -80,11 +85,9 @@ keymap("n", "<S-Right>", function() vim.cmd('NvimTreeResize +2') end, { desc = "
 -- ============================================================
 
 -- <C-[> 取代 <C-;>
-keymap("i", "<C-;>", "<Esc>", { desc = "Exit to normal mode", silent = true })
-keymap("v", "<C-;>", "<Esc>", { desc = "Exit to normal mode", silent = true })
+keymap({ "i", "v" }, "<C-;>", "<Esc>", { desc = "Exit to normal mode", silent = true })
 keymap("t", "<C-;>", "<C-\\><C-n>", { desc = "Exit terminal mode", silent = true })
-keymap("i", "<C-[>", "<Esc>", { desc = "Exit to normal mode", silent = true })
-keymap("v", "<C-[>", "<Esc>", { desc = "Exit to normal mode", silent = true })
+keymap({ "i", "v" }, "<C-[>", "<Esc>", { desc = "Exit to normal mode", silent = true })
 keymap("t", "<C-[>", "<C-\\><C-n>", { desc = "Exit terminal mode", silent = true })
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode", silent = true })
 
