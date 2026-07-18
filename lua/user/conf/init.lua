@@ -498,8 +498,8 @@ return {
     keys = {
       -- Top Pickers & Explorer
       -- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+      -- { "<leader>nd", function() Snacks.notifier.hide() end,         desc = "Dismiss All Notifications" },
       { "<leader>nh", function() Snacks.notifier.show_history() end, desc = "Notification History" },
-      { "<leader>nd", function() Snacks.notifier.hide() end,         desc = "Dismiss All Notifications" },
     },
     init = function()
       vim.api.nvim_create_autocmd("User", {
