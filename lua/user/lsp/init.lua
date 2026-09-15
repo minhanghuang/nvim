@@ -94,6 +94,7 @@ return {
         pylsp = require("user.lsp.providers.pylsp"),
 
         clangd = require("user.lsp.providers.clangd"),
+        gopls = require("user.lsp.providers.default"),
         html = require("user.lsp.providers.html"),
         ts_ls = require("user.lsp.providers.typescript"),
         cmake = require("user.lsp.providers.cmake"),
