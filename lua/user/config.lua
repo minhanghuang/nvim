@@ -42,6 +42,7 @@ local defaults = {
       'pyright@1.1.335',
       'pylsp@1.11.0',
       'clangd@16.0.2',
+      'gopls', -- Golang
       'html@4.0.0',
       -- 'ts_ls@4.2.0',                           -- js ts
       'cmake@0.1.0',                           -- dependence python3-venv
