@@ -27,6 +27,7 @@ local defaults = {
       "html",
       "dockerfile",
       "diff",
+      "go",
       "git_config",
       "git_rebase",
       "gitcommit",
