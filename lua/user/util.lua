@@ -8,12 +8,58 @@ M.telescope = function(builtin, opts)
 end
 
 -- format
+local function organize_go_imports(bufnr)
+  local clients = vim.lsp.get_clients({
+    bufnr = bufnr,
+    name = "gopls",
+    method = "textDocument/codeAction",
+  })
+  local client = clients[1]
+  if not client then
+    return
+  end
+
+  local range_params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+  local params = {
+    textDocument = range_params.textDocument,
+    range = range_params.range,
+    context = {
+      only = { "source.organizeImports" },
+      diagnostics = {},
+    },
+  }
+
+  local response = client:request_sync("textDocument/codeAction", params, 2000, bufnr)
+  for _, code_action in ipairs(response and response.result or {}) do
+    if not code_action.disabled then
+      if not code_action.edit and client:supports_method("codeAction/resolve") then
+        local resolved = client:request_sync("codeAction/resolve", code_action, 2000, bufnr)
+        code_action = resolved and resolved.result or code_action
+      end
+
+      if code_action.edit then
+        vim.lsp.util.apply_workspace_edit(code_action.edit, client.offset_encoding)
+      end
+
+      if code_action.command then
+        local command = type(code_action.command) == "table" and code_action.command or code_action
+        client:exec_cmd(command, { bufnr = bufnr })
+      end
+    end
+  end
+end
+
 M.format_code = function()
-  local file_type = vim.api.nvim_buf_get_option(0, 'filetype')
+  local bufnr = vim.api.nvim_get_current_buf()
+  local file_type = vim.bo[bufnr].filetype
   -- 如果是下面这些文件, 使用第三方插件进行格式化
   if 'python' == file_type or 'vue' == file_type then
     -- vim.cmd('Neoformat') -- sbdchd/neoformat
     vim.cmd("FormatWrite") -- mhartington/formatter.nvim
+  elseif 'go' == file_type then
+    -- Go 使用 gopls 整理 imports，并按 gofumpt 风格格式化
+    organize_go_imports(bufnr)
+    vim.lsp.buf.format({ bufnr = bufnr, name = "gopls", async = false })
   else
     -- 否则使用 LSP 的格式化
     vim.lsp.buf.format { async = true }
