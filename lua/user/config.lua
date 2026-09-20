@@ -46,9 +46,9 @@ local defaults = {
       'pyright@1.1.335',
       'pylsp@1.11.0',
       'clangd@16.0.2',
-      'gopls', -- Golang
       'html@4.0.0',
-      'volar@3.3.11',                         -- Vue 3 (注册名为 vue_ls)
+      'gopls@v0.23.0',                         -- Golang
+      'volar@3.3.11',                          -- Vue3(注册名为vue_ls)
       'cmake@0.1.0',                           -- dependence python3-venv
       'jsonls@4.0.0',                          -- json
       'yamlls@1.14.0',                         -- yaml
