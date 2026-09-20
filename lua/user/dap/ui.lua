@@ -1,5 +1,5 @@
 local has_dap, dap = pcall(require, "dap")
-local has_ui, dap_ui = pcall(require, "dapui")
+local has_ui, ui = pcall(require, "dapui")
 
 if not has_dap then
   vim.notify("mfussenegger/nvim-dap not found!")
@@ -10,7 +10,7 @@ if not has_ui then
   return
 end
 
-dap_ui.setup({
+ui.setup({
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
     expand = { "<CR>", "<2-LeftMouse>" },
@@ -42,10 +42,10 @@ dap_ui.setup({
     },
     {
       elements = {
-        -- "repl",
-        "console",
+        { id = "repl",    size = 0.5 },
+        { id = "console", size = 0.5 },
       },
-      size = 10,
+      size = 16,
       position = "bottom",
     },
   },
@@ -66,14 +66,14 @@ dap_ui.setup({
 -- 如果开启或关闭调试，则自动打开或关闭调试界面
 dap.listeners.after.event_initialized["dapui_config"] = function()
   -- 不开codelldb窗口
-  dap_ui.open()
+  ui.open()
   -- dap_ui.open("sidebar")
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dap_ui.close()
-  dap.repl.close()
+  -- 只关闭侧边栏，保留底部输出窗口，方便查看 stdout/stderr
+  ui.close(1)
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dap_ui.close()
-  dap.repl.close()
+  -- 使用 <leader>dd 手动关闭保留的 REPL 和 Console
+  ui.close(1)
 end

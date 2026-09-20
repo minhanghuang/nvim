@@ -27,6 +27,10 @@ local defaults = {
       "html",
       "dockerfile",
       "diff",
+      "go",
+      "gomod",
+      "gosum",
+      "gowork",
       "git_config",
       "git_rebase",
       "gitcommit",
@@ -79,6 +83,7 @@ local defaults = {
     dap = {
       { "debugpy",  version = "1.8.0" },   -- Python
       { "codelldb", version = "v1.12.2" }, -- C/C++/Rust
+      { "delve",    version = "v1.27.2" }, -- Golang
     },
   },
 

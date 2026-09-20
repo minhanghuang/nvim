@@ -6,6 +6,7 @@ return {
       "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
       "mfussenegger/nvim-dap-python",
+      "leoluz/nvim-dap-go",
       "jay-babu/mason-nvim-dap.nvim",
       "Weissle/persistent-breakpoints.nvim",
     },
@@ -28,13 +29,14 @@ return {
         load_breakpoints_event = { "BufReadPost" },
       })
 
-      -- Mason DAP 适配器自动配置(debugpy | codelldb)
+      require("user.dap.providers.python")   -- Python: debugpy
+      require("user.dap.providers.codelldb") -- C/C++/Rust: codelldb
+      require("user.dap.providers.golang")   -- Golang: delve
+
+      -- 自动安装已配置的 DAP 适配器(debugpy | codelldb | delve)
       require("mason-nvim-dap").setup({
         automatic_installation = true,
       })
-
-      require("user.dap.providers.python")   -- Python: debugpy
-      require("user.dap.providers.codelldb") -- C/C++/Rust: codelldb
     end,
   },
 }
