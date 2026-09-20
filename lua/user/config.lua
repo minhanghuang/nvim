@@ -52,7 +52,6 @@ local defaults = {
       'cmake@0.1.0',                           -- dependence python3-venv
       'jsonls@4.0.0',                          -- json
       'yamlls@1.14.0',                         -- yaml
-      'bashls@4.0.0',                          -- bash
       'docker_compose_language_service@0.2.0', -- docker-compose
       'dockerls@0.11.0',                       -- docker file
       'marksman@2023-12-09',                   -- markdown
@@ -60,6 +59,7 @@ local defaults = {
     formatter = {
       { "clang-format", version = "19.1.6" }, -- cpp code format
       { "ruff",         version = "0.16.8" }, -- python lint and code format
+      { "shuck",        version = "0.2.2" },  -- shell lint, format and LSP
       { "cmakelang",    version = "0.6.13" }, -- cmakelists
       { "prettier",     version = "3.4.2" },  -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
     },

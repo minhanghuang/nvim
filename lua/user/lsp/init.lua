@@ -95,11 +95,11 @@ return {
         ruff = require("user.lsp.providers.ruff"),
 
         clangd = require("user.lsp.providers.clangd"),
-        gopls = require("user.lsp.providers.gopls"),
+        gopls = require("user.lsp.providers.gopls"), -- golang
         html = require("user.lsp.providers.html"),
         cmake = require("user.lsp.providers.cmake"),
         yamlls = require("user.lsp.providers.yamlls"),
-        bashls = require("user.lsp.providers.bashls"),
+        shuck = require("user.lsp.providers.shuck"), -- shell bash
         vue_ls = require("user.lsp.providers.vue"),
         docker_compose_language_service = require("user.lsp.providers.docker-compose"),
         dockerls = require("user.lsp.providers.default"),
