@@ -46,24 +46,20 @@ local defaults = {
       'pyright@1.1.335',
       'pylsp@1.11.0',
       'clangd@16.0.2',
-      'gopls', -- Golang
       'html@4.0.0',
-      -- 'ts_ls@4.2.0',                           -- js ts
+      'gopls@v0.23.0',                         -- Golang
+      'volar@3.3.11',                          -- Vue3(注册名为vue_ls)
       'cmake@0.1.0',                           -- dependence python3-venv
       'jsonls@4.0.0',                          -- json
       'yamlls@1.14.0',                         -- yaml
       'bashls@4.0.0',                          -- bash
-      'vuels@0.8.5',                           -- vue.js 2(vuels)
-      -- 'vue',                             -- vue.js 3(volar)
       'docker_compose_language_service@0.2.0', -- docker-compose
       'dockerls@0.11.0',                       -- docker file
       'marksman@2023-12-09',                   -- markdown
     },
     formatter = {
       { "clang-format", version = "19.1.6" }, -- cpp code format
-      { "autopep8",     version = "2.3.1" },  -- python code format
-      { "black",        version = "24.8.0" }, -- python code format
-      { "isort",        version = "5.13.2" }, -- python import sort
+      { "ruff",         version = "0.16.8" }, -- python lint and code format
       { "cmakelang",    version = "0.6.13" }, -- cmakelists
       { "prettier",     version = "3.4.2" },  -- Angular, CSS, Flow, GraphQL, HTML, JSON, JSX, JavaScript, LESS, Markdown, SCSS, TypeScript, Vue, YAML
     },

@@ -151,15 +151,6 @@ return {
     end,
   },
 
-  -- formatting
-  {
-    "mhartington/formatter.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("user.conf.formatter")
-    end,
-  },
-
   -- 缩进
   {
     -- https://github.com/shellRaining/hlchunk.nvim

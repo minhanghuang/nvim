@@ -23,7 +23,6 @@
   "dressing.nvim": { "branch": "master", "commit": "8b7ae53d7f04f33be3439a441db8071c96092d19" },
   "fd": { "branch": "master", "commit": "90e73d72df258db32bad7a4d11154a936b05ea92" },
   "fidget.nvim": { "branch": "main", "commit": "fa1445fe7230845ea66b2c8bec3398fe5d900307" },
-  "formatter.nvim": { "branch": "master", "commit": "91651e6afaf6f73b0ffb8b433c06cd4e06f90403" },
   "friendly-snippets": { "branch": "main", "commit": "43727c2ff84240e55d4069ec3e6158d74cb534b6" },
   "garbage-day.nvim": { "branch": "main", "commit": "2fcc56556281de8ee871a5f3beb9db7ab747ef32" },
   "gitsigns.nvim": { "branch": "main", "commit": "dd3f588bacbeb041be6facf1742e42097f62165d" },

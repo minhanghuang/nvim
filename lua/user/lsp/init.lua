@@ -89,18 +89,18 @@ return {
         jsonls = require("user.lsp.providers.jsonls"),
         lua_ls = require("user.lsp.providers.sumneko_lua"),
 
-        -- Python使用两个lsp, pylsp作为辅助, 补全第三方库(rospy、Protobuf等)
+        -- Python使用Pyright进行类型检查、pylsp辅助补全、Ruff检查并格式化
         pyright = require("user.lsp.providers.pyright"),
         pylsp = require("user.lsp.providers.pylsp"),
+        ruff = require("user.lsp.providers.ruff"),
 
         clangd = require("user.lsp.providers.clangd"),
         gopls = require("user.lsp.providers.gopls"),
         html = require("user.lsp.providers.html"),
-        ts_ls = require("user.lsp.providers.typescript"),
         cmake = require("user.lsp.providers.cmake"),
         yamlls = require("user.lsp.providers.yamlls"),
         bashls = require("user.lsp.providers.bashls"),
-        vuels = require("user.lsp.providers.vue"),
+        vue_ls = require("user.lsp.providers.vue"),
         docker_compose_language_service = require("user.lsp.providers.docker-compose"),
         dockerls = require("user.lsp.providers.default"),
         marksman = require("user.lsp.providers.default"),
