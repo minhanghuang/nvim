@@ -262,5 +262,5 @@ keymap("n", "ma", function() require("telescope").extensions.vim_bookmarks.curre
 keymap("n", "<Leader>aa", function() require('neogen').generate() end, { desc = "Generate annotations", silent = true })
 
 -- Translate (zh)
-keymap("n", "<C-t>", function() vim.cmd("TranslateW") end, { desc = "Translate word", silent = true })
-keymap("v", "<C-t>", function() vim.cmd("TranslateWV") end, { desc = "Translate selection", silent = true })
+keymap("n", "<C-t>", "<Plug>TranslateW", { desc = "Translate word", silent = true })
+keymap("v", "<C-t>", "<Plug>TranslateWV", { desc = "Translate selection", silent = true })
