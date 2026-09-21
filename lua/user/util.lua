@@ -8,10 +8,10 @@ M.telescope = function(builtin, opts)
 end
 
 -- format
-local function organize_go_imports(bufnr)
+local function organize_imports(bufnr, client_name)
   local clients = vim.lsp.get_clients({
     bufnr = bufnr,
-    name = "gopls",
+    name = client_name,
     method = "textDocument/codeAction",
   })
   local client = clients[1]
@@ -52,17 +52,24 @@ end
 M.format_code = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local file_type = vim.bo[bufnr].filetype
-  -- 如果是下面这些文件, 使用第三方插件进行格式化
-  if 'python' == file_type or 'vue' == file_type then
-    -- vim.cmd('Neoformat') -- sbdchd/neoformat
-    vim.cmd("FormatWrite") -- mhartington/formatter.nvim
+  if 'python' == file_type then
+    -- Ruff 整理 imports 后再同步格式化
+    organize_imports(bufnr, "ruff")
+    vim.lsp.buf.format({ bufnr = bufnr, name = "ruff", async = false })
+  elseif 'vue' == file_type then
+    -- Vue3使用官方Vue Language Server
+    vim.lsp.buf.format({
+      bufnr = bufnr,
+      name = "vue_ls",
+      async = false,
+    })
   elseif 'go' == file_type then
     -- Go 使用 gopls 整理 imports，并按 gofumpt 风格格式化
-    organize_go_imports(bufnr)
+    organize_imports(bufnr, "gopls")
     vim.lsp.buf.format({ bufnr = bufnr, name = "gopls", async = false })
   else
-    -- 否则使用 LSP 的格式化
-    vim.lsp.buf.format { async = true }
+    -- 其他使用LSP格式化
+    vim.lsp.buf.format({ async = true })
   end
 end
 

@@ -7,7 +7,7 @@ return {
   settings = {
     pyright = {
       disableLanguageServices = false,
-      disableOrganizeImports = false
+      disableOrganizeImports = true
     },
     python = {
       -- https://microsoft.github.io/pyright/#/configuration?id=main-configuration-options
