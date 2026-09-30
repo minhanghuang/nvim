@@ -4,7 +4,7 @@
 #
 # 根据 README.md 的指示, 自动完成以下步骤:
 #   1. 安装 / 升级 Neovim (最低 0.12.2)
-#   2. 安装 Nerd Fonts 字体
+#   2. 安装 Nerd Fonts 字体 (Server / Docker 环境跳过)
 #   3. 安装第三方依赖 (ctags / ripgrep / llvm / tig / sqlite / imagemagick / lazygit 等)
 #   4. 通过 nvm 安装 Node.js
 #   5. 安装 Python + Protobuf 相关依赖
@@ -147,21 +147,22 @@ is_container() {
 
 # 判断是否为无图形界面的 Server / 容器环境 (无需安装字体)
 is_headless() {
-  # macOS 始终有 GUI
-  [[ "$OS" == "linux" ]] || return 1
-
   # Docker / Podman 等容器环境无需安装字体
   is_container && return 0
+
+  [[ "$OS" == "linux" ]] || return 1
 
   if command_exists systemctl; then
     # systemd 默认启动目标: multi-user.target => server, graphical.target => desktop
     local target
     target="$(systemctl get-default 2>/dev/null || true)"
-    [[ "$target" == "multi-user.target" ]] && return 0
-    return 1
+    case "$target" in
+      multi-user.target) return 0 ;;
+      graphical.target) return 1 ;;
+    esac
   fi
 
-  # 无 systemd (WSL 等): 没有显示服务器则视为 server
+  # 无 systemd 或无法确定启动目标: 没有显示服务器则视为 server
   [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]
 }
 
@@ -423,6 +424,11 @@ install_python_deps() {
 # 6. 配置目录 (克隆 / 链接)
 # ---------------------------------------------------------------------------
 setup_config() {
+  if [[ -e "$CONFIG_DIR" || -L "$CONFIG_DIR" ]]; then
+    ok "配置目录已存在: ${CONFIG_DIR}, 跳过克隆/链接"
+    return 0
+  fi
+
   local script_dir
   script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -440,14 +446,6 @@ setup_config() {
   fi
 
   # 独立运行: 克隆仓库
-  if [[ -e "$CONFIG_DIR" ]]; then
-    if [[ -f "$CONFIG_DIR/init.vim" ]]; then
-      ok "配置目录已存在: ${CONFIG_DIR}, 跳过克隆"
-      return 0
-    fi
-    die "目录 ${CONFIG_DIR} 已存在但不是本配置仓库, 请手动处理后重试"
-  fi
-
   info "克隆配置仓库到 ${CONFIG_DIR} ..."
   git clone "$CONFIG_REPO" "$CONFIG_DIR"
   ok "配置克隆完成"
@@ -527,13 +525,18 @@ main() {
 
   # 非交互模式下直接继续; 交互模式先展示计划并确认
   if [[ "$YES" -eq 0 ]]; then
+    local step=1
     echo "将执行以下步骤:"
-    echo "  1. 安装 Neovim ${NVIM_VERSION}"
-    echo "  2. 安装 Nerd Fonts 字体 (${NERD_FONT})"
-    echo "  3. 安装第三方依赖"
-    echo "  4. 通过 nvm 安装 Node.js ${NODE_VERSION}"
-    echo "  5. 安装 Python + Protobuf 依赖"
-    echo "  6. 克隆/链接配置到 ${CONFIG_DIR}"
+    echo "  $((step++)). 安装 Neovim ${NVIM_VERSION}"
+    if ! is_headless; then
+      echo "  $((step++)). 安装 Nerd Fonts 字体 (${NERD_FONT})"
+    fi
+    echo "  $((step++)). 安装第三方依赖"
+    echo "  $((step++)). 通过 nvm 安装 Node.js ${NODE_VERSION}"
+    echo "  $((step++)). 安装 Python + Protobuf 依赖"
+    if [[ ! -e "$CONFIG_DIR" && ! -L "$CONFIG_DIR" ]]; then
+      echo "  $((step++)). 克隆/链接配置到 ${CONFIG_DIR}"
+    fi
     echo
     confirm "是否继续?" || die "已取消安装"
   fi
