@@ -44,9 +44,13 @@ return {
     },
     config = function()
       local installer = require("mason-lspconfig")
+      local lsp_servers = vim.tbl_filter(function(server)
+        -- gopls需要Golang环境;未安装Go时跳过,避免安装失败通知
+        return server:match("^[^@]+") ~= "gopls" or vim.fn.executable("go") == 1
+      end, require("user.config").defaults.extensions.lsp_server)
       -- mason installer 只能放在lsp-config里
       installer.setup({
-        ensure_installed = require("user.config").defaults.extensions.lsp_server,
+        ensure_installed = lsp_servers,
       })
 
       -- diagnostics (Neovim 0.11+ 必须通过 vim.diagnostic.config 配置)
